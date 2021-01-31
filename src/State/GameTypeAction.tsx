@@ -1,5 +1,5 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { GameType } from "../games";
+import { GameType } from "./GameType";
 
 type GameTypeAction<T> = {
     value: T;

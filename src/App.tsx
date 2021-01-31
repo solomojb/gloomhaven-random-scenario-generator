@@ -5,9 +5,10 @@ import { Container, DropdownProps, Form } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import dbApp from "./State/Reducer";
-import MainView from './components/Tabs/MainView/MainView';
+import MainView from './components/Tabs/MainView';
 import GameProvider from './components/Game/GameProvider'
-import { gameDataTypes, GameType, LOCAL_STORAGE_PREFIX } from './games';
+import { gameDataTypes } from './games';
+import { GameType } from './State/GameType';
 
 export const store = createStore(dbApp,  (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__());
 
@@ -41,18 +42,9 @@ const App = () => {
         localStorage.setItem("lastGame", e.value as GameType);
     }
 
-    useEffect( () => {
-        let unsubscribe = store.subscribe (() => {
-            localStorage.setItem(LOCAL_STORAGE_PREFIX + gameType, JSON.stringify(store.getState().spoilerReducer[gameType]));
-        });
-        return () => {
-            unsubscribe();
-        }
-    }, [gameType]);
-
     return (
         <Container>
-            <GameSelector defaultGameType={gameType} onChange={onGameTypeChanged}/>
+            {Object.values(GameType).keys.length > 1 && <GameSelector defaultGameType={gameType} onChange={onGameTypeChanged}/>}
             <Provider store={store}>
                 <GameProvider gameType={gameType}>
                     <MainView/>
