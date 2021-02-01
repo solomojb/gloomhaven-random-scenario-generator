@@ -6,6 +6,10 @@ class GHGameData extends BaseGameData  {
     {
         super("Gloomhaven", GameType.Gloomhaven);
     }
+
+    getDungeonList() : string[] {
+        return ["alcove", "altar"];
+    }
 }
 
 export default GHGameData;

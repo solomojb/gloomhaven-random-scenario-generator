@@ -1,0 +1,55 @@
+{
+  "name": "alcove",
+  "tile": "j2a",
+  "rotation": 0,
+  "spawnPoints": [
+    {
+      "id": 1,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 2,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 3,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 4,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 5,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 6,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 7,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 8,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 9,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 10,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 11,
+      "pos": { "row": 0, "col": 0 }
+    },
+    {
+      "id": 12,
+      "pos": { "row": 0, "col": 0 }
+    }
+  ]
+}

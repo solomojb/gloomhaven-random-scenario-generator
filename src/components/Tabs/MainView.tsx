@@ -1,10 +1,11 @@
 import React from 'react';
 import { Tab } from 'semantic-ui-react';
+import MapContainer from './Maps/MapContainer';
 
 const MainView = () => {
 
     let panes = [
-        { menuItem: 'Map',                render: () => <Tab.Pane></Tab.Pane> },
+        { menuItem: 'Map', render: () => <Tab.Pane><MapContainer/></Tab.Pane> },
     ];
     
     return (

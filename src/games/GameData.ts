@@ -3,22 +3,41 @@ import { MapData } from "../State/MapData"
 
 export const LOCAL_STORAGE_PREFIX:string = "RSG_";
 
+export type DungeonMap = {
+    [k in string]?: MapData;
+  };
+
 export abstract class BaseGameData {
     name: string;
     gameType: GameType;
-    mapItems: Array<MapData>;
+    dungeonData: DungeonMap;
     constructor(name:string, gameType:GameType){
         this.name = name;
         this.gameType = gameType;
-        this.mapItems = require(`./${this.gameType}/maps.json`);;
+        this.dungeonData = {};
     }
+
+    abstract getDungeonList() : string[];
 
     get localStorageKey() {
         return LOCAL_STORAGE_PREFIX + this.gameType;
     }
 
+    getDungeonData(dungeonName:string) {
+        if( dungeonName === 'none') {
+            return undefined;
+        }
+        if (!this.dungeonData[dungeonName]) {
+            this.dungeonData[dungeonName] = require(`./${this.gameType}/Dungeons/${dungeonName}.json`);
+        }
+        return this.dungeonData[dungeonName];
+    }
+
     getMapPath(mapData:MapData) {
-        return require(`../../vendor/${this.gameType}/images/map-tiles/${mapData.name}.png`);
+        return require(`../../vendor/${this.gameType}/images/map-tiles/${mapData.tile}.png`);
+    }
+    getMapCard(mapData:MapData) {
+        return require(`../../vendor/${this.gameType}/images/random-dungeons/dungeons/dungeon-${mapData.name}.png`);
     }
 }
 
