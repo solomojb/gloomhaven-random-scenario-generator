@@ -33,11 +33,11 @@ export abstract class BaseGameData {
         return this.dungeonData[dungeonName];
     }
 
-    getMapPath(mapData:MapData) {
-        return require(`../../vendor/${this.gameType}/images/map-tiles/${mapData.tile}.png`);
+    getMapPath(tile:string) {
+        return require(`../../vendor/${this.gameType}/images/map-tiles/${tile}.png`);
     }
-    getMapCard(mapData:MapData) {
-        return require(`../../vendor/${this.gameType}/images/random-dungeons/dungeons/dungeon-${mapData.name}.png`);
+    getMapCard(name:string) {
+        return require(`../../vendor/${this.gameType}/images/random-dungeons/dungeons/dungeon-${name}.png`);
     }
 }
 

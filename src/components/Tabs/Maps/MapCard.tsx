@@ -7,10 +7,10 @@ type Props = {
 }
 
 const MapCard = (props:Props) =>  {
-    const { data } = props;
+    const { data: { name } } = props;
     const game = useGame();
 
-    return <img src={game.getMapCard(data)}/>
+    return <img src={game.getMapCard(name)}/>
 }
 
 export default MapCard;

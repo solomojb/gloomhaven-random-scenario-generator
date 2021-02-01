@@ -18,10 +18,10 @@ const MapContainer = () => {
     return (<>
         <MapSelector defaultMapName={selectedMap} onChange={onChange}></MapSelector>
         {selectedMap && dungeonData && (
-            <>
+            <div className="map-container">
                 <Map data={dungeonData}/>
                 <MapCard data={dungeonData}/>
-            </>)}
+            </div>)}
         </>)
 }
 
