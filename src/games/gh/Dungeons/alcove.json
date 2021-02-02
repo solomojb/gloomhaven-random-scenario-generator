@@ -68,6 +68,20 @@
         "row": 6, 
         "column": 3
       }
+    ],
+    "obstacles": [
+      {
+        "type": "boulder-1",
+        "row": 2,
+        "column": 2
+      },
+      {
+        "type": "boulder-2",
+        "row": 5.25,
+        "column": 2.83,
+        "rotation": 60,
+        "scale": 2
+      }
     ]
   }
   

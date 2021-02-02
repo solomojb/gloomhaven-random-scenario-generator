@@ -3,41 +3,41 @@
   "tile": "l2b",
   "rotation": 180,
   "rotateHex": true,
-  "offsetX": 53,
+  "offsetX": 55,
   "offsetY": 89, 
   "scale": 0.8,
-  "maxRows": 8,
-  "maxColumns": 6,
+  "maxRows": 7,
+  "maxColumns": 5,
   "spawnPoints": [
     {
       "id": 1,
-      "row": 0, 
-      "column": 0
+      "row": 2, 
+      "column": 4
     },
     {
       "id": 2,
-      "row": 0, 
-      "column": 0
+      "row": 3, 
+      "column": 3
     },
     {
       "id": 3,
-      "row": 0, 
-      "column": 0
+      "row": 4, 
+      "column": 4
     },
     {
       "id": 4,
-      "row": 0, 
-      "column": 0
+      "row": 5, 
+      "column": 1
     },
     {
       "id": 5,
-      "row": 0, 
+      "row": 5, 
       "column": 0
     },
     {
       "id": 6,
-      "row": 0, 
-      "column": 0
+      "row": 4, 
+      "column": 1
     },
     {
       "id": 7,
@@ -46,28 +46,53 @@
     },
     {
       "id": 8,
-      "row": 0, 
+      "row": 1, 
       "column": 0
     },
     {
       "id": 9,
-      "row": 0, 
-      "column": 0
+      "row": 2, 
+      "column": 1
     },
     {
       "id": 10,
-      "row": 0, 
-      "column": 0
+      "row": 6, 
+      "column": 2
     },
     {
       "id": 11,
-      "row": 0, 
-      "column": 0
+      "row": 6, 
+      "column": 3
     },
     {
       "id": 12,
-      "row": 0, 
-      "column": 0
+      "row": 6, 
+      "column": 4
     }
-  ]
-}
+  ],
+  "obstacles": [
+    {
+      "type": "stone-pillar",
+      "row": 2,
+      "column": 2
+    },
+    {
+      "type": "stone-pillar",
+      "row": 4,
+      "column": 2
+    },
+    {
+      "type": "altar",
+      "row": 3,
+      "column": 1.1,
+      "rotation": 0,
+      "scale": 1.2
+    },
+    {
+      "type": "altar",
+      "row": 3,
+      "column": 2.1,
+      "rotation": 180,
+      "scale": 1.2
+    }
+  ]}

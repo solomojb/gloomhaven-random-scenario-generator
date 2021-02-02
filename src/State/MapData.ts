@@ -4,6 +4,15 @@ export interface SpawnPoint {
     column: number;
 }
 
+export interface Obstacle {
+    type: number;
+    row: number;
+    column: number;
+    rotation: number;
+    scale: number;
+}
+
+
 export interface MapData {
     tile: string;
     name: string;
@@ -13,6 +22,7 @@ export interface MapData {
     rotateHex: boolean;
     scale: number;
     spawnPoints: SpawnPoint[];
+    obstacles: Obstacle[];
     maxRows: number;
     maxColumns: number;
 }
