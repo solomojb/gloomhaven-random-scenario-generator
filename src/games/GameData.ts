@@ -23,14 +23,11 @@ export abstract class BaseGameData {
         return LOCAL_STORAGE_PREFIX + this.gameType;
     }
 
-    getDungeonData(dungeonName:string) {
-        if( dungeonName === 'none') {
-            return undefined;
-        }
+    getDungeonData(dungeonName:string) : MapData {
         if (!this.dungeonData[dungeonName]) {
             this.dungeonData[dungeonName] = require(`./${this.gameType}/Dungeons/${dungeonName}.json`);
         }
-        return this.dungeonData[dungeonName];
+        return this.dungeonData[dungeonName] as MapData;
     }
 
     getOverlayTokenPath(token:string) {

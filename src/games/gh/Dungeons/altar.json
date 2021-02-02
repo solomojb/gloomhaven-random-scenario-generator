@@ -3,9 +3,11 @@
   "tile": "l2b",
   "rotation": 180,
   "rotateHex": true,
-  "offsetX": 26,
-  "offsetY": 52, 
-  "scale": 1,
+  "offsetX": 53,
+  "offsetY": 89, 
+  "scale": 0.8,
+  "maxRows": 8,
+  "maxColumns": 6,
   "spawnPoints": [
     {
       "id": 1,

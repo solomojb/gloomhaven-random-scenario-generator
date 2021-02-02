@@ -13,4 +13,6 @@ export interface MapData {
     rotateHex: boolean;
     scale: number;
     spawnPoints: SpawnPoint[];
+    maxRows: number;
+    maxColumns: number;
 }

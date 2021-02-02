@@ -18,9 +18,11 @@ const getSpawnPointPos = (props: Props) => {
     offsetY,
     row, 
     column,
+    rotateHex,
   } = props;
-  const colOffset = column % 2 !== 0 ? 52 / 2 : 0;
-  return { top: offsetY + 53 * row + colOffset, left: offsetX + 47 * column };
+  const columnOffset = !rotateHex && column % 2 !== 0 ? 52 / 2 : 0;
+  const rowOffset = rotateHex && row % 2 !== 0 ? 52 / 2 : 0;
+  return { top: offsetY + 53 * row + columnOffset, left: offsetX + 47 * column + rowOffset};
 };
 
 const MapSpawnPoint = (props: Props) => {
