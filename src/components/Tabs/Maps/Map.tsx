@@ -5,6 +5,7 @@ import MapSpawnPoint from "./MapSpawnPoint";
 import "./map.css"
 import { getItemViewState } from "../../../State/Selectors";
 import MapTile from "./MapTile";
+import MapOverlayTileLayer from "./MapOverlayTileLayer";
 
 type Props = {
   data: MapData;
@@ -24,7 +25,6 @@ const Map = (props: Props) => {
       </MapSpawnPoint>)
     }
   }
-  console.log(tiles);
 
   return (
     <div className="map">
@@ -32,18 +32,7 @@ const Map = (props: Props) => {
           return <MapTile tile={tile}/>
         })}
         { showGrid && grid }
-        { corridors && corridors.map( corridor => {
-            const { type, row, column, scale = 1, rotation = 0 } = corridor;
-            const modifiedRotation = rotation + (rotateHex ? 90 : 0);
-            const rotationStyle = modifiedRotation ? `rotate(${modifiedRotation}deg)`: '';
-            const scaleStyle = scale != 1 ? `scale(${scale})` : ''; 
-            const transform = rotationStyle + ' ' + scaleStyle;
-            console.log(type, transform)
-            return <MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
-                    <img style={{transformOrigin: "center", transform }}src={game.getOverlayTokenPath(`corridors/${type}`)}/>
-                  </MapSpawnPoint>
-
-        })}           
+        <MapOverlayTileLayer overlayType="corridors" tiles={corridors} offsetX={offsetX} offsetY={offsetY} rotateHex={rotateHex}/>
         { spawnPoints.map( spawnPoint => {
             const { id, row, column } = spawnPoint;
             return <MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
@@ -52,18 +41,7 @@ const Map = (props: Props) => {
                   </MapSpawnPoint>
 
         })}
-      { obstacles && obstacles.map( obstacle => {
-            const { type, row, column, scale = 1, rotation = 0 } = obstacle;
-            const modifiedRotation = rotation + (rotateHex ? 90 : 0);
-            const rotationStyle = modifiedRotation ? `rotate(${modifiedRotation}deg)`: '';
-            const scaleStyle = scale != 1 ? `scale(${scale})` : ''; 
-            const transform = rotationStyle + ' ' + scaleStyle;
-            console.log(type, transform)
-            return <MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
-                    <img style={{transformOrigin: "center", transform }}src={game.getOverlayTokenPath(`obstacles/${type}`)}/>
-                  </MapSpawnPoint>
-
-        })}        
+        <MapOverlayTileLayer overlayType="obstacles" tiles={obstacles} offsetX={offsetX} offsetY={offsetY} rotateHex={rotateHex}/>
     </div>
   );
 };
