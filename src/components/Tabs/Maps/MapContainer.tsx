@@ -7,6 +7,8 @@ import MapCard from "./MapCard";
 import { useDispatch } from "react-redux";
 import { storeShowGrid } from "../../../State/State";
 import { getItemViewState } from "../../../State/Selectors";
+import MonsterCard from "./MonsterCard";
+import MonsterSelector from "./MonsterSelector";
 
 type TumblerProps = {
 	value: number;
@@ -37,18 +39,27 @@ const MapContainer = () => {
   const [selectedMap, setSelectedMap] = useState<string>(
     localStorage.getItem("currentMap") || game.getDungeonList()[0]
   );
-  const dungeonData = game.getDungeonData(selectedMap);
+  const [selectedMonster, setSelectedMonster] = useState<string>(
+	localStorage.getItem("currentMonster") || game.getMonsterList()[0]
+   );
+   const dungeonData = game.getDungeonData(selectedMap);
+  const monsterData = game.getMonsterData(selectedMonster);
   const { showGrid } = getItemViewState();
   const dispatch = useDispatch();
   const [mapScale, setMapScale] = useState<number>(dungeonData && dungeonData.tiles[0].scale || 1);
   const [offsetX, setOffsetX] = useState<number>(dungeonData && dungeonData.offsetX || 1);
   const [offsetY, setOffsetY] = useState<number>(dungeonData && dungeonData.offsetY || 1);
 
-  const onChange = (obj: any, e: DropdownProps): void => {
+  const onDungeonChange = (obj: any, e: DropdownProps): void => {
     setSelectedMap(e.value as string);
     localStorage.setItem("currentMap", e.value as string);
   };
 
+  const onMonsterChange = (obj: any, e: DropdownProps): void => {
+	setSelectedMonster(e.value as string);
+	localStorage.setItem("currentMonster", e.value as string);
+   };
+ 
   useEffect( () => 
   {
 	  if (!dungeonData) {
@@ -63,8 +74,12 @@ const MapContainer = () => {
     <div>
       <MapSelector
         defaultMapName={selectedMap}
-        onChange={onChange}
+        onChange={onDungeonChange}
       ></MapSelector>
+      <MonsterSelector
+        defaultMonsterName={selectedMonster}
+        onChange={onMonsterChange}
+      ></MonsterSelector>
       <Form.Group inline>
         <label>Show Grid:</label>
         <Form.Checkbox
@@ -85,8 +100,9 @@ const MapContainer = () => {
       <Form.Group>
         {selectedMap && dungeonData && (
           <div className="map-container">
-            <Map data={dungeonData} />
+            <Map dungeonData={dungeonData} monsterData={monsterData} />
             <MapCard data={dungeonData} />
+            <MonsterCard data={monsterData} />
           </div>
         )}
       </Form.Group>

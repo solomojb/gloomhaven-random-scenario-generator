@@ -6,13 +6,15 @@ import "./map.css"
 import { getItemViewState } from "../../../State/Selectors";
 import MapTile from "./MapTile";
 import MapOverlayTileLayer from "./MapOverlayTileLayer";
+import { MonsterData } from "../../../State/MonsterData";
 
 type Props = {
-  data: MapData;
+  dungeonData: MapData;
+  monsterData: MonsterData;
 };
 
 const Map = (props: Props) => {
-  const { data: { tiles, spawnPoints, offsetX, offsetY, rotateHex, maxRows, maxColumns, obstacles, corridors} } = props;
+  const { dungeonData: { tiles, spawnPoints, offsetX, offsetY, rotateHex, maxRows, maxColumns, obstacles, corridors}, monsterData: {spawns} } = props;
   const {showGrid} = getItemViewState();
   const game = useGame();
   
@@ -42,6 +44,17 @@ const Map = (props: Props) => {
 
         })}
         <MapOverlayTileLayer overlayType="obstacles" tiles={obstacles} offsetX={offsetX} offsetY={offsetY} rotateHex={rotateHex}/>
+
+        {spawns.map( spawn => {
+            const { type, id } = spawn;
+            const spawnPoint = spawnPoints.find( spawn => spawn.id === id);
+            if (spawnPoint && type) {
+              const { id, row, column } = spawnPoint;
+              return <MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
+                      <img className={rotateHex ? "rotated" : ""} src={game.getOverlayTokenPath(type)}/>
+                    </MapSpawnPoint>
+            }
+        })}
     </div>
   );
 };

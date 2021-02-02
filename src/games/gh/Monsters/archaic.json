@@ -1,0 +1,48 @@
+{
+    "name" : "archaic",
+    "spawns": [
+        {
+          "id": 1,
+          "type": "difficult-terrain/rubble"
+        },
+        {
+          "id": 2,
+          "type": "difficult-terrain/rubble"
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5,
+          "type": "hazardous-terrain/thorns"
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7,
+          "type": "difficult-terrain/rubble"
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9,
+          "type": "hazardous-terrain/thorns"
+        },
+        {
+          "id": 10,
+          "type": "hazardous-terrain/thorns"
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12,
+          "type": "treasures/treasure"
+        }
+      ]
+}
