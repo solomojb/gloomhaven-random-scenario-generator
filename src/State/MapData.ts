@@ -4,7 +4,7 @@ export interface SpawnPoint {
     column: number;
 }
 
-export interface Obstacle {
+export interface OverlayTile {
     type: number;
     row: number;
     column: number;
@@ -12,17 +12,23 @@ export interface Obstacle {
     scale: number;
 }
 
+export interface Tile {
+    tile: string;
+    rotation: number;
+    scale: number;
+    offsetX: number;
+    offsetY: number;
+}
 
 export interface MapData {
-    tile: string;
+    tiles: Tile[];
     name: string;
     offsetX: number;
     offsetY: number;
-    rotation: number;
     rotateHex: boolean;
-    scale: number;
     spawnPoints: SpawnPoint[];
-    obstacles: Obstacle[];
+    obstacles: OverlayTile[];
+    corridors: OverlayTile[];
     maxRows: number;
     maxColumns: number;
 }

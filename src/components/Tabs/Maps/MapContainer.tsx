@@ -40,7 +40,7 @@ const MapContainer = () => {
   const dungeonData = game.getDungeonData(selectedMap);
   const { showGrid } = getItemViewState();
   const dispatch = useDispatch();
-  const [mapScale, setMapScale] = useState<number>(dungeonData && dungeonData.scale || 1);
+  const [mapScale, setMapScale] = useState<number>(dungeonData && dungeonData.tiles[0].scale || 1);
   const [offsetX, setOffsetX] = useState<number>(dungeonData && dungeonData.offsetX || 1);
   const [offsetY, setOffsetY] = useState<number>(dungeonData && dungeonData.offsetY || 1);
 
@@ -54,7 +54,7 @@ const MapContainer = () => {
 	  if (!dungeonData) {
 		  return;
 	  }
-	setMapScale(dungeonData.scale);
+	setMapScale(dungeonData.tiles[0].scale);
 	setOffsetX(dungeonData.offsetX);
 	setOffsetY(dungeonData.offsetY);
   }, [dungeonData])
@@ -77,7 +77,7 @@ const MapContainer = () => {
 	<Form.Group>
 		<Tumblers label="Map Scale:" value={mapScale} step={.01} onChange={(value:number) => {
 			setMapScale(value);
-			dungeonData.scale = value;}}/>
+			dungeonData.tiles[0].scale = value;}}/>
 		<Tumblers label="Map OffsetX:" value={offsetX} step={1} onChange={(value:number) => {setOffsetX(value); dungeonData.offsetX=value}}/>
 		<Tumblers label="Map OffsetY:" value={offsetY} step={1} onChange={(value:number) => {setOffsetY(value); dungeonData.offsetY=value}}/>
 	</Form.Group>

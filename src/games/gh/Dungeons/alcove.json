@@ -1,10 +1,12 @@
 {
     "name": "alcove",
-    "tile": "j2a",
-    "rotation": 0,
+    "tiles" :[ {
+      "tile": "j2a",
+      "rotation": 0,
+      "scale": 1
+    }],
     "offsetX": 33,
     "offsetY": 18, 
-    "scale": 1,
     "maxRows": 9,
     "maxColumns": 7, 
     "spawnPoints": [
@@ -78,7 +80,7 @@
       {
         "type": "boulder-2",
         "row": 5.25,
-        "column": 2.83,
+        "column": 2.80,
         "rotation": 60,
         "scale": 2
       }
