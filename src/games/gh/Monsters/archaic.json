@@ -10,24 +10,32 @@
           "type": "difficult-terrain/rubble"
         },
         {
-          "id": 3
+          "id": 3,
+          "type": "Stone Golem",
+          "monsterType": ["elite", "elite", "elite"]
         },
         {
-          "id": 4
+          "id": 4,
+          "type": "Stone Golem",
+          "monsterType": ["none", "normal", "elite"]
         },
         {
           "id": 5,
           "type": "hazardous-terrain/thorns"
         },
         {
-          "id": 6
+          "id": 6,
+          "type": "Ancient Artillery",
+          "monsterType": ["none", "normal", "normal"]
         },
         {
           "id": 7,
           "type": "difficult-terrain/rubble"
         },
         {
-          "id": 8
+          "id": 8,
+          "type": "Ancient Artillery",
+          "monsterType": ["normal", "normal", "normal"]
         },
         {
           "id": 9,
@@ -38,7 +46,9 @@
           "type": "hazardous-terrain/thorns"
         },
         {
-          "id": 11
+          "id": 11,
+          "type": "Ancient Artillery",
+          "monsterType": ["normal", "normal", "elite"]
         },
         {
           "id": 12,

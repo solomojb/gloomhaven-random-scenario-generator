@@ -46,12 +46,13 @@ const Map = (props: Props) => {
         <MapOverlayTileLayer overlayType="obstacles" tiles={obstacles} offsetX={offsetX} offsetY={offsetY} rotateHex={rotateHex}/>
 
         {spawns.map( spawn => {
-            const { type, id } = spawn;
+            const { type, id, monsterType } = spawn;
             const spawnPoint = spawnPoints.find( spawn => spawn.id === id);
             if (spawnPoint && type) {
-              const { id, row, column } = spawnPoint;
+              const { row, column } = spawnPoint;
+              const image = monsterType ? <img style={{transform: "scale(1.2)"}} src={game.getMonsterImage(type, rotateHex)}/> : <img className={rotateHex ? "rotated" : ""} src={game.getOverlayTokenPath(type)}/>;
               return <MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
-                      <img className={rotateHex ? "rotated" : ""} src={game.getOverlayTokenPath(type)}/>
+                      {image}
                     </MapSpawnPoint>
             }
         })}

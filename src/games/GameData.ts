@@ -48,6 +48,10 @@ export abstract class BaseGameData {
     getOverlayTokenPath(token:string) {
         return require(`../../vendor/${this.gameType}/images/overlay-tokens/${token}.png`);
     }
+    
+    getMonsterImage(token:string, rotatedHex:boolean) {
+        return require(`../img/Monsters/${rotatedHex?"Vert":"Horz"}-${token}.png`);
+    }
 
     getMapPath(tile:string) {
         return require(`../../vendor/${this.gameType}/images/map-tiles/${tile}.png`);

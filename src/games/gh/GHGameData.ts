@@ -12,7 +12,7 @@ class GHGameData extends BaseGameData  {
     }
 
     getMonsterList() : string[] {
-        return ["archaic", "arid"];
+        return ["archaic", "corrupted"];
     }
 }
 
