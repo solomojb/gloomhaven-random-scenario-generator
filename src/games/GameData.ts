@@ -33,6 +33,10 @@ export abstract class BaseGameData {
         return this.dungeonData[dungeonName];
     }
 
+    getOverlayTokenPath(token:string) {
+        return require(`../../vendor/${this.gameType}/images/overlay-tokens/${token}.png`);
+    }
+
     getMapPath(tile:string) {
         return require(`../../vendor/${this.gameType}/images/map-tiles/${tile}.png`);
     }

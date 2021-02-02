@@ -1,27 +1,36 @@
-import React from "react";
-import { Point, SpawnPoint, Pos } from "../../../State/MapData";
+import React, { ReactNode } from "react";
+import { SpawnPoint } from "../../../State/MapData";
+import { useGame } from "../../Game/GameProvider";
 
 type Props = {
-  spawnPoint: SpawnPoint;
-  offset: Point;
+  children: ReactNode | ReactNode[]
+  row: number;
+  column: number;
+  offsetX: number;
+  offsetY: number;
+  overlayTile: string;
+  rotateHex: boolean;
 };
 
-const getSpawnPointPos = (offset: Point, pos: Pos) => {
-  console.log(offset);
-  const { x, y } = offset;
-  const { row, col } = pos;
-  const colOffset = col % 2 !== 0 ? 52/2:  0;
-  return { top: y + 53 * row + colOffset, left: x + 47 * col };
+const getSpawnPointPos = (props: Props) => {
+  const {
+    offsetX,
+    offsetY,
+    row, 
+    column,
+  } = props;
+  const colOffset = column % 2 !== 0 ? 52 / 2 : 0;
+  return { top: offsetY + 53 * row + colOffset, left: offsetX + 47 * column };
 };
 
 const MapSpawnPoint = (props: Props) => {
-  const {
-    spawnPoint: { pos, id },
-    offset,
-  } = props;
+  const game = useGame();
+  const { overlayTile, children, rotateHex} = props;
+  const style = getSpawnPointPos(props);
   return (
-    <div className="hexagon" style={getSpawnPointPos(offset, pos)}>
-        <div style={{ textAlign: "center" }}>{id}</div>
+    <div className="map-spawn-point" style={style}>
+      <img className={rotateHex ? "rotated" : ""} src={game.getOverlayTokenPath(overlayTile)}/>
+      {children}
     </div>
   );
 };

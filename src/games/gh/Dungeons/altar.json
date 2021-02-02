@@ -1,55 +1,71 @@
 {
-    "name": "altar",
-    "tile": "l2b",
-    "rotation": 0,
-    "spawnPoints": [
-      {
-        "id": 1,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 2,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 3,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 4,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 5,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 6,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 7,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 8,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 9,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 10,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 11,
-        "pos": { "row": 0, "col": 0 }
-      },
-      {
-        "id": 12,
-        "pos": { "row": 0, "col": 0 }
-      }
-    ]
-  }
+  "name": "altar",
+  "tile": "l2b",
+  "rotation": 180,
+  "rotateHex": true,
+  "offsetX": 26,
+  "offsetY": 52, 
+  "scale": 1,
+  "spawnPoints": [
+    {
+      "id": 1,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 2,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 3,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 4,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 5,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 6,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 7,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 8,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 9,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 10,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 11,
+      "row": 0, 
+      "column": 0
+    },
+    {
+      "id": 12,
+      "row": 0, 
+      "column": 0
+    }
+  ]
+}

@@ -1,21 +1,16 @@
-export interface Pos {
-    row: number;
-    col: number;
-}
-
-export interface Point {
-    x: number;
-    y: number;
-}
-
 export interface SpawnPoint {
     id: number;
-    pos: Pos;
+    row: number;
+    column: number;
 }
 
 export interface MapData {
     tile: string;
     name: string;
-    offset: Point;
+    offsetX: number;
+    offsetY: number;
+    rotation: number;
+    rotateHex: boolean;
+    scale: number;
     spawnPoints: SpawnPoint[];
 }
