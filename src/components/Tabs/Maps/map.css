@@ -35,3 +35,12 @@
   max-width: 250px;
   max-height: 350px
 }
+
+.monster-tile {
+  position: relative;
+}
+
+.monster-image {
+  transform: scale(1.2);
+  position: absolute;
+}

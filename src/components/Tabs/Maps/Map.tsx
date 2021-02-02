@@ -7,11 +7,15 @@ import { getItemViewState } from "../../../State/Selectors";
 import MapTile from "./MapTile";
 import MapOverlayTileLayer from "./MapOverlayTileLayer";
 import { MonsterData } from "../../../State/MonsterData";
+import MapOverlayTile from "./MapOverlayTile";
+import MonsterOverlayTile from "./MonsterOverlayTile";
 
 type Props = {
   dungeonData: MapData;
   monsterData: MonsterData;
 };
+
+//TODO: move rotate hex into some sort of state.
 
 const Map = (props: Props) => {
   const { dungeonData: { tiles, spawnPoints, offsetX, offsetY, rotateHex, maxRows, maxColumns, obstacles, corridors}, monsterData: {spawns} } = props;
@@ -22,7 +26,7 @@ const Map = (props: Props) => {
   for (let row = 0; row < maxRows; row += 1) {
     for (let column = 0; column < maxColumns; column += 1) {
       grid.push(<MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
-        <img className={rotateHex ? "rotated" : ""} src={game.getOverlayTokenPath("corridors/wood-1")}/>
+        <MapOverlayTile rotateHex={rotateHex} tileName={"corridors/wood-1"}/>;
         <div className="map-spawn-id">{`${row},${column}`}</div>
       </MapSpawnPoint>)
     }
@@ -38,7 +42,7 @@ const Map = (props: Props) => {
         { spawnPoints.map( spawnPoint => {
             const { id, row, column } = spawnPoint;
             return <MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
-                    <img className={rotateHex ? "rotated" : ""} src={game.getOverlayTokenPath("corridors/natural-stone-1")}/>
+                    <MapOverlayTile rotateHex={rotateHex} tileName={"corridors/natural-stone-1"}/>;
                     <div className="map-spawn-id">{id}</div>
                   </MapSpawnPoint>
 
@@ -50,7 +54,9 @@ const Map = (props: Props) => {
             const spawnPoint = spawnPoints.find( spawn => spawn.id === id);
             if (spawnPoint && type) {
               const { row, column } = spawnPoint;
-              const image = monsterType ? <img style={{transform: "scale(1.2)"}} src={game.getMonsterImage(type, rotateHex)}/> : <img className={rotateHex ? "rotated" : ""} src={game.getOverlayTokenPath(type)}/>;
+              const image = monsterType ? 
+                <MonsterOverlayTile rotateHex={rotateHex} monsterName={type} monsterType="elite"/> :
+                <MapOverlayTile rotateHex={rotateHex} tileName={type}/>
               return <MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
                       {image}
                     </MapSpawnPoint>
