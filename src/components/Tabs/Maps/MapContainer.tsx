@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, DropdownProps, Form, Label } from "semantic-ui-react";
+import { DropdownProps, Form } from "semantic-ui-react";
 import MapSelector from "./MapSelector";
 import { useGame } from "../../Game/GameProvider";
 import Map from "./Map";
@@ -9,43 +9,8 @@ import { storeShowGrid } from "../../../State/State";
 import { getItemViewState } from "../../../State/Selectors";
 import MonsterCard from "./MonsterCard";
 import MonsterSelector from "./MonsterSelector";
-
-type TumblerProps = {
-  value: number;
-  step: number;
-  label: string;
-  onChange: (value: number) => void;
-};
-
-const Tumblers = (props: TumblerProps) => {
-  const { label, value, step, onChange } = props;
-
-  const changeValue = (up: boolean) => {
-    const newVal = value + (up ? step : -step);
-    onChange(newVal);
-  };
-
-  return (
-    <div>
-      <Label>{label}</Label>
-      <Button
-        onClick={() => {
-          changeValue(false);
-        }}
-      >
-        -
-      </Button>
-      <Label>{value}</Label>
-      <Button
-        onClick={() => {
-          changeValue(true);
-        }}
-      >
-        +
-      </Button>
-    </div>
-  );
-};
+import Tumblers from "./Tumblers";
+import { Tile } from "../../../State/MapData";
 
 const MapContainer = () => {
   const game = useGame();
@@ -59,9 +24,7 @@ const MapContainer = () => {
   const monsterData = game.getMonsterData(selectedMonster);
   const { showGrid } = getItemViewState();
   const dispatch = useDispatch();
-  const [mapScale, setMapScale] = useState<number>(
-    (dungeonData && dungeonData.tiles[0].scale) || 1
-  );
+  const [mapScale, setMapScale] = useState<number[]>(dungeonData.tiles.map(tile => tile.scale));
   const [offsetX, setOffsetX] = useState<number>(
     (dungeonData && dungeonData.offsetX) || 1
   );
@@ -83,7 +46,8 @@ const MapContainer = () => {
     if (!dungeonData) {
       return;
     }
-    setMapScale(dungeonData.tiles[0].scale);
+    const scales = dungeonData.tiles.map(tile => tile.scale);
+    setMapScale(scales);
     setOffsetX(dungeonData.offsetX);
     setOffsetY(dungeonData.offsetY);
   }, [dungeonData]);
@@ -99,15 +63,21 @@ const MapContainer = () => {
 					dispatch(storeShowGrid(!showGrid));
 				}}
 			/>
-			<Tumblers
-				label="Map Scale:"
-				value={mapScale}
-				step={0.01}
-				onChange={(value: number) => {
-					setMapScale(value);
-					dungeonData.tiles[0].scale = value;
-				}}
-			/>
+			<div>
+				{dungeonData.tiles.map( (tile:Tile, tileIndex:number) => {
+						return <Tumblers
+						label={`Map ${tile.tile} Scale:`}
+						value={mapScale[tileIndex]}
+						step={0.01}
+						onChange={(value: number) => {
+							const newMap: number[] = Object.assign([], mapScale);
+							newMap[tileIndex] = value;
+							setMapScale(newMap);
+							dungeonData.tiles[tileIndex].scale = value;
+						}}
+					/>
+				})}
+			</div>
 			<div>
 				<Tumblers
 					label="Map OffsetX:"
