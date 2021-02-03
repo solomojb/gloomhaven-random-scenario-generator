@@ -45,8 +45,8 @@ export abstract class BaseGameData {
         return this.monsterData[monsterName] as MonsterData;
     }
 
-    getOverlayTokenPath(token:string) {
-        return require(`../../vendor/${this.gameType}/images/overlay-tokens/${token}.png`);
+    getOverlayTokenPath(token:string, category: string) {
+        return require(`../../vendor/${this.gameType}/images/overlay-tokens/${category}/${token}.png`);
     }
     
     getMonsterImage(token:string, rotatedHex:boolean) {

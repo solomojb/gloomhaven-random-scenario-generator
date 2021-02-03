@@ -44,3 +44,7 @@
   transform: scale(1.2);
   position: absolute;
 }
+
+.monster-image-info {
+  width: 75px;
+}

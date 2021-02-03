@@ -5,7 +5,7 @@ export interface SpawnPoint {
 }
 
 export interface OverlayTile {
-    type: number;
+    type: string;
     row: number;
     column: number;
     rotation: number;

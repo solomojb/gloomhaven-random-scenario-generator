@@ -2,10 +2,12 @@ import { GameType } from "./GameType";
 
 export interface ItemViewState {
   showGrid: boolean;
+  numberOfPlayers: number;
 }
 
 const initialItemViewState : ItemViewState = {
   showGrid: false,
+  numberOfPlayers: 0,
 };
 
 export type ItemViewStateMap = {

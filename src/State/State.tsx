@@ -28,11 +28,18 @@ const stateSlice = createSlice({
         gameState.showGrid = action.payload;
       }
     },
+    storeNumberOfPlayers(state, action: PayloadAction<number>) {
+      const gameState = state.itemViewMap[state.currentGameType];
+      if (gameState) {
+        gameState.numberOfPlayers = action.payload;
+      }
+    },
   }
 });
 
 export const {
-  storeShowGrid
+  storeShowGrid,
+  storeNumberOfPlayers
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

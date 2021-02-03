@@ -3,56 +3,68 @@
     "spawns": [
         {
           "id": 1,
-          "type": "difficult-terrain/rubble"
+          "type": "rubble",
+          "category": "difficult-terrain"
         },
         {
           "id": 2,
-          "type": "difficult-terrain/rubble"
+          "type": "rubble",
+          "category": "difficult-terrain"
         },
         {
           "id": 3,
           "type": "Stone Golem",
+          "category": "monster",
           "monsterType": ["elite", "elite", "elite"]
         },
         {
           "id": 4,
           "type": "Stone Golem",
+          "category": "monster",
           "monsterType": ["none", "normal", "elite"]
         },
         {
           "id": 5,
-          "type": "hazardous-terrain/thorns"
+          "type": "thorns",
+          "category": "hazardous-terrain"
         },
         {
           "id": 6,
           "type": "Ancient Artillery",
+          "category":"monster",
           "monsterType": ["none", "normal", "normal"]
         },
         {
           "id": 7,
-          "type": "difficult-terrain/rubble"
+          "type": "rubble",
+          "category":"difficult-terrain"
         },
         {
           "id": 8,
           "type": "Ancient Artillery",
+          "category":"monster",
           "monsterType": ["normal", "normal", "normal"]
         },
         {
           "id": 9,
-          "type": "hazardous-terrain/thorns"
+          "type": "thorns",
+          "category":"hazardous-terrain"
         },
         {
           "id": 10,
-          "type": "hazardous-terrain/thorns"
+          "type": "thorns",
+          "category":"hazardous-terrain"
         },
         {
           "id": 11,
           "type": "Ancient Artillery",
+          "category":"monster",
           "monsterType": ["normal", "normal", "elite"]
         },
         {
           "id": 12,
-          "type": "treasures/treasure"
+          "type": "treasure",
+          "category": "treasures"
         }
       ]
 }

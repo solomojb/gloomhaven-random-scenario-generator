@@ -19,14 +19,14 @@ type Props = {
 
 const Map = (props: Props) => {
   const { dungeonData: { tiles, spawnPoints, offsetX, offsetY, rotateHex, maxRows, maxColumns, obstacles, corridors}, monsterData: {spawns} } = props;
-  const {showGrid} = getItemViewState();
+  const {showGrid, numberOfPlayers} = getItemViewState();
   const game = useGame();
   
   const grid = [];
   for (let row = 0; row < maxRows; row += 1) {
     for (let column = 0; column < maxColumns; column += 1) {
       grid.push(<MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
-        <MapOverlayTile rotateHex={rotateHex} tileName={"corridors/wood-1"}/>;
+        <MapOverlayTile rotateHex={rotateHex} category={"corridors"} tileName={"wood-1"}/>;
         <div className="map-spawn-id">{`${row},${column}`}</div>
       </MapSpawnPoint>)
     }
@@ -39,10 +39,10 @@ const Map = (props: Props) => {
         })}
         { showGrid && grid }
         <MapOverlayTileLayer overlayType="corridors" tiles={corridors} offsetX={offsetX} offsetY={offsetY} rotateHex={rotateHex}/>
-        { spawnPoints.map( spawnPoint => {
+        { showGrid && spawnPoints.map( spawnPoint => {
             const { id, row, column } = spawnPoint;
             return <MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
-                    <MapOverlayTile rotateHex={rotateHex} tileName={"corridors/natural-stone-1"}/>;
+                    <MapOverlayTile rotateHex={rotateHex} category={"corridors"} tileName={"natural-stone-1"}/>
                     <div className="map-spawn-id">{id}</div>
                   </MapSpawnPoint>
 
@@ -50,13 +50,13 @@ const Map = (props: Props) => {
         <MapOverlayTileLayer overlayType="obstacles" tiles={obstacles} offsetX={offsetX} offsetY={offsetY} rotateHex={rotateHex}/>
 
         {spawns.map( spawn => {
-            const { type, id, monsterType } = spawn;
+            const { type, id, monsterType, category } = spawn;
             const spawnPoint = spawnPoints.find( spawn => spawn.id === id);
             if (spawnPoint && type) {
               const { row, column } = spawnPoint;
-              const image = monsterType ? 
-                <MonsterOverlayTile rotateHex={rotateHex} monsterName={type} monsterType="elite"/> :
-                <MapOverlayTile rotateHex={rotateHex} tileName={type}/>
+              const image = category === "monster" ? 
+                <MonsterOverlayTile rotateHex={rotateHex} monsterName={type} monsterType={monsterType[numberOfPlayers]}/> :
+                <MapOverlayTile rotateHex={rotateHex} category={category} tileName={type}/>
               return <MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
                       {image}
                     </MapSpawnPoint>

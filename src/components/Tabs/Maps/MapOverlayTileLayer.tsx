@@ -28,7 +28,7 @@ const MapOverlayTileLayer = (props: Props) => {
             const transform = rotationStyle + ' ' + scaleStyle;
             console.log(type, transform)
             return <MapSpawnPoint rotateHex={rotateHex} row={row} column={column} offsetX={offsetX} offsetY={offsetY}>
-                    <img style={{transformOrigin: "center", transform }}src={game.getOverlayTokenPath(`${overlayType}/${type}`)}/>
+                    <img style={{transformOrigin: "center", transform }}src={game.getOverlayTokenPath(type,overlayType)}/>
                 </MapSpawnPoint>
 
         })}

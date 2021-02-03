@@ -11,6 +11,8 @@ import MonsterCard from "./MonsterCard";
 import MonsterSelector from "./MonsterSelector";
 import Tumblers from "./Tumblers";
 import { Tile } from "../../../State/MapData";
+import PlayerCount from "./PlayerCount";
+import MapInfo from "./MapInfo";
 
 const MapContainer = () => {
   const game = useGame();
@@ -54,6 +56,10 @@ const MapContainer = () => {
 
   return (
     <div style={{display: "flex", flexDirection:"column"}}>
+		<div style={{display: "flex", flexDirection:"row", maxWidth:"400px"}}>
+			<label>Number of players:</label>
+			<PlayerCount/>
+		</div>
 		<div style={{display: "flex", flexDirection:"row"}}>
 			<label>Show Grid:</label>
 			<Form.Checkbox
@@ -102,14 +108,19 @@ const MapContainer = () => {
       	<div>
 			<div className="map-container">
 				<Map dungeonData={dungeonData} monsterData={monsterData} />
-				<div style={{display: "flex", flexDirection:"row"}}>
-					<div>
-						<MapSelector defaultMapName={selectedMap} onChange={onDungeonChange}/>
-						<MapCard data={dungeonData} />
+				<div style={{display: "flex", flexDirection:"column"}}>
+					<div style={{display: "flex", flexDirection:"row"}}>
+						<div>
+							<MapSelector defaultMapName={selectedMap} onChange={onDungeonChange}/>
+							<MapCard data={dungeonData} />
+						</div>
+						<div>
+							<MonsterSelector defaultMonsterName={selectedMonster} onChange={onMonsterChange}/>
+							<MonsterCard data={monsterData} />
+						</div>
 					</div>
 					<div>
-						<MonsterSelector defaultMonsterName={selectedMonster} onChange={onMonsterChange}/>
-						<MonsterCard data={monsterData} />
+						<MapInfo monsterData={monsterData} mapData={dungeonData}/>
 					</div>
 				</div>
 			</div>
