@@ -8,7 +8,7 @@ class GHGameData extends BaseGameData  {
     }
 
     getDungeonList() : string[] {
-        return ["alcove", "altar", "armory"];
+        return ["alcove", "altar", "armory", "burrow"];
     }
 
     getMonsterList() : string[] {

@@ -12,9 +12,9 @@ const MapTile = (props:Props) =>  {
     const game = useGame();
 
     const translateX = offsetX || 0;
-    const translateY = (1 - (scale + .1))*100 + (offsetY || 0);
+    const translateY = -((1 - (scale + .1))*100 + (offsetY || 0));
 
-    const transform = scale != 1 ? `scale(${scale}) translateY(-${translateY}%) translateX(${translateX})`: '';
+    const transform = scale != 1 ? `scale(${scale}) translateY(${translateY}%) translateX(${translateX}px)`: '';
     console.log(transform);
 
     return <div style={{transformOrigin: "center", transform }}>

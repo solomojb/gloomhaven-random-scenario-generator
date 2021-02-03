@@ -1,13 +1,22 @@
 import { GameType } from "./GameType";
 
+export enum ShowFlags {
+  Grid = 1 << 0,
+  SpawnPoint = 1 << 1,
+  Obstacles = 1 << 2,
+  Corridors = 1 << 3,
+  Spawns = 1 << 4,
+  EditMode = 1<<5,
+}
+
 export interface ItemViewState {
-  showGrid: boolean;
+  showFlags: number;
   numberOfPlayers: number;
 }
 
 const initialItemViewState : ItemViewState = {
-  showGrid: false,
-  numberOfPlayers: 0,
+  showFlags: parseInt(localStorage.getItem("showFlags") || "" ) || ShowFlags.Obstacles | ShowFlags.Spawns | ShowFlags.Corridors,
+  numberOfPlayers: parseInt(localStorage.getItem("numberOfPlayers") || "") || 0,
 };
 
 export type ItemViewStateMap = {

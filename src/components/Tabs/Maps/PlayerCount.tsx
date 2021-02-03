@@ -8,6 +8,7 @@ const PlayerCount = () => {
     const dispatch = useDispatch();
     const { numberOfPlayers } = getItemViewState();
     const setNumberOfPlayers = (index: number) => {
+        localStorage.setItem("numberOfPlayers", index.toString());
         dispatch(storeNumberOfPlayers(index));
     }
  

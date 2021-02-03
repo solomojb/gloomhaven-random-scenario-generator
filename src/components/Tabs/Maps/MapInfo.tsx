@@ -58,6 +58,9 @@ const MapInfo = (props: Props) => {
 
     let info = Object.keys(counts).map( (type) => {
         const { category, count} = counts[type];
+        if (!category) {
+            return null;
+        }
         return <div style={{maxWidth:"100px", display:"flex", flexDirection:"column"}}>
                     {category === "monster" ? <MonsterOverlayTile className={"monster-image-info"} monsterName={type}/> :
                     <MapOverlayTile tileName={type} rotateHex={false} category={category}/>}                
