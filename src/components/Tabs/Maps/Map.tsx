@@ -1,6 +1,4 @@
 import React from "react";
-import { MapData } from "../../../State/MapData";
-import { useGame } from "../../Game/GameProvider";
 import MapSpawnPoint from "./MapSpawnPoint";
 import "./map.css"
 import { getItemViewState } from "../../../State/Selectors";
@@ -10,18 +8,20 @@ import { MonsterData } from "../../../State/MonsterData";
 import MapOverlayTile from "./MapOverlayTile";
 import MonsterOverlayTile from "./MonsterOverlayTile";
 import { ShowFlags } from "../../../State/ItemViewState";
+import { useDungeon } from "./DungeonProvider";
+import { Tile } from "../../../State/MapData";
 
 type Props = {
-  dungeonData: MapData;
   monsterData: MonsterData;
 };
 
 //TODO: move rotate hex into some sort of state.
 
 const Map = (props: Props) => {
-  const { dungeonData: { tiles, spawnPoints, maxRows, maxColumns, obstacles, corridors}, monsterData: {spawns} } = props;
+  const { dungeon: {tiles, spawnPoints, maxRows, maxColumns, obstacles, corridors } } = useDungeon();
+  const { monsterData: {spawns} } = props;
+
   const { showFlags, numberOfPlayers} = getItemViewState();
-  const game = useGame();
   
   const grid = [];
   for (let row = 0; row < maxRows; row += 1) {
@@ -39,7 +39,7 @@ const Map = (props: Props) => {
 
   return (
     <div className="map">
-        { tiles && tiles.map( tile => {
+        { tiles && tiles.map( (tile: Tile) => {
           return <MapTile tile={tile}/>
         })}
         { isFlagOn(ShowFlags.Grid) && grid }

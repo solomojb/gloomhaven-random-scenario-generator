@@ -1,6 +1,6 @@
 import React from "react";
-import { getItemViewState } from "../../../State/Selectors";
 import { useGame } from "../../Game/GameProvider";
+import { useDungeon } from "./DungeonProvider";
 import "./map.css"
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 const MonsterOverlayTile = (props: Props) => {
     const { monsterName, monsterType, className="monster-image" } = props;
     const game = useGame();
-    const { rotateHex } = getItemViewState();
+    const { dungeon: {rotateHex}} = useDungeon();
 
     return (<div className="monster-tile">
                 {monsterType !== "none" && <img className={className} style={{transform: "scale(1.2)"}} src={game.getMonsterImage(monsterName, rotateHex)}/>}

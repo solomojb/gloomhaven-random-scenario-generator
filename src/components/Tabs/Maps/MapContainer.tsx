@@ -13,7 +13,7 @@ import { ShowFlags } from "../../../State/ItemViewState";
 import { getItemViewState } from "../../../State/Selectors";
 import MapEditor from "./Editor/MapEditor";
 import { useDispatch } from "react-redux";
-import { storeMapOffsetX, storeMapOffsetY, storeRotateHex } from "../../../State/State";
+import DungeonProvider from "./DungeonProvider"
 
 const MapContainer = () => {
   const game = useGame();
@@ -30,12 +30,6 @@ const MapContainer = () => {
   const dungeonData = game.getDungeonData(selectedMap);
   const monsterData = game.getMonsterData(selectedMonster);
 
-  useEffect(() => {
-	  dispatch(storeMapOffsetX(dungeonData.offsetX));
-	  dispatch(storeMapOffsetY(dungeonData.offsetY));
-	  dispatch(storeRotateHex(dungeonData.rotateHex));
-  }, [dungeonData]);
-
   const onDungeonChange = (obj: any, e: DropdownProps): void => {
     setSelectedMap(e.value as string);
     localStorage.setItem("currentMap", e.value as string);
@@ -51,34 +45,36 @@ const MapContainer = () => {
   }
 
   return (
+	  <DungeonProvider intitialDungeon={dungeonData}>
     <div style={{display: "flex", flexDirection:"column"}}>
 		<DisplayToggle label="Edit Mode:" flag={ShowFlags.EditMode}/>
-		{ (showFlags & ShowFlags.EditMode) > 0 && <MapEditor dungeonData={dungeonData}/>}
+		{ (showFlags & ShowFlags.EditMode) > 0 && <MapEditor/>}
 		  <div>
 			<div style={{display: "flex", flexDirection:"row", maxWidth:"400px"}}>
 				<label>Number of players:</label>
 				<PlayerCount/>
 			</div>
-			<div className="map-container">
-				<Map dungeonData={dungeonData} monsterData={monsterData} />
-				<div style={{display: "flex", flexDirection:"column"}}>
-					<div style={{display: "flex", flexDirection:"row"}}>
-						<div>
-							<MapSelector defaultMapName={selectedMap} onChange={onDungeonChange}/>
-							<MapCard data={dungeonData} />
+				<div className="map-container">
+					<Map monsterData={monsterData} />
+					<div style={{display: "flex", flexDirection:"column"}}>
+						<div style={{display: "flex", flexDirection:"row"}}>
+							<div>
+								<MapSelector defaultMapName={selectedMap} onChange={onDungeonChange}/>
+								<MapCard/>
+							</div>
+							<div>
+								<MonsterSelector defaultMonsterName={selectedMonster} onChange={onMonsterChange}/>
+								<MonsterCard data={monsterData} />
+							</div>
 						</div>
 						<div>
-							<MonsterSelector defaultMonsterName={selectedMonster} onChange={onMonsterChange}/>
-							<MonsterCard data={monsterData} />
+							<MapInfo monsterData={monsterData}/>
 						</div>
-					</div>
-					<div>
-						<MapInfo monsterData={monsterData} mapData={dungeonData}/>
 					</div>
 				</div>
-			</div>
-      	</div>
+		</div>
     </div>
+	</DungeonProvider>
   );
 };
 

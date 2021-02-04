@@ -32,3 +32,17 @@ export interface MapData {
     maxRows: number;
     maxColumns: number;
 }
+
+export const initialMapData : MapData = {
+    tiles: [],
+    name: "",
+    offsetX: 0,
+    offsetY: 0,
+    rotateHex: false,
+    spawnPoints: [],
+    obstacles: [],
+    corridors: [],
+    maxRows: 0,
+    maxColumns: 0,
+    
+}

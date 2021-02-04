@@ -1,12 +1,12 @@
 import React from "react";
 import { MapData } from "../../../State/MapData";
 import { MonsterData } from "../../../State/MonsterData";
+import { useDungeon } from "./DungeonProvider";
 import MapOverlayTile from "./MapOverlayTile";
 import MonsterOverlayTile from "./MonsterOverlayTile";
 
 type Props = {
     monsterData: MonsterData;
-    mapData: MapData;
 }
 
 export type MapDataInfo = {
@@ -19,9 +19,10 @@ export type MonsterCount = {
 };
 
 const MapInfo = (props: Props) => {
-    const { monsterData, mapData: { obstacles, corridors} } = props;
+    const { dungeon:  { obstacles, corridors } } = useDungeon();
+    const { monsterData: { spawns } } = props;
     const counts: MonsterCount = {};
-    monsterData.spawns.forEach( spawn => {
+    spawns.forEach( spawn => {
         const { type, category } = spawn;
         let countData = counts[type];
         if (!countData) {

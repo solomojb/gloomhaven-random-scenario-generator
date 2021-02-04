@@ -1,25 +1,18 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { ShowFlags } from "../../../../State/ItemViewState";
-import { MapData } from "../../../../State/MapData";
-import { getItemViewState } from "../../../../State/Selectors";
-import { storeMapOffsetX, storeMapOffsetY } from "../../../../State/State";
 import DisplayToggle from "../DisplayToggle";
+import { useDungeon } from "../DungeonProvider";
 import MapTileEditor from "./MapTileEditor";
 import OffsetTumblers from "./OffsetTumblers";
 
 type Props = {
-    dungeonData: MapData;
 }
 
 const MapEditor = (props: Props) => {
-    const { dungeonData } = props;
-    const dispatch = useDispatch();
-    const { mapOffsetY, mapOffsetX } = getItemViewState();
+    const { dungeon, setDungeon } = useDungeon();
 
-    const onChanged = (x:number, y:number) => {
-        dispatch(storeMapOffsetX(x));
-        dispatch(storeMapOffsetY(y));
+    const onChanged = (offsetX:number, offsetY:number) => {
+      setDungeon({...dungeon, offsetX, offsetY});
     }
 
   return (
@@ -32,8 +25,8 @@ const MapEditor = (props: Props) => {
         <DisplayToggle label="Spawns:" flag={ShowFlags.Spawns} />
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <MapTileEditor dungeonData={dungeonData}/>
-        <OffsetTumblers onChanged={onChanged} initialX={mapOffsetX} initialY={mapOffsetY} label="Map"/>
+        <MapTileEditor/>
+        <OffsetTumblers onChanged={onChanged} initialX={dungeon.offsetX} initialY={dungeon.offsetY} label="Map"/>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
-import { getItemViewState } from "../../../State/Selectors";
 import { useGame } from "../../Game/GameProvider";
+import { useDungeon } from "./DungeonProvider";
 
 type Props = {
     tileName:string;
@@ -9,8 +9,8 @@ type Props = {
 
 const MapOverlayTile = (props: Props) => {
     const { tileName, category } = props;
+    const { dungeon: {rotateHex}} = useDungeon();
     const game = useGame();
-    const { rotateHex } = getItemViewState();
     
     return (<img className={rotateHex ? "rotated" : ""} src={game.getOverlayTokenPath(tileName, category)}/>);
 }

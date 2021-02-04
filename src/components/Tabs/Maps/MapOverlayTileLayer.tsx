@@ -1,7 +1,7 @@
 import React from "react"
 import { OverlayTile } from "../../../State/MapData"
-import { getItemViewState } from "../../../State/Selectors";
 import { useGame } from "../../Game/GameProvider";
+import { useDungeon } from "./DungeonProvider";
 import MapSpawnPoint from "./MapSpawnPoint";
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 const MapOverlayTileLayer = (props: Props) => {
     const { tiles, overlayType  } = props;
     const game = useGame();
-    const { rotateHex } = getItemViewState();
+    const { dungeon: {rotateHex}} = useDungeon();
 
     if (!tiles) {
         return null;

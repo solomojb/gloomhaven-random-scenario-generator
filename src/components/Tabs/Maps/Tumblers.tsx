@@ -13,7 +13,7 @@ type TumblerProps = {
   
     const changeValue = (up: boolean) => {
       const newVal = value + (up ? step : -step);
-      onChange(newVal);
+      onChange(parseFloat(newVal.toFixed(2)));
     };
   
     return (

@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { getItemViewState } from "../../../State/Selectors";
+import { useDungeon } from "./DungeonProvider";
 
 type Props = {
   children: ReactNode | ReactNode[]
@@ -20,12 +20,12 @@ const getSpawnPointPos = (mapOffsetX:number, mapOffsetY: number, rotateHex: bool
 };
 
 const MapSpawnPoint = (props: Props) => {
-  const { children } = props;
-  const { mapOffsetX, mapOffsetY, rotateHex}  = getItemViewState();
+  const { children, row, column } = props;
+  const { dungeon: {offsetX, offsetY, rotateHex}} = useDungeon();
 
-  const style = getSpawnPointPos(mapOffsetX, mapOffsetY, rotateHex, props);
+  const style = getSpawnPointPos(offsetX, offsetY, rotateHex, props);
   return (
-    <div className="map-spawn-point" style={style}>
+    <div key={`spawnpoint-${row}-${column}`} className="map-spawn-point" style={style}>
       {children}
     </div>
   );

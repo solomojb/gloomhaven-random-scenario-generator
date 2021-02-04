@@ -1,5 +1,5 @@
 import React from "react";
-import { MapData, Tile } from "../../../State/MapData";
+import { Tile } from "../../../State/MapData";
 import { useGame } from "../../Game/GameProvider";
 import "./map.css"
 
@@ -8,7 +8,7 @@ type Props = {
 }
 
 const MapTile = (props:Props) =>  {
-    const { tile: { tile, rotation, scale, offsetX, offsetY } } = props;
+    const { tile: { tile, rotation, offsetX, offsetY, scale }} = props;
     const game = useGame();
 
     const translateX = offsetX || 0;

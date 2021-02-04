@@ -1,36 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { MapData, Tile } from "../../../../State/MapData";
+import { Tile } from "../../../../State/MapData";
+import { useDungeon } from "../DungeonProvider";
 import Tumblers from "../Tumblers";
 
 type Props = {
-    dungeonData: MapData;
 };
 
 const MapTileEditor = (props: Props) => {
-  const { dungeonData } = props;
-  const [mapScale, setMapScale] = useState<number[]>(dungeonData.tiles.map(tile => tile.scale));
+  const { dungeon, setDungeon } = useDungeon();
+  const [tiles, setTiles] = useState<Tile[]>(dungeon.tiles);
 
-  useEffect(() => {
-    if (!dungeonData) {
-      return;
-    }
-    const scales = dungeonData.tiles.map(tile => tile.scale);
-    setMapScale(scales);
-  }, [dungeonData]);
-
+  useEffect( () => {
+      setTiles(dungeon.tiles);
+  }, [dungeon])
 
   return (<div>
-      {dungeonData.tiles.map((tile: Tile, tileIndex: number) => {
-    return <Tumblers
-      label={`Map ${tile.tile} Scale:`}
-      value={mapScale[tileIndex]}
-      step={0.01}
-      onChange={(value: number) => {
-        const newMap: number[] = Object.assign([], mapScale);
-        newMap[tileIndex] = value;
-        setMapScale(newMap);
-        dungeonData.tiles[tileIndex].scale = value;
-      }}
+      {tiles.map((tile: Tile, tileIndex: number) => {
+            return <Tumblers
+            label={`Map ${tile.tile} Scale:`}
+            value={tile.scale}
+            step={0.01}
+            onChange={(value: number) => {
+                const newDungeon = Object.assign({}, dungeon);
+                newDungeon.tiles[tileIndex].scale = value;
+                setDungeon(newDungeon);
+            }}
     />
     }
   )}</div>);
