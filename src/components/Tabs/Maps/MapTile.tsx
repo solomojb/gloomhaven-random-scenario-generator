@@ -15,7 +15,6 @@ const MapTile = (props:Props) =>  {
     const translateY = -((1 - (scale + .1))*100 + (offsetY || 0));
 
     const transform = scale != 1 ? `scale(${scale}) translateY(${translateY}%) translateX(${translateX}px)`: '';
-    console.log(transform);
 
     return <div style={{transformOrigin: "center", transform }}>
                 <img src={game.getMapPath(tile)} style={{transformOrigin: "center", transform: `rotate(${rotation}deg)`}}/>

@@ -63,7 +63,7 @@ const MapInfo = (props: Props) => {
         }
         return <div style={{maxWidth:"100px", display:"flex", flexDirection:"column"}}>
                     {category === "monster" ? <MonsterOverlayTile className={"monster-image-info"} monsterName={type}/> :
-                    <MapOverlayTile tileName={type} rotateHex={false} category={category}/>}                
+                    <MapOverlayTile tileName={type} category={category}/>}                
                     {`${type} x ${count}`}
                 </div>;
     });

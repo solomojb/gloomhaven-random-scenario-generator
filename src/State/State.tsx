@@ -4,6 +4,7 @@ import {
   ItemViewStateMap,
   initialItemViewStateMapState,
 } from "./ItemViewState";
+import { MapData } from "./MapData";
 
 type RealState = {
   currentGameType: GameType;
@@ -34,12 +35,33 @@ const stateSlice = createSlice({
         gameState.numberOfPlayers = action.payload;
       }
     },
+    storeMapOffsetX(state, action: PayloadAction<number>) {
+      const gameState = state.itemViewMap[state.currentGameType];
+      if (gameState) {
+        gameState.mapOffsetX = action.payload;
+      }
+    },
+    storeMapOffsetY(state, action: PayloadAction<number>) {
+      const gameState = state.itemViewMap[state.currentGameType];
+      if (gameState) {
+        gameState.mapOffsetY = action.payload;
+      }
+    },
+    storeRotateHex(state, action: PayloadAction<boolean>) {
+      const gameState = state.itemViewMap[state.currentGameType];
+      if (gameState) {
+        gameState.rotateHex = action.payload;
+      }
+    },
   }
 });
 
 export const {
   storeShowFlags,
-  storeNumberOfPlayers
+  storeNumberOfPlayers,
+  storeMapOffsetX,
+  storeMapOffsetY,
+  storeRotateHex
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

@@ -1,4 +1,5 @@
 import { GameType } from "./GameType";
+import { MapData, Tile } from "./MapData";
 
 export enum ShowFlags {
   Grid = 1 << 0,
@@ -12,11 +13,17 @@ export enum ShowFlags {
 export interface ItemViewState {
   showFlags: number;
   numberOfPlayers: number;
+  mapOffsetX: number;
+  mapOffsetY: number;
+  rotateHex: boolean;
 }
 
 const initialItemViewState : ItemViewState = {
   showFlags: parseInt(localStorage.getItem("showFlags") || "" ) || ShowFlags.Obstacles | ShowFlags.Spawns | ShowFlags.Corridors,
   numberOfPlayers: parseInt(localStorage.getItem("numberOfPlayers") || "") || 0,
+  mapOffsetX: 0,
+  mapOffsetY: 0,
+  rotateHex: false,
 };
 
 export type ItemViewStateMap = {

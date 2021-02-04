@@ -23,7 +23,7 @@ const GameProvider = (props:Props) => {
             data.getDungeonList();
             setGameData(data);
         }
-    }, []);
+    }, [gameType]);
 
 
     useEffect( () => {
