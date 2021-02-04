@@ -33,7 +33,6 @@ const DungeonProvider = (props:Props) => {
     }, [intitialDungeon])
 
     const setDungeonData = (data: MapData) => {
-        console.log("Sdd", JSON.stringify(data.tiles));
         setDungeon(data);
     }
 

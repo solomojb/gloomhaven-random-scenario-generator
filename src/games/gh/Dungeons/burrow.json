@@ -1,20 +1,22 @@
 {
-    "name": "burrow",
-    "tiles" :[ {
-      "tile": "a2a",
-      "rotation": -90,
-      "scale": 0.7,
-      "offsetY": -50
+    "map": {
+      "name": "burrow",
+      "tiles" :[ {
+        "tile": "a2a",
+        "rotation": -90,
+        "scale": 0.7,
+        "offsetY": -50
+      },
+      {
+        "tile": "a1a",
+        "rotation": -90,
+        "scale": 0.76,
+        "offsetX": 6,
+        "offsetY": -56
+      }],
+      "offsetX": 146,
+      "offsetY": 3
     },
-    {
-      "tile": "a1a",
-      "rotation": -90,
-      "scale": 0.76,
-      "offsetX": 6,
-      "offsetY": -56
-    }],
-    "offsetX": 146,
-    "offsetY": 3, 
     "maxRows": 10,
     "maxColumns": 2, 
     "spawnPoints": [

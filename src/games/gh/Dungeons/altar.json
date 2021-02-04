@@ -1,13 +1,15 @@
 {
-  "name": "altar",
-  "tiles" :[ {
-    "tile": "l2b",
-    "rotation": 180,
-    "scale": 0.8
-  }],
+  "map" : {
+    "name": "altar",
+    "tiles" :[ {
+      "tile": "l2b",
+      "rotation": 180,
+      "scale": 0.8
+    }],
+    "offsetX": 55,
+    "offsetY": 48 
+  },
   "rotateHex": true,
-  "offsetX": 55,
-  "offsetY": 48, 
   "maxRows": 7,
   "maxColumns": 5,
   "spawnPoints": [

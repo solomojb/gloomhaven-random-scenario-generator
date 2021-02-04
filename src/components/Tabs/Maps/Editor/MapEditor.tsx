@@ -5,14 +5,11 @@ import { useDungeon } from "../DungeonProvider";
 import MapTileEditor from "./MapTileEditor";
 import OffsetTumblers from "./OffsetTumblers";
 
-type Props = {
-}
-
-const MapEditor = (props: Props) => {
-    const { dungeon, setDungeon } = useDungeon();
+const MapEditor = () => {
+    const { dungeon, dungeon: {map: {offsetX, offsetY}}, setDungeon } = useDungeon();
 
     const onChanged = (offsetX:number, offsetY:number) => {
-      setDungeon({...dungeon, offsetX, offsetY});
+      setDungeon({...dungeon, map: { ...dungeon.map, offsetX, offsetY}});
     }
 
   return (
@@ -26,7 +23,7 @@ const MapEditor = (props: Props) => {
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <MapTileEditor/>
-        <OffsetTumblers onChanged={onChanged} initialX={dungeon.offsetX} initialY={dungeon.offsetY} label="Map"/>
+        <OffsetTumblers onChanged={onChanged} initialX={offsetX} initialY={offsetY} label="Map"/>
       </div>
     </div>
   );

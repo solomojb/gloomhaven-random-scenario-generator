@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { DropdownProps } from "semantic-ui-react";
 import MapSelector from "./MapSelector";
 import { useGame } from "../../Game/GameProvider";

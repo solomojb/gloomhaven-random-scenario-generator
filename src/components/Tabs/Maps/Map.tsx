@@ -15,10 +15,8 @@ type Props = {
   monsterData: MonsterData;
 };
 
-//TODO: move rotate hex into some sort of state.
-
 const Map = (props: Props) => {
-  const { dungeon: {tiles, spawnPoints, maxRows, maxColumns, obstacles, corridors } } = useDungeon();
+  const { dungeon: {map: {tiles}, spawnPoints, maxRows, maxColumns, obstacles, corridors } } = useDungeon();
   const { monsterData: {spawns} } = props;
 
   const { showFlags, numberOfPlayers} = getItemViewState();

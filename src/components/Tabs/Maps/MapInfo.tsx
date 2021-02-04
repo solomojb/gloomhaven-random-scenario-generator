@@ -1,5 +1,4 @@
 import React from "react";
-import { MapData } from "../../../State/MapData";
 import { MonsterData } from "../../../State/MonsterData";
 import { useDungeon } from "./DungeonProvider";
 import MapOverlayTile from "./MapOverlayTile";

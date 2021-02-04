@@ -1,4 +1,5 @@
 {
+  "map" : {
     "name": "armory",
     "tiles" :[ {
       "tile": "b2b",
@@ -12,9 +13,10 @@
       "offsetX": 0,
       "offsetY": 84
     }], 
-    "rotateHex": false,   
     "offsetX": 100,
-    "offsetY": 5, 
+    "offsetY": 5
+  },
+    "rotateHex": false,   
     "maxRows": 9,
     "maxColumns": 4, 
     "spawnPoints": [

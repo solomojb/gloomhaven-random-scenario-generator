@@ -1,12 +1,14 @@
 {
-    "name": "alcove",
-    "tiles" :[ {
-      "tile": "j2a",
-      "rotation": 0,
-      "scale": 1
-    }],
-    "offsetX": 33,
-    "offsetY": 18, 
+    "map" : {
+      "name": "alcove",
+      "tiles" :[ {
+        "tile": "j2a",
+        "rotation": 0,
+        "scale": 1
+      }],
+      "offsetX": 33,
+      "offsetY": 18
+    },
     "maxRows": 9,
     "maxColumns": 7, 
     "spawnPoints": [

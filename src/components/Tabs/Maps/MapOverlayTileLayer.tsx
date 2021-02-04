@@ -12,7 +12,7 @@ type Props = {
 const MapOverlayTileLayer = (props: Props) => {
     const { tiles, overlayType  } = props;
     const game = useGame();
-    const { dungeon: {rotateHex}} = useDungeon();
+    const { dungeon: {map: {rotateHex}}} = useDungeon();
 
     if (!tiles) {
         return null;

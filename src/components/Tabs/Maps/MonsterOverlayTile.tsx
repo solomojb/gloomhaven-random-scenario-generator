@@ -12,7 +12,7 @@ type Props = {
 const MonsterOverlayTile = (props: Props) => {
     const { monsterName, monsterType, className="monster-image" } = props;
     const game = useGame();
-    const { dungeon: {rotateHex}} = useDungeon();
+    const { dungeon: {map: {rotateHex}}} = useDungeon();
 
     return (<div className="monster-tile">
                 {monsterType !== "none" && <img className={className} style={{transform: "scale(1.2)"}} src={game.getMonsterImage(monsterName, rotateHex)}/>}

@@ -20,12 +20,16 @@ export interface Tile {
     offsetY: number;
 }
 
-export interface MapData {
-    tiles: Tile[];
+export interface Map {
     name: string;
+    tiles: Tile[];
+    rotateHex: boolean;
     offsetX: number;
     offsetY: number;
-    rotateHex: boolean;
+}
+
+export interface MapData {
+    map: Map;
     spawnPoints: SpawnPoint[];
     obstacles: OverlayTile[];
     corridors: OverlayTile[];
@@ -34,11 +38,13 @@ export interface MapData {
 }
 
 export const initialMapData : MapData = {
-    tiles: [],
-    name: "",
-    offsetX: 0,
-    offsetY: 0,
-    rotateHex: false,
+    map : {
+        name: "",
+        tiles: [],
+        rotateHex: false,
+        offsetX: 0,
+        offsetY: 0,
+    },
     spawnPoints: [],
     obstacles: [],
     corridors: [],

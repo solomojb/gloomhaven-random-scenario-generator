@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { MapData } from "../../../../State/MapData";
 import Tumblers from "../Tumblers";
 
 type Props = {
