@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { useDungeon } from "./DungeonProvider";
-import { Map } from "../../../State/MapData"
+import { Map } from "../../../Data"
 
 type Props = {
   children: ReactNode | ReactNode[]

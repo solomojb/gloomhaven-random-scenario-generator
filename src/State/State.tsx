@@ -4,7 +4,6 @@ import {
   ItemViewStateMap,
   initialItemViewStateMapState,
 } from "./ItemViewState";
-import { MapData, Tile } from "./MapData";
 
 type RealState = {
   currentGameType: GameType;

@@ -1,13 +1,13 @@
 import React, { useContext, createContext, ReactNode, useEffect, useState } from 'react'
-import { initialMapData, MapData } from '../../../State/MapData';
+import { Dungeon, initialDungeon } from '../../../Data';
 
 type ContextData = {
-    dungeon: MapData;
-    setDungeon : ( dungeon: MapData) => void;
+    dungeon: Dungeon;
+    setDungeon : ( dungeon: Dungeon) => void;
 }
 
 const initialContextData: ContextData = {
-    dungeon: initialMapData,
+    dungeon: initialDungeon,
     setDungeon : () => {}
 }
 
@@ -19,20 +19,20 @@ export function useDungeon() {
 }
 
 type Props = {
-    intitialDungeon:MapData;
+    intitialDungeon:Dungeon;
     children: ReactNode;
 }
 
 const DungeonProvider = (props:Props) => {
     const {intitialDungeon, children} = props;
-    const [dungeon, setDungeon] = useState<MapData>(intitialDungeon);
+    const [dungeon, setDungeon] = useState<Dungeon>(intitialDungeon);
     const { Provider } = DungeonContext;
 
     useEffect(() => {
         setDungeon(intitialDungeon);
     }, [intitialDungeon])
 
-    const setDungeonData = (data: MapData) => {
+    const setDungeonData = (data: Dungeon) => {
         setDungeon(data);
     }
 

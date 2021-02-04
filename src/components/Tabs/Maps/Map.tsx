@@ -4,12 +4,11 @@ import "./map.css"
 import { getItemViewState } from "../../../State/Selectors";
 import MapTile from "./MapTile";
 import MapOverlayTileLayer from "./MapOverlayTileLayer";
-import { MonsterData } from "../../../State/MonsterData";
 import MapOverlayTile from "./MapOverlayTile";
 import MonsterOverlayTile from "./MonsterOverlayTile";
 import { ShowFlags } from "../../../State/ItemViewState";
 import { useDungeon } from "./DungeonProvider";
-import { Tile } from "../../../State/MapData";
+import { MonsterData, Tile } from "../../../Data";
 
 type Props = {
   monsterData: MonsterData;

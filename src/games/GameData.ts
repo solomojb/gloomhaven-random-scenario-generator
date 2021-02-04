@@ -1,11 +1,10 @@
+import { Dungeon, MonsterData } from "../Data";
 import { GameType } from "../State/GameType";
-import { MapData } from "../State/MapData"
-import { MonsterData } from "../State/MonsterData";
 
 export const LOCAL_STORAGE_PREFIX:string = "RSG_";
 
 export type DungeonMap = {
-    [k in string]?: MapData;
+    [k in string]?: Dungeon;
   };
 
 export type MonsterMap = {
@@ -31,11 +30,11 @@ export abstract class BaseGameData {
         return LOCAL_STORAGE_PREFIX + this.gameType;
     }
 
-    getDungeonData(dungeonName:string) : MapData {
+    getDungeonData(dungeonName:string) : Dungeon {
         if (!this.dungeonData[dungeonName]) {
             this.dungeonData[dungeonName] = require(`./${this.gameType}/Dungeons/${dungeonName}.json`);
         }
-        return this.dungeonData[dungeonName] as MapData;
+        return this.dungeonData[dungeonName] as Dungeon;
     }
     
     getMonsterData(monsterName:string) : MonsterData {

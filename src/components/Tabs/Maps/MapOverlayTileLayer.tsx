@@ -1,5 +1,5 @@
 import React from "react"
-import { OverlayTile } from "../../../State/MapData"
+import { OverlayTile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import { useDungeon } from "./DungeonProvider";
 import MapSpawnPoint from "./MapSpawnPoint";

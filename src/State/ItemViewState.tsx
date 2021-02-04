@@ -1,5 +1,4 @@
 import { GameType } from "./GameType";
-import { MapData, Tile } from "./MapData";
 
 export enum ShowFlags {
   Grid = 1 << 0,

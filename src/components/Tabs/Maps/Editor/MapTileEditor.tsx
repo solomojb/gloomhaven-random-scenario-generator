@@ -1,5 +1,5 @@
 import React from "react";
-import { Tile } from "../../../../State/MapData";
+import { Tile } from "../../../../Data";
 import { useDungeon } from "../DungeonProvider";
 import Tumblers from "../Tumblers";
 

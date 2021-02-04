@@ -1,5 +1,5 @@
 import React from "react";
-import { Tile } from "../../../State/MapData";
+import { Tile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import "./map.css"
 

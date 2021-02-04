@@ -1,5 +1,5 @@
 import React from "react";
-import { MonsterData } from "../../../State/MonsterData";
+import { MonsterData } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import "./map.css"
 
