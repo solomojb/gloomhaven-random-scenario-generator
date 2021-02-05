@@ -5,11 +5,11 @@
       "tile": "l2b",
       "rotation": 180,
       "scale": 0.8
-    }],
+      }],
+      "rotateHex": true,
     "offsetX": 55,
-    "offsetY": 48 
+    "offsetY": 48
   },
-  "rotateHex": true,
   "maxRows": 7,
   "maxColumns": 5,
   "spawnPoints": [

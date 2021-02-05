@@ -27,14 +27,14 @@ type DisplayToggleProps = {
     };
   
     return (
-      <div style={{display: "flex", flexDirection:"row"}}>
-        <label>{label}</label>
-        <Form.Checkbox
-          toggle
-          checked={(showFlags & flag) > 0}
-          onClick={changeValue}
-        />
-      </div>
+        <Form.Group inline>
+          <label>{label}</label>
+          <Form.Checkbox
+            toggle
+            checked={(showFlags & flag) > 0}
+            onClick={changeValue}
+          />
+        </Form.Group>
     );
   };
 

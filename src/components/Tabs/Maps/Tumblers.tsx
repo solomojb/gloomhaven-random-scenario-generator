@@ -1,5 +1,5 @@
 import React from  "react";
-import { Button, Label } from "semantic-ui-react";
+import { Button, Form, Label } from "semantic-ui-react";
 
 type TumblerProps = {
     value: number;
@@ -17,24 +17,24 @@ type TumblerProps = {
     };
   
     return (
-      <div>
-        <Label>{label}</Label>
-        <Button
+      <Form.Group inline>
+        <label>{label}</label>
+        <Button size="mini"
           onClick={() => {
             changeValue(false);
           }}
         >
           -
         </Button>
-        <Label>{value}</Label>
-        <Button
+        <label>{value}</label>
+        <Button size="mini"
           onClick={() => {
             changeValue(true);
           }}
         >
           +
         </Button>
-      </div>
+      </Form.Group>
     );
   };
 

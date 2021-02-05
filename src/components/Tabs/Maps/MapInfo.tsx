@@ -1,4 +1,5 @@
 import React from "react";
+import { Form, Grid } from "semantic-ui-react";
 import { MonsterData } from "../../../Data";
 import { useDungeon } from "./DungeonProvider";
 import MapOverlayTile from "./MapOverlayTile";
@@ -61,33 +62,18 @@ const MapInfo = (props: Props) => {
         if (!category) {
             return null;
         }
-        return <div style={{maxWidth:"100px", display:"flex", flexDirection:"column"}}>
-                    {category === "monster" ? <MonsterOverlayTile className={"monster-image-info"} monsterName={type}/> :
-                    <MapOverlayTile tileName={type} category={category}/>}                
-                    {`${type} x ${count}`}
-                </div>;
+        return <Form.Field>
+                    <div style={{maxWidth:"100px", display:"flex", flexDirection:"column"}}>
+                        {category === "monster" ? <MonsterOverlayTile className={"monster-image-info"} monsterName={type}/> :
+                        <MapOverlayTile tileName={type} category={category}/>}                
+                        {`${type} x ${count}`}
+                    </div>
+                </Form.Field>
     });
-
-    // let info3 = Object.keys(overlayCounts).map( (type) => {
-    //     return <div style={{maxWidth:"100px", display:"flex", flexDirection:"column"}}>
-    //                 <MapOverlayTile tileName={type} rotateHex={false} category="obstacles"/>
-    //                 {`${overlayCounts[type]}x ${type}`}
-    //             </div>;
-    // });
-
-    // let info2 = Object.keys(obstaclesCount).map( (type) => {
-    //     return <div style={{maxWidth:"100px", display:"flex", flexDirection:"column"}}>
-    //                 <MapOverlayTile tileName={type} rotateHex={false} category="obstacles"/>
-    //                 {`${obstaclesCount[type]}x ${type}`}
-    //             </div>;
-    // });
    
-    return (<div  style={{display: "flex", flexDirection:"row", flexWrap: "wrap"}}>
+    return (<Grid>
         {info}
-    {/* //     {info2}
-    //     {info3} */}
-         </div>);
-    return null;
+         </Grid>);
 }
 
 export default MapInfo;
