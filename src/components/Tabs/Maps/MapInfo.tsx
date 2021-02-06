@@ -71,9 +71,11 @@ const MapInfo = (props: Props) => {
                 </Form.Field>
     });
    
-    return (<Grid>
-        {info}
-         </Grid>);
+    return (<div style={{maxWidth:"500px"}}>
+            <Grid>
+                {info}
+            </Grid>
+            </div>)
 }
 
 export default MapInfo;

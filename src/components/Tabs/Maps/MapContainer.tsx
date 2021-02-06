@@ -44,28 +44,18 @@ const MapContainer = () => {
 			<MapEditor/>
 			<Form.Group>
 				<Form.Field>
-					<Form.Group>
-						<PlayerCount/>
-					</Form.Group>
-					<Form.Group>
-						<Map monsterData={monsterData} />
-					</Form.Group>
+					<PlayerCount/>
+					<Map monsterData={monsterData} />
+					<MapInfo monsterData={monsterData}/>
 				</Form.Field>
-				<Form.Field>
-					<Form.Group>
-						<Form.Field>
-							<MapSelector defaultMapName={selectedMap} onChange={onDungeonChange}/>
-							<MapCard/>
-						</Form.Field>
-						<Form.Field>
-							<MonsterSelector defaultMonsterName={selectedMonster} onChange={onMonsterChange}/>
-							<MonsterCard data={monsterData} />
-						</Form.Field>
-					</Form.Group>
-					<Form.Group>
-						<MapInfo monsterData={monsterData}/>
-					</Form.Group>
-				</Form.Field>
+				<Form.Group>
+					<Form.Field>
+						<MapSelector defaultMapName={selectedMap} onChange={onDungeonChange}/>
+						<MapCard/>
+						<MonsterSelector defaultMonsterName={selectedMonster} onChange={onMonsterChange}/>
+						<MonsterCard data={monsterData} />
+					</Form.Field>
+				</Form.Group>
 			</Form.Group>
 		</Form>
 	</DungeonProvider>

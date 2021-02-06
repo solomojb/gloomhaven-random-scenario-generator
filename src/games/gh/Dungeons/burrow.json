@@ -3,19 +3,20 @@
       "name": "burrow",
       "tiles" :[ {
         "tile": "a2a",
-        "rotation": -90,
-        "scale": 0.7,
-        "offsetY": -50
+        "rotation": 270,
+        "scale": 0.73,
+        "offsetX": 0,
+        "offsetY": 0
       },
       {
         "tile": "a1a",
-        "rotation": -90,
+        "rotation": 270,
         "scale": 0.76,
-        "offsetX": 6,
-        "offsetY": -56
+        "offsetX": 2,
+        "offsetY": 22
       }],
-      "offsetX": 146,
-      "offsetY": 3
+      "offsetX": 31,
+      "offsetY": -10
     },
     "maxRows": 10,
     "maxColumns": 2, 

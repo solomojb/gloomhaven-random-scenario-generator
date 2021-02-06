@@ -12,7 +12,7 @@ const MapOverlayTile = (props: Props) => {
     const { dungeon: {map: {rotateHex}}} = useDungeon();
     const game = useGame();
     
-    return (<img className={rotateHex ? "rotated" : ""} src={game.getOverlayTokenPath(tileName, category)}/>);
+    return (<img className={rotateHex ? "rotated" : ""} src={game.getOverlayTokenPath(tileName, category)}/>)
 }
 
 export default MapOverlayTile;

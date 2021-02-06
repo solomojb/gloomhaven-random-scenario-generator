@@ -10,12 +10,12 @@
       "tile": "a3b",
       "rotation": 90,
       "scale": 0.75,
-      "offsetX": 0,
-      "offsetY": 84
+      "offsetX": 44,
+      "offsetY": -226
     }], 
     "rotateHex": false,   
-    "offsetX": 100,
-    "offsetY": 5
+    "offsetX": 31,
+    "offsetY": -10
   },
     "maxRows": 9,
     "maxColumns": 4, 
