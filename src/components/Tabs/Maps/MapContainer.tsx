@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DropdownProps, Form } from "semantic-ui-react";
+import { DropdownProps, Form, Placeholder } from "semantic-ui-react";
 import MapSelector from "./MapSelector";
 import { useGame } from "../../Game/GameProvider";
 import Map from "./Map";
@@ -20,13 +20,16 @@ const MapContainer = () => {
   const [selectedMonster, setSelectedMonster] = useState<string>(
     localStorage.getItem("currentMonster") || game.getMonsterList()[0]
   );
+  const [showPlaceholder, setShowPlaceholder] = useState(true);
 
   const dungeonData = game.getDungeonData(selectedMap);
   const monsterData = game.getMonsterData(selectedMonster);
 
   const onDungeonChange = (obj: any, e: DropdownProps): void => {
     setSelectedMap(e.value as string);
-    localStorage.setItem("currentMap", e.value as string);
+	localStorage.setItem("currentMap", e.value as string);
+	setShowPlaceholder(false);
+	setTimeout(() => setShowPlaceholder(true), 100);
   };
 
   const onMonsterChange = (obj: any, e: DropdownProps): void => {
@@ -45,7 +48,11 @@ const MapContainer = () => {
 			<Form.Group>
 				<Form.Field>
 					<PlayerCount/>
-					<Map monsterData={monsterData} />
+					<div className="map-tiles">
+						{showPlaceholder && (<>
+						<Map monsterData={monsterData} />
+						</>)}
+					</div>
 					<MapInfo monsterData={monsterData}/>
 				</Form.Field>
 				<Form.Group>

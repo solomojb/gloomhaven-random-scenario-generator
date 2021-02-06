@@ -56,8 +56,6 @@ const MapTile = (props:Props) =>  {
     }
 
     const transform = `${translateYStr} ${translateXStr} rotate(${rotation}deg) scale(${scale})`;
-    // const transform = `rotate(270deg)`;//scale != 1 ? `rotate(${rotation}deg) translateX(${translateX}px) translateY(${translateY}%) scale(${scale}) `: '';
-
     return (
             <img ref={ref} src={game.getMapPath(tile)} style={{position:'relative', top:`${translateY}px`, left:`${translateX}px`, transformOrigin: "left top", transform}}/>
             )

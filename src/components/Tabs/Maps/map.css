@@ -6,6 +6,11 @@
     position: relative;
 }
 
+.map-tiles {
+  min-width: 500px;
+  min-height: 600px;
+}
+
 .map-spawn-point {
     position: absolute;
     width: 60px;

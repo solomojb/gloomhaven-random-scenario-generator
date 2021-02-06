@@ -21,8 +21,12 @@ const Map = (props: Props) => {
   const [heights, setHeights] = useState<number[]>([]);
   const [width, setWidth] = useState<number>(0);
 
+  useEffect(() => {
+    setHeights([]);
+    setWidth(0);
+  }, [tiles])
+
   const onTileLoad = (w:number, h: number, tileIndex: number) => {
-    console.log(w,h, tileIndex);
     setHeights( prevHeights => { 
         const newHeights = [...prevHeights];
         newHeights[tileIndex] = h;
