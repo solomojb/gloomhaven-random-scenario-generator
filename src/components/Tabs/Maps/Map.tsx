@@ -9,13 +9,16 @@ import MonsterOverlayTile from "./MonsterOverlayTile";
 import { ShowFlags } from "../../../State/ItemViewState";
 import { useDungeon } from "./DungeonProvider";
 import { MonsterData, Tile } from "../../../Data";
+import MapGrid from "./MapGrid";
+import { useGame } from "../../Game/GameProvider";
 
 type Props = {
   monsterData: MonsterData;
 };
 
 const Map = (props: Props) => {
-  const { dungeon: {map: {tiles}, spawnPoints, maxRows, maxColumns, obstacles, corridors } } = useDungeon();
+  const game = useGame();
+  const { dungeon: {map: {tiles, hexColumns}, spawnPoints, obstacles, corridors } } = useDungeon();
   const { monsterData: {spawns} } = props;
 
   const [heights, setHeights] = useState<number[]>([]);
@@ -37,15 +40,15 @@ const Map = (props: Props) => {
 
   const { showFlags, numberOfPlayers} = getItemViewState();
   
-  const grid = [];
-  for (let row = 0; row < maxRows; row += 1) {
-    for (let column = 0; column < maxColumns; column += 1) {
-      grid.push(<MapSpawnPoint row={row} column={column}>
-        <MapOverlayTile category={"corridors"} tileName={"wood-1"}/>
-        <div className="map-spawn-id">{`${row},${column}`}</div>
-      </MapSpawnPoint>)
-    }
-  }
+  // const grid = [];
+  // for (let row = 0; row < maxRows; row += 1) {
+  //   for (let column = 0; column < maxColumns; column += 1) {
+  //     grid.push(<MapSpawnPoint row={row} column={column}>
+  //       <MapOverlayTile category={"corridors"} tileName={"wood-1"}/>
+  //       <div className="map-spawn-id">{`${row},${column}`}</div>
+  //     </MapSpawnPoint>)
+  //   }
+  // }
 
   const isFlagOn = (flag: ShowFlags) => {
     return (showFlags & flag) > 0;
@@ -60,7 +63,8 @@ const Map = (props: Props) => {
             return <MapTile tile={tile} onTileLoad={(width: number, height:number) => onTileLoad(width, height, index)}/>
           })}
         </div>
-        { isFlagOn(ShowFlags.Grid) && grid }
+        { isFlagOn(ShowFlags.AllGrid) && (<MapGrid/>) }
+        { isFlagOn(ShowFlags.Grid) && (<MapGrid className={"map-grid"} hexColumns={hexColumns} patternLink={game.getOverlayTokenPath("wood-1", "corridors")}/>) }
         { isFlagOn(ShowFlags.Corridors) && <MapOverlayTileLayer overlayType="corridors" tiles={corridors}/>}
         { isFlagOn(ShowFlags.SpawnPoint) && spawnPoints.map( spawnPoint => {
             const { id, row, column } = spawnPoint;

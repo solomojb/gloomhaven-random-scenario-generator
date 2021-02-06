@@ -7,16 +7,11 @@ export interface Dungeon {
     spawnPoints: SpawnPoint[];
     obstacles: OverlayTile[];
     corridors: OverlayTile[];
-    maxRows: number;
-    maxColumns: number;
 }
 
 export const initialDungeon : Dungeon = {
     map : initialMap,
     spawnPoints: [],
     obstacles: [],
-    corridors: [],
-    maxRows: 0,
-    maxColumns: 0,
-    
+    corridors: []
 }

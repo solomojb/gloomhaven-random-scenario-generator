@@ -20,7 +20,6 @@ const MapTile = (props:Props) =>  {
         setHeight( height );
         setWidth( width );
         if (onTileLoad) {
-            console.log(width, height);
             onTileLoad(width, height);
         }
     }

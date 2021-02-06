@@ -53,3 +53,68 @@
 .monster-image-info {
   width: 75px;
 }
+
+.map-grid {
+  position: absolute;
+  min-width: 500px;
+  min-height: 600px;
+  top: 0;
+  left: 0;
+}
+
+.all-grid {
+  position: absolute;
+  min-width: 500px;
+  min-height: 600px;
+  top: 0;
+  left: 0;
+  
+}
+
+.all-grid svg g polygon {
+  stroke: red;
+  stroke-width: 0.2;
+  transition: fill-opacity .5s;
+}
+
+svg {
+}
+/*
+Russian blue pattern:
+#7be3f6
+#4499a9
+#276a76
+#133b43
+#03090a
+*/
+svg g {
+  fill: #4499a9;
+  fill-opacity: 1;
+}
+svg g:hover {
+  fill: #7be3f6;
+  fill-opacity: 1;
+}
+svg g:hover text {
+  fill-opacity: 1;
+}
+
+.map-grid svg g polygon {
+  stroke: tan;
+  stroke-width: 0.2;
+  transition: fill-opacity .5s;
+}
+svg g text {
+  font-size: 0.25em;
+  fill: black;
+  fill-opacity: 0.7;
+  transition: fill-opacity .5s;
+}
+svg path {
+  fill: none;
+  stroke: #7be3f6;
+  stroke-width: 0.2em;
+  stroke-opacity: 0.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

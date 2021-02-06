@@ -11,9 +11,10 @@ type TumblerProps = {
   const Tumblers = (props: TumblerProps) => {
     const { label, value, step, onChange } = props;
   
-    const changeValue = (up: boolean) => {
-      const newVal = value + (up ? step : -step);
-      onChange(parseFloat(newVal.toFixed(2)));
+    const changeValue = (diff: number) => {
+      console.log("changing", label, "by", diff);
+      const newVal = value + diff
+      onChange(newVal);
     };
   
     return (
@@ -21,15 +22,15 @@ type TumblerProps = {
         <label>{label}</label>
         <Button size="mini"
           onClick={() => {
-            changeValue(false);
+            changeValue(-step);
           }}
         >
           -
         </Button>
-        <label>{value}</label>
+        <label>{value.toFixed(2)}</label>
         <Button size="mini"
           onClick={() => {
-            changeValue(true);
+            changeValue(step);
           }}
         >
           +

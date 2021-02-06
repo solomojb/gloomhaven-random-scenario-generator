@@ -1,17 +1,21 @@
 import { Tile } from "./Tile";
 
+export interface HexColumn {
+    q: number;
+    minR: number;
+    maxR: number;
+}
+
 export interface Map {
     name: string;
     tiles: Tile[];
     rotateHex: boolean;
-    offsetX: number;
-    offsetY: number;
+    hexColumns: HexColumn[];
 }
 
 export const initialMap: Map = {
     name: "",
     tiles: [],
     rotateHex: false,
-    offsetX: 0,
-    offsetY: 0,
+    hexColumns: [],
 }

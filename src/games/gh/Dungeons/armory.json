@@ -14,12 +14,28 @@
       "offsetY": -226
     }], 
     "rotateHex": false,   
-    "offsetX": 31,
-    "offsetY": -10
+    "offsetX": 9,
+    "offsetY": 4
   },
-    "maxRows": 9,
-    "maxColumns": 4, 
-    "spawnPoints": [
+  "hexColumns": [
+    { "q": 0,
+      "minR": -4,
+      "maxR": 3
+    },
+    { "q": -1,
+      "minR": -4,
+      "maxR": 4
+    },
+    { "q": -2,
+      "minR": -3,
+      "maxR": -1
+    },
+    { "q": 1,
+      "minR": -5,
+      "maxR": -2
+    }
+  ],
+  "spawnPoints": [
       {
         "id": 1,
         "row": 4, 

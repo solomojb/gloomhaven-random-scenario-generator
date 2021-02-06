@@ -7,6 +7,7 @@ export enum ShowFlags {
   Corridors = 1 << 3,
   Spawns = 1 << 4,
   EditMode = 1<<5,
+  AllGrid = 1<<6,
 }
 
 export interface ItemViewState {

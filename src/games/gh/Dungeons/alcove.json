@@ -4,13 +4,41 @@
       "tiles" :[ {
         "tile": "j2a",
         "rotation": 0,
-        "scale": 1
+        "scale": 1,
+        "offsetX": 3,
+        "offsetY": 9
       }],
-      "offsetX": 33,
-      "offsetY": 18
+      "hexColumns": [
+        { "q": -4,
+          "minR": -3,
+          "maxR": 1
+        },
+        { "q": -3,
+          "minR": -3,
+          "maxR": 2
+        },
+        { "q": -2,
+          "minR": -4,
+          "maxR": 2
+        },
+        { "q": -1,
+          "minR": 0,
+          "maxR": 2
+        },
+        { "q": 0,
+          "minR": 0,
+          "maxR": 2
+        },
+        { "q": 1,
+          "minR": 0,
+          "maxR": 2
+        },
+        { "q": 2,
+          "minR": 0,
+          "maxR": 0
+        }
+      ]    
     },
-    "maxRows": 9,
-    "maxColumns": 7, 
     "spawnPoints": [
       {
         "id": 1,

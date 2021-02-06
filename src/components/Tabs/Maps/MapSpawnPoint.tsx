@@ -9,7 +9,7 @@ type Props = {
 };
 
 const getSpawnPointPos = (map: Map, props: Props) => {
-  const {offsetX, offsetY, rotateHex} = map;
+  const {rotateHex} = map;
   const {
     row, 
     column,
@@ -18,7 +18,7 @@ const getSpawnPointPos = (map: Map, props: Props) => {
   const rowOffset = rotateHex && row % 2 !== 0 ? 52 / 2 : 0;
   const paddingX = rotateHex ? 53 : 47;
   const paddingY = rotateHex ? 47 : 53;
-  return { top: offsetY + paddingY * row + columnOffset, left: offsetX + paddingX * column + rowOffset};
+  return { top: paddingY * row + columnOffset, left: paddingX * column + rowOffset};
 };
 
 const MapSpawnPoint = (props: Props) => {
