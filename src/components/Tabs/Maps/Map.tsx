@@ -1,27 +1,21 @@
 import React, { useEffect, useState } from "react";
-import MapSpawnPoint from "./MapSpawnPoint";
 import "./map.css"
 import { getItemViewState } from "../../../State/Selectors";
 import MapTile from "./MapTile";
 import MapOverlayTileLayer from "./MapOverlayTileLayer";
-import MapOverlayTile from "./MapOverlayTile";
-import MonsterOverlayTile from "./MonsterOverlayTile";
 import { ShowFlags } from "../../../State/ItemViewState";
 import { useDungeon } from "./DungeonProvider";
-import { MonsterData, Tile } from "../../../Data";
+import { Tile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import MapGrid from "./MapGrid";
 import DungeonGrid from "./DungonGrid";
 import MapSpawnPointsLayer from "./MapSpawnPointsLayer";
+import MonsterTileLayer from "./MonsterTileLayer";
 
-type Props = {
-  monsterData: MonsterData;
-};
-
-const Map = (props: Props) => {
+const Map = () => {
   const game = useGame();
-  const { dungeon: {map: {tiles}, spawnPoints, obstacles, corridors } } = useDungeon();
-  const { monsterData: {spawns} } = props;
+  const { dungeon: {map: {tiles}, obstacles, corridors }
+} = useDungeon();
 
   const [heights, setHeights] = useState<number[]>([]);
   const [width, setWidth] = useState<number>(0);
@@ -40,7 +34,7 @@ const Map = (props: Props) => {
     setWidth( prevWidth => Math.max(prevWidth, w));
   }
 
-  const { showFlags, numberOfPlayers} = getItemViewState();
+  const { showFlags } = getItemViewState();
   
   // const grid = [];
   // for (let row = 0; row < maxRows; row += 1) {
@@ -70,20 +64,7 @@ const Map = (props: Props) => {
         { isFlagOn(ShowFlags.Corridors) && <MapOverlayTileLayer overlayType="corridors" tiles={corridors}/>}
         { isFlagOn(ShowFlags.SpawnPoint) && <MapSpawnPointsLayer/>}
         {isFlagOn(ShowFlags.Obstacles) && <MapOverlayTileLayer overlayType="obstacles" tiles={obstacles}/>}
-
-        {/* {isFlagOn(ShowFlags.Spawns) && spawns.map( spawn => {
-            const { type, id, monsterType, category } = spawn;
-            const spawnPoint = spawnPoints.find( spawn => spawn.id === id);
-            if (spawnPoint && type) {
-              const { row, column } = spawnPoint;
-              const image = category === "monster" ? 
-                <MonsterOverlayTile monsterName={type} monsterType={monsterType[numberOfPlayers]}/> :
-                <MapOverlayTile category={category} tileName={type}/>
-              return <MapSpawnPoint row={row} column={column}>
-                      {image}
-                    </MapSpawnPoint>
-            }
-        })} */}
+        {isFlagOn(ShowFlags.Spawns) && <MonsterTileLayer/>}
     </div>
   );
 };

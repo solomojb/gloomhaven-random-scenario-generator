@@ -1,14 +1,16 @@
 import React, { useContext, createContext, ReactNode, useEffect, useState } from 'react'
-import { Dungeon, initialDungeon } from '../../../Data';
+import { Dungeon, initialDungeon, initialMonsterData, MonsterData } from '../../../Data';
 
 type ContextData = {
     dungeon: Dungeon;
     setDungeon : ( dungeon: Dungeon) => void;
+    monsterData: MonsterData;
 }
 
 const initialContextData: ContextData = {
     dungeon: initialDungeon,
-    setDungeon : () => {}
+    setDungeon : () => {},
+    monsterData: initialMonsterData
 }
 
 
@@ -20,11 +22,12 @@ export function useDungeon() {
 
 type Props = {
     intitialDungeon:Dungeon;
+    monsterData: MonsterData;
     children: ReactNode;
 }
 
 const DungeonProvider = (props:Props) => {
-    const {intitialDungeon, children} = props;
+    const {intitialDungeon, children, monsterData} = props;
     const [dungeon, setDungeon] = useState<Dungeon>(intitialDungeon);
     const { Provider } = DungeonContext;
 
@@ -36,7 +39,7 @@ const DungeonProvider = (props:Props) => {
         setDungeon(data);
     }
 
-    return <Provider value={{dungeon, setDungeon: setDungeonData}}>{children}</Provider>
+    return <Provider value={{dungeon, setDungeon: setDungeonData, monsterData}}>{children}</Provider>
 }
  
 export default DungeonProvider;

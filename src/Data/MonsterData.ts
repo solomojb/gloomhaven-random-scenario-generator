@@ -11,3 +11,8 @@ export interface MonsterData {
     spawns: Spawn[];
 
 }
+
+export const initialMonsterData = {
+    name: "",
+    spawns: [],
+}

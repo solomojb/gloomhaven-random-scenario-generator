@@ -42,7 +42,7 @@ const MapContainer = () => {
   }
 
   return (
-	  <DungeonProvider intitialDungeon={dungeonData}>
+	  <DungeonProvider intitialDungeon={dungeonData} monsterData={monsterData}>
 		<Form>
 			<MapEditor/>
 			<Form.Group>
@@ -50,17 +50,17 @@ const MapContainer = () => {
 					<PlayerCount/>
 					<div className="map-tiles">
 						{showPlaceholder && (<>
-						<Map monsterData={monsterData} />
+						<Map />
 						</>)}
 					</div>
-					<MapInfo monsterData={monsterData}/>
+					<MapInfo/>
 				</Form.Field>
 				<Form.Group>
 					<Form.Field>
 						<MapSelector defaultMapName={selectedMap} onChange={onDungeonChange}/>
 						<MapCard/>
 						<MonsterSelector defaultMonsterName={selectedMonster} onChange={onMonsterChange}/>
-						<MonsterCard data={monsterData} />
+						<MonsterCard />
 					</Form.Field>
 				</Form.Group>
 			</Form.Group>

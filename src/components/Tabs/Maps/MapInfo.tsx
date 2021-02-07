@@ -6,7 +6,6 @@ import MapOverlayTile from "./MapOverlayTile";
 import MonsterOverlayTile from "./MonsterOverlayTile";
 
 type Props = {
-    monsterData: MonsterData;
 }
 
 export type MapDataInfo = {
@@ -19,8 +18,8 @@ export type MonsterCount = {
 };
 
 const MapInfo = (props: Props) => {
-    const { dungeon:  { obstacles, corridors } } = useDungeon();
-    const { monsterData: { spawns } } = props;
+    const { dungeon:  { obstacles, corridors }, monsterData: { spawns } } = useDungeon();
+    const {  } = props;
     const counts: MonsterCount = {};
     spawns.forEach( spawn => {
         const { type, category } = spawn;

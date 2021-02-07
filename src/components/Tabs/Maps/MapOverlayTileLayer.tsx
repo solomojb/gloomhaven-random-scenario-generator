@@ -35,7 +35,6 @@ const MapOverlayTileLayer = (props: Props) => {
       }
 
       const patternStrings = tiles.map( tile => tile.pattern).filter(onlyUnique);
-      console.log(patternStrings);
       const patterns = patternStrings.map( pattern => <Pattern id={pattern} link={game.getOverlayTokenPath(pattern, overlayType)} size={{x:6.3, y:5.410}}/>)
 
     return <HexOverlay hexes={hexes} className={"map-grid"} patterns={patterns}/>
