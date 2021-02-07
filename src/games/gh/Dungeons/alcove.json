@@ -42,77 +42,75 @@
     "spawnPoints": [
       {
         "id": 1,
-        "row": 2, 
-        "column": 1
+        "q": -3, 
+        "r": -1
       },
       {
         "id": 2,
-        "row": 5, 
-        "column": 2
+        "q": -2, 
+        "r": 1
       },
       {
         "id": 3,
-        "row": 4, 
-        "column": 3
+        "q": -1, 
+        "r": 0
       },
       {
         "id": 4,
-        "row": 5, 
-        "column": 4
+        "q": 0, 
+        "r": 0
       },
       {
         "id": 5,
-        "row": 5, 
-        "column": 5
+        "q": 1, 
+        "r": 0
       },
       {
         "id": 6,
-        "row": 2, 
-        "column": 0
+        "q": -4, 
+        "r": -1
       },
       {
         "id": 7,
-        "row": 1, 
-        "column": 1
+        "q": -3, 
+        "r": -2
       },
       {
         "id": 8,
-        "row": 1, 
-        "column": 0
+        "q": -4, 
+        "r": -2
       },
       {
         "id": 9,
-        "row": 1, 
-        "column": 2
+        "q": -2, 
+        "r": -3
       },
       {
         "id": 10,
-        "row": 6, 
-        "column": 4
+        "q": 0, 
+        "r": 1
       },
       {
         "id": 11,
-        "row": 6, 
-        "column": 5
+        "q": 1, 
+        "r": 1
       },
       {
         "id": 12,
-        "row": 6, 
-        "column": 3
+        "q": -1, 
+        "r": 2
       }
     ],
     "obstacles": [
       {
-        "type": "boulder-1",
-        "row": 2,
-        "column": 2
+        "pattern": "boulder-1",
+        "q": -2,
+        "r": -2
       },
       {
-        "type": "boulder-2",
-        "row": 5.25,
-        "column": 2.80,
-        "rotation": 60,
-        "scale": 2
+        "pattern": "boulder-2",
+        "q": -1,
+        "r": 1
       }
     ]
   }

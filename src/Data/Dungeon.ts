@@ -1,10 +1,9 @@
 import { initialMap, Map } from "./Map";
 import { OverlayTile } from "./OverlayTile";
-import { SpawnPoint } from "./SpawnPoint";
 
 export interface Dungeon {
     map: Map;
-    spawnPoints: SpawnPoint[];
+    spawnPoints: OverlayTile[];
     obstacles: OverlayTile[];
     corridors: OverlayTile[];
 }

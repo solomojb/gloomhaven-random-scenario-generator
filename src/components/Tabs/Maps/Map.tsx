@@ -12,6 +12,7 @@ import { MonsterData, Tile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import MapGrid from "./MapGrid";
 import DungeonGrid from "./DungonGrid";
+import MapSpawnPointsLayer from "./MapSpawnPointsLayer";
 
 type Props = {
   monsterData: MonsterData;
@@ -67,17 +68,10 @@ const Map = (props: Props) => {
         { isFlagOn(ShowFlags.AllGrid) && (<DungeonGrid/>) }
         { isFlagOn(ShowFlags.Grid) && (<MapGrid/>) }
         { isFlagOn(ShowFlags.Corridors) && <MapOverlayTileLayer overlayType="corridors" tiles={corridors}/>}
-        { isFlagOn(ShowFlags.SpawnPoint) && spawnPoints.map( spawnPoint => {
-            const { id, row, column } = spawnPoint;
-            return <MapSpawnPoint row={row} column={column}>
-                    <MapOverlayTile category={"corridors"} tileName={"natural-stone-1"}/>
-                    <div className="map-spawn-id">{id}</div>
-                  </MapSpawnPoint>
-
-        })}
+        { isFlagOn(ShowFlags.SpawnPoint) && <MapSpawnPointsLayer/>}
         {isFlagOn(ShowFlags.Obstacles) && <MapOverlayTileLayer overlayType="obstacles" tiles={obstacles}/>}
 
-        {isFlagOn(ShowFlags.Spawns) && spawns.map( spawn => {
+        {/* {isFlagOn(ShowFlags.Spawns) && spawns.map( spawn => {
             const { type, id, monsterType, category } = spawn;
             const spawnPoint = spawnPoints.find( spawn => spawn.id === id);
             if (spawnPoint && type) {
@@ -89,7 +83,7 @@ const Map = (props: Props) => {
                       {image}
                     </MapSpawnPoint>
             }
-        })}
+        })} */}
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import React from "react"
+import { Hexagon, Pattern} from "react-hexgrid"
 import { OverlayTile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import { useDungeon } from "./DungeonProvider";
-import MapSpawnPoint from "./MapSpawnPoint";
+import HexOverlay from "./HexOverlay";
 
 type Props = {
     tiles: OverlayTile[];
@@ -18,20 +19,26 @@ const MapOverlayTileLayer = (props: Props) => {
         return null;
     }
 
-    return (<>
-        {tiles.map( tile => {
-            const { type, row, column, scale = 1, rotation = 0 } = tile;
-            const modifiedRotation = rotation + (rotateHex ? 90 : 0);
-            const rotationStyle = modifiedRotation ? `rotate(${modifiedRotation}deg)`: '';
-            const scaleStyle = scale != 1 ? `scale(${scale})` : ''; 
-            const transform = rotationStyle + ' ' + scaleStyle;
-            return <MapSpawnPoint row={row} column={column}>
-                    <img style={{transformOrigin: "center", transform }}src={game.getOverlayTokenPath(type,overlayType)}/>
-                </MapSpawnPoint>
+    const buildHex = (tile:OverlayTile) => {
+        const { q, r, pattern} = tile;
+        return <Hexagon q={q} r={r} fill={pattern}/>
+     }
+   
+      const hexes = tiles.map(tile => {
+        const hexes = [];
+          hexes.push(buildHex(tile));
+        return hexes;
+      })
 
-        })}
-        </>
-    );
+      function onlyUnique(value:any, index: any, self: any) {
+        return self.indexOf(value) === index;
+      }
+
+      const patternStrings = tiles.map( tile => tile.pattern).filter(onlyUnique);
+      console.log(patternStrings);
+      const patterns = patternStrings.map( pattern => <Pattern id={pattern} link={game.getOverlayTokenPath(pattern, overlayType)} size={{x:6.3, y:5.410}}/>)
+
+    return <HexOverlay hexes={hexes} className={"map-grid"} patterns={patterns}/>
 }
 
 export default MapOverlayTileLayer;

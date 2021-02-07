@@ -33,29 +33,29 @@ const MapInfo = (props: Props) => {
         counts[type] = countData;
     })
 
-    obstacles.forEach( obstacle => {
-        const { type } = obstacle;
-        let countData = counts[type];
-        if (!countData) {
-            countData = { count: 1, category:"obstacles"}
-        } else { 
-            countData.count += 1;
-        }
-        counts[type] = countData;
-    })
+    // obstacles.forEach( obstacle => {
+    //     const { type } = obstacle;
+    //     let countData = counts[type];
+    //     if (!countData) {
+    //         countData = { count: 1, category:"obstacles"}
+    //     } else { 
+    //         countData.count += 1;
+    //     }
+    //     counts[type] = countData;
+    // })
 
-    if (corridors) {
-        corridors.forEach( corridor => {
-            const { type } = corridor;
-            let countData = counts[type];
-            if (!countData) {
-                countData = { count: 1, category:"corridors"}
-            } else { 
-                countData.count += 1;
-            }
-            counts[type] = countData;
-        })
-    }
+    // if (corridors) {
+    //     corridors.forEach( corridor => {
+    //         const { type } = corridor;
+    //         let countData = counts[type];
+    //         if (!countData) {
+    //             countData = { count: 1, category:"corridors"}
+    //         } else { 
+    //             countData.count += 1;
+    //         }
+    //         counts[type] = countData;
+    //     })
+    // }
 
     let info = Object.keys(counts).map( (type) => {
         const { category, count} = counts[type];

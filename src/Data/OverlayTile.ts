@@ -1,7 +1,8 @@
 export interface OverlayTile {
-    type: string;
-    row: number;
-    column: number;
+    id: number;
+    pattern: string;
+    q: number;
+    r: number;
     rotation: number;
     scale: number;
 }

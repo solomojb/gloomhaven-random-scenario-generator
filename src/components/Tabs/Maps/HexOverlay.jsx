@@ -1,48 +1,5 @@
-import React, { useCallback } from "react"
-import { HexGrid, Layout, Hexagon, Text, Pattern, Path, Hex } from 'react-hexgrid';
-import { useGame } from "../../Game/GameProvider";
-import { useDungeon } from "./DungeonProvider";
-// import MapOverlayTile from "./MapOverlayTile";
-// import MapSpawnPoint from "./MapSpawnPoint";
-
-const allHexColumns = [
-  { q: 4,
-    minR: -7,
-    maxR: 2,
-  },
-  { q: 3,
-    minR: -6,
-    maxR: 3,
-  },
-  { q: 2,
-    minR: -6,
-    maxR: 3,
-  },
-  { q: 1,
-    minR: -5,
-    maxR: 4,
-  },
-  { q: 0,
-    minR: -5,
-    maxR: 4,
-  },
-  { q: -1,
-    minR: -4,
-    maxR: 5,
-  },
-  { q: -2,
-    minR: -4,
-    maxR: 5,
-  },
-  { q: -3,
-    minR: -3,
-    maxR: 5,
-  },
-  { q: -4,
-    minR: -3,
-    maxR: 6,
-  }
-]
+import React from "react"
+import { HexGrid, Layout} from 'react-hexgrid';
 
 const HexOverlay = (props) => { 
   const { hexes, className, patterns } = props;
