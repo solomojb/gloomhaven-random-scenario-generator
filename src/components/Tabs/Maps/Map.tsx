@@ -1,4 +1,4 @@
-import React, { createRef, Ref, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MapSpawnPoint from "./MapSpawnPoint";
 import "./map.css"
 import { getItemViewState } from "../../../State/Selectors";
@@ -9,8 +9,9 @@ import MonsterOverlayTile from "./MonsterOverlayTile";
 import { ShowFlags } from "../../../State/ItemViewState";
 import { useDungeon } from "./DungeonProvider";
 import { MonsterData, Tile } from "../../../Data";
-import MapGrid from "./MapGrid";
 import { useGame } from "../../Game/GameProvider";
+import MapGrid from "./MapGrid";
+import DungeonGrid from "./DungonGrid";
 
 type Props = {
   monsterData: MonsterData;
@@ -18,7 +19,7 @@ type Props = {
 
 const Map = (props: Props) => {
   const game = useGame();
-  const { dungeon: {map: {tiles, hexColumns}, spawnPoints, obstacles, corridors } } = useDungeon();
+  const { dungeon: {map: {tiles}, spawnPoints, obstacles, corridors } } = useDungeon();
   const { monsterData: {spawns} } = props;
 
   const [heights, setHeights] = useState<number[]>([]);
@@ -63,8 +64,8 @@ const Map = (props: Props) => {
             return <MapTile tile={tile} onTileLoad={(width: number, height:number) => onTileLoad(width, height, index)}/>
           })}
         </div>
-        { isFlagOn(ShowFlags.AllGrid) && (<MapGrid/>) }
-        { isFlagOn(ShowFlags.Grid) && (<MapGrid className={"map-grid"} hexColumns={hexColumns} patternLink={game.getOverlayTokenPath("wood-1", "corridors")}/>) }
+        { isFlagOn(ShowFlags.AllGrid) && (<DungeonGrid/>) }
+        { isFlagOn(ShowFlags.Grid) && (<MapGrid/>) }
         { isFlagOn(ShowFlags.Corridors) && <MapOverlayTileLayer overlayType="corridors" tiles={corridors}/>}
         { isFlagOn(ShowFlags.SpawnPoint) && spawnPoints.map( spawnPoint => {
             const { id, row, column } = spawnPoint;

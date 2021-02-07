@@ -44,25 +44,10 @@ const allHexColumns = [
   }
 ]
 
-const MapGrid = (props) => { 
-  const { hexColumns, className, patternLink } = props;
-  const buildHex = (q, r) => {
-    return <Hexagon q={q} r={r} fill="wood-1">
-      <Text>{`${q} ${r}`}</Text>
-      </Hexagon>
-  }
+const HexOverlay = (props) => { 
+  const { hexes, className, patterns } = props;
 
-  const hexesToUse = hexColumns || allHexColumns;
-
-  const hexes = hexesToUse.map(data => {
-    const hexes = [];
-    for (let r = data.minR; r <= data.maxR; r++) {
-      hexes.push(buildHex(data.q, r));
-    }
-    return hexes;
-  })
-
-  return <div className={className || "all-grid"}>
+  return <div className={className}>
         <HexGrid width={500} height={640}>
           {/* Grid with manually inserted hexagons */}
           <Layout size={{ x: 6.2, y: 6.2 }} flat={true} spacing={1} origin={{ x: 0, y: 0 }}>
@@ -86,7 +71,7 @@ const MapGrid = (props) => {
             <Hexagon q={-2} r={0} s={1} />
             <Path start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} /> */}
           </Layout>
-    01      { patternLink && <Pattern id="wood-1" link={patternLink} size={{x:6.3, y:5.410}}/>}
+            {patterns}
           {/*<Pattern id="pat-1" link="http://cat-picture" />
           <Pattern id="pat-2" link="http://cat-picture2" /> */}
         </HexGrid>
@@ -104,4 +89,4 @@ const MapGrid = (props) => {
     // return <div>{grid}</div>;
 }
 
-export default MapGrid;
+export default HexOverlay;
