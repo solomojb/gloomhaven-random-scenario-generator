@@ -5,4 +5,7 @@ export interface OverlayTile {
     r: number;
     rotation: number;
     scale: number;
+    hexType: string;
+    x: number;
+    y: number;
 }

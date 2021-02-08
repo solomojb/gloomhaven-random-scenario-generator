@@ -105,12 +105,16 @@
       {
         "pattern": "boulder-1",
         "q": -2,
-        "r": -2
-      },
+        "r": -2      },
       {
         "pattern": "boulder-2",
         "q": -1,
-        "r": 1
+        "r": 1,
+        "scale": 2,
+        "rotation": 60,
+        "hexType": "2x12",
+        "x": 9,
+        "y": 0
       }
     ]
   }

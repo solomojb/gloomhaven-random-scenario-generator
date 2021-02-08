@@ -101,14 +101,16 @@
         "pattern": "table",
         "q": -3,
         "r": -4,
-        "scale": 2
+        "scale": 2,
+        "hexType": "2x13"
       },
       {
         "pattern": "table",
         "q": -1,
         "r": -5,
         "rotation": 0,
-        "scale": 2
+        "scale": 2,
+        "hexType": "2x13"
       }
     ],
     "corridors": [
@@ -122,7 +124,8 @@
         "q": -3,
         "r": -1,
         "rotation": 0,
-        "scale": 2
+        "scale": 2,
+        "hexType": "2x13"
       }
     ]
   }

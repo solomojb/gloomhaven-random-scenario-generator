@@ -108,7 +108,8 @@
         "q": -3,
         "r": 0,
         "rotation": 0,
-        "scale": 2
+        "scale": 2,
+        "hexType": "2x13"
       }
     ]
   }

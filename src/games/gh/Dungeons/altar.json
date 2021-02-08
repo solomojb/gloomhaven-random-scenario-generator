@@ -123,14 +123,14 @@
       "pattern": "altar",
       "q": -1,
       "r": -2,
-      "rotation": -1,
-      "scale": -2
+      "rotation": 0,
+      "scale": 1
     },
     {
       "pattern": "altar",
       "q": 0,
       "r": -2,
       "rotation": 180,
-      "scale": 1.2
+      "scale": 1
     }
   ]}
