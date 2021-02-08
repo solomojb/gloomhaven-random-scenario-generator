@@ -12,7 +12,6 @@ type TumblerProps = {
     const { label, value, step, onChange } = props;
   
     const changeValue = (diff: number) => {
-      console.log("changing", label, "by", diff);
       const newVal = value + diff
       onChange(newVal);
     };

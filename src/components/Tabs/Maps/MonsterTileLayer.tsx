@@ -1,9 +1,10 @@
-import React, { ReactNode } from "react"
-import { Hexagon, Text, Pattern} from "react-hexgrid"
+import React from "react"
+import { Hexagon} from "react-hexgrid"
 import { OverlayTile } from "../../../Data";
 import { getItemViewState } from "../../../State/Selectors";
 import { useGame } from "../../Game/GameProvider";
 import { useDungeon } from "./DungeonProvider";
+import HexPattern from "./Grids/HexPattern";
 import HexOverlay from "./HexOverlay";
 
 type Props = {
@@ -29,7 +30,7 @@ const MonsterTileLayer = (props: Props) => {
                     if (monsterKey != "none") {
                         hexes.push(buildHex(spawnPoint, type));   
                         if (monsterKey === "elite") {
-                            hexes.push(buildHex(spawnPoint, monsterKey));        
+                            hexes.push(buildHex(spawnPoint, "EliteOverlay"));        
                         }     
                     }
                 }
@@ -41,13 +42,13 @@ const MonsterTileLayer = (props: Props) => {
       const patterns = spawns.map( spawn => {
             const { type, category } = spawn;
             if (category === "monster") {
-                return <Pattern id={type.replace(" ", "-")} link={game.getMonsterImage(type, false)} size={{x:6.2, y:5.6}}/>;
+                return <HexPattern id={type} category={category} size={{x:6.2, y:5.6}}/>;
             } else {
-                return <Pattern id={type} link={game.getOverlayTokenPath(type, category)} size={{x:6.3, y:5.410}}/>;
+                return <HexPattern id={type} category={category} size={{x:6.3, y:5.410}}/>;
            }
       });
 
-      patterns.push(<Pattern id={"elite"} link={game.getMonsterImage("EliteOverlay", false)} size={{x:6.2, y:5.6}}/>)
+      patterns.push(<HexPattern id={"EliteOverlay"} category="monster" size={{x:6.2, y:5.6}}/>)
 
     return <HexOverlay hexes={hexes} className={"map-grid"} patterns={patterns}/>
 }

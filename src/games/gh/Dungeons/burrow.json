@@ -5,100 +5,108 @@
         "tile": "a2a",
         "rotation": 270,
         "scale": 0.73,
-        "offsetX": 0,
-        "offsetY": 0
+        "offsetX": 4,
+        "offsetY": -11
       },
       {
         "tile": "a1a",
         "rotation": 270,
         "scale": 0.76,
-        "offsetX": 2,
-        "offsetY": 22
+        "offsetX": 6,
+        "offsetY": 12
       }],
       "offsetX": 31,
-      "offsetY": -10
+      "offsetY": -10,
+      "hexColumns": [
+        { "q": -4  ,
+          "minR": -3,
+          "maxR": 5
+        },
+        { "q": -3,
+          "minR": -4,
+          "maxR": 5
+        }
+      ]
     },
-    "maxRows": 10,
-    "maxColumns": 2, 
     "spawnPoints": [
       {
         "id": 1,
-        "row": 4, 
-        "column": 1
+        "q": -3, 
+        "r": 0
       },
       {
         "id": 2,
-        "row": 5, 
-        "column": 0
+        "q": -4, 
+        "r": 1
       },
       {
         "id": 3,
-        "row": 5, 
-        "column": 1
+        "q": -3, 
+        "r": 1
       },
       {
         "id": 4,
-        "row": 6, 
-        "column": 0
+        "q": -4, 
+        "r": 2
       },
       {
         "id": 5,
-        "row": 3, 
-        "column": 1
+        "q": -3, 
+        "r": -1
       },
       {
         "id": 6,
-        "row": 3, 
-        "column": 0
+        "q": -4, 
+        "r": -1
       },
       {
         "id": 7,
-        "row": 2, 
-        "column": 1
+        "q": -3, 
+        "r": -2
       },
       {
         "id": 8,
-        "row": 7, 
-        "column": 1
+        "q": -3, 
+        "r": 3
       },
       {
         "id": 9,
-        "row": 7, 
-        "column": 0
+        "q": -4, 
+        "r": 3
       },
       {
         "id": 10,
-        "row": 1, 
-        "column": 1
+        "q": -3, 
+        "r": -3
       },
       {
         "id": 11,
-        "row": 1, 
-        "column": 0
+        "q": -4, 
+        "r": -3
       },
       {
         "id": 12,
-        "row": 0, 
-        "column": 1
+        "q": -3, 
+        "r": -4
       }
     ],
     "obstacles": [
       {
-        "type": "boulder-1",
-        "row": 2,
-        "column": 0
+        "pattern": "boulder-1",
+        "q": -4,
+        "r": -2
       }
     ],
     "corridors": [
       {
-        "type": "man-made-stone-1",
-        "row": 5,
-        "column": 0
+        "pattern": "man-made-stone-1",
+        "q": -4,
+        "r": 1
       },
       {
-        "type": "man-made-stone-2",
-        "row": 4.45,
-        "column": 1.3,
+        "pattern": "man-made-stone-2",
+        "q": -3,
+        "r": 0,
         "rotation": 0,
         "scale": 2
       }

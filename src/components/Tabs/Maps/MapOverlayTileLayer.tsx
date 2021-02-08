@@ -1,8 +1,9 @@
 import React from "react"
-import { Hexagon, Pattern} from "react-hexgrid"
+import { Hexagon} from "react-hexgrid"
 import { OverlayTile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import { useDungeon } from "./DungeonProvider";
+import HexPattern from "./Grids/HexPattern";
 import HexOverlay from "./HexOverlay";
 
 type Props = {
@@ -20,8 +21,9 @@ const MapOverlayTileLayer = (props: Props) => {
     }
 
     const buildHex = (tile:OverlayTile) => {
-        const { q, r, pattern} = tile;
-        return <Hexagon q={q} r={r} fill={pattern}/>
+        const { q, r, pattern, rotation} = tile;
+        const fillName = pattern + (rotation ? rotation : '');
+        return <Hexagon q={q} r={r} fill={fillName}/>
      }
    
       const hexes = tiles.map(tile => {
@@ -34,8 +36,8 @@ const MapOverlayTileLayer = (props: Props) => {
         return self.indexOf(value) === index;
       }
 
-      const patternStrings = tiles.map( tile => tile.pattern).filter(onlyUnique);
-      const patterns = patternStrings.map( pattern => <Pattern id={pattern} link={game.getOverlayTokenPath(pattern, overlayType)} size={{x:6.3, y:5.410}}/>)
+      const patternStrings = tiles.map( tile => {return {pattern: tile.pattern, rotation: tile.rotation}}).filter(onlyUnique);
+      const patterns = patternStrings.map( tile => <HexPattern id={tile.pattern} category={overlayType} rotation={tile.rotation} size={{x:6.3, y:5.410}}/>)
 
     return <HexOverlay hexes={hexes} className={"map-grid"} patterns={patterns}/>
 }

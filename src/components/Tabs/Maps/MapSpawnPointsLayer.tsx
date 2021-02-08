@@ -1,8 +1,9 @@
 import React from "react"
-import { Hexagon, Text, Pattern} from "react-hexgrid"
+import { Hexagon, Text} from "react-hexgrid"
 import { OverlayTile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import { useDungeon } from "./DungeonProvider";
+import HexPattern from "./Grids/HexPattern";
 import HexOverlay from "./HexOverlay";
 
 type Props = {
@@ -29,7 +30,7 @@ const MapSpawnPointsLayer = (props: Props) => {
         return self.indexOf(value) === index;
       }
 
-      const patterns = [<Pattern id="natural-stone-1" link={game.getOverlayTokenPath("natural-stone-1", "corridors")} size={{x:6.3, y:5.410}}/>];
+      const patterns = [<HexPattern id="natural-stone-1" category="corridors" size={{x:6.3, y:5.410}}/>];
 
     return <HexOverlay hexes={hexes} className={"map-grid"} patterns={patterns}/>
 }

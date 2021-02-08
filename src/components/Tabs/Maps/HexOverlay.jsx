@@ -1,13 +1,15 @@
 import React from "react"
 import { HexGrid, Layout} from 'react-hexgrid';
+import { useDungeon } from "./DungeonProvider";
 
 const HexOverlay = (props) => { 
+  const { dungeon: {map: {rotateHex}}} = useDungeon();
   const { hexes, className, patterns } = props;
 
   return <div className={className}>
         <HexGrid width={500} height={640}>
           {/* Grid with manually inserted hexagons */}
-          <Layout size={{ x: 6.2, y: 6.2 }} flat={true} spacing={1} origin={{ x: 0, y: 0 }}>
+          <Layout size={{ x: 6.2, y: 6.2 }} flat={!rotateHex} spacing={1} origin={{ x: 0, y: 0 }}>
              {hexes}
             {/* <Hexagon q={1} r={0} s={1} /> */}
             {/* <Hexagon q={2} r={0} s={2} /> */}
