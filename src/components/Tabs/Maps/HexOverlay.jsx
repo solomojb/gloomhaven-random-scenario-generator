@@ -1,5 +1,5 @@
 import React from "react"
-import { HexGrid, Layout} from 'react-hexgrid';
+import { HexGrid, Layout} from '../../../hexgrid';
 import { useDungeon } from "./DungeonProvider";
 
 class Point {

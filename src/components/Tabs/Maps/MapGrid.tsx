@@ -1,5 +1,5 @@
 import React from "react"
-import { Hexagon, Text} from "react-hexgrid"
+import { Hexagon, Text} from "../../../hexgrid"
 import { useGame } from "../../Game/GameProvider";
 import { useDungeon } from "./DungeonProvider"
 import HexPattern from "./Grids/HexPattern";
@@ -13,7 +13,7 @@ const MapGrid = (props: Props) => {
     const { dungeon: { map : { hexColumns} } } = useDungeon();
     const game = useGame();
     const buildHex = (q:number, r: number) => {
-        return <Hexagon q={q} r={r} fill="wood-1">
+        return <Hexagon q={q} r={r} s={0} fill="wood-1">
           <Text>{`${q} ${r}`}</Text>
           </Hexagon>
       }

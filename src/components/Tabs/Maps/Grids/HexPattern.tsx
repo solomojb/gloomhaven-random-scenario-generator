@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { gameDataTypes } from '../../../../games';
+import { Pattern } from '../../../../hexgrid';
 import { useGame } from '../../../Game/GameProvider';
 import { useDungeon } from '../DungeonProvider';
 
@@ -44,15 +44,7 @@ const HexPattern = (props:Props) => {
         patternId += rotation;
     }
 
-    console.log(width, height);
-
-    return (
-      <defs>
-        <pattern id={patternId} patternUnits="objectBoundingBox" x={0} y={0} width={width} height={height} style={patternStyle}>
-          <image xlinkHref={link} x={0} y={0} width={width*2} height={height*2} style={imageStyle}/>
-        </pattern>
-      </defs>
-    );
+    return <Pattern id={patternId} link={link} size={{x:width, y:height}} style={patternStyle} imageStyle={imageStyle}/>;
 
 }
 

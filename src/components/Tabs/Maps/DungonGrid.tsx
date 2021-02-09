@@ -1,49 +1,30 @@
 import React from "react"
-import { Hexagon, Text} from "react-hexgrid"
+import { GridGenerator, Hex, Hexagon, Text} from "../../../hexgrid"
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "./Grids/HexPattern";
 import HexOverlay from "./HexOverlay";
 
 const DungeonGrid = () => {
     const { dungeon: {map: {rotateHex}}} = useDungeon();
-    const buildHex = (q:number, r: number) => {
-        return <Hexagon q={q} r={r} fill="earth-1">
+    const buildHex = (hex: Hex) => {
+        const { q, r, s = 0} = hex;
+        return <Hexagon q={q} r={r} s={s} fill="earth-1">
           <Text>{`${q} ${r}`}</Text>
           </Hexagon>
       }
-    const hexes = [];
-    if (rotateHex) {
-        let maxQ = 6;
-        let minQ = -1;
-        for (let r = -5; r <= 4; r++) {
-            for (let q = minQ; q <= maxQ; q++) {
-                hexes.push(buildHex(q, r));
-            }
-            if (r%2 === 0){
-                minQ -=1;
-            } else {
-                maxQ -=1;
-            }
-        }
-    }
-    else {
-        let maxR = 6;
-        let minR = -3;
-        for (let q = -4; q <= 4; q++) {
-            for (let r = minR; r <= maxR; r++) {
-                hexes.push(buildHex(q, r));
-            }
-            if (q%2 === 0){
-                minR -=1;
-            } else {
-                maxR -=1;
-            }
-        }
-    }
+
+    let hexesList = [];
+     if (rotateHex) {
+       hexesList = GridGenerator.rectangle(8,5, 4, -5);
+     }
+     else {
+      hexesList = GridGenerator.orientedRectangle(5,9, -4, 5);
+     }
+
 
     const patterns:any[] = [<HexPattern id="earth-1" category="corridors" size={{x:6.3, y:5.410}}/>];
     
-      return <HexOverlay hexes={hexes} className='all-grid' patterns={patterns}/>
+      return <HexOverlay hexes={hexesList.map(buildHex)} className='all-grid' patterns={patterns}/>
 }
 
 export default DungeonGrid;

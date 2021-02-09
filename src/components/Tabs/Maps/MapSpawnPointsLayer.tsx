@@ -1,5 +1,5 @@
 import React from "react"
-import { Hexagon, Text} from "react-hexgrid"
+import { Hexagon, Text } from "../../../hexgrid";
 import { OverlayTile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import { useDungeon } from "./DungeonProvider";
@@ -15,7 +15,7 @@ const MapSpawnPointsLayer = (props: Props) => {
 
     const buildHex = (spawnPoint:OverlayTile) => {
         const { q, r, id} = spawnPoint;
-        return <Hexagon q={q} r={r} fill={"natural-stone-1"}>
+        return <Hexagon q={q} r={r} s={0} fill={"natural-stone-1"}>
             <Text>{id}</Text>
             </Hexagon>
      }

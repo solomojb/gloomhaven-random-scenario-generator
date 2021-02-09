@@ -1,5 +1,5 @@
 import React from "react";
-import { Hexagon } from "react-hexgrid";
+import { Hexagon } from "../../../hexgrid";
 import { OverlayTile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import { useDungeon } from "./DungeonProvider";
@@ -28,7 +28,7 @@ const MapOverlayTileLayer = (props: Props) => {
     const { q, r, pattern, rotation, hexType } = tile;
     const fillName = pattern + (rotation ? rotation : "");
     return (
-      <Hexagon q={q} r={r} fill={fillName} hexType={hexType || "normal"} />
+      <Hexagon q={q} r={r} s={0} fill={fillName} hexType={hexType || "normal"} />
     );
   };
 

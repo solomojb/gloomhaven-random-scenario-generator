@@ -1,5 +1,5 @@
 import React from "react"
-import { Hexagon} from "react-hexgrid"
+import { Hexagon } from "../../../hexgrid";
 import { OverlayTile } from "../../../Data";
 import { getItemViewState } from "../../../State/Selectors";
 import { useGame } from "../../Game/GameProvider";
@@ -17,7 +17,7 @@ const MonsterTileLayer = (props: Props) => {
 
     const buildHex = (spawnPoint:OverlayTile, pattern:string) => {
         const { q, r} = spawnPoint;
-        return <Hexagon q={q} r={r} fill={pattern.replace(" ", "-")}/>
+        return <Hexagon q={q} r={r} s={0} fill={pattern.replace(" ", "-")}/>
      }
 
      const hexes: JSX.Element[] = [];
