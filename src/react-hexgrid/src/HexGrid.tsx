@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
-class HexGrid extends Component {
-  static propTypes = {
-    width: PropTypes.oneOfType([
-      PropTypes.string.isRequired,
-      PropTypes.number.isRequired,
-    ]),
-    height: PropTypes.oneOfType([
-      PropTypes.string.isRequired,
-      PropTypes.number.isRequired,
-    ]),
-    viewBox: PropTypes.string,
-    children: PropTypes.node.isRequired
-  };
+type Props = {
+  width: string | number;
+  height: string | number;
+  viewBox: string;
+  children?: ReactNode | ReactNode[];
+}
 
+class HexGrid extends Component<Props> {
   static defaultProps = {
     width: 800,
     height: 600,
