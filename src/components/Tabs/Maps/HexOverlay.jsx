@@ -1,5 +1,5 @@
 import React from "react"
-import { HexGrid, Layout, HexUtils } from "../../../react-hexgrid";
+import { HexGrid, Layout, HexUtils} from "../../../react-hexgrid";
 import { ShowFlags } from "../../../State/ItemViewState";
 import { useDungeon } from "./DungeonProvider";
 import DungeonGrid from "./Grids/DungonGrid";
@@ -56,6 +56,7 @@ const HexOverlay = () => {
              {spawnPointHexes}
              {obstacleHexes}
              {spawnHexes}
+            {/* <Path start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} /> */}
           </Layout>
             {dungeonGridPatterns}
             {gridPatterns}
