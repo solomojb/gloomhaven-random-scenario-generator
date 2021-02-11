@@ -13,13 +13,14 @@ class Text extends Component {
       PropTypes.string,
       PropTypes.number
     ]),
-    className: PropTypes.string
+    className: PropTypes.string,
+    textStyle: PropTypes.object
   };
 
   render() {
-    const { children, x, y, className } = this.props;
+    const { children, x, y, className, textStyle } = this.props;
     return (
-      <text x={x || 0} y={y ? y : '0.3em'} className={className} textAnchor="middle">{children}</text>
+      <text x={x || 0} y={y ? y : '0.3em'} style={textStyle} className={className} textAnchor="middle">{children}</text>
     );
   }
 }
