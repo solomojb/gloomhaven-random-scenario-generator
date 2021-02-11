@@ -6,7 +6,7 @@ import { useDungeon } from "../DungeonProvider";
 import HexPattern from "./HexPattern";
 import { ShowFlags } from "../../../../State/ItemViewState";
 
-const MonsterTileLayer = () => {
+const SpawnLayer = () => {
   const { numberOfPlayers, showFlags } = getItemViewState();
   const {
     dungeon: { spawnPoints },
@@ -15,7 +15,7 @@ const MonsterTileLayer = () => {
 
   const buildHex = (spawnPoint: OverlayTile, pattern: string) => {
     const { q, r } = spawnPoint;
-    return <Hexagon q={q} r={r} fill={pattern.replace(" ", "-")} />;
+    return <Hexagon q={q} r={r} s={0} fill={pattern.replace(" ", "-")} />;
   };
   const hexes: JSX.Element[] = [];
   let patterns: JSX.Element[] = [];
@@ -68,4 +68,4 @@ const MonsterTileLayer = () => {
   return { hexes, patterns };
 };
 
-export default MonsterTileLayer;
+export default SpawnLayer;

@@ -10,7 +10,7 @@ const MapGrid = () => {
     const { showFlags } = getItemViewState();
 
     const buildHex = (q:number, r: number) => {
-        return <Hexagon q={q} r={r} fill="wood-1">
+        return <Hexagon q={q} r={r} s={0} fill="wood-1">
           <Text>{`${q} ${r}`}</Text>
           </Hexagon>
       }
