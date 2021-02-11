@@ -44,8 +44,6 @@ const HexPattern = (props:Props) => {
         patternId += rotation;
     }
 
-    console.log(width, height);
-
     return (
       <defs>
         <pattern id={patternId} patternUnits="objectBoundingBox" x={0} y={0} width={width} height={height} style={patternStyle}>

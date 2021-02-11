@@ -1,5 +1,5 @@
 import React from "react"
-import { Hexagon, Text} from "react-hexgrid"
+import { Hexagon, Text} from "../../../react-hexgrid"
 import { OverlayTile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import { useDungeon } from "./DungeonProvider";
