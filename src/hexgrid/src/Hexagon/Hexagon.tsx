@@ -97,7 +97,7 @@ const Hexagon = (props: Props) => {
   }
 
   const fillId = (fill) ? `url(#${fill})` : null;
-  const type = hexType || "normal";
+  const type = hexType || "1x1Hex";
   return (
     <g
       className={`hexagon-group ${className}`}

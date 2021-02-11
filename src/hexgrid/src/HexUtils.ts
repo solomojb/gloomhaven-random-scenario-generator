@@ -1,4 +1,5 @@
 import Hex from './models/Hex';
+import Orientation from './models/Orientation';
 import Point from './models/Point';
 
 class HexUtils {
@@ -69,9 +70,6 @@ class HexUtils {
   }
 
   static hexToPixel(hex:Hex, layout: any) : Point {
-    if (!layout.size) {
-      console.log("uhoh");
-    }
     const s = layout.spacing;
     const M = layout.orientation;
     let x = (M.f0 * hex.q + M.f1 * hex.r) * layout.size.x;
@@ -101,6 +99,34 @@ class HexUtils {
 
   static getID(hex:Hex) : string {
     return `${hex.q},${hex.r},${hex.s}`;
+  }
+
+  static getPointOffset(corner: number, orientation: Orientation, size:Point) : Point {
+    let angle = 2.0 * Math.PI * (corner + orientation.startAngle) / 6;
+    return new Point(size.x * Math.cos(angle), size.y * Math.sin(angle));
+  }
+
+  static LAYOUT_FLAT = new Orientation(3.0 / 2.0, 0.0, Math.sqrt(3.0) / 2.0, Math.sqrt(3.0),2.0 / 3.0, 0.0, -1.0 / 3.0, Math.sqrt(3.0) / 3.0, 0.0);
+  static LAYOUT_POINTY = new Orientation(Math.sqrt(3.0), Math.sqrt(3.0) / 2.0, 0.0, 3.0 / 2.0, Math.sqrt(3.0) / 3.0, -1.0 / 3.0, 0.0, 2.0 / 3.0, 0.5);
+
+  static getOrientation(flat: boolean) {
+    return (flat) ? HexUtils.LAYOUT_FLAT : HexUtils.LAYOUT_POINTY;
+  }
+
+  static calculateCoordinates(flat:boolean, size:Point, center:Point = {x:0, y:0}) : Point[]{
+    const orientation = HexUtils.getOrientation(flat);
+    const corners: Point[] = [];
+    Array.from(new Array(6), (x, i) => {
+      const offset = HexUtils.getPointOffset(i, orientation, size);
+      const point = new Point(center.x + offset.x, center.y + offset.y);
+      corners.push(point);
+    });
+
+    return corners;
+  }
+
+  static convertToString( points: Point[]) : string {
+    return points.map(point => `${point.x},${point.y}`).join(' ')
   }
 }
 

@@ -28,7 +28,7 @@ const MapOverlayTileLayer = (props: Props) => {
     const { q, r, pattern, rotation, hexType } = tile;
     const fillName = pattern + (rotation ? rotation : "");
     return (
-      <Hexagon q={q} r={r} s={0} fill={fillName} hexType={hexType || "normal"} />
+      <Hexagon q={q} r={r} s={0} fill={fillName} hexType={hexType || "1x1Hex"} />
     );
   };
 
