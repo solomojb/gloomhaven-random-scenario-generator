@@ -62,22 +62,6 @@
   left: 0;
 }
 
-.all-grid {
-  position: absolute;
-  min-width: 500px;
-  min-height: 600px;
-  top: 0;
-  left: 0;
-  
-}
-
-.all-grid svg g polygon {
-  stroke: red;
-  stroke-width: 0.2;
-  transition: fill-opacity .5s;
-  /* transform: rotate(90deg); */
-}
-
 .rotated90 {
   transform: rotate(90deg);
 }

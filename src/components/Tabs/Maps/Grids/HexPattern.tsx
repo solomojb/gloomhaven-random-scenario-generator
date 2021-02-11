@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { gameDataTypes } from '../../../../games';
 import { useGame } from '../../../Game/GameProvider';
 import { useDungeon } from '../DungeonProvider';
 
