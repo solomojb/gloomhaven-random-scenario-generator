@@ -7,15 +7,16 @@ import MapGrid from "./Grids/MapGrid";
 import OverlayTileLayer from "./Grids/OverlayTileLayer";
 import SpawnPointsLayer from "./Grids/SpawnPointsLayer";
 import SpawnLayer from "./Grids/SpawnLayer";
+import Point from "../../../react-hexgrid/src/models/Point";
 
 const HexOverlay = () => { 
   const { dungeon: {map: {rotateHex}, obstacles, corridors}} = useDungeon();
 
-  const getPoints =(corners, starting, count = 6) => {
+  const getPoints =(corners: Point[], starting: number, count = 6) => {
     return [...Array(count)].map((_c, index) => corners[(index +starting)%6]);
   }
 
-  const createCustomLayouts = (flat, size) => {
+  const createCustomLayouts = (flat: boolean, size: Point) => {
     const originalCorners = HexUtils.calculateCoordinates(flat, size);
 
     const dlCorners = HexUtils.calculateCoordinates(flat, size, {x: -1.5 * size.x, y:size.y/2 * Math.sqrt(3)});
