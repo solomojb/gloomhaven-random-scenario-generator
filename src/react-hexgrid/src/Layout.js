@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import Orientation from './models/Orientation';
 import Point from './models/Point';
 import HexUtils from './HexUtils';
+import { LayoutProvider } from './LayoutProvider';
 
 class Layout extends Component {
+  
   static LAYOUT_FLAT = new Orientation(3.0 / 2.0, 0.0, Math.sqrt(3.0) / 2.0, Math.sqrt(3.0),2.0 / 3.0, 0.0, -1.0 / 3.0, Math.sqrt(3.0) / 3.0, 0.0);
   static LAYOUT_POINTY = new Orientation(Math.sqrt(3.0), Math.sqrt(3.0) / 2.0, 0.0, 3.0 / 2.0, Math.sqrt(3.0) / 3.0, -1.0 / 3.0, 0.0, 2.0 / 3.0, 0.5);
 
@@ -46,9 +48,11 @@ class Layout extends Component {
   render() {
     const { children, className } = this.props;
     return (
-      <g className={className}>
-        {children}
-      </g>
+      <LayoutProvider value={this.getChildContext()}>
+        <g className={className}>
+          {children}
+        </g>
+      </LayoutProvider>
     );
   }
 }

@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, ContextType } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Hex from '../models/Hex';
 import HexUtils from '../HexUtils';
+import { LayoutContext } from '../LayoutProvider';
 
 class Hexagon extends Component {
+  static contextType = LayoutContext
+  //context: ContextType<typeof LayoutContext>;
+
   static propTypes = {
     q: PropTypes.number.isRequired,
     r: PropTypes.number.isRequired,

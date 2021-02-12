@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import HexUtils from './HexUtils';
+import { LayoutContext } from './LayoutProvider';
 
 class Path extends Component {
+  static contextType = LayoutContext;
+  
   static propTypes = {
     start: PropTypes.object,
     end: PropTypes.object,
