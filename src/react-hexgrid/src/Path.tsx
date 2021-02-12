@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import HexUtils from './HexUtils';
 import { LayoutContext } from './LayoutProvider';
+import Hex from './models/Hex';
 
-class Path extends Component {
+type Props ={
+    start: Hex;
+    end: Hex
+}
+
+class Path extends Component<Props> {
   static contextType = LayoutContext;
-  
-  static propTypes = {
-    start: PropTypes.object,
-    end: PropTypes.object,
-    layout: PropTypes.object
-  };
-  static contextTypes = {
-    layout: PropTypes.object // TODO Shape
-  };
 
   // TODO Refactor
   getPoints() {

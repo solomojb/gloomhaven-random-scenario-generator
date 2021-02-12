@@ -1,5 +1,4 @@
 import React, { Component, ReactNode } from 'react';
-import Orientation from './models/Orientation';
 import Point from './models/Point';
 import HexUtils from './HexUtils';
 import { LayoutProvider } from './LayoutProvider';

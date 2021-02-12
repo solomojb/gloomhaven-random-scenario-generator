@@ -43,7 +43,7 @@ const HexPattern = (props:Props) => {
     const height = shouldRotateTile ? x : y;
 
     let patternId = id.replace(" ", "-");
-    if (rotation != 0) {
+    if (rotation !== 0) {
         patternId += rotation;
     }
     if (postfix) {
