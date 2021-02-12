@@ -32,11 +32,6 @@ class Hexagon extends Component {
     hexType: PropTypes.string,
   };
 
-  static contextTypes = {
-    layout: PropTypes.object, // TODO Shape
-    points: PropTypes.object
-  };
-
   constructor(props, context) {
     super(props, context);
     const { q, r, s } = props;

@@ -10,7 +10,7 @@ class HexUtils {
   ];
 
   static equals(a:Hex, b:Hex):boolean {
-    return a.q == b.q && a.r == b.r && a.s == b.s;
+    return a.q === b.q && a.r === b.r && a.s === b.s;
   }
 
   static add(a:Hex, b:Hex):Hex {

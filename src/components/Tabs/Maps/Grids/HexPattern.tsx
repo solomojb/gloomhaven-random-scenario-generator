@@ -24,7 +24,6 @@ const HexPattern = (props:Props) => {
     let patternStyle = {};
     let imageStyle = {};
     const shouldRotateTile = useRotate && rotateHex;
-    console.log(useRotate, rotateHex, shouldRotateTile);
     if (category === "monster") {
         link = game.getMonsterImage(id, shouldRotateTile);
         patternStyle = {transform: `scale(${scale})`}
