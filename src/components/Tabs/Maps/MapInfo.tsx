@@ -1,5 +1,5 @@
 import React from "react";
-import { Hex, Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
+import { Hexagon, HexGrid, Layout, Text } from "react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "./Grids/HexPattern";
 
@@ -16,7 +16,7 @@ export type MonsterCount = {
 
 const MapInfo = (props: Props) => {
   const {
-    dungeon: { map: {rotateHex}, obstacles, corridors },
+    dungeon: { obstacles, corridors },
     monsterData: { spawns },
   } = useDungeon();
   const {} = props;
@@ -71,8 +71,7 @@ const MapInfo = (props: Props) => {
   const patterns: JSX.Element[] = [];
 
   const size = { x: 10, y: 10 };
-  const buildHex = (hex: Hex, pattern: string, count: number) => {
-      const {q, r} = hex;
+  const buildHex = (q: number, r: number, pattern: string, count: number) => {
     return <Hexagon q={q} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`}>
             <Text y={15}  textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{`${pattern} ${count > 0 ? `x ${count}` : ''}`}</Text>
         </Hexagon>
@@ -84,7 +83,7 @@ const MapInfo = (props: Props) => {
   Object.keys(counts).forEach((pattern) => {
     const { category, count } = counts[pattern];
     if (category) {
-        hexes.push(buildHex(new Hex(q,r,0), pattern, category !== "monster" ? count : 0))
+        hexes.push(buildHex(q,r, pattern, category !== "monster" ? count : 0))
         patterns.push(<HexPattern id={pattern} postfix="info" category={category} size={size} useRotate={false}/>)
         q += 2;
         if (q > 4) {

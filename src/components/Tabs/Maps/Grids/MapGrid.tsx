@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import { Hexagon, Text} from "../../../../react-hexgrid"
+import { Hexagon, Text} from "react-hexgrid"
 import { useDungeon } from "../DungeonProvider"
 import HexPattern from "./HexPattern";
 import { getItemViewState } from "../../../../State/Selectors";

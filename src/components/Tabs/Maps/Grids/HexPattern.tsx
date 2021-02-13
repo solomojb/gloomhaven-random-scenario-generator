@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Pattern } from '../../../../react-hexgrid';
+import { Pattern } from 'react-hexgrid';
 import { useGame } from '../../../Game/GameProvider';
 import { useDungeon } from '../DungeonProvider';
 

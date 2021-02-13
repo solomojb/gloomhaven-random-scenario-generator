@@ -1,5 +1,5 @@
 import React from "react";
-import { Hexagon } from "../../../../react-hexgrid";
+import { Hexagon } from "react-hexgrid";
 import { OverlayTile } from "../../../../Data";
 import { getItemViewState } from "../../../../State/Selectors";
 import { useDungeon } from "../DungeonProvider";
