@@ -1,5 +1,5 @@
 import React from "react";
-import { Hexagon, HexGrid, Layout, Text } from "react-hexgrid";
+import { Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "./Grids/HexPattern";
 

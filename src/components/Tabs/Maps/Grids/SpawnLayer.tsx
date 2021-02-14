@@ -1,5 +1,5 @@
 import React from "react";
-import { Hexagon } from "react-hexgrid";
+import { Hexagon } from "../../../../react-hexgrid";
 import { OverlayTile } from "../../../../Data";
 import { getItemViewState } from "../../../../State/Selectors";
 import { useDungeon } from "../DungeonProvider";
@@ -27,7 +27,7 @@ const SpawnLayer = () => {
       if (spawnPoint && type) {
         if (category === "monster") {
           const monsterKey = monsterType[numberOfPlayers];
-          if (monsterKey != "none") {
+          if (monsterKey !== "none") {
             hexes.push(buildHex(spawnPoint, type));
             if (monsterKey === "elite") {
               hexes.push(buildHex(spawnPoint, "EliteOverlay"));

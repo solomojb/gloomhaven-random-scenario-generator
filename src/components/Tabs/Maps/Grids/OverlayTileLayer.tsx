@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Hexagon } from "react-hexgrid";
+import { Hexagon } from "../../../../react-hexgrid";
 import { OverlayTile } from "../../../../Data";
 import HexPattern from "./HexPattern";
 import { ShowFlags } from "../../../../State/ItemViewState";

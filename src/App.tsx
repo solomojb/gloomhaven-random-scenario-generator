@@ -10,6 +10,7 @@ import GameProvider from './components/Game/GameProvider'
 import { gameDataTypes } from './games';
 import { GameType } from './State/GameType';
 
+// @ts-ignore
 export const store = createStore(dbApp,  (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__());
 
 type GameSelectorProps = {

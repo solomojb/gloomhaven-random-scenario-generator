@@ -18,16 +18,7 @@ const GameProvider = (props:Props) => {
     const [gameData, setGameData] = useState<BaseGameData>(gameDataTypes[GameType.Gloomhaven]);
     
     useEffect( () => {
-        const data = gameDataTypes[gameType] as BaseGameData;
-        if (data) {
-            data.getDungeonList();
-            setGameData(data);
-        }
-    }, [gameType]);
-
-
-    useEffect( () => {
-        const data = gameDataTypes[gameType] as BaseGameData;
+        const data = gameDataTypes[gameType];
         if (data) {
             data.getDungeonList();
             setGameData(data);
