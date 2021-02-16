@@ -5,6 +5,7 @@ import { OverlayTile } from "./OverlayTile";
 
 export interface Dungeon {
     name: string;
+    traps: string[];
     entrances: Door[];
     exits: Door[];
     map: Map;
@@ -17,6 +18,7 @@ export interface Dungeon {
 
 export const initialDungeon : Dungeon = {
     name: "",
+    traps:[],
     entrances: [],
     exits: [],
     map : initialMap,

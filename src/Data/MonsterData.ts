@@ -9,11 +9,13 @@ export interface Spawn {
 
 export interface MonsterData {
     name: string;
+    traps: string[];
     spawns: Spawn[];
 
 }
 
 export const initialMonsterData = {
     name: "",
+    traps: [],
     spawns: [],
 }

@@ -30,8 +30,10 @@ const HexPattern = (props:Props) => {
     } else if (category === "treasures") {
         link = game.getTreasureImage(shouldRotateTile);
         patternStyle = {transform: `scale(${scale})`}
-    }
-    else {
+    } else if (category === "coin") {
+        link = game.getCoinImage();
+        patternStyle = {transform: `scale(${scale})`}
+    } else {
         link = game.getOverlayTokenPath(id, category);
         const objectRotation = (rotation + (shouldRotateTile ? 90 : 0))% 360;
         if (objectRotation) {

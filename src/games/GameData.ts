@@ -56,6 +56,10 @@ export abstract class BaseGameData {
     getTreasureImage(rotatedHex:boolean) {
         return require(`../img/treasures/${rotatedHex?"Vert":"Horiz"}-treasure.png`);
     }
+    
+    getCoinImage() {
+        return this.getOverlayTokenPath("coin-1", "treasures");
+    }
 
     getDoorImage(type:string, aOrB:string, rotatedHex:boolean) {
         return require(`../img/doors/${rotatedHex?"Vert":"Horiz"}-${type}${aOrB}.png`);

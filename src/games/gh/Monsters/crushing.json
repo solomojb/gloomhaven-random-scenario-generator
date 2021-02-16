@@ -21,12 +21,12 @@
         },
         {
           "id": 4,
-          "type": "rubble",
+          "type": "Rubble",
           "category": "difficult-terrain"
         },
         {
           "id": 5,
-          "type": "rubble",
+          "type": "Rubble",
           "category": "difficult-terrain"
         },
         {
@@ -43,7 +43,7 @@
         },
         {
           "id": 8,
-          "type": "rubble",
+          "type": "Rubble",
           "category":"difficult-terrain"
         },
         {
@@ -54,18 +54,18 @@
         },
         {
           "id": 10,
-          "type": "rubble",
+          "type": "Rubble",
           "category":"difficult-terrain"
         },
         {
           "id": 11,
-          "type": "treasure",
+          "type": "Treasure",
           "category":"treasures",
           "description": "5 Gold"
         },
         {
           "id": 12,
-          "type": "treasure",
+          "type": "Treasure",
           "category": "treasures",
           "description":"5 Gold"
         }

@@ -13,6 +13,7 @@ import MapEditor from "./Editor/MapEditor";
 import DungeonProvider from "./DungeonProvider"
 import DoorTypes from "./DoorTypes";
 import Treasures from "./Treasures";
+import Traps from "./Traps";
 
 const MapContainer = () => {
   const game = useGame();
@@ -64,6 +65,7 @@ const MapContainer = () => {
 					<DoorTypes/>
 					<Penalties/>
 					<Treasures/>
+					<Traps/>
 					<MapInfo/>
 				</Form.Field>
 				<Form.Group>
