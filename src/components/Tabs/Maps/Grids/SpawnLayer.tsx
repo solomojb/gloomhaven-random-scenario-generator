@@ -1,5 +1,5 @@
 import React from "react";
-import { Hexagon } from "../../../../react-hexgrid";
+import { Hexagon, Text } from "../../../../react-hexgrid";
 import { OverlayTile } from "../../../../Data";
 import { getItemViewState } from "../../../../State/Selectors";
 import { useDungeon } from "../DungeonProvider";
@@ -13,12 +13,15 @@ const SpawnLayer = () => {
     monsterData: { spawns },
   } = useDungeon();
 
-  const buildHex = (spawnPoint: OverlayTile, pattern: string) => {
+  const buildHex = (spawnPoint: OverlayTile, pattern: string, text?:string|number) => {
     const { q, r } = spawnPoint;
-    return <Hexagon q={q} r={r} s={0} fill={pattern.replace(" ", "-")} />;
+    return <Hexagon q={q} r={r} s={0} fill={pattern.replace(" ", "-")}>
+      {text && <Text y={-1.2}>{text}</Text>}
+      </Hexagon>
   };
   const hexes: JSX.Element[] = [];
   let patterns: JSX.Element[] = [];
+  let treasureCount = 1;
 
   if ((showFlags & ShowFlags.Spawns) > 0) {
     spawns.forEach((spawn) => {
@@ -33,6 +36,8 @@ const SpawnLayer = () => {
               hexes.push(buildHex(spawnPoint, "EliteOverlay"));
             }
           }
+        } else if (category === "treasures") {
+          hexes.push(buildHex(spawnPoint, type, treasureCount++));
         } else {
           hexes.push(buildHex(spawnPoint, type));
         }

@@ -27,6 +27,9 @@ const HexPattern = (props:Props) => {
     if (category === "monster") {
         link = game.getMonsterImage(id, shouldRotateTile);
         patternStyle = {transform: `scale(${scale})`}
+    } else if (category === "treasures") {
+        link = game.getTreasureImage(shouldRotateTile);
+        patternStyle = {transform: `scale(${scale})`}
     }
     else {
         link = game.getOverlayTokenPath(id, category);

@@ -45,11 +45,16 @@ export abstract class BaseGameData {
     }
 
     getOverlayTokenPath(token:string, category: string) {
-        return require(`../../vendor/${this.gameType}/images/overlay-tokens/${category}/${token.toLowerCase().replace(" ", "-")}.png`);
+        const filename = `${token.toLowerCase().replace(" ", "-")}.png`;
+        return require(`../../vendor/${this.gameType}/images/overlay-tokens/${category}/${filename}`);
     }
     
     getMonsterImage(token:string, rotatedHex:boolean) {
         return require(`../img/Monsters/${rotatedHex?"Vert":"Horz"}-${token}.png`);
+    }
+
+    getTreasureImage(rotatedHex:boolean) {
+        return require(`../img/treasures/${rotatedHex?"Vert":"Horiz"}-treasure.png`);
     }
 
     getDoorImage(type:string, aOrB:string, rotatedHex:boolean) {

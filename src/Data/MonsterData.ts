@@ -3,7 +3,7 @@ export interface Spawn {
     displayName: string;
     type: string;
     category: string;
-    descripton: string;
+    description: string;
     monsterType: string[];
 }
 

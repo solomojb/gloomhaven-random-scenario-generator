@@ -1,4 +1,5 @@
 import React from "react";
+import { OverlayTile, Spawn } from "../../../Data";
 import { Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "./Grids/HexPattern";
@@ -22,51 +23,34 @@ const MapInfo = (props: Props) => {
   } = useDungeon();
   const {} = props;
   const counts: MonsterCount = {};
-  spawns.filter(s => s.category === "monster").forEach((spawn) => {
-    const { type, category, displayName } = spawn;
+
+  const addToCount = (type:string, category: string, displayName: string) => {
     let countData = counts[type];
     if (!countData) {
       countData = { count: 1, category, displayName };
     } else {
       countData.count += 1;
     }
-    counts[type] = countData;
-  });
+    counts[type] = countData;    
 
-  spawns.filter(s => s.category !== "monster").forEach((spawn) => {
+  }
+
+  const addSpawn = (spawn: Spawn) => {
     const { type, category, displayName } = spawn;
-    let countData = counts[type];
-    if (!countData) {
-      countData = { count: 1, category, displayName };
-    } else {
-      countData.count += 1;
-    }
-    counts[type] = countData;
-  });
+    addToCount(type, category, displayName);
+  }
 
-  obstacles.forEach( obstacle => {
-      const { pattern, displayName } = obstacle;
-      console.log(obstacle);
-      let countData = counts[pattern];
-      if (!countData) {
-          countData = { count: 1, category:"obstacles", displayName}
-      } else {
-          countData.count += 1;
-      }
-      counts[pattern] = countData;
-  })
+  const addOverlay = (overlay: OverlayTile, category: string) => {
+    const { pattern, displayName } = overlay;
+    addToCount(pattern, category, displayName);
+  }
 
+  spawns.filter(s => s.category === "monster").forEach(addSpawn);
+  spawns.filter(s => s.category !== "monster").forEach(addSpawn);
+
+  obstacles.forEach( obstacle => addOverlay(obstacle, "obstacles"));
   if (corridors) {
-      corridors.forEach( corridor => {
-          const { pattern, displayName } = corridor;
-          let countData = counts[pattern];
-          if (!countData) {
-              countData = { count: 1, category:"corridors", displayName}
-          } else {
-              countData.count += 1;
-          }
-          counts[pattern] = countData;
-      })
+      corridors.forEach( corridor => addOverlay(corridor, "corridors"));
   }
 
   const hexes: JSX.Element[] = [];

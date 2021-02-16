@@ -17,7 +17,7 @@ const OverlayTileLayer = (props: Props) => {
 
   const buildHex = (tile: OverlayTile) => {
     const { q, r, pattern, rotation, hexType } = tile;
-    const fillName = pattern + (rotation ? rotation : "");
+    const fillName = pattern.replace(" " , "-") + (rotation ? rotation : "");
     return (
       <Hexagon q={q} r={r} s={0} fill={fillName} hexType={hexType || "1x1Hex"} />
     );

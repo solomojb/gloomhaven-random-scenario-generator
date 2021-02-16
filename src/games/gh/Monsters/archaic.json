@@ -64,7 +64,8 @@
         {
           "id": 12,
           "type": "Treasure",
-          "category": "treasures"
+          "category": "treasures",
+          "description": "Recover a lost card"
         }
       ]
 }

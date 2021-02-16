@@ -8,7 +8,6 @@ const Penalties = () =>  {
     const { dungeon: {penalties} } = useDungeon();
 
     const getHtml = (penalty:string, index: number) => {
-        console.log(penalty);
         const html = Helpers.parseEffectText((index?"<b>Major:</b> " : "<b>Minor: </b>") + penalty);
         return <div dangerouslySetInnerHTML={{__html:html}}/>
     }

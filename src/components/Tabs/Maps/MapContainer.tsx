@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DropdownProps, Form, Placeholder } from "semantic-ui-react";
+import { DropdownProps, Form } from "semantic-ui-react";
 import MapSelector from "./MapSelector";
 import { useGame } from "../../Game/GameProvider";
 import Map from "./Map";
@@ -12,6 +12,7 @@ import Penalties from "./Penalties";
 import MapEditor from "./Editor/MapEditor";
 import DungeonProvider from "./DungeonProvider"
 import DoorTypes from "./DoorTypes";
+import Treasures from "./Treasures";
 
 const MapContainer = () => {
   const game = useGame();
@@ -62,6 +63,7 @@ const MapContainer = () => {
 					</Form.Group>
 					<DoorTypes/>
 					<Penalties/>
+					<Treasures/>
 					<MapInfo/>
 				</Form.Field>
 				<Form.Group>
