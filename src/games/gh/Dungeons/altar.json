@@ -1,6 +1,8 @@
 {
+  "name": "altar",
+  "entrances": [{"aOrB": "B", "q":-3, "r":-2}],
+  "exits": [{"aOrB": "B", "q":2, "r":-2}],
   "map" : {
-    "name": "altar",
     "tiles" :[ {
       "tile": "l2b",
       "rotation": 180,
@@ -133,4 +135,10 @@
       "rotation": 180,
       "scale": 1
     }
-  ]}
+  ],
+  "penalties" : [
+    "Add 3 BLESS cards to the monster attack modifier deck",
+    "Add 7 BLESS cards to the monster attack modifier deck"
+  ]
+}
+

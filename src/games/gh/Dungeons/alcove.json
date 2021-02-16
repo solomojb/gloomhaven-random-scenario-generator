@@ -1,6 +1,8 @@
 {
+  "name": "alcove",
+  "entrances": [{"aOrB": "B", "q":-4, "r":2}],
+  "exits": [{"aOrB": "B", "q":-3, "r":-4}],
     "map" : {
-      "name": "alcove",
       "tiles" :[ {
         "tile": "j2a",
         "rotation": 0,
@@ -116,6 +118,10 @@
         "x": 9,
         "y": 0
       }
+    ],
+    "penalties" : [
+      "All enemeies gain Shield 1 this round",
+      "All enemeies gain Shield 1 permanently"
     ]
   }
   

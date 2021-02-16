@@ -1,36 +1,38 @@
 {
-  "map" : {
-    "name": "armory",
+  "name": "armory",
+  "entrances": [{"aOrB": "A", "q":-1, "r":3}, {"aOrB": "B", "q":-2, "r":5}],
+  "exits": [{"aOrB": "B", "q":-2, "r":-4}],
+    "map" : {
     "tiles" :[ {
       "tile": "b2b",
       "rotation": 90,
       "scale": 0.6,
       "offsetX": 4,
-      "offsetY": -14
+      "offsetY": 39
     },
     {
       "tile": "a3b",
       "rotation": 90,
       "scale": 0.75,
       "offsetX": 48,
-      "offsetY": -239
+      "offsetY": -187
     }], 
     "hexColumns": [
       { "q": -4  ,
-        "minR": -3,
-        "maxR": -1
+        "minR": -2,
+        "maxR": 0
       },
       { "q": -3,
-        "minR": -4,
-        "maxR": 4
+        "minR": -3,
+        "maxR": 5
       },
       { "q": -2,
-        "minR": -4,
-        "maxR": 3
+        "minR": -3,
+        "maxR": 4
       },
       { "q": -1,
-        "minR": -5,
-        "maxR": -2
+        "minR": -4,
+        "maxR": -1
       }
     ]
   },
@@ -38,76 +40,76 @@
       {
         "id": 1,
         "q": -2, 
-        "r": -1
+        "r": 0
       },
       {
         "id": 2,
         "q": -3, 
-        "r": -1
+        "r": 0
       },
       {
         "id": 3,
         "q": -1, 
-        "r": -2
+        "r": -1
       },
       {
         "id": 4,
         "q": -3, 
-        "r": 1
+        "r": 2
       },
       {
         "id": 5,
         "q": -2, 
-        "r": 1
+        "r": 2
       },
       {
         "id": 6,
         "q": -2, 
-        "r": 0
+        "r": 1
       },
       {
         "id": 7,
         "q": -3, 
-        "r": -2
+        "r": -1
       },
       {
         "id": 8,
         "q": -2, 
-        "r": -2
+        "r": -1
       },
       {
         "id": 9,
         "q": -2, 
-        "r": -3
+        "r": -2
       },
       {
         "id": 10,
         "q": -4, 
-        "r": -1
+        "r": 0
       },
       {
         "id": 11,
         "q": -4, 
-        "r": -2
+        "r": -1
       },
       {
         "id": 12,
         "q": -4, 
-        "r": -3
+        "r": -2
       }
     ],
     "obstacles": [
       {
         "pattern": "table",
         "q": -3,
-        "r": -4,
+        "r": -3,
         "scale": 2,
         "hexType": "2x1D"
       },
       {
         "pattern": "table",
         "q": -1,
-        "r": -5,
+        "r": -4,
         "rotation": 0,
         "scale": 2,
         "hexType": "2x1D"
@@ -117,16 +119,20 @@
       {
         "pattern": "man-made-stone-1",
         "q": -2,
-        "r": -1
+        "r": 0
       },
       {
         "pattern": "man-made-stone-2",
         "q": -3,
-        "r": -1,
+        "r": 0,
         "rotation": 0,
         "scale": 2,
         "hexType": "2x1D"
       }
+    ],
+    "penalties" : [
+      "POISION all chracters",
+      "All enemies add +1 Attack to all their attacks"
     ]
   }
   

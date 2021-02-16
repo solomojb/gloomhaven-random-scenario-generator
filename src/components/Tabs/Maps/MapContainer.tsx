@@ -8,8 +8,10 @@ import MonsterCard from "./MonsterCard";
 import MonsterSelector from "./MonsterSelector";
 import PlayerCount from "./PlayerCount";
 import MapInfo from "./MapInfo";
+import Penalties from "./Penalties";
 import MapEditor from "./Editor/MapEditor";
 import DungeonProvider from "./DungeonProvider"
+import DoorTypes from "./DoorTypes";
 
 const MapContainer = () => {
   const game = useGame();
@@ -48,11 +50,18 @@ const MapContainer = () => {
 			<Form.Group>
 				<Form.Field>
 					<PlayerCount/>
+					<Form.Group>{dungeonData.name}</Form.Group>
 					<div className="map-tiles">
 						{showPlaceholder && (<>
 						<Map />
 						</>)}
 					</div>
+					<Form.Group inline>
+						<label>Tiles:</label>
+						{dungeonData.map.tiles.map( tile => tile.tile).sort().join("/")}
+					</Form.Group>
+					<DoorTypes/>
+					<Penalties/>
 					<MapInfo/>
 				</Form.Field>
 				<Form.Group>

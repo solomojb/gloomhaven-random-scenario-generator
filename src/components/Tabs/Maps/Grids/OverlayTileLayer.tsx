@@ -30,12 +30,7 @@ const OverlayTileLayer = (props: Props) => {
     return self.indexOf(value) === index;
   }
   if ((showFlags & flag) > 0 && tiles) {
-    hexes = tiles.map((tile) => {
-      const hexes = [];
-      hexes.push(buildHex(tile));
-      return hexes;
-    });
-
+    hexes = tiles.map(buildHex);
 
     const patternStrings = tiles
       .map((tile) => {

@@ -7,6 +7,7 @@ import MapGrid from "./Grids/MapGrid";
 import OverlayTileLayer from "./Grids/OverlayTileLayer";
 import SpawnPointsLayer from "./Grids/SpawnPointsLayer";
 import SpawnLayer from "./Grids/SpawnLayer";
+import DoorLayer from "./Grids/DoorLayer";
 
 type Point = {
   x: number;
@@ -50,6 +51,7 @@ const HexOverlay = () => {
   const { hexes: obstacleHexes, patterns: obstaclePatterns} = OverlayTileLayer({overlayType:"obstacles", tiles:obstacles, flag: ShowFlags.Obstacles});
   const { hexes: spawnPointHexes, patterns: spawnPointPatterns} = SpawnPointsLayer();
   const { hexes: spawnHexes, patterns: spawnPatterns} = SpawnLayer();
+  const { hexes: doorHexes, patterns: doorPatterns} = DoorLayer();
 
   return <div className="map-grid">
         <HexGrid width={500} height={640}>
@@ -61,6 +63,7 @@ const HexOverlay = () => {
              {spawnPointHexes}
              {obstacleHexes}
              {spawnHexes}
+             {doorHexes}
             {/* <Path start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} /> */}
           </Layout>
             {dungeonGridPatterns}
@@ -69,6 +72,7 @@ const HexOverlay = () => {
             {spawnPointPatterns}
             {obstaclePatterns}
             {spawnPatterns}
+            {doorPatterns}
         </HexGrid>
         </div>
 }

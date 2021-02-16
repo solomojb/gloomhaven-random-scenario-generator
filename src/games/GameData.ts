@@ -52,6 +52,10 @@ export abstract class BaseGameData {
         return require(`../img/Monsters/${rotatedHex?"Vert":"Horz"}-${token}.png`);
     }
 
+    getDoorImage(type:string, aOrB:string, rotatedHex:boolean) {
+        return require(`../img/doors/${rotatedHex?"Vert":"Horiz"}-${type}${aOrB}.png`);
+    }
+
     getMapPath(tile:string) {
         return require(`../../vendor/${this.gameType}/images/map-tiles/${tile}.png`);
     }

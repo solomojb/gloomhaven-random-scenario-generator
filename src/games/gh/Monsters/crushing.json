@@ -1,0 +1,73 @@
+{
+    "name" : "crushing",
+    "spawns": [
+        {
+          "id": 1,
+          "type": "Earth Demon",
+          "category": "monster",
+            "monsterType": ["elite", "elite", "elite"]
+        },
+        {
+          "id": 2,
+          "type": "Wind Demon",
+          "category": "monster",
+          "monsterType": ["normal", "normal", "normal"]
+        },
+        {
+          "id": 3,
+          "type": "Wind Demon",
+          "category": "monster",
+          "monsterType": ["none", "none", "normal"]
+        },
+        {
+          "id": 4,
+          "type": "rubble",
+          "category": "difficult-terrain"
+        },
+        {
+          "id": 5,
+          "type": "rubble",
+          "category": "difficult-terrain"
+        },
+        {
+          "id": 6,
+          "type": "Earth Demon",
+          "category":"monster",
+          "monsterType": ["none", "normal", "elite"]
+        },
+        {
+          "id": 7,
+          "type": "Wind Demon",
+          "category":"monster",
+          "monsterType": ["none", "normal", "normal"]
+        },
+        {
+          "id": 8,
+          "type": "rubble",
+          "category":"difficult-terrain"
+        },
+        {
+          "id": 9,
+          "type": "Wind Demon",
+          "category":"monster",
+          "monsterType": ["normal", "normal", "normal"]
+        },
+        {
+          "id": 10,
+          "type": "rubble",
+          "category":"difficult-terrain"
+        },
+        {
+          "id": 11,
+          "type": "treasure",
+          "category":"treasures",
+          "description": "5 Gold"
+        },
+        {
+          "id": 12,
+          "type": "treasure",
+          "category": "treasures",
+          "description":"5 Gold"
+        }
+      ]
+}

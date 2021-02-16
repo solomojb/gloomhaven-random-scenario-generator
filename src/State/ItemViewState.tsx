@@ -8,6 +8,7 @@ export enum ShowFlags {
   Spawns = 1 << 4,
   EditMode = 1<<5,
   AllGrid = 1<<6,
+  Doors = 1<<7,
 }
 
 export interface ItemViewState {

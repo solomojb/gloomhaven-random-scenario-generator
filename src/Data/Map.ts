@@ -7,14 +7,12 @@ export interface HexColumn {
 }
 
 export interface Map {
-    name: string;
     tiles: Tile[];
     rotateHex: boolean;
     hexColumns: HexColumn[];
 }
 
 export const initialMap: Map = {
-    name: "",
     tiles: [],
     rotateHex: false,
     hexColumns: [],

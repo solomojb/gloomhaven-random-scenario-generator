@@ -1,6 +1,8 @@
 {
-    "map": {
-      "name": "burrow",
+  "name": "burrow",
+  "entrances": [{"aOrB": "B", "q":-4, "r":2}],
+  "exits": [{"aOrB": "B", "q":-3, "r":-4}],
+      "map": {
       "tiles" :[ {
         "tile": "a2a",
         "rotation": 270,
@@ -111,6 +113,10 @@
         "scale": 2,
         "hexType": "2x1D"
       }
+    ],
+    "penalties" : [
+      "STUN the character who opened the door",
+      "MUDDLE, POISON, and WOUND all characters"
     ]
   }
   
