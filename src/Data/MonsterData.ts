@@ -1,5 +1,6 @@
 export interface Spawn {
     id: number;
+    displayName: string;
     type: string;
     category: string;
     descripton: string;

@@ -106,10 +106,13 @@
     "obstacles": [
       {
         "pattern": "boulder-1",
+        "displayName": "Boulder",
         "q": -2,
-        "r": -2      },
+        "r": -2   
+      },
       {
         "pattern": "boulder-2",
+        "displayName": "Boulder",
         "q": -1,
         "r": 1,
         "scale": 2,

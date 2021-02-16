@@ -100,14 +100,14 @@
     ],
     "obstacles": [
       {
-        "pattern": "table",
+        "pattern": "Table",
         "q": -3,
         "r": -3,
         "scale": 2,
         "hexType": "2x1D"
       },
       {
-        "pattern": "table",
+        "pattern": "Table",
         "q": -1,
         "r": -4,
         "rotation": 0,
@@ -118,11 +118,13 @@
     "corridors": [
       {
         "pattern": "man-made-stone-1",
+        "displayName": "Stone", 
         "q": -2,
         "r": 0
       },
       {
         "pattern": "man-made-stone-2",
+        "displayName":"Stone",
         "q": -3,
         "r": 0,
         "rotation": 0,

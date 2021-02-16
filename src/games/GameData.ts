@@ -45,7 +45,7 @@ export abstract class BaseGameData {
     }
 
     getOverlayTokenPath(token:string, category: string) {
-        return require(`../../vendor/${this.gameType}/images/overlay-tokens/${category}/${token}.png`);
+        return require(`../../vendor/${this.gameType}/images/overlay-tokens/${category}/${token.toLowerCase().replace(" ", "-")}.png`);
     }
     
     getMonsterImage(token:string, rotatedHex:boolean) {

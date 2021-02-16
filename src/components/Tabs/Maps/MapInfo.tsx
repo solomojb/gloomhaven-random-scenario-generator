@@ -7,6 +7,7 @@ type Props = {};
 
 export type MapDataInfo = {
   count: number;
+  displayName:string;
   category: string;
 };
 
@@ -22,10 +23,10 @@ const MapInfo = (props: Props) => {
   const {} = props;
   const counts: MonsterCount = {};
   spawns.filter(s => s.category === "monster").forEach((spawn) => {
-    const { type, category } = spawn;
+    const { type, category, displayName } = spawn;
     let countData = counts[type];
     if (!countData) {
-      countData = { count: 1, category };
+      countData = { count: 1, category, displayName };
     } else {
       countData.count += 1;
     }
@@ -33,10 +34,10 @@ const MapInfo = (props: Props) => {
   });
 
   spawns.filter(s => s.category !== "monster").forEach((spawn) => {
-    const { type, category } = spawn;
+    const { type, category, displayName } = spawn;
     let countData = counts[type];
     if (!countData) {
-      countData = { count: 1, category };
+      countData = { count: 1, category, displayName };
     } else {
       countData.count += 1;
     }
@@ -44,10 +45,11 @@ const MapInfo = (props: Props) => {
   });
 
   obstacles.forEach( obstacle => {
-      const { pattern } = obstacle;
+      const { pattern, displayName } = obstacle;
+      console.log(obstacle);
       let countData = counts[pattern];
       if (!countData) {
-          countData = { count: 1, category:"obstacles"}
+          countData = { count: 1, category:"obstacles", displayName}
       } else {
           countData.count += 1;
       }
@@ -56,10 +58,10 @@ const MapInfo = (props: Props) => {
 
   if (corridors) {
       corridors.forEach( corridor => {
-          const { pattern } = corridor;
+          const { pattern, displayName } = corridor;
           let countData = counts[pattern];
           if (!countData) {
-              countData = { count: 1, category:"corridors"}
+              countData = { count: 1, category:"corridors", displayName}
           } else {
               countData.count += 1;
           }
@@ -71,9 +73,9 @@ const MapInfo = (props: Props) => {
   const patterns: JSX.Element[] = [];
 
   const size = { x: 10, y: 10 };
-  const buildHex = (q: number, r: number, pattern: string, count: number) => {
-    return <Hexagon q={q} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`}>
-            <Text y={15}  textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{`${pattern} ${count > 0 ? `x ${count}` : ''}`}</Text>
+  const buildHex = (q: number, r: number, pattern: string, count: number, displayName: string) => {
+    return <Hexagon q={q} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`}>.l
+            <Text y={15}  textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{`${displayName || pattern} ${count > 0 ? `x ${count}` : ''}`}</Text>
         </Hexagon>
   }
 
@@ -81,9 +83,9 @@ const MapInfo = (props: Props) => {
   let r = -3; 
   let nextR = r + 2;
   Object.keys(counts).forEach((pattern) => {
-    const { category, count } = counts[pattern];
+    const { category, count, displayName } = counts[pattern];
     if (category) {
-        hexes.push(buildHex(q,r, pattern, category !== "monster" ? count : 0))
+        hexes.push(buildHex(q,r, pattern, category !== "monster" ? count : 0, displayName))
         patterns.push(<HexPattern id={pattern} postfix="info" category={category} size={size} useRotate={false}/>)
         q += 2;
         if (q > 4) {

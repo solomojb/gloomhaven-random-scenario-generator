@@ -45,17 +45,17 @@
       },
       {
         "id": 10,
-        "type": "thorns",
+        "type": "Thorns",
         "category":"hazardous-terrain"
       },
       {
         "id": 11,
-        "type": "thorns",
+        "type": "Thorns",
         "category":"hazardous-terrain"
       },
       {
         "id": 12,
-        "type": "treasure",
+        "type": "Treasure",
         "category": "treasures",
         "description": "Recover a lost card"
       }

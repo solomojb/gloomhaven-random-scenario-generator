@@ -3,12 +3,12 @@
     "spawns": [
         {
           "id": 1,
-          "type": "rubble",
+          "type": "Rubble",
           "category": "difficult-terrain"
         },
         {
           "id": 2,
-          "type": "rubble",
+          "type": "Rubble",
           "category": "difficult-terrain"
         },
         {
@@ -25,7 +25,7 @@
         },
         {
           "id": 5,
-          "type": "thorns",
+          "type": "Thorns",
           "category": "hazardous-terrain"
         },
         {
@@ -36,7 +36,7 @@
         },
         {
           "id": 7,
-          "type": "rubble",
+          "type": "Rubble",
           "category":"difficult-terrain"
         },
         {
@@ -47,12 +47,12 @@
         },
         {
           "id": 9,
-          "type": "thorns",
+          "type": "Thorns",
           "category":"hazardous-terrain"
         },
         {
           "id": 10,
-          "type": "thorns",
+          "type": "Thorns",
           "category":"hazardous-terrain"
         },
         {
@@ -63,7 +63,7 @@
         },
         {
           "id": 12,
-          "type": "treasure",
+          "type": "Treasure",
           "category": "treasures"
         }
       ]
