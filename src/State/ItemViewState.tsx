@@ -13,12 +13,10 @@ export enum ShowFlags {
 
 export interface ItemViewState {
   showFlags: number;
-  numberOfPlayers: number;
 }
 
 const initialItemViewState : ItemViewState = {
   showFlags: parseInt(localStorage.getItem("showFlags") || "" ) || ShowFlags.Obstacles | ShowFlags.Spawns | ShowFlags.Corridors,
-  numberOfPlayers: parseInt(localStorage.getItem("numberOfPlayers") || "") || 0,
 };
 
 export type ItemViewStateMap = {

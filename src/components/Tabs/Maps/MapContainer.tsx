@@ -9,6 +9,7 @@ import PlayerCount from "./PlayerCount";
 import MapEditor from "./Editor/MapEditor";
 import DungeonProvider from "./DungeonProvider"
 import Room from "../../Room/Room";
+import PlayerCountProvider from "../../Providers/PlayerCountProvider";
 
 const MapContainer = () => {
   const game = useGame();
@@ -46,8 +47,10 @@ const MapContainer = () => {
 			<MapEditor/>
 			<Form.Group>
 				<Form.Field>
-					<PlayerCount/>
-					<Room/>
+					<PlayerCountProvider localKey={"numberOfPlayers"}>
+						<PlayerCount/>
+						<Room/>
+					</PlayerCountProvider>
 				</Form.Field>
 				<Form.Group>
 					<Form.Field>

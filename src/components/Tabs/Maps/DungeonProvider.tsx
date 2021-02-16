@@ -35,11 +35,7 @@ const DungeonProvider = (props:Props) => {
         setDungeon(intitialDungeon);
     }, [intitialDungeon])
 
-    const setDungeonData = (data: Dungeon) => {
-        setDungeon(data);
-    }
-
-    return <Provider value={{dungeon, setDungeon: setDungeonData, monsterData}}>{children}</Provider>
+    return <Provider value={{dungeon, setDungeon, monsterData}}>{children}</Provider>
 }
  
 export default DungeonProvider;

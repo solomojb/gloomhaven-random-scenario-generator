@@ -1,5 +1,6 @@
 import React from "react";
 import { Tab } from "semantic-ui-react";
+import PlayerCountProvider from "../../Providers/PlayerCountProvider";
 import PlayerCount from "../Maps/PlayerCount";
 import RoomContainer from "./RoomContainer";
 
@@ -11,10 +12,10 @@ const ScenarioContainer = () => {
     ];
     
     return (
-        <>
+        <PlayerCountProvider localKey="scenarioPlayers">
 			<PlayerCount/>
             <Tab panes={panes} defaultActiveIndex={0}/>
-        </>
+        </PlayerCountProvider>
     );
 };
 

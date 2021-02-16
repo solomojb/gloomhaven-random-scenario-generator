@@ -28,18 +28,11 @@ const stateSlice = createSlice({
         gameState.showFlags = action.payload;
       }
     },
-    storeNumberOfPlayers(state, action: PayloadAction<number>) {
-      const gameState = state.itemViewMap[state.currentGameType];
-      if (gameState) {
-        gameState.numberOfPlayers = action.payload;
-      }
-    },
   }
 });
 
 export const {
   storeShowFlags,
-  storeNumberOfPlayers,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;

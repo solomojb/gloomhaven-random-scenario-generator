@@ -5,9 +5,11 @@ import { getItemViewState } from "../../State/Selectors";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import HexPattern from "./HexPattern";
 import { ShowFlags } from "../../State/ItemViewState";
+import { usePlayerCount } from "../Providers/PlayerCountProvider";
 
 const SpawnLayer = () => {
-  const { numberOfPlayers, showFlags } = getItemViewState();
+  const { showFlags } = getItemViewState();
+  const { playerCount } = usePlayerCount();
   const {
     dungeon: { spawnPoints },
     monsterData: { spawns },
@@ -29,7 +31,7 @@ const SpawnLayer = () => {
       const spawnPoint = spawnPoints.find((spawn) => spawn.id === id);
       if (spawnPoint && type) {
         if (category === "monster") {
-          const monsterKey = monsterType[numberOfPlayers];
+          const monsterKey = monsterType[playerCount - 2];
           if (monsterKey !== "none") {
             hexes.push(buildHex(spawnPoint, type));
             if (monsterKey === "elite") {
