@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react";
-import { Hexagon } from "../../../../react-hexgrid";
-import { OverlayTile } from "../../../../Data";
+import { Hexagon } from "../../react-hexgrid";
+import { OverlayTile } from "../../Data";
 import HexPattern from "./HexPattern";
-import { ShowFlags } from "../../../../State/ItemViewState";
-import { getItemViewState } from "../../../../State/Selectors";
+import { ShowFlags } from "../../State/ItemViewState";
+import { getItemViewState } from "../../State/Selectors";
 
 type Props = {
   tiles: OverlayTile[];

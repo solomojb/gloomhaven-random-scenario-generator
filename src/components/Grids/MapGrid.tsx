@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react"
-import { Hexagon, Text} from "../../../../react-hexgrid"
-import { useDungeon } from "../DungeonProvider"
+import { Hexagon, Text} from "../../react-hexgrid"
+import { useDungeon } from "../Tabs/Maps/DungeonProvider"
 import HexPattern from "./HexPattern";
-import { getItemViewState } from "../../../../State/Selectors";
-import { ShowFlags } from "../../../../State/ItemViewState";
+import { getItemViewState } from "../../State/Selectors";
+import { ShowFlags } from "../../State/ItemViewState";
 
 const MapGrid = () => {
     const { dungeon: { map : { hexColumns} } } = useDungeon();

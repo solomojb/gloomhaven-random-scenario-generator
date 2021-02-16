@@ -1,10 +1,10 @@
 import React, { ReactNode } from "react";
-import { Hexagon, Pattern } from "../../../../react-hexgrid";
-import { ShowFlags } from "../../../../State/ItemViewState";
-import { getItemViewState } from "../../../../State/Selectors";
-import { useGame } from "../../../Game/GameProvider";
-import { Door } from "../../../../Data/Door";
-import { useDungeon } from "../DungeonProvider";
+import { Hexagon, Pattern } from "../../react-hexgrid";
+import { ShowFlags } from "../../State/ItemViewState";
+import { getItemViewState } from "../../State/Selectors";
+import { useGame } from "../Game/GameProvider";
+import { Door } from "../../Data/Door";
+import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 
 
 const DoorLayer = () => {

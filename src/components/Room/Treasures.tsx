@@ -1,10 +1,9 @@
 import { spawn } from "child_process";
 import React from "react";
 import { Form } from "semantic-ui-react";
-import { Spawn } from "../../../Data";
-import { Helpers } from "../../../helpers";
-import { useDungeon } from "./DungeonProvider";
-import "./map.css"
+import { Spawn } from "../../Data";
+import { Helpers } from "../../helpers";
+import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 
 const Treasures = () =>  {
     const { monsterData: {spawns} } = useDungeon();

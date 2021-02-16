@@ -1,10 +1,10 @@
 import React, { ReactNode } from "react"
-import { Hexagon, Text} from "../../../../react-hexgrid"
-import { OverlayTile } from "../../../../Data";
-import { useDungeon } from "../DungeonProvider";
+import { Hexagon, Text} from "../../react-hexgrid"
+import { OverlayTile } from "../../Data";
+import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import HexPattern from "./HexPattern";
-import { getItemViewState } from "../../../../State/Selectors";
-import { ShowFlags } from "../../../../State/ItemViewState";
+import { getItemViewState } from "../../State/Selectors";
+import { ShowFlags } from "../../State/ItemViewState";
 
 const SpawnPointsLayer = () => {
     const { dungeon: {spawnPoints}} = useDungeon();

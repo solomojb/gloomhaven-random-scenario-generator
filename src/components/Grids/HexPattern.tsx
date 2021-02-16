@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { Pattern } from '../../../../react-hexgrid';
-import { useGame } from '../../../Game/GameProvider';
-import { useDungeon } from '../DungeonProvider';
+import { Pattern } from '../../react-hexgrid';
+import { useGame } from '../Game/GameProvider';
+import { useDungeon } from '../Tabs/Maps/DungeonProvider';
 
 type Props = {
     id:string;

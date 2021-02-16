@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import { DropdownProps, Form, FormInput } from "semantic-ui-react";
+import { DropdownProps, Form } from "semantic-ui-react";
 import MapSelector from "./MapSelector";
 import { useGame } from "../../Game/GameProvider";
-import Map from "./Map";
 import MapCard from "./MapCard";
 import MonsterCard from "./MonsterCard";
 import MonsterSelector from "./MonsterSelector";
 import PlayerCount from "./PlayerCount";
-import MapInfo from "./MapInfo";
-import Penalties from "./Penalties";
 import MapEditor from "./Editor/MapEditor";
 import DungeonProvider from "./DungeonProvider"
-import DoorTypes from "./DoorTypes";
-import Treasures from "./Treasures";
-import Traps from "./Traps";
+import Room from "../../Room/Room";
 
 const MapContainer = () => {
   const game = useGame();
@@ -52,23 +47,7 @@ const MapContainer = () => {
 			<Form.Group>
 				<Form.Field>
 					<PlayerCount/>
-					<Form.Group>{dungeonData.name}</Form.Group>
-					<div className="map-tiles">
-						{showPlaceholder && (<>
-						<Map />
-						</>)}
-					</div>
-					<div style={{marginTop:"30px"}}>
-						<Form.Group inline>
-							<label>Tiles:</label>
-							{dungeonData.map.tiles.map( tile => tile.tile).sort().join("/")}
-						</Form.Group>
-						<DoorTypes/>
-						<Penalties/>
-						<Treasures/>
-						<Traps/>
-					</div>
-					<MapInfo/>
+					<Room/>
 				</Form.Field>
 				<Form.Group>
 					<Form.Field>

@@ -1,8 +1,7 @@
 import React from "react";
 import { Form } from "semantic-ui-react";
-import { Helpers } from "../../../helpers";
-import { useDungeon } from "./DungeonProvider";
-import "./map.css"
+import { Helpers } from "../../helpers";
+import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 
 const Traps = () =>  {
     const { monsterData: {traps} } = useDungeon();

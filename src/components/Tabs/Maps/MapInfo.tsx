@@ -2,7 +2,7 @@ import React from "react";
 import { OverlayTile, Spawn } from "../../../Data";
 import { Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
-import HexPattern from "./Grids/HexPattern";
+import HexPattern from "../../Grids/HexPattern";
 
 type Props = {};
 

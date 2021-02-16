@@ -1,7 +1,6 @@
 import React from "react";
 import { Form } from "semantic-ui-react";
-import { useDungeon } from "./DungeonProvider";
-import "./map.css"
+import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 
 const DoorTypes = () =>  {
     const { dungeon: {entrances, exits} } = useDungeon();

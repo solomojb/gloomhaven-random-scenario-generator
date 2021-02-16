@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./map.css"
-import MapTile from "./MapTile";
-import { useDungeon } from "./DungeonProvider";
-import { Tile } from "../../../Data";
-import HexOverlay from "./HexOverlay";
+import MapTile from "../Tabs/Maps/MapTile";
+import { useDungeon } from "../Tabs/Maps/DungeonProvider";
+import { Tile } from "../../Data";
+import HexOverlay from "../Tabs/Maps/HexOverlay";
 
 const Map = () => {
   const { dungeon: {map: {tiles}}
