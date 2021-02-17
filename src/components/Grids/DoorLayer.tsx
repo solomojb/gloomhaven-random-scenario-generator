@@ -1,16 +1,15 @@
 import React, { ReactNode } from "react";
 import { Hexagon, Pattern } from "../../react-hexgrid";
-import { ShowFlags } from "../../State/ItemViewState";
-import { getItemViewState } from "../../State/Selectors";
 import { useGame } from "../Game/GameProvider";
 import { Door } from "../../Data/Door";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
+import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 
 
 const DoorLayer = () => {
   const { dungeon: { map : {rotateHex }, entrances, exits }} = useDungeon();
-  const { showFlags } = getItemViewState();
   const game = useGame();
+  const { isFlagSet } = useFlags();
 
 
   const buildHex = (tile: Door, type: string) => {
@@ -53,7 +52,7 @@ const DoorLayer = () => {
   let hexes: (ReactNode | ReactNode[])[] = [];
   let patterns: (ReactNode | ReactNode[])[] = [];
 
-  if ((showFlags & ShowFlags.Doors) > 0) {
+  if (isFlagSet(ShowFlags.Doors)) {
     const entranceData = buildHexesAndPatterns(entrances, "Entrance");
     const exitData = buildHexesAndPatterns(exits, "Exit");
     hexes = [...entranceData.hexes, ...exitData.hexes];

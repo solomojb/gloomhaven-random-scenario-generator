@@ -1,5 +1,6 @@
 import React from 'react';
 import { useGame } from '../../Game/GameProvider';
+import FlagsProvider, { ShowFlags } from '../../Providers/FlagsProvider';
 import Room from "../../Room/Room";
 import DungeonProvider from '../Maps/DungeonProvider';
 
@@ -14,7 +15,9 @@ const RoomContainer = (props: Props) => {
 	const dungeon = game.getDungeonData(dungeonName);
 	const monsters = game.getMonsterData(monstersName);
 	return <DungeonProvider monsterData={monsters} intitialDungeon={dungeon}>
-			<Room/>
+				<FlagsProvider localKey="roomFlags" initialFlags={ShowFlags.ShowAllMap}>
+				<Room/>
+				</FlagsProvider>
 		</DungeonProvider>
 };
 

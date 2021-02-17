@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
 import { Container, DropdownProps, Form } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
-import dbApp from "./State/Reducer";
 import MainView from './components/Tabs/MainView';
 import GameProvider from './components/Game/GameProvider'
 import { gameDataTypes } from './games';
-import { GameType } from './State/GameType';
+import { GameType } from './components/Game/GameType';
 
-// @ts-ignore
-export const store = createStore(dbApp,  (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__());
 
 type GameSelectorProps = {
     onChange:(obj:any,e:DropdownProps) => void;
@@ -46,11 +42,9 @@ const App = () => {
     return (
         <Container>
             {Object.values(GameType).keys.length > 1 && <GameSelector defaultGameType={gameType} onChange={onGameTypeChanged}/>}
-            <Provider store={store}>
-                <GameProvider gameType={gameType}>
-                    <MainView/>
-                </GameProvider>
-            </Provider>
+            <GameProvider gameType={gameType}>
+                <MainView/>
+            </GameProvider>
         </Container>
     );
 }

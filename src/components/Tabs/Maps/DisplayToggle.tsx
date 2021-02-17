@@ -1,9 +1,6 @@
 import React from  "react";
-import { useDispatch } from "react-redux";
 import { Form } from "semantic-ui-react";
-import { ShowFlags } from "../../../State/ItemViewState"
-import { getItemViewState } from "../../../State/Selectors";
-import { storeShowFlags } from "../../../State/State";
+import { ShowFlags, useFlags } from "../../Providers/FlagsProvider";
 
 type DisplayToggleProps = {
     flag: ShowFlags;
@@ -12,18 +9,11 @@ type DisplayToggleProps = {
   
   const DisplayToggle = (props: DisplayToggleProps) => {
     const { label, flag } = props;
-    const { showFlags }  = getItemViewState();
-    const dispatch = useDispatch();
+    const { toggleFlag, isFlagSet }  = useFlags();
   
     const changeValue = () => {
-        let newFlags = showFlags;
-        if ((flag & showFlags) > 0) {
-            newFlags &= ~flag;
-        } else { 
-            newFlags |= flag;
-        }
-        localStorage.setItem("showFlags", newFlags.toString());
-        dispatch(storeShowFlags(newFlags));
+      console.log("changing flag", flag);
+      toggleFlag(flag);
     };
   
     return (
@@ -31,7 +21,7 @@ type DisplayToggleProps = {
           <label>{label}</label>
           <Form.Checkbox
             toggle
-            checked={(showFlags & flag) > 0}
+            checked={isFlagSet(flag)}
             onClick={changeValue}
           />
         </Form.Group>

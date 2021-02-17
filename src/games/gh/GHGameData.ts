@@ -1,4 +1,4 @@
-import { GameType } from '../../State/GameType';
+import { GameType } from '../../components/Game/GameType';
 import { BaseGameData } from '../GameData'
 
 class GHGameData extends BaseGameData  {

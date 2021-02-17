@@ -1,14 +1,13 @@
 import React from "react";
 import { Form } from "semantic-ui-react";
-import { ShowFlags } from "../../../../State/ItemViewState";
-import { getItemViewState } from "../../../../State/Selectors";
+import { ShowFlags, useFlags } from "../../../Providers/FlagsProvider";
 import DisplayToggle from "../DisplayToggle";
 import MapTileEditor from "./MapTileEditor";
 
 const MapEditor = () => {
-  const { showFlags } = getItemViewState();
+  const { isFlagSet } = useFlags();
 
-   const showTools = (showFlags & ShowFlags.EditMode) > 0;
+   const showTools = isFlagSet(ShowFlags.EditMode);
   return (
     <>
       <Form.Group inline>

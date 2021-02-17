@@ -1,5 +1,5 @@
 import { Dungeon, MonsterData } from "../Data";
-import { GameType } from "../State/GameType";
+import { GameType } from "../components/Game/GameType";
 
 export const LOCAL_STORAGE_PREFIX:string = "RSG_";
 

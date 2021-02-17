@@ -1,6 +1,5 @@
 import React from "react"
 import { HexGrid, Layout, HexUtils} from "../../../react-hexgrid";
-import { ShowFlags } from "../../../State/ItemViewState";
 import { useDungeon } from "./DungeonProvider";
 import DungeonGrid from "../../Grids/DungonGrid";
 import MapGrid from "../../Grids/MapGrid";
@@ -8,6 +7,7 @@ import OverlayTileLayer from "../../Grids/OverlayTileLayer";
 import SpawnPointsLayer from "../../Grids/SpawnPointsLayer";
 import SpawnLayer from "../../Grids/SpawnLayer";
 import DoorLayer from "../../Grids/DoorLayer";
+import { ShowFlags } from "../../Providers/FlagsProvider";
 
 type Point = {
   x: number;

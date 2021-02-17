@@ -2,8 +2,7 @@ import React, { ReactNode } from "react";
 import { Hexagon } from "../../react-hexgrid";
 import { OverlayTile } from "../../Data";
 import HexPattern from "./HexPattern";
-import { ShowFlags } from "../../State/ItemViewState";
-import { getItemViewState } from "../../State/Selectors";
+import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 
 type Props = {
   tiles: OverlayTile[];
@@ -13,7 +12,7 @@ type Props = {
 
 const OverlayTileLayer = (props: Props) => {
   const { tiles, overlayType, flag } = props;
-  const { showFlags } = getItemViewState();
+  const { isFlagSet } = useFlags();
 
   const buildHex = (tile: OverlayTile) => {
     const { q, r, pattern, rotation, hexType } = tile;
@@ -29,7 +28,7 @@ const OverlayTileLayer = (props: Props) => {
   function onlyUnique(value: any, index: any, self: any) {
     return self.indexOf(value) === index;
   }
-  if ((showFlags & flag) > 0 && tiles) {
+  if (isFlagSet(flag) && tiles) {
     hexes = tiles.map(buildHex);
 
     const patternStrings = tiles

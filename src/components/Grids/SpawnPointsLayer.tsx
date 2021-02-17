@@ -3,12 +3,11 @@ import { Hexagon, Text} from "../../react-hexgrid"
 import { OverlayTile } from "../../Data";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import HexPattern from "./HexPattern";
-import { getItemViewState } from "../../State/Selectors";
-import { ShowFlags } from "../../State/ItemViewState";
+import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 
 const SpawnPointsLayer = () => {
     const { dungeon: {spawnPoints}} = useDungeon();
-    const { showFlags } = getItemViewState();
+    const { isFlagSet } = useFlags();
 
     const buildHex = (spawnPoint:OverlayTile) => {
         const { q, r, id} = spawnPoint;
@@ -20,7 +19,7 @@ const SpawnPointsLayer = () => {
      let hexes: (ReactNode | ReactNode [])[]= [];
      const patterns =[];
  
-     if ((showFlags & ShowFlags.SpawnPoint) > 0) {
+     if (isFlagSet(ShowFlags.SpawnPoint)) {
       hexes = spawnPoints.map(spawnPoint => {
           const hexes = [];
             hexes.push(buildHex(spawnPoint));

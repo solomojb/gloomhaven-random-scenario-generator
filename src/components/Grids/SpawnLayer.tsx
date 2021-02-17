@@ -1,14 +1,13 @@
 import React from "react";
 import { Hexagon, Text } from "../../react-hexgrid";
 import { OverlayTile } from "../../Data";
-import { getItemViewState } from "../../State/Selectors";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import HexPattern from "./HexPattern";
-import { ShowFlags } from "../../State/ItemViewState";
 import { usePlayerCount } from "../Providers/PlayerCountProvider";
+import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 
 const SpawnLayer = () => {
-  const { showFlags } = getItemViewState();
+  const { isFlagSet } = useFlags();
   const { playerCount } = usePlayerCount();
   const {
     dungeon: { spawnPoints },
@@ -25,7 +24,7 @@ const SpawnLayer = () => {
   let patterns: JSX.Element[] = [];
   let treasureCount = 1;
 
-  if ((showFlags & ShowFlags.Spawns) > 0) {
+  if (isFlagSet(ShowFlags.Spawns)) {
     spawns.forEach((spawn) => {
       const { type, id, monsterType, category } = spawn;
       const spawnPoint = spawnPoints.find((spawn) => spawn.id === id);

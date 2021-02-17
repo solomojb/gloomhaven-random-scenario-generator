@@ -1,13 +1,12 @@
 import React, { ReactNode } from "react"
 import { Hexagon, Text} from "../../react-hexgrid"
+import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider"
 import HexPattern from "./HexPattern";
-import { getItemViewState } from "../../State/Selectors";
-import { ShowFlags } from "../../State/ItemViewState";
 
 const MapGrid = () => {
     const { dungeon: { map : { hexColumns} } } = useDungeon();
-    const { showFlags } = getItemViewState();
+    const { isFlagSet } = useFlags();
 
     const buildHex = (q:number, r: number) => {
         return <Hexagon q={q} r={r} s={0} fill="wood-1">
@@ -18,7 +17,7 @@ const MapGrid = () => {
       let hexes: (ReactNode | ReactNode [])[]= [];
       const patterns =[];
   
-      if ((showFlags & ShowFlags.Grid) > 0) {
+      if (isFlagSet(ShowFlags.Grid)) {
         hexes = hexColumns.map(data => {
           const hexes = [];
           for (let r = data.minR; r <= data.maxR; r++) {

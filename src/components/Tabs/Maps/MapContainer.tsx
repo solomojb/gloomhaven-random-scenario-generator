@@ -10,6 +10,7 @@ import MapEditor from "./Editor/MapEditor";
 import DungeonProvider from "./DungeonProvider"
 import Room from "../../Room/Room";
 import PlayerCountProvider from "../../Providers/PlayerCountProvider";
+import FlagsProvider, { ShowFlags } from "../../Providers/FlagsProvider";
 
 const MapContainer = () => {
   const game = useGame();
@@ -43,25 +44,27 @@ const MapContainer = () => {
 
   return (
 	  <DungeonProvider intitialDungeon={dungeonData} monsterData={monsterData}>
-		<Form>
-			<MapEditor/>
-			<Form.Group>
-				<Form.Field>
-					<PlayerCountProvider localKey={"numberOfPlayers"}>
-						<PlayerCount/>
-						<Room/>
-					</PlayerCountProvider>
-				</Form.Field>
+		<FlagsProvider localKey="showFlags" initialFlags={ShowFlags.ShowAllMap}>
+			<Form>
+				<MapEditor/>
 				<Form.Group>
 					<Form.Field>
-						<MapSelector defaultMapName={selectedMap} onChange={onDungeonChange}/>
-						<MapCard/>
-						<MonsterSelector defaultMonsterName={selectedMonster} onChange={onMonsterChange}/>
-						<MonsterCard />
+						<PlayerCountProvider localKey={"numberOfPlayers"}>
+							<PlayerCount/>
+								<Room/>
+						</PlayerCountProvider>
 					</Form.Field>
+					<Form.Group>
+						<Form.Field>
+							<MapSelector defaultMapName={selectedMap} onChange={onDungeonChange}/>
+							<MapCard/>
+							<MonsterSelector defaultMonsterName={selectedMonster} onChange={onMonsterChange}/>
+							<MonsterCard />
+						</Form.Field>
+					</Form.Group>
 				</Form.Group>
-			</Form.Group>
-		</Form>
+			</Form>
+		</FlagsProvider>
 	</DungeonProvider>
   );
 };

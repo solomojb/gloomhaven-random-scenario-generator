@@ -1,13 +1,12 @@
 import React from "react"
 import { Hexagon, Text } from "../../react-hexgrid";
+import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import HexPattern from "./HexPattern";
-import { ShowFlags } from "../../State/ItemViewState";
-import { getItemViewState } from "../../State/Selectors";
 
 const DungeonGrid = () => {
     const { dungeon: {map: {rotateHex}}} = useDungeon();
-    const { showFlags } = getItemViewState();
+    const { isFlagSet } = useFlags();
     
     const buildHex = (q:number, r: number) => {
         return <Hexagon q={q} r={r} s={0} fill="earth-1">
@@ -18,7 +17,7 @@ const DungeonGrid = () => {
     const hexes = [];
     const patterns =[];
 
-    if ((showFlags & ShowFlags.AllGrid) > 0) {
+    if (isFlagSet(ShowFlags.AllGrid)) {
         if (rotateHex) {
             let maxQ = 6;
             let minQ = -1;
