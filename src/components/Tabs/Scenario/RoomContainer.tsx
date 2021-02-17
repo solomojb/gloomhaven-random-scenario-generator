@@ -1,19 +1,24 @@
 import React from 'react';
 import { useGame } from '../../Game/GameProvider';
 import FlagsProvider, { ShowFlags } from '../../Providers/FlagsProvider';
+import { useScenario } from '../../Providers/ScenarioProvider';
 import Room from "../../Room/Room";
 import DungeonProvider from '../Maps/DungeonProvider';
 
 type Props = {
-	dungeonName: string;
-	monstersName: string;
+	roomNumber: number;
 }
 
 const RoomContainer = (props: Props) => {
-	const { dungeonName, monstersName} = props;
-	const game = useGame();
-	const dungeon = game.getDungeonData(dungeonName);
-	const monsters = game.getMonsterData(monstersName);
+	const { roomNumber } = props;
+	const { rooms } = useScenario();
+	if (roomNumber >= rooms.length) {
+		return null;
+	}
+	const { dungeon, monsters} = rooms[roomNumber];
+	if (!dungeon || !monsters) {
+		return null;
+	}
 	return <DungeonProvider monsterData={monsters} intitialDungeon={dungeon}>
 				<FlagsProvider localKey="roomFlags" initialFlags={ShowFlags.ShowAllMap}>
 				<Room/>

@@ -8,7 +8,6 @@ type PlayerButtonProps = {
 
 const PlayerButton = (props: PlayerButtonProps) => {
   const { playerCount, setPlayerCount } = usePlayerCount();
-  console.log(playerCount);
   const { count } = props;
   return (
     <Button
