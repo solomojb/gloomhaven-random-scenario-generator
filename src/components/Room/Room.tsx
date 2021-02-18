@@ -12,6 +12,7 @@ import "../Tabs/Maps/map.css"
 
 const Room = () => {
     const { dungeon } = useDungeon();
+    console.log("rendering room");
     return (
         <>
             <Form.Group>{dungeon.name}</Form.Group>

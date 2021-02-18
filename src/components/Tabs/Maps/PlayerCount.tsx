@@ -13,7 +13,6 @@ const PlayerButton = (props: PlayerButtonProps) => {
     <Button
       positive={playerCount === count}
       onClick={() => {
-        console.log("setting count to ", count);
         setPlayerCount(count);}
       }
     >

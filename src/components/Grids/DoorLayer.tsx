@@ -8,17 +8,20 @@ import { useScenario } from "../Providers/ScenarioProvider";
 
 
 const DoorLayer = () => {
-  const { dungeon: { map : {rotateHex }, entrances, exits }} = useDungeon();
+  const { dungeon: { map : {rotateHex }, entrances, exits }, roomNumber} = useDungeon();
   const game = useGame();
-  const { getNextRoom } = useScenario();
+  const { getNextRoom, rooms, isDoorShown } = useScenario();
   const { isFlagSet } = useFlags();
 
 
   const buildHex = (tile: Door, type: string) => {
     const { q, r, aOrB } = tile;
+    if (!isDoorShown(aOrB, roomNumber, type)) {
+      return null;
+    }
     const fill = type + aOrB;
     return (
-      <Hexagon q={q} r={r} s={0} fill={fill} onClick={() => type === "Exit" && getNextRoom(aOrB)}/>
+      <Hexagon q={q} r={r} s={0} fill={fill} onClick={() => type === "Exit" && getNextRoom(aOrB, roomNumber)}/>
     );
   };
 

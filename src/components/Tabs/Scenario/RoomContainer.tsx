@@ -19,7 +19,7 @@ const RoomContainer = (props: Props) => {
 	if (!dungeon || !monsters) {
 		return null;
 	}
-	return <DungeonProvider monsterData={monsters} intitialDungeon={dungeon}>
+	return <DungeonProvider monsterData={monsters} intitialDungeon={dungeon} roomNumber={roomNumber}>
 				<FlagsProvider localKey="roomFlags" initialFlags={ShowFlags.ShowAllMap}>
 				<Room/>
 				</FlagsProvider>

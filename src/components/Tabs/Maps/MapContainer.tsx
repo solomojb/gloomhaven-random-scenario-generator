@@ -21,7 +21,6 @@ const MapContainer = () => {
   const [selectedMonster, setSelectedMonster] = useState<string>(
     localStorage.getItem("currentMonster") || game.getMonsterList()[0]
   );
-  const [showPlaceholder, setShowPlaceholder] = useState(true);
 
   const dungeonData = game.getDungeonData(selectedMap);
   const monsterData = game.getMonsterData(selectedMonster);
@@ -29,8 +28,6 @@ const MapContainer = () => {
   const onDungeonChange = (obj: any, e: DropdownProps): void => {
     setSelectedMap(e.value as string);
 	localStorage.setItem("currentMap", e.value as string);
-	setShowPlaceholder(false);
-	setTimeout(() => setShowPlaceholder(true), 100);
   };
 
   const onMonsterChange = (obj: any, e: DropdownProps): void => {

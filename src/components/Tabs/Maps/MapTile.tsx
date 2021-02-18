@@ -1,7 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { RefObject, SyntheticEvent, useEffect, useRef, useState } from "react";
 import { Tile } from "../../../Data";
 import { useGame } from "../../Game/GameProvider";
 import "./map.css"
+
+export type Dimension = {
+  width: number;
+  height: number;
+}
 
 type Props = {
     tile:Tile;
@@ -11,33 +16,22 @@ type Props = {
 const MapTile = (props:Props) =>  {
     const { tile: { tile, rotation, offsetX, offsetY, scale }, onTileLoad} = props;
     const game = useGame();
-    const ref = useRef<HTMLImageElement>(null);
-    const [width, setWidth] = useState<number>(0);
-    const [height, setHeight] = useState<number>(0);
+    const [dimension, setDimensions] = useState<Dimension>({width:0, height:0});
 
-      const onLoad = (ref:any) => {
-          const {width, height} = ref.current.getBoundingClientRect();
-        setHeight( height );
-        setWidth( width );
-        if (onTileLoad) {
+      const onLoad = (event:SyntheticEvent<HTMLImageElement, Event>) => {
+        const { target } = event;
+        //@ts-ignore
+        const {width, height} = target.getBoundingClientRect();
+          setDimensions({width, height});       
+          if (onTileLoad) {
             onTileLoad(width, height);
+          }
         }
-    }
 
-  useEffect( () => {
-      //@ts-ignore
-      if (ref && ref.current) {
-        //@ts-ignore
-        ref.current.addEventListener('load', () => onLoad(ref));
-        //@ts-ignore
-        if (ref.current.complete) {
-          onLoad(ref);
-        }
-      }
-  },[ref.current]);
-
-    const translateX = offsetX || 0;
+        const translateX = offsetX || 0;
     const translateY = offsetY || 0;
+
+    const { width, height} = dimension;
 
     let translateXStr = '';
     let translateYStr = '';
@@ -54,9 +48,11 @@ const MapTile = (props:Props) =>  {
             break;
     }
 
+    console.log("rendering tile", tile);
+
     const transform = `${translateYStr} ${translateXStr} rotate(${rotation}deg) scale(${scale})`;
     return (
-            <img ref={ref} src={game.getMapPath(tile)} style={{position:'relative', top:`${translateY}px`, left:`${translateX}px`, transformOrigin: "left top", transform}}/>
+            <img onLoad={onLoad} src={game.getMapPath(tile)} style={{position:'relative', top:`${translateY}px`, left:`${translateX}px`, transformOrigin: "left top", transform}}/>
             )
 };
 

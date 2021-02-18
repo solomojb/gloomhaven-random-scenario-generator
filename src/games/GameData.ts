@@ -1,5 +1,6 @@
 import { Dungeon, MonsterData } from "../Data";
 import { GameType } from "../components/Game/GameType";
+import { Helpers } from "../helpers";
 
 export const LOCAL_STORAGE_PREFIX:string = "RSG_";
 
@@ -35,6 +36,14 @@ export abstract class BaseGameData {
             this.dungeonData[dungeonName] = require(`./${this.gameType}/Dungeons/${dungeonName}.json`);
         }
         return this.dungeonData[dungeonName] as Dungeon;
+    }
+
+    getRandomDungeons() : Dungeon[] {
+        return Helpers.shuffle(this.getDungeonList().map(name => this.getDungeonData(name)))
+    }
+    
+    getRandomMonsters() : MonsterData[] {
+        return Helpers.shuffle(this.getMonsterList().map(name => this.getMonsterData(name)))
     }
     
     getMonsterData(monsterName:string) : MonsterData {
