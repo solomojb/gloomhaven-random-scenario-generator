@@ -1,0 +1,132 @@
+{
+  "name": "cabin",
+  "entrances": [{"aOrB": "A", "q":-4, "r":0}],
+  "exits": [{"aOrB": "A", "q":2, "r":-3}],
+      "map": {
+      "tiles" :[ {
+        "tile": "i2b",
+        "rotation": 270,
+        "scale": 0.87,
+        "offsetX": 48,
+        "offsetY": 39
+      }
+    ],
+      "offsetX": 31,
+      "offsetY": -10,
+      "hexColumns": [
+        { "q": -3  ,
+          "minR": -3,
+          "maxR": 2
+        },
+        { "q": -2,
+          "minR": -3,
+          "maxR": 1
+        },
+        { "q": -1,
+          "minR": -4,
+          "maxR": 1
+        },
+        { "q": 0,
+          "minR": -4,
+          "maxR": 0
+        },
+        { "q": 1,
+          "minR": -5,
+          "maxR": 0
+        }
+      ]
+    },
+    "spawnPoints": [
+      {
+        "id": 1,
+        "q": -1, 
+        "r": -3
+      },
+      {
+        "id": 2,
+        "q": -3, 
+        "r": -2
+      },
+      {
+        "id": 3,
+        "q": -3, 
+        "r": -3
+      },
+      {
+        "id": 4,
+        "q": 1, 
+        "r": -2
+      },
+      {
+        "id": 5,
+        "q": 1, 
+        "r": -3
+      },
+      {
+        "id": 6,
+        "q": -1, 
+        "r": -1
+      },
+      {
+        "id": 7,
+        "q": -2, 
+        "r": -1
+      },
+      {
+        "id": 8,
+        "q": -2, 
+        "r": 0
+      },
+      {
+        "id": 9,
+        "q": -2, 
+        "r": 1
+      },
+      {
+        "id": 10,
+        "q": 1, 
+        "r": -4
+      },
+      {
+        "id": 11,
+        "q": 0, 
+        "r": -4
+      },
+      {
+        "id": 12,
+        "q": 1, 
+        "r": -5
+      }
+    ],
+    "obstacles": [
+      {
+        "pattern": "barrel",
+        "q": -2,
+        "r": -3
+      },
+      {
+        "pattern": "cabinet",
+        "q": -1,
+        "r": -4
+      },
+      {
+        "pattern": "cabinet",
+        "q": -1,
+        "r": 0
+      },
+      {
+        "pattern": "table",
+        "q": 0,
+        "r": -2,
+        "rotation": 0,
+        "scale": 2,
+        "hexType": "2x1D"
+      }
+
+    ],
+    "penalties" : [
+      "The character who opened the door loses a card.",
+      "The character who opened the door loses 2 cards."
+    ]
+  }
+  

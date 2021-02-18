@@ -8,11 +8,55 @@ class GHGameData extends BaseGameData  {
     }
 
     getDungeonList() : string[] {
-        return ["alcove", "altar", "armory", "burrow"];
+        return [
+            "alcove", 
+            "altar", 
+            "armory", 
+            "burrow", 
+            "cabin",
+            // "cave",
+            // "clearning",
+            // "corridor",
+            // "crossroads",
+            // "dead-end",
+            // "den",
+            // "encampment",
+            // "hallway",
+            // "hovel",
+            // "library",
+            // "passage",
+            // "road",
+            // "sewer",
+            // "trail",
+            // "tunnel",
+        ];
     }
 
     getMonsterList() : string[] {
-        return ["archaic", "corrupted", "crushing", "cutthroat"];
+        return [
+                "archaic",
+                // "arid",
+                "corrupted", 
+                "crushing", 
+                "cutthroat", 
+                "defiled",
+                // "drowned",
+                // "ethereal", // fc
+                // "foggy",
+                // "fortified",
+                // "frigid",
+                // "hopeless",
+                // "horrific",
+                // "infected",
+                // "mangy",
+                // "putird",
+                // "rotting",
+                // "scaled",
+                // "tribal",
+                // "unstable",
+                // "venemous",
+                // "wild",
+            ];
     }
 }
 
