@@ -1,0 +1,37 @@
+{
+  "name": "putrid",
+  "traps": ["MUDDLE, DAMAGE"],
+  "spawns": [
+    {
+      "data": {
+        "1": ["normal", "normal", "elite"],
+        "2": ["none", "normal", "normal"],
+        "3": ["elite", "elite", "elite"],
+        "5": ["none", "none", "normal"],
+        "6": ["none", "none", "normal"]
+      },
+      "type": "Living Corpse",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "4": ["none", "elite", "elite"],
+        "7": ["normal", "normal", "elite"],
+        "8": ["normal", "normal", "normal"]
+      },
+      "type": "Ooze",
+      "category": "monster"
+    },
+    {
+      "data": [9, 10, 11],
+      "type": "poison-gas-trap",
+      "displayName": "Poison Gas",
+      "category": "traps"
+    },
+    {
+      "data": {"12": "10 Gold"},
+      "type": "Treasure",
+      "category": "treasures"
+    }
+  ]
+}

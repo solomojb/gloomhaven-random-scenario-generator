@@ -1,0 +1,47 @@
+{
+  "name": "scaled",
+  "traps": ["WOUND, POISON"],
+  "spawns": [
+    {
+      "data": {
+        "4": ["normal", "normal", "elite"],
+        "5": ["none", "normal", "normal"]
+      },
+      "type": "Rending Drake",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "8": ["normal", "normal", "normal"],
+        "11": ["normal", "normal", "elite"]
+      },
+      "type": "Spitting Drake",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "6": ["normal", "elite", "elite"],
+        "10": ["normal", "elite", "elite"]
+      },
+      "type": "Giant Viper",
+      "category": "monster"
+    },
+    {
+      "data": [1,2,3],
+      "type": "spike-pit-trap",
+      "displayName": "Spike Pit",
+      "category": "traps"
+    },
+    {
+      "data": [7, 9],
+      "type": "Thorns",
+      "category": "hazardous-terrain"
+    },
+    {
+      "data": [12],
+      "type": "coin-1",
+      "displayName": "Coin",
+      "category": "coin"
+    }
+  ]
+}

@@ -1,75 +1,37 @@
 {
-    "name" : "defiled",
-    "traps" : ["POISON", "IMMOBILIZE"],
-    "spawns": [
-        {
-          "id": 1,
-          "type": "Sun Demon",
-          "category": "monster",
-            "monsterType": ["elite", "elite", "elite"]
-        },
-        {
-          "id": 2,
-          "type": "Forest Imp",
-          "category": "monster",
-          "monsterType": ["none", "normal", "elite"]
-        },
-        {
-          "id": 3,
-          "type": "Forest Imp",
-          "category": "monster",
-          "monsterType": ["elite", "elite", "elite"]
-        },
-        {
-          "id": 4,
-          "type": "Forest Imp",
-          "category": "monster",
-          "monsterType": ["none", "normal", "elite"]
-        },
-        {
-          "id": 5,
-          "type": "Forest Imp",
-          "category": "monster",
-          "monsterType": ["none", "normal", "elite"]
-        },
-        {
-          "id": 6,
-          "type": "Sun Demon",
-          "category": "monster",
-            "monsterType": ["none", "none", "normal"]
-        },
-        {
-          "id": 7,
-          "type": "Forest Imp",
-          "category": "monster",
-          "monsterType": ["normal", "normal", "normal"]
-        },
-        {
-          "id": 8,
-          "type": "poison-gas-trap",
-          "category":"traps"
-        },
-        {
-          "id": 9,
-          "type": "poison-gas-trap",
-          "category":"traps"
-        },
-        {
-          "id": 10,
-          "type": "Sun Demon",
-          "category":"monster",
-          "monsterType": ["normal", "normal", "elite"]
-        },
-        {
-          "id": 11,
-          "type": "poison-gas-trap",
-          "category":"traps"
-        },
-        {
-          "id": 12,
-          "type": "Treasure",
-          "category": "treasures",
-          "description":"Heal 5 hit points"
-        }
-      ]
+  "name": "defiled",
+  "traps": ["POISON", "IMMOBILIZE"],
+  "spawns": [
+    {
+      "data": {
+        "1": ["elite", "elite", "elite"],
+        "6": ["none", "none", "normal"],
+        "10": ["normal", "normal", "elite"]
+      },
+      "type": "Sun Demon",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "2": ["none", "normal", "elite"],
+        "3": ["elite", "elite", "elite"],
+        "4": ["none", "normal", "elite"],
+        "5": ["none", "normal", "elite"],
+        "7": ["normal", "normal", "normal"]
+      },
+      "type": "Forest Imp",
+      "category": "monster"
+    },
+    {
+      "data": [8, 9, 11],
+      "type": "poison-gas-trap",
+      "displayName": "Poison Gas",
+      "category": "traps"
+    },
+    {
+      "data": { "12": "Heal 5 hit points" },
+      "type": "Treasure",
+      "category": "treasures"
+    }
+  ]
 }

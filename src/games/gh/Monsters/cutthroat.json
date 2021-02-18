@@ -1,78 +1,48 @@
 {
-    "name" : "cutthroat",
-    "traps" : ["POISON", "DAMAGE"],
-    "spawns": [
-        {
-          "id": 1,
-          "type": "Bandit Guard",
-          "category": "monster",
-            "monsterType": ["elite", "elite", "elite"]
-        },
-        {
-          "id": 2,
-          "type": "coin-1",
-          "category": "coin",
-          "displayName": "Coin"
-        },
-        {
-          "id": 3,
-          "type": "Bandit Archer",
-          "category": "monster",
-          "monsterType": ["normal", "elite", "elite"]
-        },
-        {
-          "id": 4,
-          "type": "Bandit Archer",
-          "category": "monster",
-          "monsterType": ["normal", "normal", "normal"]
-        },
-        {
-          "id": 5,
-          "type": "spike-pit-trap",
-          "category": "traps",
-          "displayName": "Spike Pit"
-        },
-        {
-          "id": 6,
-          "type": "Hound",
-          "category":"monster",
-          "monsterType": ["normal", "normal", "elite"]
-        },
-        {
-          "id": 7,
-          "type": "Bandit Guard",
-          "category":"monster",
-          "monsterType": ["none", "normal", "elite"]
-        },
-        {
-          "id": 8,
-          "type": "Hound",
-          "category":"monster",
-          "monsterType": ["none", "nornal", "elite"]
-        },
-        {
-          "id": 9,
-          "type": "spike-pit-trap",
-          "category": "traps",
-          "displayName": "Spike Pit"
-        },
-        {
-          "id": 10,
-          "type": "Bandit Archer",
-          "category":"monster",
-          "monsterType": ["none", "none", "normal"]
-        },
-        {
-          "id": 11,
-          "type": "spike-pit-trap",
-          "category": "traps",
-          "displayName": "Spike Pit"
-        },
-        {
-          "id": 12,
-          "type": "Treasure",
-          "category": "treasures",
-          "description":"5 Gold"
-        }
-      ]
+  "name": "cutthroat",
+  "traps": ["POISON", "DAMAGE"],
+  "spawns": [
+    {
+      "data": {
+        "1": ["elite", "elite", "elite"],
+        "7": ["none", "normal", "elite"]
+      },
+      "type": "Bandit Guard",
+      "category": "monster"
+    },
+    {
+      "data": [2],
+      "type": "coin-1",
+      "category": "coin",
+      "displayName": "Coin"
+    },
+    {
+      "data": {
+        "3": ["normal", "elite", "elite"],
+        "4": ["normal", "normal", "normal"],
+        "10": ["none", "none", "normal"]
+      },
+      "type": "Bandit Archer",
+      "category": "monster"
+    },
+    {
+      "data": [5, 9, 11],
+      "type": "spike-pit-trap",
+      "category": "traps",
+      "displayName": "Spike Pit"
+    },
+    {
+      "data": {
+        "6": ["normal", "normal", "elite"],
+        "8": ["none", "nornal", "elite"]
+      },
+      "type": "Hound",
+      "category": "monster"
+    },
+    {
+      "data": { "12": "5 Gold" },
+      "type": "Treasure",
+      "category": "treasures"
+    }
+  ]
 }

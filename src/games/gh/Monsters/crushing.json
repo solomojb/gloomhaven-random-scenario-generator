@@ -1,73 +1,33 @@
 {
-    "name" : "crushing",
-    "spawns": [
-        {
-          "id": 1,
-          "type": "Earth Demon",
-          "category": "monster",
-            "monsterType": ["elite", "elite", "elite"]
-        },
-        {
-          "id": 2,
-          "type": "Wind Demon",
-          "category": "monster",
-          "monsterType": ["normal", "normal", "normal"]
-        },
-        {
-          "id": 3,
-          "type": "Wind Demon",
-          "category": "monster",
-          "monsterType": ["none", "none", "normal"]
-        },
-        {
-          "id": 4,
-          "type": "Rubble",
-          "category": "difficult-terrain"
-        },
-        {
-          "id": 5,
-          "type": "Rubble",
-          "category": "difficult-terrain"
-        },
-        {
-          "id": 6,
-          "type": "Earth Demon",
-          "category":"monster",
-          "monsterType": ["none", "normal", "elite"]
-        },
-        {
-          "id": 7,
-          "type": "Wind Demon",
-          "category":"monster",
-          "monsterType": ["none", "normal", "normal"]
-        },
-        {
-          "id": 8,
-          "type": "Rubble",
-          "category":"difficult-terrain"
-        },
-        {
-          "id": 9,
-          "type": "Wind Demon",
-          "category":"monster",
-          "monsterType": ["normal", "normal", "normal"]
-        },
-        {
-          "id": 10,
-          "type": "Rubble",
-          "category":"difficult-terrain"
-        },
-        {
-          "id": 11,
-          "type": "Treasure",
-          "category":"treasures",
-          "description": "5 Gold"
-        },
-        {
-          "id": 12,
-          "type": "Treasure",
-          "category": "treasures",
-          "description":"5 Gold"
-        }
-      ]
+  "name": "crushing",
+  "spawns": [
+    {
+      "data": {
+        "1": ["elite", "elite", "elite"],
+        "6": ["none", "normal", "elite"]
+      },
+      "type": "Earth Demon",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "2": ["normal", "normal", "normal"],
+        "3": ["none", "none", "normal"],
+        "7": ["none", "normal", "normal"],
+        "9": ["normal", "normal", "normal"]
+      },
+      "type": "Wind Demon",
+      "category": "monster"
+    },
+    {
+      "data": [4, 5, 8, 10],
+      "type": "Rubble",
+      "category": "difficult-terrain"
+    },
+    {
+      "data": { "11": "5 Gold", "12": "5 Gold" },
+      "type": "Treasure",
+      "category": "treasures"
+    }
+  ]
 }

@@ -1,63 +1,40 @@
 {
-  "name" : "corrupted",
+  "name": "corrupted",
   "spawns": [
-      {
-        "id": 1,
-        "type": "Cultist",
-        "category": "monster",
-        "monsterType": ["elite", "elite", "elite"]
+    {
+      "data": {
+        "1": ["elite", "elite", "elite"],
+        "8": ["normal", "normal", "normal"],
+        "9": ["none", "elite", "elite"]
       },
-      {
-        "id": 2,
-        "type": "Living Bones",
-        "category": "monster",
-        "monsterType": ["none", "none", "normal"]
+      "type": "Cultist",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "2": ["none", "none", "normal"],
+        "7": ["nornmal", "normal", "elite"]
       },
-      {
-        "id": 3,
-        "type": "Night Demon",
-        "category": "monster",
-        "monsterType": ["normal", "normal", "elite"]
+      "type": "Living Bones",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "3": ["normal", "normal", "elite"],
+        "4": ["none", "normal", "elite"]
       },
-      {
-        "id": 4,
-        "type": "Night Demon",
-        "category": "monster",
-        "monsterType": ["none", "normal", "elite"]
-      },
-      {
-        "id": 7,
-        "type": "Living Bones",
-        "category":"monster",
-        "monsterType": ["nornmal", "normal", "elite"]
-      },
-      {
-        "id": 8,
-        "type": "Cultist",
-        "category":"monster",
-        "monsterType": ["normal", "normal", "normal"]
-      },
-      {
-        "id": 9,
-        "type": "Cultist",
-        "category":"monster",
-        "monsterType": ["none", "elite", "elite"]
-      },
-      {
-        "id": 10,
-        "type": "Thorns",
-        "category":"hazardous-terrain"
-      },
-      {
-        "id": 11,
-        "type": "Thorns",
-        "category":"hazardous-terrain"
-      },
-      {
-        "id": 12,
-        "type": "Treasure",
-        "category": "treasures",
-        "description": "Recover a lost card"
-      }
-    ]
+      "type": "Night Demon",
+      "category": "monster"
+    },
+    {
+      "data": [10, 11],
+      "type": "Thorns",
+      "category": "hazardous-terrain"
+    },
+    {
+      "data": { "12": "Recover a lost card" },
+      "type": "Treasure",
+      "category": "treasures"
+    }
+  ]
 }

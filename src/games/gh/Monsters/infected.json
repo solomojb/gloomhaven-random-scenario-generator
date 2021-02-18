@@ -1,0 +1,33 @@
+{
+  "name": "infected",
+  "spawns": [
+    {
+      "data": {
+        "1": ["elite", "elite", "elite"],
+        "2": ["none", "normal", "elite"],
+        "3": ["none", "elite", "elite"],
+        "4": ["normal", "normal", "normal"],
+        "5": ["normal", "normal", "normal"],
+        "6": ["normal", "normal", "elite"],
+        "8": ["none", "none", "elite"]
+      },
+      "type": "Giant Viper",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "7": ["none", "normal", "elite"],
+        "10": ["elite", "elite", "elite"],
+        "11": ["normal", "normal", "normal"]
+      },
+      "type": "Ooze",
+      "category": "monster"
+    },
+    {
+      "data": [12],
+      "type": "coin-1",
+      "displayName": "Coin",
+      "category": "coin"
+    }
+  ]
+}

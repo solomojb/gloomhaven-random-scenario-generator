@@ -1,71 +1,37 @@
 {
-    "name" : "archaic",
-    "spawns": [
-        {
-          "id": 1,
-          "type": "Rubble",
-          "category": "difficult-terrain"
-        },
-        {
-          "id": 2,
-          "type": "Rubble",
-          "category": "difficult-terrain"
-        },
-        {
-          "id": 3,
-          "type": "Stone Golem",
-          "category": "monster",
-          "monsterType": ["elite", "elite", "elite"]
-        },
-        {
-          "id": 4,
-          "type": "Stone Golem",
-          "category": "monster",
-          "monsterType": ["none", "normal", "elite"]
-        },
-        {
-          "id": 5,
-          "type": "Thorns",
-          "category": "hazardous-terrain"
-        },
-        {
-          "id": 6,
-          "type": "Ancient Artillery",
-          "category":"monster",
-          "monsterType": ["none", "normal", "normal"]
-        },
-        {
-          "id": 7,
-          "type": "Rubble",
-          "category":"difficult-terrain"
-        },
-        {
-          "id": 8,
-          "type": "Ancient Artillery",
-          "category":"monster",
-          "monsterType": ["normal", "normal", "normal"]
-        },
-        {
-          "id": 9,
-          "type": "Thorns",
-          "category":"hazardous-terrain"
-        },
-        {
-          "id": 10,
-          "type": "Thorns",
-          "category":"hazardous-terrain"
-        },
-        {
-          "id": 11,
-          "type": "Ancient Artillery",
-          "category":"monster",
-          "monsterType": ["normal", "normal", "elite"]
-        },
-        {
-          "id": 12,
-          "type": "Treasure",
-          "category": "treasures",
-          "description": "Recover a lost card"
-        }
-      ]
+  "name": "archaic",
+  "spawns": [
+    {
+      "data": [1, 2, 7],
+      "type": "Rubble",
+      "category": "difficult-terrain"
+    },
+    {
+      "data": {
+        "3": ["elite", "elite", "elite"],
+        "4": ["none", "normal", "elite"]
+      },
+      "type": "Stone Golem",
+      "category": "monster"
+    },
+    {
+      "data": [5, 9, 10],
+      "type": "Thorns",
+      "category": "hazardous-terrain"
+    },
+    {
+      "data": {
+        "6": ["none", "normal", "normal"],
+        "8": ["normal", "normal", "normal"],
+        "11": ["normal", "normal", "elite"]
+      },
+      "type": "Ancient Artillery",
+      "category": "monster"
+    },
+    {
+      "data": { "12": "Recover a lost card" },
+      "type": "Treasure",
+      "category": "treasures"
+    }
+  ]
 }

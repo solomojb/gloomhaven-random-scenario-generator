@@ -1,6 +1,6 @@
 import React from "react";
 import { Hexagon, Text } from "../../react-hexgrid";
-import { OverlayTile } from "../../Data";
+import { OverlayTile, SpawnCategory, MonsterType, Spawn } from "../../Data";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import HexPattern from "./HexPattern";
 import { usePlayerCount } from "../Providers/PlayerCountProvider";
@@ -24,24 +24,50 @@ const SpawnLayer = () => {
   let patterns: JSX.Element[] = [];
   let treasureCount = 1;
 
-  if (isFlagSet(ShowFlags.Spawns)) {
-    spawns.forEach((spawn) => {
-      const { type, id, monsterType, category } = spawn;
-      const spawnPoint = spawnPoints.find((spawn) => spawn.id === id);
-      if (spawnPoint && type) {
-        if (category === "monster") {
-          const monsterKey = monsterType[playerCount - 2];
-          if (monsterKey !== "none") {
+  const buildMonsterHex = (spawn: Spawn) => {
+    const { type, data } = spawn;
+    Object.keys(data).forEach( spawnPointId => {
+      const spawnPoint = spawnPoints.find((overlayTile:OverlayTile) => overlayTile.id === parseInt(spawnPointId));
+      if (spawnPoint) {
+        const monsterTypes: MonsterType[] = data[parseInt(spawnPointId)] as MonsterType[];
+        const monsterKey = monsterTypes[playerCount - 2];
+        if (monsterKey !== MonsterType.None) {
             hexes.push(buildHex(spawnPoint, type));
-            if (monsterKey === "elite") {
+            if (monsterKey === MonsterType.Elite) {
               hexes.push(buildHex(spawnPoint, "EliteOverlay"));
             }
           }
-        } else if (category === "treasures") {
-          hexes.push(buildHex(spawnPoint, type, treasureCount++));
-        } else {
-          hexes.push(buildHex(spawnPoint, type));
-        }
+      }
+    })
+  }
+
+  const buildTreasureHex = (spawn: Spawn) => {
+    const { type, data } = spawn;
+    Object.keys(data).forEach( (spawnPointId, index) => {
+      const spawnPoint = spawnPoints.find((overlayTile:OverlayTile) => overlayTile.id === parseInt(spawnPointId));
+      if (spawnPoint) {
+          hexes.push(buildHex(spawnPoint, type, index + 1));
+      }
+    })
+  }
+
+  if (isFlagSet(ShowFlags.Spawns)) {
+    spawns.forEach((spawn) => {
+      const { type, data, category } = spawn;
+      if (category === SpawnCategory.Monster) {
+        buildMonsterHex(spawn);
+      } 
+      else if (category === SpawnCategory.Treasures) {
+        buildTreasureHex(spawn);
+      }
+      else {
+        const spawnArr = data as number[];
+        spawnArr.forEach( (id: number) => {
+        const spawnPoint = spawnPoints.find((spawn) => spawn.id === id);
+         if (spawnPoint) {
+              hexes.push(buildHex(spawnPoint, type));
+         }
+        });
       }
     });
 

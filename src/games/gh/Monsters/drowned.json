@@ -1,0 +1,40 @@
+{
+  "name": "drowned",
+  "traps": ["STUN", "DAMAGE"],
+  "spawns": [
+    {
+      "data": {
+        "1": ["elite", "elite", "elite"],
+        "2": ["none", "normal", "normal"],
+        "3": ["normal", "normal", "normal"]
+      },
+      "type": "Lurker",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "4": ["none", "none", "normal"],
+        "6": ["normal", "normal", "elite"],
+        "7": ["none", "normal", "elite"]
+      },
+      "type": "Living Spirit",
+      "category": "monster"
+    },
+    {
+      "data": [5, 11],
+      "type": "Water",
+      "category": "difficult-terrain"
+    },
+    {
+      "data": [8, 9, 10],
+      "type": "spike-pit-trap",
+      "displayName": "Spike Pit",
+      "category": "traps"
+    },
+    {
+      "data": { "12": "Recover a lost card" },
+      "type": "Treasure",
+      "category": "treasures"
+    }
+  ]
+}

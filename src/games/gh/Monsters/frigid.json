@@ -1,0 +1,35 @@
+{
+  "name": "frigid",
+  "traps": ["DISARM"],
+  "spawns": [
+    {
+      "data": { "3": ["elite", "elite", "elite"] },
+      "type": "Savaas Icestorm",
+      "category": "monster"
+    },
+    {
+      "data": { "5": ["normal", "normal", "elite"] },
+      "type": "Frost Demon",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "10": ["none", "normal", "elite"],
+        "12": ["none", "normal", "normal"]
+      },
+      "type": "Wind Demon",
+      "category": "monster"
+    },
+    {
+      "data": [7, 9, 11],
+      "type": "spike-pit-trap",
+      "displayName": "Spike Pit",
+      "category": "traps"
+    },
+    {
+      "data": [4, 6],
+      "type": "water",
+      "category": "difficult-terrain"
+    }
+  ]
+}

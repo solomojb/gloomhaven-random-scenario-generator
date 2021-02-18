@@ -1,4 +1,3 @@
-import { spawn } from "child_process";
 import React from "react";
 import { Form } from "semantic-ui-react";
 import { Spawn } from "../../Data";
@@ -13,7 +12,7 @@ const Treasures = () =>  {
         return <div dangerouslySetInnerHTML={{__html:html}}/>
     }
 
-    const treasures = spawns.filter( spawn => spawn.category === "treasures").map( (spawn: Spawn) => spawn.description);
+    const treasures = spawns.filter( spawn => spawn.category === "treasures").flatMap( s => Object.values(s.data));
     return <Form.Field>
                 <label>Treasures:</label>
                 {treasures && treasures.map(getHtml)}
