@@ -118,13 +118,11 @@
     "corridors": [
       {
         "pattern": "man-made-stone-1",
-        "displayName": "Stone", 
         "q": -2,
         "r": 0
       },
       {
         "pattern": "man-made-stone-2",
-        "displayName":"Stone",
         "q": -3,
         "r": 0,
         "rotation": 0,

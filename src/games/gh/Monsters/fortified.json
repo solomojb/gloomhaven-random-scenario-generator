@@ -30,13 +30,11 @@
     {
       "data": [8, 10, 11],
       "type": "bear-trap",
-      "displayName": "Bear Trap",
       "category": "traps"
     },
     {
       "data": [3, 4],
       "type": "coin-1",
-      "displayName": "Coin",
       "category": "coin"
     }
   ]

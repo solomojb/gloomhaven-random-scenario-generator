@@ -31,7 +31,6 @@
     {
       "data": [7, 10, 11],
       "type": "poison-gas-trap",
-      "displayName": "Poison Gas",
       "category": "traps"
     }
   ]

@@ -13,8 +13,7 @@
     {
       "data": [2],
       "type": "coin-1",
-      "category": "coin",
-      "displayName": "Coin"
+      "category": "coin"
     },
     {
       "data": {
@@ -28,8 +27,7 @@
     {
       "data": [5, 9, 11],
       "type": "spike-pit-trap",
-      "category": "traps",
-      "displayName": "Spike Pit"
+      "category": "traps"
     },
     {
       "data": {

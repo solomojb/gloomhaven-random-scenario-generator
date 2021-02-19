@@ -30,13 +30,11 @@
     {
       "data": [7],
       "type": "coin-1",
-      "displayName": "Coin",
       "category": "coin"
     },
     {
       "data": [8, 10, 11],
       "type": "poison-gas-trap",
-      "displayName": "Poison Gas",
       "category": "traps"
     },
     {

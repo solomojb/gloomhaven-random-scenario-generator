@@ -1,5 +1,5 @@
 import React from "react";
-import { OverlayTile, Spawn } from "../../../Data";
+import { OverlayTile, Spawn, SpawnCategory } from "../../../Data";
 import { Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "../../Grids/HexPattern";
@@ -8,13 +8,32 @@ type Props = {};
 
 export type MapDataInfo = {
   count: number;
-  displayName:string;
   category: string;
 };
 
 export type MonsterCount = {
   [k in string]: MapDataInfo;
 };
+
+const toAllFirstUpper = ( str: string) =>{
+  return str.split(" ").map(word => word[0].toUpperCase() + word.substr(1)).join(" ");
+}
+
+const getOverlayName = (pattern:string) => {
+  if (pattern.includes("boulder")) {
+    return "Boulder";
+  } 
+  if (pattern.includes("man-made-stone")) {
+    return "Stone"
+  }
+  if (pattern.includes("coin-")) {
+    return "Coin"
+  }
+  if (pattern.includes("hot-coals")) {
+    return "Hot Coals"
+  }
+  return toAllFirstUpper(pattern);
+}
 
 const MapInfo = (props: Props) => {
   const {
@@ -24,10 +43,10 @@ const MapInfo = (props: Props) => {
   const {} = props;
   const counts: MonsterCount = {};
 
-  const addToCount = (type:string, category: string, displayName: string) => {
+  const addToCount = (type:string, category: string) => {
     let countData = counts[type];
     if (!countData) {
-      countData = { count: 1, category, displayName };
+      countData = { count: 1, category };
     } else {
       countData.count += 1;
     }
@@ -36,13 +55,13 @@ const MapInfo = (props: Props) => {
   }
 
   const addSpawn = (spawn: Spawn) => {
-    const { type, category, displayName } = spawn;
-    addToCount(type, category, displayName);
+    const { type, category } = spawn;
+    addToCount(type, category);
   }
 
   const addOverlay = (overlay: OverlayTile, category: string) => {
-    const { pattern, displayName } = overlay;
-    addToCount(pattern, category, displayName);
+    const { pattern } = overlay;
+    addToCount(pattern, category);
   }
 
   spawns.filter(s => s.category === "monster").forEach(addSpawn);
@@ -57,7 +76,7 @@ const MapInfo = (props: Props) => {
   const patterns: JSX.Element[] = [];
 
   const size = { x: 10, y: 10 };
-  const buildHex = (q: number, r: number, pattern: string, count: number, displayName: string) => {
+  const buildHex = (q: number, r: number, pattern: string, count: number, displayName?: string) => {
     return <Hexagon q={q} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`}>.l
             <Text y={15}  textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{`${displayName || pattern} ${count > 0 ? `x ${count}` : ''}`}</Text>
         </Hexagon>
@@ -67,9 +86,15 @@ const MapInfo = (props: Props) => {
   let r = -3; 
   let nextR = r + 2;
   Object.keys(counts).forEach((pattern) => {
-    const { category, count, displayName } = counts[pattern];
+    const { category, count } = counts[pattern];
     if (category) {
-        hexes.push(buildHex(q,r, pattern, category !== "monster" ? count : 0, displayName))
+        if (category === SpawnCategory.Monster) {
+          hexes.push(buildHex(q,r, pattern, 0))
+        } else if (category === SpawnCategory.Traps) {
+          hexes.push(buildHex(q,r, pattern, 0, toAllFirstUpper(pattern.replace("-trap","").replace("-", " "))))
+        } else {
+          hexes.push(buildHex(q,r, pattern, count, getOverlayName(pattern)))
+        }
         patterns.push(<HexPattern id={pattern} postfix="info" category={category} size={size} useRotate={false}/>)
         q += 2;
         if (q > 4) {

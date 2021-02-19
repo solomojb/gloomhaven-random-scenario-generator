@@ -16,7 +16,6 @@ export enum SpawnCategory {
 
 export interface Spawn {
     data: number[] | MonsterType[][] | string[];
-    displayName: string;
     type: string;
     category: SpawnCategory;
 }

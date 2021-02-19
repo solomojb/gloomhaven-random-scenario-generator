@@ -24,8 +24,6 @@
     {
       "data": [8, 9, 10],
       "type": "coin-1",
-      "category": "coin",
-      "displayName": "Coin"
-    }
+      "category": "coin"    }
   ]
 }
