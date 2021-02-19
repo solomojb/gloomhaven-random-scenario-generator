@@ -1,0 +1,40 @@
+{
+  "name": "tribal",
+  "traps": ["WOUND, DISARM"],
+  "spawns": [
+    {
+      "data": {
+        "1": ["normal", "normal", "elite"],
+        "2": ["normal", "elite", "elite"]
+      },
+      "type": "Inox Guard",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "3": ["normal", "normal", "elite"],
+        "7": ["none", "normal", "normal"]
+      },
+      "type": "Inox Shaman",
+      "category": "monster"
+    },
+    {
+      "data": {
+        "5": ["elite", "elite", "elite"],
+        "9": ["none", "none", "normal"]
+      },
+      "type": "Inox Archer",
+      "category": "monster"
+    },
+    {
+      "data": [8,9],
+      "type": "spike-pit-trap",
+      "category": "traps"
+    },
+    {
+      "data": [11,12],
+      "type": "coin-1",
+      "category": "coin"
+    }
+  ]
+}

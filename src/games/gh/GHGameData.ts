@@ -52,10 +52,10 @@ class GHGameData extends BaseGameData  {
                 "putrid",
                 "rotting",
                 "scaled",
-                // "tribal",
-                // "unstable",
-                // "venemous",
-                // "wild",
+                "tribal",
+                "unstable",
+                "venomous",
+                "wild",
             ];
     }
 }

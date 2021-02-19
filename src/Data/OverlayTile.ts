@@ -1,6 +1,5 @@
 export interface OverlayTile {
     id: number;
-    displayName: string;
     pattern: string;
     q: number;
     r: number;
