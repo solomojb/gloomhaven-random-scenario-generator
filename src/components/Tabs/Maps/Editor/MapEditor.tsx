@@ -21,6 +21,7 @@ const MapEditor = () => {
             <DisplayToggle label="Corridors:" flag={ShowFlags.Corridors} />
             <DisplayToggle label="Spawns:" flag={ShowFlags.Spawns} />
             <DisplayToggle label="Doors:" flag={ShowFlags.Doors} />
+            <DisplayToggle label="Selectors:" flag={ShowFlags.Selectors} />
           </>}
       </Form.Group>
       {  showTools &&<Form.Group>

@@ -7,6 +7,10 @@ const MapCard = () =>  {
     const { dungeon: {name} } = useDungeon();
     const game = useGame();
 
+    if (!name.length) {
+        return null;
+    }
+
     return <img className="dungeon-card" src={game.getMapCard(name)}/>
 }
 

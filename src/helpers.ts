@@ -110,4 +110,9 @@ export class Helpers {
       
         return array;
       }
+
+      static  toAllFirstUpper( str: string) {
+        return str ? str.split(" ").map(word => word[0].toUpperCase() + word.substr(1)).join(" ") : str;
+      }
+      
 }

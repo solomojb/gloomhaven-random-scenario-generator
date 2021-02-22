@@ -10,11 +10,12 @@ export type Dimension = {
 
 type Props = {
     tile:Tile;
-    onTileLoad?: (width: number, height: number) => void;
+    onTileLoad?: (width: number, height: number, index:number) => void;
+    index: number;
 }
 
 const MapTile = (props:Props) =>  {
-    const { tile: { tile, rotation, offsetX, offsetY, scale }, onTileLoad} = props;
+    const { tile: { tile, rotation, offsetX, offsetY, scale }, onTileLoad, index} = props;
     const game = useGame();
     const [dimension, setDimensions] = useState<Dimension>({width:0, height:0});
 
@@ -24,7 +25,7 @@ const MapTile = (props:Props) =>  {
         const {width, height} = target.getBoundingClientRect();
           setDimensions({width, height});       
           if (onTileLoad) {
-            onTileLoad(width, height);
+            onTileLoad(width, height, index);
           }
         }
 

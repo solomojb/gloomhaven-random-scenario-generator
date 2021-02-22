@@ -20,7 +20,7 @@ const Map = () => {
     setDimensions({width:0, height:0, count:0});
   }, [tiles])
 
-  const onTileLoad = (width:number, height: number) => {
+  const onTileLoad = (width:number, height: number, index: number) => {
     setDimensions( current => { 
         return {height: current.height + height, width: Math.max(current.width, width), count: current.count + 1};
       });
@@ -33,8 +33,8 @@ const Map = () => {
   return (
     <div className="map" style={{height, width, visibility:(count !== tiles.length) ? "hidden" : "visible"}}>
         <div style={{height, width}}>
-          { tiles && tiles.map( (tile: Tile) => {
-            return <MapTile tile={tile} onTileLoad={(width: number, height:number) => onTileLoad(width, height)}/>
+          { tiles && tiles.map( (tile: Tile, index: number) => {
+            return <MapTile tile={tile} index={index} onTileLoad={onTileLoad}/>
           })}
         </div>
         <HexOverlay/>

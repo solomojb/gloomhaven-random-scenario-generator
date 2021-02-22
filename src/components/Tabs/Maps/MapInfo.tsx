@@ -3,6 +3,7 @@ import { OverlayTile, Spawn, SpawnCategory } from "../../../Data";
 import { Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "../../Grids/HexPattern";
+import { Helpers } from "../../../helpers";
 
 type Props = {};
 
@@ -14,10 +15,6 @@ export type MapDataInfo = {
 export type MonsterCount = {
   [k in string]: MapDataInfo;
 };
-
-const toAllFirstUpper = ( str: string) =>{
-  return str.split(" ").map(word => word[0].toUpperCase() + word.substr(1)).join(" ");
-}
 
 const getOverlayName = (pattern:string) => {
   if (pattern.includes("boulder")) {
@@ -32,7 +29,7 @@ const getOverlayName = (pattern:string) => {
   if (pattern.includes("hot-coals")) {
     return "Hot Coals"
   }
-  return toAllFirstUpper(pattern);
+  return Helpers.toAllFirstUpper(pattern);
 }
 
 const MapInfo = (props: Props) => {
@@ -91,7 +88,7 @@ const MapInfo = (props: Props) => {
         if (category === SpawnCategory.Monster) {
           hexes.push(buildHex(q,r, pattern, 0))
         } else if (category === SpawnCategory.Traps) {
-          hexes.push(buildHex(q,r, pattern, 0, toAllFirstUpper(pattern.replace("-trap","").replace("-", " "))))
+          hexes.push(buildHex(q,r, pattern, 0, Helpers.toAllFirstUpper(pattern.replace("-trap","").replace("-", " "))))
         } else {
           hexes.push(buildHex(q,r, pattern, count, getOverlayName(pattern)))
         }
