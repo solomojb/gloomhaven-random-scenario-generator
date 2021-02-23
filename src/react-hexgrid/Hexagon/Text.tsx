@@ -16,7 +16,7 @@ class Text extends Component<Props> {
   render() {
     const { children, x, y, className, textStyle } = this.props;
     return (
-      <text x={x || 0} y={y ? y : '0.3em'} style={textStyle} className={className} textAnchor="middle">{children}</text>
+      <text x={x || 0} y={y||0} style={textStyle} className={className} textAnchor="start">{children}</text>
     );
   }
 }

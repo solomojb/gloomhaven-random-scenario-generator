@@ -4,6 +4,9 @@ import { Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "../../Grids/HexPattern";
 import { Helpers } from "../../../helpers";
+import MapGrid from "../../Grids/MapGrid";
+import DungeonGrid from "../../Grids/DungonGrid";
+import MapInfoGrid from "../../Grids/MapInfoGrid";
 
 type Props = {};
 
@@ -69,18 +72,26 @@ const MapInfo = (props: Props) => {
       corridors.forEach( corridor => addOverlay(corridor, "corridors"));
   }
 
-  const hexes: JSX.Element[] = [];
-  const patterns: JSX.Element[] = [];
+  let hexes: JSX.Element[] = [];
+  let patterns: JSX.Element[] = [];
 
-  const size = { x: 10, y: 10 };
+  const size = { x: 6.2, y: 6.2 };
   const buildHex = (q: number, r: number, pattern: string, count: number, displayName?: string) => {
-    return <Hexagon q={q} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`}>.l
-            <Text y={15}  textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{`${displayName || pattern} ${count > 0 ? `x ${count}` : ''}`}</Text>
-        </Hexagon>
+    return <>
+            <Hexagon q={q} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`}>
+              <Text x={8} y={0} textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{`${displayName || pattern} ${count > 0 ? `x ${count}` : ''}`}</Text>
+            </Hexagon>
+          </>
+        
   }
 
-  let q = -4;
-  let r = -3; 
+  const { hexes: mapGridHexes, patterns: mapGridPatterns} = MapInfoGrid();
+
+  hexes = hexes.concat(mapGridHexes.flat());
+  patterns = patterns.concat(mapGridPatterns);
+
+  let q = 0;
+  let r = -5; 
   let nextR = r + 2;
   Object.keys(counts).forEach((pattern) => {
     const { category, count } = counts[pattern];
@@ -92,23 +103,20 @@ const MapInfo = (props: Props) => {
         } else {
           hexes.push(buildHex(q,r, pattern, count, getOverlayName(pattern)))
         }
-        patterns.push(<HexPattern id={pattern} postfix="info" category={category} size={size} useRotate={false}/>)
-        q += 2;
-        if (q > 4) {
-            q = -4;
-        }
-        r -= 1;
-        if (q < -3) {
-            r = nextR;
-            nextR += 2;
+        patterns.push(<HexPattern id={pattern} postfix="info" category={category} size={size} forceRotate={true}/>)
+        r += 1;
+        q -= 1;
+        if (r % 2 === 0) {
+          q +=1;
         }
     }});
    
   return (
-    <HexGrid width={500} height={300}>
+    <HexGrid width={500} height={640}>
       <Layout
+        flat={false}
         size={size}
-        origin={{ x: 0, y: 50 }}
+        origin={{ x: 0, y: 0 }}
       >
         {hexes}
       </Layout>

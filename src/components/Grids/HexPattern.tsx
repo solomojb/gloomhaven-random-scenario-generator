@@ -11,31 +11,34 @@ type Props = {
     category:string;
     rotation?: number;
     scale?: number;
-    useRotate?: boolean;
+    forceRotate?: boolean;
     postfix?:string;
 }
 
 const HexPattern = (props:Props) => {
     const { dungeon: {map : { rotateHex }}} = useDungeon();
     const game = useGame();
-    const { id, postfix, category, size: {x,y}, offset:{x:offsetX,y:offsetY} = {x: 0, y: 0}, rotation = 0, scale=1, useRotate=true} = props;
+    const { id, postfix, category, size: {x,y}, offset:{x:offsetX,y:offsetY} = {x: 0, y: 0}, rotation = 0, scale=1, forceRotate=undefined} = props;
     
     let link = '';
     let patternStyle = {};
     let imageStyle = {};
-    const shouldRotateTile = useRotate && rotateHex;
+    let tileRotation = rotateHex;
+    if (forceRotate !== undefined) {
+        tileRotation = forceRotate
+    }
     if (category === "monster") {
-        link = game.getMonsterImage(id, shouldRotateTile);
+        link = game.getMonsterImage(id, tileRotation);
         patternStyle = {transform: `scale(${scale})`}
     } else if (category === "treasures") {
-        link = game.getTreasureImage(shouldRotateTile);
+        link = game.getTreasureImage(tileRotation);
         patternStyle = {transform: `scale(${scale})`}
     } else if (category === "coin") {
         link = game.getCoinImage();
         patternStyle = {transform: `scale(${scale})`}
     } else {
         link = game.getOverlayTokenPath(id, category);
-        const objectRotation = (rotation + (shouldRotateTile ? 90 : 0))% 360;
+        const objectRotation = (rotation + (tileRotation ? 90 : 0))% 360;
         if (objectRotation) {
           const transform = `rotate(${objectRotation}deg)`;
           patternStyle = {transform}
@@ -44,8 +47,8 @@ const HexPattern = (props:Props) => {
         imageStyle = {transform}
     }
 
-    const width = shouldRotateTile ? y : x;
-    const height = shouldRotateTile ? x : y;
+    const width = tileRotation ? y : x;
+    const height = tileRotation ? x : y;
 
     let patternId = id.replace(" ", "-");
     if (rotation !== 0) {

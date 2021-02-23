@@ -10,6 +10,7 @@ export enum ShowFlags {
     AllGrid = 1<<6,
     Doors = 1<<7,
     Selectors = 1<<8,
+    MapInfoGrid = 1<<8,
     ShowAllMap = Obstacles | Corridors | Spawns | Doors
   }
 
