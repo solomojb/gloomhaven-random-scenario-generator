@@ -7,11 +7,11 @@ import Difficulty from "./Difficulty";
 import RoomContainer from "./RoomContainer";
 
 const ScenarioContainer = () => {
-    const { rooms, getNextRoom, resetScenario } = useScenario();
+    const { rooms, getNextRoom, resetScenario, activeRoomNumber,setActiveRoomNumber } = useScenario();
        const panes = [...Array(rooms.length)].map((_i, index) =>{
-        return { menuItem: `${index + 1}`, render: () => <Tab.Pane><RoomContainer roomNumber={index}/></Tab.Pane> }
+        return { menuItem: `${index + 1}`, onClick: () => console.log("click"), render: () => <Tab.Pane><RoomContainer roomNumber={index}/></Tab.Pane> }
     });
-
+    
     return (
         <PlayerCountProvider localKey="scenarioPlayers">
             <Button disabled={rooms.length>=1} onClick={() => getNextRoom("", -1)}>Start New Scenario</Button>
@@ -20,7 +20,7 @@ const ScenarioContainer = () => {
             <Form>
                 <PlayerCount/>
             </Form>
-            <Tab panes={panes} defaultActiveIndex={0}/>
+            <Tab panes={panes} onTabChange={(_e, data) => {setActiveRoomNumber(data.activeIndex as number)}} defaultActiveIndex={0} activeIndex={activeRoomNumber}/>
         </PlayerCountProvider>
     );
 };

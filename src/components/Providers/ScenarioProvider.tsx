@@ -16,6 +16,8 @@ type ContextData = {
     isDoorShown: (aOrB:string,roomNumber: number, type: string) => boolean
     resetScenario: () => void;
     setPenalty: (roomNumber:number, penalty:string) => void;
+    activeRoomNumber: number;
+    setActiveRoomNumber: (activeRoomNumber: number) => void;
 }
 
 const initialContext:ContextData = {
@@ -25,6 +27,8 @@ const initialContext:ContextData = {
     resetScenario : () => {},
     isDoorShown: (aOrB:string,roomNumber: number, type: string) => true,
     setPenalty: () => {},
+    activeRoomNumber: 0,
+    setActiveRoomNumber: () => {}
 }
 
 export const ScenarioContext = createContext<ContextData>(initialContext);
@@ -44,15 +48,26 @@ const ScenarioProvider = (props: Props) => {
     const [monsters, setMonsters] = useState<MonsterData[]>(game.getRandomMonsters());
     const [rooms, setRooms] = useState<RoomData[]>([]);
     const [penalties, setPenalites] = useState<string[]>(["none", "none", "none"]);
+    const [activeRoomNumber, setActiveRoomNumber] = useState<number>(0);
 
     const resetScenario = () => {
         setRooms([]);
         setDungeons(game.getRandomDungeons());
         setMonsters(game.getRandomMonsters());
         setPenalites(["none", "none", "none"]);
+        setActiveRoomNumber(0);
     }
 
     const getNextRoom = (aOrB:string, roomNumber:number) => {
+        if (roomNumber >= 2) {
+            return;
+        }
+
+        if ((roomNumber >= 0) && rooms[roomNumber + 1]) {
+            setActiveRoomNumber(roomNumber + 1);
+            return;
+        }
+
         const dungeonIndex = aOrB.length ? dungeons.findIndex(dungeon => dungeon.entrances.find( entrance => entrance.aOrB === aOrB)) : 0;
         if (dungeonIndex < 0) {
             return;
@@ -60,14 +75,6 @@ const ScenarioProvider = (props: Props) => {
         const dungeon = dungeons.splice(dungeonIndex, 1)[0];
         const monster = monsters.shift();
         if (!dungeon || !monster) {
-            return;
-        }
-
-        if (roomNumber >= 2) {
-            return;
-        }
-
-        if ((roomNumber >= 0) && rooms[roomNumber + 1]) {
             return;
         }
 
@@ -115,7 +122,7 @@ const ScenarioProvider = (props: Props) => {
 
     const { Provider } = ScenarioContext;
 
-    return <Provider value={{rooms, getNextRoom, isDoorShown, resetScenario, penalties, setPenalty}}>{children}</Provider>
+    return <Provider value={{rooms, getNextRoom, isDoorShown, resetScenario, penalties, setPenalty, activeRoomNumber, setActiveRoomNumber}}>{children}</Provider>
 }
 
 export default ScenarioProvider;
