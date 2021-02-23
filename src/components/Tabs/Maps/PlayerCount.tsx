@@ -23,7 +23,7 @@ const PlayerButton = (props: PlayerButtonProps) => {
 
 const PlayerCount = () => {
   return (
-    <Form.Field>
+    <Form.Field inline>
       <Form.Group inline>
         <label>Number of players:</label>
         <Button.Group>

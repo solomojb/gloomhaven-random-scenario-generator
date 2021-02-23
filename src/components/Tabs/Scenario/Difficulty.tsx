@@ -1,64 +1,61 @@
-import React, { FormEvent, useState } from "react"
-import { CheckboxProps, Form, Radio } from "semantic-ui-react";
+import React from "react"
+import { Button, Form} from "semantic-ui-react";
+import { useScenario } from "../../Providers/ScenarioProvider";
 
-type  DifficultyGroupProps = {
-    handleChange: (roomNumber: number, penalty: string) => void
+  type PenaltyProps = {
+    penalty: string;
     roomNumber: number;
-}
+  };
 
-const DifficultyGroup = (props: DifficultyGroupProps) => {
-    const { handleChange, roomNumber} = props;
-    const [penalty, setPenalty] = useState("none")
-
-    const onChange = (e:FormEvent, data: CheckboxProps) => {
-        const { value } = data;
-        setPenalty(value as string);
-        handleChange(roomNumber, value as string);
-    }
-  
+  const PenaltyButton = (props: PenaltyProps) => {
+    const { penalty, roomNumber } = props;
+    const { penalties, setPenalty } = useScenario();
     return (
-        <Form>
-            <label>{`Room ${roomNumber + 1}`}</label>
-            <Form.Field>
-                <Radio
-                    label='None'
-                    name='radioGroup'
-                    value='none'
-                    checked={penalty === 'none'}
-                    onChange={onChange}
-                />
-            </Form.Field>
-            <Form.Field>
-                <Radio
-                        label='Minor'
-                        name='radioGroup'
-                        value='minor'
-                        checked={penalty === 'minor'}
-                        onChange={onChange}
-                    />
-            </Form.Field>
-            <Form.Field>
-                <Radio
-                        label='Major'
-                        name='radioGroup'
-                        value='major'
-                        checked={penalty === 'major'}
-                        onChange={onChange}
-                    />
-            </Form.Field>
-        </Form>
-    )
+      <Button
+        positive={penalties[roomNumber] === penalty}
+        onClick={() => {
+            setPenalty(roomNumber, penalty);}
+        }
+      >
+        {`${penalty}`}
+      </Button>
+    );
+  };
+
+  type PenaltyButtonGroupProps = {
+      roomNumber: number;
   }
 
-const Difficulty = () => {
-    return <Form.Field>
+  const PenaltyButtonGroup = (props: PenaltyButtonGroupProps) => {
+      const {roomNumber} = props;
+    return (
+        <Form>
+            <Form.Field inline>
                 <Form.Group inline>
-                    <label>Difficulty:</label>
-                    <DifficultyGroup roomNumber={0} handleChange={console.log}/>
-                    <DifficultyGroup roomNumber={1} handleChange={console.log}/>
-                    <DifficultyGroup roomNumber={2} handleChange={console.log}/>
+                <label>{`Room ${roomNumber}`}</label>
+                <Button.Group>
+                    <PenaltyButton penalty="none" roomNumber={roomNumber}/>
+                    <Button.Or />
+                    <PenaltyButton penalty="minor" roomNumber={roomNumber}/>
+                    <Button.Or />
+                    <PenaltyButton penalty="major" roomNumber={roomNumber}/>
+                </Button.Group>
                 </Form.Group>
             </Form.Field>
+        </Form>
+    );
+  };
+  
+
+const Difficulty = () => {
+    return <Form>
+            <Form.Field>
+                <label>Difficulty:</label>
+                <PenaltyButtonGroup roomNumber={0}/>
+                <PenaltyButtonGroup roomNumber={1}/>
+                <PenaltyButtonGroup roomNumber={2}/>
+            </Form.Field>
+        </Form>
 
 }
 

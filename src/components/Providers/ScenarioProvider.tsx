@@ -9,21 +9,22 @@ type RoomData = {
     chosenExit:string;
 }
 
-
-
 type ContextData = {
     rooms: RoomData[];
+    penalties: string[];
     getNextRoom : (aOrB:string, roomNumber:number) => void;
     isDoorShown: (aOrB:string,roomNumber: number, type: string) => boolean
     resetScenario: () => void;
+    setPenalty: (roomNumber:number, penalty:string) => void;
 }
 
 const initialContext:ContextData = {
     rooms: [], 
+    penalties: [],
     getNextRoom : () => {},
     resetScenario : () => {},
-    isDoorShown: (aOrB:string,roomNumber: number, type: string) => true
-
+    isDoorShown: (aOrB:string,roomNumber: number, type: string) => true,
+    setPenalty: () => {},
 }
 
 export const ScenarioContext = createContext<ContextData>(initialContext);
@@ -42,11 +43,13 @@ const ScenarioProvider = (props: Props) => {
     const [dungeons, setDungeons] = useState<Dungeon[]>(game.getRandomDungeons());
     const [monsters, setMonsters] = useState<MonsterData[]>(game.getRandomMonsters());
     const [rooms, setRooms] = useState<RoomData[]>([]);
+    const [penalties, setPenalites] = useState<string[]>(["none", "none", "none"]);
 
     const resetScenario = () => {
         setRooms([]);
         setDungeons(game.getRandomDungeons());
         setMonsters(game.getRandomMonsters());
+        setPenalites(["none", "none", "none"]);
     }
 
     const getNextRoom = (aOrB:string, roomNumber:number) => {
@@ -102,9 +105,17 @@ const ScenarioProvider = (props: Props) => {
         return true
     }
 
+    const setPenalty = (roomNumber:number, penalty:string) => {
+        setPenalites( current => {
+            const newPenalties: string[] = Object.assign([], current);
+            newPenalties[roomNumber] = penalty;
+            return  newPenalties;
+        })
+    }
+
     const { Provider } = ScenarioContext;
 
-    return <Provider value={{rooms, getNextRoom, isDoorShown, resetScenario}}>{children}</Provider>
+    return <Provider value={{rooms, getNextRoom, isDoorShown, resetScenario, penalties, setPenalty}}>{children}</Provider>
 }
 
 export default ScenarioProvider;

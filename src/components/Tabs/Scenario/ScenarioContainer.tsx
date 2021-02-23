@@ -17,7 +17,9 @@ const ScenarioContainer = () => {
             <Button disabled={rooms.length>=1} onClick={() => getNextRoom("", -1)}>Start New Scenario</Button>
             <Button disabled={rooms.length == 0} onClick={() => resetScenario()}>Reset Scenario</Button>
             <Difficulty/>
-            <PlayerCount/>
+            <Form>
+                <PlayerCount/>
+            </Form>
             <Tab panes={panes} defaultActiveIndex={0}/>
         </PlayerCountProvider>
     );
