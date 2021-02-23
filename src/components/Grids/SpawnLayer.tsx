@@ -8,6 +8,7 @@ import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 
 const SpawnLayer = () => {
   const { isFlagSet } = useFlags();
+  const { dungeon: {map: {rotateHex}}} = useDungeon();
   const { playerCount } = usePlayerCount();
   const {
     dungeon: { spawnPoints },
@@ -75,14 +76,14 @@ const SpawnLayer = () => {
       const { type, category } = spawn;
       if (category === "monster") {
         return (
-          <HexPattern id={type} category={category} size={{ x: 6.2, y: 5.6 }} />
+          <HexPattern id={type} category={category} rotate={rotateHex} />
         );
       } else {
         return (
           <HexPattern
             id={type}
             category={category}
-            size={{ x: 6.3, y: 5.41 }}
+            rotate={rotateHex}
           />
         );
       }
@@ -92,7 +93,7 @@ const SpawnLayer = () => {
       <HexPattern
         id={"EliteOverlay"}
         category="monster"
-        size={{ x: 6.2, y: 5.6 }}
+        rotate={rotateHex}
       />
     );
   }

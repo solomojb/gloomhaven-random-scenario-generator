@@ -131,14 +131,6 @@
       "q": 0,
       "r": -2,
       "rotation": 180
-    },
-    {
-      "pattern": "shelf",
-      "q": -1,
-      "r": 1,
-      "scale": {"x":2, "y":1.2},
-      "hexType": "2x1R",
-      "offset": {"x":10, "y": -1}
     }
   ],
   "penalties" : [

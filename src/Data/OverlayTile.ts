@@ -6,7 +6,5 @@ export interface OverlayTile {
     q: number;
     r: number;
     rotation: number;
-    scale: Point;
     hexType: string;
-    offset: Point;
 }

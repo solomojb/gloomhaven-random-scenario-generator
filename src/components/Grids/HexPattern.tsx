@@ -3,43 +3,75 @@ import React from 'react';
 import { Pattern } from '../../react-hexgrid';
 import Point from '../../react-hexgrid/models/Point';
 import { useGame } from '../Game/GameProvider';
-import { useDungeon } from '../Tabs/Maps/DungeonProvider';
 
 type Props = {
     id:string;
-    size: {x:number, y:number};
-    offset?: {x:number, y:number};
     category:string;
     rotation?: number;
-    scale?: Point;
-    forceRotate?: boolean;
     postfix?:string;
+    rotate:boolean;
+    hexType?:string;
+}
+
+export const getHexTypeOffsets = (hexType:string | undefined) => {
+    switch (hexType) {
+        case "2x1DL":
+            return {scale:{x:1,y:2},
+            rotation:60,
+            offset: {x:9, y:0}};
+        case "2x1R":
+            return {scale:{x:2, y:1.2},
+            offset: {x:10, y:-1}}
+        case "2x1D":
+            return {scale:{x:1, y:2},}
+    }
 }
 
 const HexPattern = (props:Props) => {
-    const { dungeon: {map : { rotateHex }}} = useDungeon();
     const game = useGame();
-    const { id, postfix, category, size: {x,y}, offset:{x:offsetX,y:offsetY} = {x: 0, y: 0}, rotation = 0, scale={x:1, y:1}, forceRotate=undefined} = props;
+    const { id, postfix, category, rotate, hexType, rotation: itemRotation = 0} = props;
+
+    let scale: Point = {x:1, y: 1};
+    let rotation = itemRotation;
+    let offsetX = 0;
+    let offsetY = 0;
+    let x = 6.3;
+    let y = 5.41;
+    switch (category) {
+        case "corridors":
+            x = 6.3;
+            y = 5.41;
+            break;
+    }
+
+    const data = getHexTypeOffsets(hexType);
+    if (data) {
+        if (data.scale) {
+            x *= data.scale.x || 1;
+            y *= data.scale.y || 1;
+        }
+        rotation += data.rotation || 0;
+        if (data.offset) {
+            offsetX = data.offset.x || 0;
+            offsetY = data.offset.y || 0;
+        }
+    }
     
     let link = '';
     let patternStyle = {};
     let imageStyle = {};
-    let tileRotation = rotateHex;
-    if (forceRotate !== undefined) {
-        tileRotation = forceRotate
-    }
     if (category === "monster") {
-        link = game.getMonsterImage(id, tileRotation);
+        link = game.getMonsterImage(id, rotate);
         patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
     } else if (category === "treasures") {
-        link = game.getTreasureImage(tileRotation);
+        link = game.getTreasureImage(rotate);
         patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
     } else if (category === "coin") {
         link = game.getCoinImage();
         patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
     } else {
         link = game.getOverlayTokenPath(id, category);
-        const objectRotation = (rotation + (tileRotation ? 90 : 0))% 360;
+        const objectRotation = (rotation + (rotate ? 90 : 0))% 360;
         if (objectRotation) {
           const transform = `rotate(${objectRotation}deg)`;
           patternStyle = {transform}
@@ -48,8 +80,8 @@ const HexPattern = (props:Props) => {
         imageStyle = {transform}
     }
 
-    const width = tileRotation ? y : x;
-    const height = tileRotation ? x : y;
+    const width = rotate ? y : x;
+    const height = rotate ? x : y;
 
     let patternId = id.replace(" ", "-");
     if (rotation !== 0) {

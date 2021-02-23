@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react";
 import { Hexagon } from "../../react-hexgrid";
 import { OverlayTile } from "../../Data";
-import HexPattern from "./HexPattern";
+import HexPattern, { getHexTypeOffsets } from "./HexPattern";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
-import { off } from "process";
+import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 
 type Props = {
   tiles: OverlayTile[];
@@ -13,11 +13,13 @@ type Props = {
 
 const OverlayTileLayer = (props: Props) => {
   const { tiles, overlayType, flag } = props;
+  const { dungeon: {map: {rotateHex}}} = useDungeon();
   const { isFlagSet } = useFlags();
 
   const buildHex = (tile: OverlayTile) => {
     const { q, r, pattern, rotation, hexType } = tile;
-    const fillName = pattern.replace(" " , "-") + (rotation ? rotation : "");
+    const data = getHexTypeOffsets(hexType);
+    const fillName = pattern.replace(" " , "-") + (data && data.rotation ? data.rotation : "");
     return (
       <Hexagon q={q} r={r} s={0} fill={fillName} hexType={hexType || "1x1Hex"} />
     );
@@ -31,28 +33,15 @@ const OverlayTileLayer = (props: Props) => {
   }
   if (isFlagSet(flag) && tiles) {
     hexes = tiles.map(buildHex);
-
-    const patternStrings = tiles
-    .map((tile) => {
-        const { offset, scale }  = tile;
-        return {
-          pattern: tile.pattern,
-          rotation: tile.rotation,
-          scale: scale || {x:1, y:1},
-          offset
-        };
-      })
-      .filter(onlyUnique);
-    patterns = patternStrings.map((tile) => {
-      const { rotation, scale, offset }  = tile;
+    patterns = tiles.filter(onlyUnique).map((tile) => {
+      const { hexType, pattern, rotation }  = tile;
       return (
         <HexPattern
-          id={tile.pattern}
+          id={pattern}
           category={overlayType}
+          rotate={rotateHex}
+          hexType={hexType}
           rotation={rotation}
-          scale={scale}
-          offset={offset}
-          size={{ x: 6.3 * scale.x, y: 5.41 * scale.y }}
         />
       );
     });

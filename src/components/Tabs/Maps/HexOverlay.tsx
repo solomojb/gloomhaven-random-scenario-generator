@@ -14,37 +14,37 @@ type Point = {
   y: number;
 }
 
+const getPoints =(corners: Point[], starting: number, count = 6) => {
+  return [...Array(count)].map((_c, index) => corners[(index +starting)%6]);
+}
+
+export const createCustomLayouts = (flat: boolean, size: Point) => {
+  const originalCorners = HexUtils.calculateCoordinates(flat, size);
+
+  const dlCorners = HexUtils.calculateCoordinates(flat, size, {x: -1.5 * size.x, y:size.y/2 * Math.sqrt(3)});
+  const dl2x1 = [...getPoints(originalCorners, 3),...getPoints(dlCorners, 1, 4)];
+
+  const drCorners = HexUtils.calculateCoordinates(flat, size, {x:1.5 * size.x, y:size.y/2 * Math.sqrt(3)});
+  const dr2x1 = [...getPoints(originalCorners,1), ...getPoints(drCorners, 4, 5)];
+
+  const dCorners = HexUtils.calculateCoordinates(flat, size, {x:0, y:size.y * Math.sqrt(3)});
+  const d2x1 = [...getPoints(originalCorners,2), ...getPoints(dCorners,0,4)];
+
+  const rCorners = HexUtils.calculateCoordinates(flat, size, {y:0, x:-size.x * Math.sqrt(3)});
+  const r2x1 = [...getPoints(originalCorners,3,5), ...getPoints(rCorners, 0,5)];
+  const triangle = [...getPoints(originalCorners, 2, 5), ...getPoints(drCorners,5,4), ...getPoints(dCorners,1,4)];
+
+  return {
+      "2x1DL": HexUtils.convertToString(dl2x1),
+      "2x1DR": HexUtils.convertToString(dr2x1),
+      "2x1D": HexUtils.convertToString(d2x1),
+      "2x1R": HexUtils.convertToString(r2x1),
+      "2x3": HexUtils.convertToString(triangle),
+  }
+}
+
 const HexOverlay = () => { 
   const { dungeon: {map: {rotateHex}, obstacles, corridors}} = useDungeon();
-
-  const getPoints =(corners: Point[], starting: number, count = 6) => {
-    return [...Array(count)].map((_c, index) => corners[(index +starting)%6]);
-  }
-
-  const createCustomLayouts = (flat: boolean, size: Point) => {
-    const originalCorners = HexUtils.calculateCoordinates(flat, size);
-
-    const dlCorners = HexUtils.calculateCoordinates(flat, size, {x: -1.5 * size.x, y:size.y/2 * Math.sqrt(3)});
-    const dl2x1 = [...getPoints(originalCorners, 3),...getPoints(dlCorners, 1, 4)];
-
-    const drCorners = HexUtils.calculateCoordinates(flat, size, {x:1.5 * size.x, y:size.y/2 * Math.sqrt(3)});
-    const dr2x1 = [...getPoints(originalCorners,1), ...getPoints(drCorners, 4, 5)];
-
-    const dCorners = HexUtils.calculateCoordinates(flat, size, {x:0, y:size.y * Math.sqrt(3)});
-    const d2x1 = [...getPoints(originalCorners,2), ...getPoints(dCorners,0,4)];
-
-    const rCorners = HexUtils.calculateCoordinates(flat, size, {y:0, x:-size.x * Math.sqrt(3)});
-    const r2x1 = [...getPoints(originalCorners,3,5), ...getPoints(rCorners, 0,5)];
-    const triangle = [...getPoints(originalCorners, 2, 5), ...getPoints(drCorners,5,4), ...getPoints(dCorners,1,4)];
-
-    return {
-        "2x1DL": HexUtils.convertToString(dl2x1),
-        "2x1DR": HexUtils.convertToString(dr2x1),
-        "2x1D": HexUtils.convertToString(d2x1),
-        "2x1R": HexUtils.convertToString(r2x1),
-        "2x3": HexUtils.convertToString(triangle),
-    }
-  }
 
   const size = { x: 6.2, y: 6.2 };
 

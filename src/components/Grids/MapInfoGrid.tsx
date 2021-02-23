@@ -47,7 +47,7 @@ const MapInfoGrid = () => {
             }
         }
 
-        patterns.push(<HexPattern id="earth-1" category="corridors" size={{x:6.3, y:5.410}}/>);
+        patterns.push(<HexPattern id="earth-1" category="corridors" rotate={rotateHex}/>);
     }
     
     return { hexes, patterns}
