@@ -33,12 +33,15 @@ const HexOverlay = () => {
     const dCorners = HexUtils.calculateCoordinates(flat, size, {x:0, y:size.y * Math.sqrt(3)});
     const d2x1 = [...getPoints(originalCorners,2), ...getPoints(dCorners,0,4)];
 
+    const rCorners = HexUtils.calculateCoordinates(flat, size, {y:0, x:-size.x * Math.sqrt(3)});
+    const r2x1 = [...getPoints(originalCorners,3,5), ...getPoints(rCorners, 0,5)];
     const triangle = [...getPoints(originalCorners, 2, 5), ...getPoints(drCorners,5,4), ...getPoints(dCorners,1,4)];
 
     return {
         "2x1DL": HexUtils.convertToString(dl2x1),
         "2x1DR": HexUtils.convertToString(dr2x1),
         "2x1D": HexUtils.convertToString(d2x1),
+        "2x1R": HexUtils.convertToString(r2x1),
         "2x3": HexUtils.convertToString(triangle),
     }
   }

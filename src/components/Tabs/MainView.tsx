@@ -7,8 +7,8 @@ import ScenarioContainer from './Scenario/ScenarioContainer';
 const MainView = () => {
 
     let panes = [
-        { menuItem: 'Scenario', render: () => <Tab.Pane><ScenarioProvider><ScenarioContainer/></ScenarioProvider></Tab.Pane> },
         { menuItem: 'Map', render: () => <Tab.Pane><MapContainer/></Tab.Pane> },
+        { menuItem: 'Scenario', render: () => <Tab.Pane><ScenarioProvider><ScenarioContainer/></ScenarioProvider></Tab.Pane> },
     ];
     
     return (
