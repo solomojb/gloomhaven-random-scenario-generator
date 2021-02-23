@@ -37,6 +37,17 @@ const DungeonProvider = (props:Props) => {
     const [monsters, setMonsters] = useState<MonsterData>(monsterData);
     const { Provider } = DungeonContext;
 
+    useEffect( () => 
+    {
+        setDungeon(intitialDungeon);
+    }, [intitialDungeon]);
+
+    useEffect( () => 
+    {
+        setMonsters(monsterData);
+    }, [monsterData]);
+
+
     return <Provider value={{dungeon, setDungeon, monsterData:monsters, setMonsters, roomNumber}}>{children}</Provider>
 }
  

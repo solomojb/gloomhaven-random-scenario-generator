@@ -15,7 +15,7 @@ const MapTileEditor = () => {
   } = useDungeon();
 
   return (
-    <Form.Group>
+    <Form.Field>
       {tiles.map((tile: Tile, tileIndex: number) => {
         return (
           <Form.Field>
@@ -50,7 +50,7 @@ const MapTileEditor = () => {
           </Form.Field>
         );
       })}
-    </Form.Group>
+    </Form.Field>
   );
 };
 

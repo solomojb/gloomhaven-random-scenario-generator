@@ -12,7 +12,6 @@ type DisplayToggleProps = {
     const { toggleFlag, isFlagSet }  = useFlags();
   
     const changeValue = () => {
-      console.log("changing flag", flag);
       toggleFlag(flag);
     };
   

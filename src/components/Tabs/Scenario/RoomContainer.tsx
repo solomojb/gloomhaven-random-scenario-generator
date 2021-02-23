@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGame } from '../../Game/GameProvider';
+import { Form } from 'semantic-ui-react';
 import FlagsProvider, { ShowFlags } from '../../Providers/FlagsProvider';
 import { useScenario } from '../../Providers/ScenarioProvider';
 import Room from "../../Room/Room";
@@ -20,9 +20,15 @@ const RoomContainer = (props: Props) => {
 		return null;
 	}
 	return <DungeonProvider monsterData={monsters} intitialDungeon={dungeon} roomNumber={roomNumber}>
-				<FlagsProvider localKey="roomFlags" initialFlags={ShowFlags.ShowAllMap}>
-				<Room/>
-				</FlagsProvider>
+			<FlagsProvider localKey="roomFlags" initialFlags={ShowFlags.ShowAllMap}>
+				<Form>
+					<Form.Group>
+						<Form.Field>
+							<Room/>
+						</Form.Field>
+					</Form.Group>
+				</Form>
+			</FlagsProvider>
 		</DungeonProvider>
 };
 

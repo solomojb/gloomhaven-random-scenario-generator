@@ -6,6 +6,7 @@ type Props = {
   y?: string | number,
   className?: string,
   textStyle?: CSSProperties
+  textAnchor? : string;
 };
 
 // TODO Text is a separate component so that it could wrap the given text inside the surrounding hexagon
@@ -14,9 +15,9 @@ class Text extends Component<Props> {
     super(props);
   }
   render() {
-    const { children, x, y, className, textStyle } = this.props;
+    const { children, x, y, className, textStyle, textAnchor } = this.props;
     return (
-      <text x={x || 0} y={y||0} style={textStyle} className={className} textAnchor="start">{children}</text>
+      <text x={x || 0} y={y ? y : '0.3em'} style={textStyle} className={className} textAnchor={textAnchor || "middle"}>{children}</text>
     );
   }
 }

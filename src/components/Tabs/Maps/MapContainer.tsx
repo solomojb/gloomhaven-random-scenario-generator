@@ -31,7 +31,7 @@ const MapContainer = () => {
 					<Form.Field>
 						<PlayerCountProvider localKey={"numberOfPlayers"}>
 							<PlayerCount/>
-								<Room/>
+							<Room/>
 						</PlayerCountProvider>
 					</Form.Field>
 				</Form.Group>

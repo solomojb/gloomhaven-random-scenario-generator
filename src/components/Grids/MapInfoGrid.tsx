@@ -6,7 +6,6 @@ import HexPattern from "./HexPattern";
 
 const MapInfoGrid = () => {
     const { dungeon: {map: {rotateHex}}} = useDungeon();
-    console.log(rotateHex);
     const { isFlagSet } = useFlags();
     
     const buildHex = (q:number, r: number) => {
