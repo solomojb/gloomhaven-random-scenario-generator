@@ -12,11 +12,11 @@ const RoomSelectors = ()  => {
     return (
         <Form.Group>
             <Form.Field>
-                {/* <MapSelector/> */}
+                <MapSelector/>
                 {showSelectors && <MapCard/>}
             </Form.Field>
             <Form.Field>
-                {/* <MonsterSelector/> */}
+                <MonsterSelector/>
                 {showSelectors && <MonsterCard /> }
             </Form.Field>
         </Form.Group>

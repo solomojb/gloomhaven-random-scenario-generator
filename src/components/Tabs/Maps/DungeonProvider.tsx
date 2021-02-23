@@ -5,6 +5,7 @@ type ContextData = {
     dungeon: Dungeon;
     setDungeon : ( dungeon: Dungeon) => void;
     monsterData: MonsterData;
+    setMonsters : ( monsters: MonsterData) => void;
     roomNumber: number;
 }
 
@@ -12,6 +13,7 @@ const initialContextData: ContextData = {
     dungeon: initialDungeon,
     setDungeon : () => {},
     monsterData: initialMonsterData,
+    setMonsters : () => {},
     roomNumber: -1
 }
 
@@ -32,9 +34,10 @@ type Props = {
 const DungeonProvider = (props:Props) => {
     const {intitialDungeon, children, monsterData, roomNumber = -1} = props;
     const [dungeon, setDungeon] = useState<Dungeon>(intitialDungeon);
+    const [monsters, setMonsters] = useState<MonsterData>(monsterData);
     const { Provider } = DungeonContext;
 
-    return <Provider value={{dungeon:intitialDungeon, setDungeon, monsterData, roomNumber}}>{children}</Provider>
+    return <Provider value={{dungeon, setDungeon, monsterData:monsters, setMonsters, roomNumber}}>{children}</Provider>
 }
  
 export default DungeonProvider;
