@@ -103,15 +103,14 @@
         "pattern": "Table",
         "q": -3,
         "r": -3,
-        "scale": 2,
+        "scale": {"x":1, "y":2},
         "hexType": "2x1D"
       },
       {
         "pattern": "Table",
         "q": -1,
         "r": -4,
-        "rotation": 0,
-        "scale": 2,
+        "scale": {"x":1, "y":2},
         "hexType": "2x1D"
       }
     ],
@@ -125,8 +124,7 @@
         "pattern": "man-made-stone-2",
         "q": -3,
         "r": 0,
-        "rotation": 0,
-        "scale": 2,
+        "scale": {"x":1, "y":2},
         "hexType": "2x1D"
       }
     ],

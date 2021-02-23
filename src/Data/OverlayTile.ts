@@ -1,11 +1,12 @@
+import Point from "../react-hexgrid/models/Point";
+
 export interface OverlayTile {
     id: number;
     pattern: string;
     q: number;
     r: number;
     rotation: number;
-    scale: number;
+    scale: Point;
     hexType: string;
-    x: number;
-    y: number;
+    offset: Point;
 }

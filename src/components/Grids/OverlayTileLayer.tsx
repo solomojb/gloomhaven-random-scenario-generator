@@ -3,6 +3,7 @@ import { Hexagon } from "../../react-hexgrid";
 import { OverlayTile } from "../../Data";
 import HexPattern from "./HexPattern";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
+import { off } from "process";
 
 type Props = {
   tiles: OverlayTile[];
@@ -32,24 +33,26 @@ const OverlayTileLayer = (props: Props) => {
     hexes = tiles.map(buildHex);
 
     const patternStrings = tiles
-      .map((tile) => {
+    .map((tile) => {
+        const { offset, scale }  = tile;
         return {
           pattern: tile.pattern,
           rotation: tile.rotation,
-          scale: tile.scale || 1,
-          offset: { x: tile.x, y: tile.y },
+          scale: scale || {x:1, y:1},
+          offset
         };
       })
       .filter(onlyUnique);
     patterns = patternStrings.map((tile) => {
+      const { rotation, scale, offset }  = tile;
       return (
         <HexPattern
           id={tile.pattern}
           category={overlayType}
-          rotation={tile.rotation}
-          scale={tile.scale}
-          offset={tile.offset}
-          size={{ x: 6.3, y: 5.41 * tile.scale }}
+          rotation={rotation}
+          scale={scale}
+          offset={offset}
+          size={{ x: 6.3 * scale.x, y: 5.41 * scale.y }}
         />
       );
     });

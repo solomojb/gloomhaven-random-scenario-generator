@@ -113,11 +113,10 @@
         "pattern": "boulder-2",
         "q": -1,
         "r": 1,
-        "scale": 2,
+        "scale": {"x":1, "y":2},
         "rotation": 60,
         "hexType": "2x1DL",
-        "x": 9,
-        "y": 0
+        "offset": {"x":9, "y": 0}
       }
     ],
     "penalties" : [

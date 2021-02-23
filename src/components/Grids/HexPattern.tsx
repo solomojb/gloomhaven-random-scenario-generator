@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Pattern } from '../../react-hexgrid';
+import Point from '../../react-hexgrid/models/Point';
 import { useGame } from '../Game/GameProvider';
 import { useDungeon } from '../Tabs/Maps/DungeonProvider';
 
@@ -10,7 +11,7 @@ type Props = {
     offset?: {x:number, y:number};
     category:string;
     rotation?: number;
-    scale?: number;
+    scale?: Point;
     forceRotate?: boolean;
     postfix?:string;
 }
@@ -18,7 +19,7 @@ type Props = {
 const HexPattern = (props:Props) => {
     const { dungeon: {map : { rotateHex }}} = useDungeon();
     const game = useGame();
-    const { id, postfix, category, size: {x,y}, offset:{x:offsetX,y:offsetY} = {x: 0, y: 0}, rotation = 0, scale=1, forceRotate=undefined} = props;
+    const { id, postfix, category, size: {x,y}, offset:{x:offsetX,y:offsetY} = {x: 0, y: 0}, rotation = 0, scale={x:1, y:1}, forceRotate=undefined} = props;
     
     let link = '';
     let patternStyle = {};
@@ -29,13 +30,13 @@ const HexPattern = (props:Props) => {
     }
     if (category === "monster") {
         link = game.getMonsterImage(id, tileRotation);
-        patternStyle = {transform: `scale(${scale})`}
+        patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
     } else if (category === "treasures") {
         link = game.getTreasureImage(tileRotation);
-        patternStyle = {transform: `scale(${scale})`}
+        patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
     } else if (category === "coin") {
         link = game.getCoinImage();
-        patternStyle = {transform: `scale(${scale})`}
+        patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
     } else {
         link = game.getOverlayTokenPath(id, category);
         const objectRotation = (rotation + (tileRotation ? 90 : 0))% 360;

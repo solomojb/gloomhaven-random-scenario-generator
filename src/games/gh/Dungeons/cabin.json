@@ -118,8 +118,7 @@
         "pattern": "Table",
         "q": 0,
         "r": -2,
-        "rotation": 0,
-        "scale": 2,
+        "scale": {"x":1, "y":2},
         "hexType": "2x1D"
       }
 
