@@ -7,7 +7,6 @@ import { useGame } from '../Game/GameProvider';
 type Props = {
     id:string;
     category:string;
-    rotation?: number;
     postfix?:string;
     rotate:boolean;
     hexType?:string;
@@ -25,10 +24,9 @@ export const getHexTypeOffsets = (hexType:string | undefined) => {
 
 const HexPattern = (props:Props) => {
     const game = useGame();
-    const { id, postfix, category, rotate, hexType, rotation: itemRotation = 0} = props;
+    const { id, postfix, category, rotate, hexType} = props;
 
     let scale: Point = {x:1, y: 1};
-    let rotation = itemRotation;
     let offsetX = 0;
     let offsetY = 0;
     let x = 6.3;
@@ -66,8 +64,8 @@ const HexPattern = (props:Props) => {
         patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
     } else {
         link = game.getOverlayTokenPath(id, category);
-        const objectRotation = (rotation + (rotate ? 90 : 0))% 360;
-        if (objectRotation && !hexType || hexType==="2x1R") {
+        const objectRotation = ((rotate ? 90 : 0))% 360;
+        if (objectRotation) {
           const transform = `rotate(${objectRotation}deg)`;
           patternStyle = {transform}
         }

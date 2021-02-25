@@ -33,14 +33,13 @@ const OverlayTileLayer = (props: Props) => {
   if (isFlagSet(flag) && tiles) {
     hexes = tiles.map(buildHex);
     patterns = tiles.filter(onlyUnique).map((tile) => {
-      const { hexType, pattern, rotation }  = tile;
+      const { hexType, pattern }  = tile;
       return (
         <HexPattern
           id={pattern}
           category={overlayType}
           rotate={rotateHex}
           hexType={hexType}
-          rotation={rotation}
         />
       );
     });
