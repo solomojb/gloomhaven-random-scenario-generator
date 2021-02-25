@@ -113,7 +113,8 @@
         "pattern": "boulder-2",
         "q": -1,
         "r": 1,
-        "hexType": "2x1DL"
+        "rotation": 60,
+        "hexType": "2x1D"
       }
     ],
     "penalties" : [

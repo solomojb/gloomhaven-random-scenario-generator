@@ -19,7 +19,7 @@ const Pattern = (props: Props) => {
   return (
     <defs>
       <pattern id={id} patternUnits="objectBoundingBox" x={patternXOffset} y={patternYOffset} width={size.x} height={size.y} style={patternStyle}>
-        <image xlinkHref={link} x={xOffset} y={yOffset} width={size.x*2} height={size.y*2} style={imageStyle}/>
+        <image href={link} x={xOffset} y={yOffset} width={size.x*2} height={size.y*2} style={imageStyle}/>
       </pattern>
     </defs>
   );

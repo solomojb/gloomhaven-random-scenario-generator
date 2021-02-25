@@ -24,6 +24,7 @@ type Props = {
   onDrop?: (e: DragEvent<SVGElement>, source: EventParams,  target: object) => void,
   children?: ReactNode | ReactNode[],
   hexType?: string,
+  rotation?: number,
 }
 
 
@@ -100,7 +101,7 @@ class Hexagon extends Component<Props> {
     }
   }
   render() {
-    const { fill = null, cellStyle = undefined, className, hexType } = this.props;
+    const { fill = null, cellStyle = undefined, className, hexType, rotation = 0 } = this.props;
     const { points} = this.context;
     const fillId = fill ? `url(#${fill})` : undefined;
     const type = hexType || "1x1Hex";
@@ -108,7 +109,7 @@ class Hexagon extends Component<Props> {
     return (
       <g
         className={classnames('hexagon-group', className)}
-        transform={`translate(${pixel.x}, ${pixel.y})`}
+        transform={`translate(${pixel.x}, ${pixel.y}) rotate(${rotation} 0 0)`}
         // @ts-ignore
         draggable="true"
         onMouseEnter={e => this.onMouseEnter(e)}

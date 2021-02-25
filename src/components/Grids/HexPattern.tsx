@@ -15,10 +15,6 @@ type Props = {
 
 export const getHexTypeOffsets = (hexType:string | undefined) => {
     switch (hexType) {
-        case "2x1DL":
-            return {scale:{x:1,y:2},
-            rotation:60,
-            offset: {x:9, y:0}};
         case "2x1R":
             return {scale:{x:2, y:1.2},
             offset: {x:10, y:-1}}
@@ -50,7 +46,6 @@ const HexPattern = (props:Props) => {
             x *= data.scale.x || 1;
             y *= data.scale.y || 1;
         }
-        rotation += data.rotation || 0;
         if (data.offset) {
             offsetX = data.offset.x || 0;
             offsetY = data.offset.y || 0;
@@ -72,7 +67,7 @@ const HexPattern = (props:Props) => {
     } else {
         link = game.getOverlayTokenPath(id, category);
         const objectRotation = (rotation + (rotate ? 90 : 0))% 360;
-        if (objectRotation) {
+        if (objectRotation && !hexType || hexType==="2x1R") {
           const transform = `rotate(${objectRotation}deg)`;
           patternStyle = {transform}
         }
@@ -84,9 +79,6 @@ const HexPattern = (props:Props) => {
     const height = rotate ? x : y;
 
     let patternId = id.replace(" ", "-");
-    if (rotation !== 0) {
-        patternId += rotation;
-    }
     if (postfix) {
       patternId += postfix;
     }
