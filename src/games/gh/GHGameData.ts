@@ -14,7 +14,7 @@ class GHGameData extends BaseGameData  {
             "armory", 
             "burrow", 
             "cabin",
-            // "cave",
+            "cave",
             // "clearning",
             // "corridor",
             // "crossroads",

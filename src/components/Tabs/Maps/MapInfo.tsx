@@ -29,10 +29,7 @@ const getOverlayName = (pattern:string) => {
   if (pattern.includes("coin-")) {
     return "Coin"
   }
-  if (pattern.includes("hot-coals")) {
-    return "Hot Coals"
-  }
-  return Helpers.toAllFirstUpper(pattern);
+  return Helpers.toAllFirstUpper(pattern.replace("-", " "));
 }
 
 const MapInfo = (props: Props) => {
