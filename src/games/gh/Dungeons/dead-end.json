@@ -1,0 +1,137 @@
+{
+  "name": "dead-end",
+  "entrances": [{"aOrB": "A", "q":-4, "r":1}],
+  "exits": [{"aOrB": "A", "q":2, "r":-6}],
+  "map": {
+      "tiles" :[ {
+        "tile": "k1b",
+        "rotation": 270,
+        "scale": 1.27,
+        "offsetX": 53,
+        "offsetY": 13
+      }
+    ],
+      "hexColumns": [
+        { "q": -3  ,
+          "minR": -1,
+          "maxR": 2
+        },
+        { "q": -2  ,
+          "minR": -2,
+          "maxR": 2
+        },
+        { "q": -1,
+          "minR": -3,
+          "maxR": 2
+        },
+        { "q": 0,
+          "minR": -4,
+          "maxR": -2
+        },
+        { "q": 0,
+          "minR": 0,
+          "maxR": 2
+        },
+        { "q": 1,
+          "minR": -5,
+          "maxR": -3
+        },
+        { "q": 1,
+          "minR": 0,
+          "maxR": 2
+        },
+        { "q": 2,
+          "minR": -5,
+          "maxR": -4
+        },
+        { "q": 2,
+          "minR": 0,
+          "maxR": 1
+        }
+      ]
+    },
+    "spawnPoints": [
+      {
+        "id": 1,
+        "q": 0, 
+        "r": -3
+      },
+      {
+        "id": 2,
+        "q": -1, 
+        "r": -3
+      },
+      {
+        "id": 3,
+        "q": 0, 
+        "r": -2
+      },
+      {
+        "id": 4,
+        "q": 2, 
+        "r": -5
+      },
+      {
+        "id": 5,
+        "q": 1, 
+        "r": -5
+      },
+      {
+        "id": 6,
+        "q": 2, 
+        "r": -4
+      },
+      {
+        "id": 7,
+        "q": -2, 
+        "r": 1
+      },
+      {
+        "id": 8,
+        "q": -3, 
+        "r": 2
+      },
+      {
+        "id": 9,
+        "q": -2, 
+        "r": 2
+      },
+      {
+        "id": 10,
+        "q": 1, 
+        "r": 1
+      },
+      {
+        "id": 11,
+        "q": 2, 
+        "r": 0
+      },
+      {
+        "id": 12,
+        "q": 2, 
+        "r": 1
+      }
+    ],
+    "obstacles": [
+      {
+        "pattern": "rock-column",
+        "q": -1,
+        "r": 1
+      },
+      {
+        "pattern": "stalagmites",
+        "q": 0,
+        "r": 0
+      },
+      {
+        "pattern": "stalagmites",
+        "q": 0,
+        "r": 2
+      }
+    ],
+    "penalties" : [
+      "All characters suffer 3 damage.",
+      "All characters suffer 7 damage."
+    ]
+  }
+  

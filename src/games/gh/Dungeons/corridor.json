@@ -1,0 +1,131 @@
+{
+  "name": "corridor",
+  "entrances": [{"aOrB": "A", "q":-3, "r":4}],
+  "exits": [{"aOrB": "B", "q":-1, "r":-4}],
+  "map": {
+      "rotateHex": true,
+      "tiles" :[ {
+        "tile": "f1a",
+        "rotation": 0,
+        "scale": 0.97,
+        "offsetX": 70,
+        "offsetY": 24
+      }
+    ],
+      "hexColumns": [
+        { "q": -4  ,
+          "minR": 3,
+          "maxR": 3
+        },
+        { "q": -3  ,
+          "minR": 1,
+          "maxR": 3
+        },
+        { "q": -2  ,
+          "minR": -1,
+          "maxR": 3
+        },
+        { "q": -1,
+          "minR": -3,
+          "maxR": 1
+        },
+        { "q": 0,
+          "minR": -5,
+          "maxR": -1
+        },
+        { "q": 1,
+          "minR": -5,
+          "maxR": -3
+        },
+        { "q": 2,
+          "minR": -5,
+          "maxR": -5
+        }
+      ]
+    },
+    "spawnPoints": [
+      {
+        "id": 1,
+        "q": 0, 
+        "r": -2
+      },
+      {
+        "id": 2,
+        "q": -1, 
+        "r": -2
+      },
+      {
+        "id": 3,
+        "q": -1, 
+        "r": 0
+      },
+      {
+        "id": 4,
+        "q": -2, 
+        "r": 0
+      },
+      {
+        "id": 5,
+        "q": -2, 
+        "r": 1
+      },
+      {
+        "id": 6,
+        "q": -3, 
+        "r": 1
+      },
+      {
+        "id": 7,
+        "q": 0, 
+        "r": -3
+      },
+      {
+        "id": 8,
+        "q": -1, 
+        "r": -3
+      },
+      {
+        "id": 9,
+        "q": 0, 
+        "r": -4
+      },
+      {
+        "id": 10,
+        "q": 1, 
+        "r": -4
+      },
+      {
+        "id": 11,
+        "q": 1, 
+        "r": -5
+      },
+      {
+        "id": 12,
+        "q": 2, 
+        "r": -5
+      }
+    ],
+    "obstacles": [
+      {
+        "pattern": "altar",
+        "q": 1,
+        "r": -3
+      },
+      {
+        "pattern": "altar",
+        "q": -1,
+        "r": 1
+      },
+      {
+        "pattern": "altar",
+        "q": -2,
+        "r": -1,
+        "rotation": 180
+      }
+    ],
+    "penalties" : [
+      "IMMOBILIZE all characters",
+      "STUN all characters."
+    ]
+  }
+  

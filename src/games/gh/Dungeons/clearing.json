@@ -1,0 +1,117 @@
+{
+  "name": "clearing",
+  "entrances": [{"aOrB": "B", "q":-2, "r":-2}],
+  "exits": [{"aOrB": "B", "q":3, "r":-2}],
+  "map": {
+      "rotateHex": true,
+      "tiles" :[ {
+        "tile": "l3a",
+        "rotation": 180,
+        "scale": 0.78,
+        "offsetX": 76,
+        "offsetY": 26
+      }
+    ],
+      "hexColumns": [
+        { "q": -3  ,
+          "minR": 1,
+          "maxR": 1
+        },
+        { "q": -2  ,
+          "minR": -1,
+          "maxR": 1
+        },
+        { "q": -1,
+          "minR": -3,
+          "maxR": 1
+        },
+        { "q": 0,
+          "minR": -5,
+          "maxR": 1
+        },
+        { "q": 1,
+          "minR": -5,
+          "maxR": 1
+        },
+        { "q": 2,
+          "minR": -5,
+          "maxR": -1
+        },
+        { "q": 3,
+          "minR": -5,
+          "maxR": -3
+        },
+        { "q": 4,
+          "minR": -5,
+          "maxR": -5
+        }
+      ]
+    },
+    "spawnPoints": [
+      {
+        "id": 1,
+        "q": -1, 
+        "r": 1
+      },
+      {
+        "id": 2,
+        "q": -2, 
+        "r": 1
+      },
+      {
+        "id": 3,
+        "q": 0, 
+        "r": -1
+      },
+      {
+        "id": 4,
+        "q": 2, 
+        "r": -5
+      },
+      {
+        "id": 5,
+        "q": 1, 
+        "r": -5
+      },
+      {
+        "id": 6,
+        "q": 1, 
+        "r": -3
+      },
+      {
+        "id": 7,
+        "q": 2, 
+        "r": -1
+      },
+      {
+        "id": 8,
+        "q": 1, 
+        "r": 0
+      },
+      {
+        "id": 9,
+        "q": 0, 
+        "r": 1
+      },
+      {
+        "id": 10,
+        "q": 3, 
+        "r": -3
+      },
+      {
+        "id": 11,
+        "q": 3, 
+        "r": -4
+      },
+      {
+        "id": 12,
+        "q": 3, 
+        "r": -5
+      }
+    ],
+    "penalties" : [
+      "All elements become inert.",
+      "Characters can no longer consume elements."
+    ]
+  }
+  

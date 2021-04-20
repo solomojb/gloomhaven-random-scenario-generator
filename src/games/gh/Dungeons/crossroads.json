@@ -1,0 +1,127 @@
+{
+  "name": "crossroads",
+  "entrances": [{"aOrB": "B", "q":6, "r":-5}],
+  "exits": [{"aOrB": "B", "q":-1, "r":-5}],
+  "map": {
+      "rotateHex": true,
+      "tiles" :[ {
+        "tile": "h2b",
+        "scale": 1.01,
+        "offsetX": 48,
+        "offsetY": 26
+      }
+    ],
+      "hexColumns": [
+        { "q": -1,
+          "minR": -4,
+          "maxR": -4
+        },
+        { "q": -1,
+          "minR": 0,
+          "maxR": 1
+        },
+        { "q": 0,
+          "minR": -5,
+          "maxR": -4
+        },
+        { "q": 0,
+          "minR": -2,
+          "maxR": 1
+        },
+        { "q": 1,
+          "minR": -5,
+          "maxR": 0
+        },
+        { "q": 2,
+          "minR": -5,
+          "maxR": -2
+        },
+        { "q": 3,
+          "minR": -5,
+          "maxR": -4
+        },
+        { "q": 4,
+          "minR": -5,
+          "maxR": -4
+        },
+        { "q": 5,
+          "minR": -5,
+          "maxR": -4
+        }
+      ]
+    },
+    "spawnPoints": [
+      {
+        "id": 1,
+        "q": 0, 
+        "r": -4
+      },
+      {
+        "id": 2,
+        "q": 2, 
+        "r": -2
+      },
+      {
+        "id": 3,
+        "q": -1, 
+        "r": -2
+      },
+      {
+        "id": 4,
+        "q": -1, 
+        "r": -4
+      },
+      {
+        "id": 5,
+        "q": 2, 
+        "r": -3
+      },
+      {
+        "id": 6,
+        "q": 2, 
+        "r": -4
+      },
+      {
+        "id": 7,
+        "q": 0, 
+        "r": -2
+      },
+      {
+        "id": 8,
+        "q": 1, 
+        "r": -4
+      },
+      {
+        "id": 9,
+        "q": 1, 
+        "r": -5
+      },
+      {
+        "id": 10,
+        "q": 3, 
+        "r": -5
+      },
+      {
+        "id": 11,
+        "q": 0, 
+        "r": -5
+      },
+      {
+        "id": 12,
+        "q": 1, 
+        "r": -1
+      }
+    ],
+    "obstacles": [
+      {
+        "pattern": "totem",
+        "q": 1,
+        "r": -3
+      }
+    ],
+    "penalties" : [
+      "All characters discard 2 cards.",
+      "All characters lose a card."
+    ]
+  }
+  

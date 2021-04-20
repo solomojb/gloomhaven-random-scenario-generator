@@ -15,7 +15,7 @@ type Props = {
 }
 
 const MapTile = (props:Props) =>  {
-    const { tile: { tile, rotation, offsetX, offsetY, scale }, onTileLoad, index} = props;
+    const { tile: { tile, rotation = 0, offsetX, offsetY, scale }, onTileLoad, index} = props;
     const game = useGame();
     const [dimension, setDimensions] = useState<Dimension>({width:0, height:0});
 
@@ -50,8 +50,10 @@ const MapTile = (props:Props) =>  {
     }
 
     console.log("rendering tile", tile);
-
+    
     const transform = `${translateYStr} ${translateXStr} rotate(${rotation}deg) scale(${scale})`;
+    console.log(transform);
+    
     return (
             <img onLoad={onLoad} src={game.getMapPath(tile)} style={{position:'relative', top:`${translateY}px`, left:`${translateX}px`, transformOrigin: "left top", transform}}/>
             )

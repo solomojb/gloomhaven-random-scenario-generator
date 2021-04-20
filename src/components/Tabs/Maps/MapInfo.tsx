@@ -63,7 +63,9 @@ const MapInfo = (props: Props) => {
   spawns.filter(s => s.category === "monster").forEach(addSpawn);
   spawns.filter(s => s.category !== "monster" && s.category !== "treasures").forEach(addSpawn);
 
-  obstacles.forEach( obstacle => addOverlay(obstacle, "obstacles"));
+  if (obstacles) {
+    obstacles.forEach( obstacle => addOverlay(obstacle, "obstacles"));
+  }
   if (corridors) {
       corridors.forEach( corridor => addOverlay(corridor, "corridors"));
   }

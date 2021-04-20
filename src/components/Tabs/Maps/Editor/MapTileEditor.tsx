@@ -14,11 +14,42 @@ const MapTileEditor = () => {
     setDungeon,
   } = useDungeon();
 
+  const handleKey = (e:any, tileIndex: number) => {
+    e.preventDefault();
+    const newTiles = [...tiles];
+    const tile = newTiles[tileIndex];
+    switch (e.key) {
+      case "ArrowUp":
+        tile.offsetY -= 1;
+      break;
+      case "ArrowDown":
+        tile.offsetY += 1;
+      break;
+      case "ArrowLeft":
+        tile.offsetX -= 1;
+        break;
+      case "ArrowRight":
+        tile.offsetX += 1;
+      break;
+      case "+":
+        tile.scale += 0.01;
+        break;
+      case "-":
+        tile.scale -= 0.01;
+        break;
+      }
+      setDungeon({
+        ...dungeon,
+        map: { ...dungeon.map, tiles: newTiles },
+      });
+  }
+
   return (
     <Form.Field>
       {tiles.map((tile: Tile, tileIndex: number) => {
         return (
           <Form.Field>
+            <div onKeyDown={(e) => handleKey(e, tileIndex)} tabIndex={0}>
             <label>{tile.tile}</label>
             <Tumblers
               label={`Scale:`}
@@ -47,6 +78,7 @@ const MapTileEditor = () => {
               initialY={tile.offsetY || 0}
               label=""
             />
+          </div>
           </Form.Field>
         );
       })}
