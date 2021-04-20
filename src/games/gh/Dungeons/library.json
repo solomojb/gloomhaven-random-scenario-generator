@@ -1,0 +1,152 @@
+{
+  "name": "library",
+  "entrances": [{"aOrB": "B", "q":-2, "r":-2}],
+  "exits": [{"aOrB": "A", "q":3, "r":-6}],
+  "map": {
+      "rotateHex": true,
+      "tiles" :[ {
+        "tile": "m1a",
+        "scale": 0.78,
+        "offsetX": 73,
+        "offsetY": 27
+      }
+  ], 
+    "hexColumns": [
+      { "q": -2  ,
+        "minR": -1,
+        "maxR": 1
+      },
+      { "q": -1,
+        "minR": -3,
+        "maxR": 1
+      },
+      { "q": 0,
+        "minR": -4,
+        "maxR": 1
+      },
+      { "q": 1,
+        "minR": -5,
+        "maxR": 1
+      },
+      { "q": 2,
+        "minR": -5,
+        "maxR": 0
+      },
+      { "q": 3,
+        "minR": -5,
+        "maxR": -1
+      },
+      { "q": 4,
+        "minR": -5,
+        "maxR": -3
+      }
+    ]
+    },
+    "spawnPoints": [
+      {
+        "id": 1,
+        "q": 1, 
+        "r": -1
+      },
+      {
+        "id": 2,
+        "q": 1, 
+        "r": -2
+      },
+      {
+        "id": 3,
+        "q": 2, 
+        "r": -1
+      },
+      {
+        "id": 4,
+        "q": -1, 
+        "r": -1
+      },
+      {
+        "id": 5,
+        "q": -1, 
+        "r": 0
+      },
+      {
+        "id": 6,
+        "q": -1, 
+        "r": 1
+      },
+      {
+        "id": 7,
+        "q": 2, 
+        "r": -3
+      },
+      {
+        "id": 8,
+        "q": 3, 
+        "r": -4
+      },
+      {
+        "id": 9,
+        "q": 2, 
+        "r": -4
+      },
+      {
+        "id": 10,
+        "q": 1, 
+        "r": 0
+      },
+      {
+        "id": 11,
+        "q": 2, 
+        "r": 0
+      },
+      {
+        "id": 12,
+        "q": 1, 
+        "r": 1
+      }
+    ],
+    "obstacles": [
+      {
+        "pattern": "stone-pillar",
+        "q": 1,
+        "r": -3
+      },
+      {
+        "pattern": "stone-pillar",
+        "q": 0,
+        "r": -1
+      },
+      {
+        "pattern": "bookcase",
+        "q": -2,
+        "r": 0,
+        "rotation": 60,
+        "hexType": "2x1R"
+      },
+      {
+        "pattern": "bookcase",
+        "q": 0,
+        "r": 1,
+        "rotation": 60,
+        "hexType": "2x1R"
+      },
+      {
+        "pattern": "bookcase",
+        "q": 3,
+        "r": -2,
+        "rotation": 240,
+        "hexType": "2x1R"
+      },
+      {
+        "pattern": "bookcase",
+        "q": 1,
+        "r": -5,
+        "rotation": 240,
+        "hexType": "2x1R"
+      }
+    ],
+    "penalties" : [
+      "STRENGTHEN all enemies.",
+      "STRENGTHEN all enemies permanently."
+    ]
+  }
+  

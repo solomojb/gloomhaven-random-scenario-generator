@@ -12,6 +12,7 @@ export interface Dungeon {
     spawnPoints: OverlayTile[];
     obstacles: OverlayTile[];
     corridors: OverlayTile[];
+    difficultTerrain: OverlayTile[];
     penalties: string[];
     monsterData: MonsterData[];
 }
@@ -25,6 +26,7 @@ export const initialDungeon : Dungeon = {
     spawnPoints: [],
     obstacles: [],
     corridors: [],
+    difficultTerrain: [],
     penalties: [],
     monsterData: []
 }

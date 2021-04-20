@@ -44,6 +44,10 @@ const MapTile = (props:Props) =>  {
             translateXStr = `translateX(${width}px)`;
             translateYStr = `translateY(${height}px)`;
             break;
+        case 240:
+            // translateXStr = `translateX(${width}px)`;
+            translateYStr = `translateY(${height}px)`;
+          break;
         case 270:
             translateYStr = `translateY(${height}px)`;
             break;

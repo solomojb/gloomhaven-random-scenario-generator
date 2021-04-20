@@ -37,7 +37,7 @@ export const createCustomLayouts = (flat: boolean, size: Point) => {
 }
 
 const HexOverlay = () => { 
-  const { dungeon: {map: {rotateHex}, obstacles, corridors}} = useDungeon();
+  const { dungeon: {map: {rotateHex}, obstacles, corridors, difficultTerrain}} = useDungeon();
 
   const size = { x: 6.2, y: 6.2 };
 
@@ -45,6 +45,7 @@ const HexOverlay = () => {
   const { hexes: gridHexes, patterns: gridPatterns} = MapGrid();
   const { hexes: corridorHexes, patterns: corridorPatterns} = OverlayTileLayer({overlayType:"corridors", tiles:corridors, flag: ShowFlags.Corridors});
   const { hexes: obstacleHexes, patterns: obstaclePatterns} = OverlayTileLayer({overlayType:"obstacles", tiles:obstacles, flag: ShowFlags.Obstacles});
+  const { hexes: difficultTerrainHexes, patterns: difficultTerrainPatterns} = OverlayTileLayer({overlayType:"difficult-terrain", tiles:difficultTerrain, flag: ShowFlags.Obstacles});
   const { hexes: spawnPointHexes, patterns: spawnPointPatterns} = SpawnPointsLayer();
   const { hexes: spawnHexes, patterns: spawnPatterns} = SpawnLayer();
   const { hexes: doorHexes, patterns: doorPatterns} = DoorLayer();
@@ -58,6 +59,7 @@ const HexOverlay = () => {
              {corridorHexes}
              {spawnPointHexes}
              {obstacleHexes}
+             {difficultTerrainHexes}
              {spawnHexes}
              {doorHexes}
             {/* <Path start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} /> */}
@@ -67,6 +69,7 @@ const HexOverlay = () => {
             {corridorPatterns}
             {spawnPointPatterns}
             {obstaclePatterns}
+            {difficultTerrainPatterns}
             {spawnPatterns}
             {doorPatterns}
         </HexGrid>

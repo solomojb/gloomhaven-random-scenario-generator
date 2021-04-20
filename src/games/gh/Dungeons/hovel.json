@@ -1,15 +1,22 @@
 {
-  "name": "corridor",
-  "entrances": [{"aOrB": "A", "q":-3, "r":4}],
+  "name": "hovel",
+  "entrances": [{"aOrB": "A", "q":-3, "r":4},{"aOrB": "B", "q":0, "r":2}],
   "exits": [{"aOrB": "B", "q":-1, "r":-4}],
   "map": {
       "rotateHex": true,
       "tiles" :[ {
-        "tile": "f1a",
-        "rotation": 0,
-        "scale": 0.97,
+        "tile": "c1b",
+        "rotation": 240,
+        "scale": 0.73,
         "offsetX": 152,
-        "offsetY": -23
+        "offsetY": -22
+      },
+      {
+        "tile": "b2a",
+        "rotation": 180,
+        "scale": 0.61,
+        "offsetX": 74,
+        "offsetY": -102
       }
     ],
       "hexColumns": [
@@ -22,24 +29,24 @@
           "maxR": 3
         },
         { "q": -2  ,
-          "minR": -1,
+          "minR": 0,
           "maxR": 3
         },
         { "q": -1,
           "minR": -3,
-          "maxR": 1
+          "maxR": 3
         },
         { "q": 0,
-          "minR": -5,
-          "maxR": -1
+          "minR": -4,
+          "maxR": 1
         },
         { "q": 1,
           "minR": -5,
-          "maxR": -3
+          "maxR": -2
         },
         { "q": 2,
           "minR": -5,
-          "maxR": -5
+          "maxR": -3
         }
       ]
     },
@@ -47,37 +54,37 @@
       {
         "id": 1,
         "q": 0, 
-        "r": -2
+        "r": -3
       },
       {
         "id": 2,
-        "q": -1, 
-        "r": -2
+        "q": 1, 
+        "r": -3
       },
       {
         "id": 3,
-        "q": -1, 
+        "q": -2, 
         "r": 0
       },
       {
         "id": 4,
-        "q": -2, 
+        "q": -1, 
         "r": 0
       },
       {
         "id": 5,
-        "q": -2, 
-        "r": 1
+        "q": -3, 
+        "r": 2
       },
       {
         "id": 6,
-        "q": -3, 
-        "r": 1
+        "q": 0, 
+        "r": -1
       },
       {
         "id": 7,
-        "q": 0, 
-        "r": -3
+        "q": -1, 
+        "r": -1
       },
       {
         "id": 8,
@@ -86,46 +93,50 @@
       },
       {
         "id": 9,
+        "q": 2, 
+        "r": -3
+      },
+      {
+        "id": 10,
         "q": 0, 
         "r": -4
       },
       {
-        "id": 10,
-        "q": 1, 
-        "r": -4
-      },
-      {
         "id": 11,
-        "q": 1, 
-        "r": -5
+        "q": -4, 
+        "r": 3
       },
       {
         "id": 12,
         "q": 2, 
-        "r": -5
+        "r": -4
       }
     ],
     "obstacles": [
       {
-        "pattern": "altar",
+        "pattern": "crate",
+        "rotation": 0,
         "q": 1,
-        "r": -3
+        "r": -4
       },
       {
-        "pattern": "altar",
-        "q": -1,
-        "r": 1
-      },
-      {
-        "pattern": "altar",
+        "pattern": "table",
         "q": -2,
+        "r": 1,
+        "hexType": "2x1R"
+      }
+    ],
+    "corridors": [
+      {
+        "pattern": "wood-2",
+        "q": 0,
         "r": -1,
-        "rotation": 180
+        "hexType": "2x1R"
       }
     ],
     "penalties" : [
-      "IMMOBILIZE all characters",
-      "STUN all characters."
+      "WOUND all characters.",
+      "WOUND all characters permanently."
     ]
   }
   
