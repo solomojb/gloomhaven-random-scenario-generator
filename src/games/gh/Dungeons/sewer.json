@@ -1,11 +1,11 @@
 {
   "name": "crossroads",
-  "entrances": [{"aOrB": "B", "q":6, "r":-5}],
-  "exits": [{"aOrB": "B", "q":-1, "r":-5}],
+  "entrances": [{"aOrB": "A", "q":-1, "r":2}],
+  "exits": [{"aOrB": "A", "q":3, "r":-6}],
   "map": {
       "rotateHex": true,
       "tiles" :[ {
-        "tile": "h2b",
+        "tile": "h1b",
         "scale": 1.01,
         "offsetX": 48,
         "offsetY": 26
@@ -53,75 +53,68 @@
     "spawnPoints": [
       {
         "id": 1,
-        "q": 0, 
-        "r": 0
+        "q": 2, 
+        "r": -4
       },
       {
         "id": 2,
         "q": 0, 
-        "r": 1
+        "r": -2
       },
       {
         "id": 3,
-        "q": 2, 
-        "r": -3
+        "q": 1, 
+        "r": -2
       },
       {
         "id": 4,
-        "q": 3, 
-        "r": -4
+        "q": 2, 
+        "r": -2
       },
       {
         "id": 5,
-        "q": 2, 
+        "q": 4, 
         "r": -4
       },
       {
         "id": 6,
-        "q": -1, 
+        "q": 5, 
         "r": -4
       },
       {
         "id": 7,
-        "q": 0, 
+        "q": 5, 
         "r": -5
       },
       {
         "id": 8,
-        "q": 0, 
-        "r": -4
+        "q": 1, 
+        "r": -3
       },
       {
         "id": 9,
         "q": 2, 
-        "r": -5
+        "r": -3
       },
       {
         "id": 10,
-        "q": 0, 
-        "r": -1
+        "q": -1, 
+        "r": -4
       },
       {
         "id": 11,
-        "q": -1, 
-        "r": 0
+        "q": 0, 
+        "r": -4
       },
       {
         "id": 12,
-        "q": -1, 
-        "r": 1
-      }
-    ],
-    "obstacles": [
-      {
-        "pattern": "totem",
-        "q": 1,
-        "r": -3
+        "q": 0, 
+        "r": -5
       }
     ],
     "penalties" : [
-      "All characters discard 2 cards.",
-      "All characters lose a card."
+      "MUDDLE all characters.",
+      "MUDDLE all characters permanently."
     ]
   }
   

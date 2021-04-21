@@ -1,11 +1,11 @@
 {
-  "name": "corridor",
+  "name": "trail",
   "entrances": [{"aOrB": "A", "q":-3, "r":4}],
   "exits": [{"aOrB": "B", "q":-1, "r":-4}],
   "map": {
       "rotateHex": true,
       "tiles" :[ {
-        "tile": "f1a",
+        "tile": "f1b",
         "rotation": 0,
         "scale": 0.97,
         "offsetX": 72,
@@ -46,8 +46,8 @@
     "spawnPoints": [
       {
         "id": 1,
-        "q": 0, 
-        "r": -2
+        "q": -2, 
+        "r": -1
       },
       {
         "id": 2,
@@ -56,48 +56,48 @@
       },
       {
         "id": 3,
-        "q": -1, 
-        "r": 0
+        "q": 0, 
+        "r": -1
       },
       {
         "id": 4,
-        "q": -2, 
-        "r": 0
+        "q": 0, 
+        "r": -2
       },
       {
         "id": 5,
-        "q": -2, 
-        "r": 1
-      },
-      {
-        "id": 6,
         "q": -3, 
         "r": 1
       },
       {
+        "id": 6,
+        "q": -2, 
+        "r": 1
+      },
+      {
         "id": 7,
-        "q": 0, 
-        "r": -3
+        "q": -1, 
+        "r": -1
       },
       {
         "id": 8,
-        "q": -1, 
+        "q": 1, 
         "r": -3
       },
       {
         "id": 9,
         "q": 0, 
-        "r": -4
+        "r": -3
       },
       {
         "id": 10,
-        "q": 1, 
-        "r": -4
+        "q": 0, 
+        "r": -5
       },
       {
         "id": 11,
-        "q": 1, 
-        "r": -5
+        "q": -1, 
+        "r": 0
       },
       {
         "id": 12,
@@ -107,25 +107,19 @@
     ],
     "obstacles": [
       {
-        "pattern": "altar",
-        "q": 1,
+        "pattern": "boulder-1",
+        "q": -1,
         "r": -3
       },
       {
-        "pattern": "altar",
+        "pattern": "boulder-1",
         "q": -1,
-        "r": 1
-      },
-      {
-        "pattern": "altar",
-        "q": -2,
-        "r": -1,
-        "rotation": 180
+        "r": -3
       }
     ],
     "penalties" : [
-      "IMMOBILIZE all characters",
-      "STUN all characters."
+      "All characters spend all spendable items,",
+      "All enemies add + 1 Move to all of their moves and +1 Range to all their attacks."
     ]
   }
   

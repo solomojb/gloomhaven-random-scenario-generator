@@ -24,11 +24,11 @@ class GHGameData extends BaseGameData  {
             "hallway",
             "hovel",
             "library",
-            // "passage",
-            // "road",
-            // "sewer",
-            // "trail",
-            // "tunnel",
+            "passage",
+            "road",
+            "sewer",
+            "trail",
+            "tunnel",
         ];
     }
 

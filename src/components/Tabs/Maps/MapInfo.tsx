@@ -2,7 +2,7 @@ import React from "react";
 import { OverlayTile, Spawn, SpawnCategory } from "../../../Data";
 import { Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
-import HexPattern from "../../Grids/HexPattern";
+import HexPattern, { getHexTypeOffsets } from "../../Grids/HexPattern";
 import { Helpers } from "../../../helpers";
 import MapInfoGrid from "../../Grids/MapInfoGrid";
 import { createCustomLayouts } from "../../../components/Tabs/Maps/HexOverlay"
@@ -89,23 +89,39 @@ const MapInfo = (props: Props) => {
   hexes = hexes.concat(mapGridHexes.flat());
   patterns = patterns.concat(mapGridPatterns);
 
+  const getHexType = (hexType:string) => {
+    if (hexType) {
+      return hexType === "2x3" ? "2x3A" : "2x1R";
+    }
+    return undefined;
+  }
+
   let q = 0;
   let r = -5; 
   Object.keys(counts).forEach((pattern) => {
     const { category, count, hexType } = counts[pattern];
+    const displayedHexType = getHexType(hexType);
     if (category) {
         if (category === SpawnCategory.Monster) {
           hexes.push(buildHex(q,r, pattern, 0))
         } else if (category === SpawnCategory.Traps) {
           hexes.push(buildHex(q,r, pattern, count, traps.map(trap => trap).join(",")));
         } else {
-          hexes.push(buildHex(q,r, pattern, count, getOverlayName(pattern), undefined, hexType?"2x1R":undefined))
+          hexes.push(buildHex(q,r, pattern, count, getOverlayName(pattern), undefined, displayedHexType))
         }
-        patterns.push(<HexPattern id={pattern} postfix="info" category={category} rotate={true} hexType={hexType ? "2x1R" : undefined}/>)
-        r += 1;
-        q -= 1;
-        if (r % 2 === 0) {
-          q +=1;
+        patterns.push(<HexPattern id={pattern} postfix="info" category={category} rotate={true} hexType={displayedHexType}/>)
+        if (displayedHexType !== "2x3A") {
+          r += 1;
+          q -= 1;
+          if (r % 2 === 0) {
+            q +=1;
+          }
+        } else {
+          r += 2;
+          q -= 1;
+          if (r % 2 === 0) {
+            q +=1;
+          }
         }
     }});
 

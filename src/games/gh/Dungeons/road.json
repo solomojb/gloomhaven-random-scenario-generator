@@ -1,0 +1,105 @@
+{
+  "name": "road",
+  "entrances": [{"aOrB": "A", "q":-3, "r":4},{"aOrB": "B", "q":-1, "r":4}],
+  "exits": [{"aOrB": "A", "q":1, "r":-1}],
+  "map": {
+      "tiles" :[ {
+        "tile": "g1a",
+        "rotation": 90,
+        "scale": 0.90,
+        "offsetX": 95,
+        "offsetY": 62
+      }
+    ],
+      "hexColumns": [
+        { "q": -2  ,
+          "minR": -3,
+          "maxR": 4
+        },
+        { "q": -1,
+          "minR": -3,
+          "maxR": 3
+        },
+        { "q": 0,
+          "minR": -4,
+          "maxR": 2
+        }
+      ]
+    },
+    "spawnPoints": [
+      {
+        "id": 1,
+        "q": -1, 
+        "r": 0
+      },
+      {
+        "id": 2,
+        "q": 0, 
+        "r": 0
+      },
+      {
+        "id": 3,
+        "q": 0, 
+        "r": -1
+      },
+      {
+        "id": 4,
+        "q": -1, 
+        "r": 2
+      },
+      {
+        "id": 5,
+        "q": -1, 
+        "r": 1
+      },
+      {
+        "id": 6,
+        "q": -2, 
+        "r": 1
+      },
+      {
+        "id": 7,
+        "q": 0, 
+        "r": -3
+      },
+      {
+        "id": 8,
+        "q": 0, 
+        "r": -2
+      },
+      {
+        "id": 9,
+        "q": -2, 
+        "r": -0
+      },
+      {
+        "id": 10,
+        "q": -2, 
+        "r": -2
+      },
+      {
+        "id": 11,
+        "q": -1, 
+        "r": -3
+      },
+      {
+        "id": 12,
+        "q": -2, 
+        "r": -3
+      }
+    ],
+    "difficultTerrain": [
+      {
+        "pattern": "log",
+        "q": -2,
+        "r": -1,
+        "rotation": 300,
+        "hexType": "2x1D"
+      }
+    ],
+    "penalties" : [
+      "Replace 1 normal enemy in the previous room.",
+      "Replace 2 normal enemies in the previous room."
+    ]
+  }
+  

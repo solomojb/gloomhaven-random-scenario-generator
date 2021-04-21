@@ -63,7 +63,7 @@
 }
 
 .map-info svg g polygon {
-  stroke: tan;
+  stroke: red;
   stroke-width: 0.2;
   transition: fill-opacity .5s
 }
@@ -95,7 +95,7 @@ svg g:hover text {
 }
 
 .map-grid svg g polygon {
-  stroke: tan;
+  stroke: red;
   stroke-width: 0.2;
   transition: fill-opacity .5s
 }

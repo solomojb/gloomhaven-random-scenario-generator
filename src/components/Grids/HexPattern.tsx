@@ -19,7 +19,11 @@ export const getHexTypeOffsets = (hexType:string | undefined) => {
             offset: {x:10, y:-1}}
         case "2x1D":
             return {scale:{x:1, y:2},}
-    }
+        case "2x3":
+            return {scale:{x:2, y:2},offset: {x:-2, y:0}}
+        case "2x3A":
+                return {scale:{x:2, y:2},offset: {x:10, y:-1}}
+            }
 }
 
 const HexPattern = (props:Props) => {
