@@ -126,7 +126,7 @@
       }
     ],
     "penalties" : [
-      "POISION all chracters",
+      "POISON all chracters",
       "All enemies add +1 Attack to all their attacks"
     ]
   }
