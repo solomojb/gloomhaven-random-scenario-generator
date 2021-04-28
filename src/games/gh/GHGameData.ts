@@ -35,13 +35,13 @@ class GHGameData extends BaseGameData  {
     getMonsterList() : string[] {
         return [
                 "archaic",
-                // "arid",
+                "arid",
                 "corrupted", 
                 "crushing", 
                 "cutthroat", 
                 "defiled",
                 "drowned",
-                // "ethereal", // fc
+                "ethereal", 
                 "foggy",
                 "fortified",
                 "frigid",
