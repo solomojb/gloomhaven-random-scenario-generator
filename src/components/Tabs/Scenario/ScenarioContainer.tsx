@@ -1,7 +1,9 @@
 import React from "react";
 import { Button, Form, Tab } from "semantic-ui-react";
+import { ShowFlags } from '../../Providers/FlagsProvider';
 import PlayerCountProvider from "../../Providers/PlayerCountProvider";
 import { useScenario } from "../../Providers/ScenarioProvider";
+import DisplayToggle from "../Maps/DisplayToggle";
 import PlayerCount from "../Maps/PlayerCount";
 import Difficulty from "./Difficulty";
 import RoomContainer from "./RoomContainer";
@@ -20,6 +22,7 @@ const ScenarioContainer = () => {
             <Form>
                 <PlayerCount/>
             </Form>
+            <DisplayToggle flag={ShowFlags.AddForgottenCircles} label={"Include Forgotten Circles"}/>
             <Tab panes={panes} onTabChange={(_e, data) => {setActiveRoomNumber(data.activeIndex as number)}} defaultActiveIndex={0} activeIndex={activeRoomNumber}/>
         </PlayerCountProvider>
     );

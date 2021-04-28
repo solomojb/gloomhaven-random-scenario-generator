@@ -20,7 +20,6 @@ const RoomContainer = (props: Props) => {
 		return null;
 	}
 	return <DungeonProvider monsterData={monsters} intitialDungeon={dungeon} roomNumber={roomNumber}>
-			<FlagsProvider localKey="roomFlags" initialFlags={ShowFlags.ShowAllMap}>
 				<Form>
 					<Form.Group>
 						<Form.Field>
@@ -28,7 +27,6 @@ const RoomContainer = (props: Props) => {
 						</Form.Field>
 					</Form.Group>
 				</Form>
-			</FlagsProvider>
 		</DungeonProvider>
 };
 

@@ -1,6 +1,7 @@
 import React, { createContext, ReactNode, useContext, useState } from "react"
 import { Dungeon, MonsterData } from "../../Data";
 import { useGame } from "../Game/GameProvider";
+import { ShowFlags, useFlags } from "./FlagsProvider";
 
 type RoomData = {
     dungeon: Dungeon;
@@ -44,8 +45,25 @@ type Props = {
 const ScenarioProvider = (props: Props) => {
     const { children } = props;
     const game = useGame();
+    const { isFlagSet } = useFlags();
+
+    
+    const getMonsters = () => {
+        const filter = (data:MonsterData) => {
+            if (!isFlagSet(ShowFlags.AddForgottenCircles)) {
+                return data.name !== "arid" && data.name !== "ethereal";
+            }
+            return true;
+        }
+
+        const monsterList = game.getRandomMonsters().filter(filter);
+        console.log(monsterList);
+        return monsterList;
+    }
+
+
     const [dungeons, setDungeons] = useState<Dungeon[]>(game.getRandomDungeons());
-    const [monsters, setMonsters] = useState<MonsterData[]>(game.getRandomMonsters());
+    const [monsters, setMonsters] = useState<MonsterData[]>(getMonsters());
     const [rooms, setRooms] = useState<RoomData[]>([]);
     const [penalties, setPenalites] = useState<string[]>(["none", "none", "none"]);
     const [activeRoomNumber, setActiveRoomNumber] = useState<number>(0);
@@ -53,7 +71,7 @@ const ScenarioProvider = (props: Props) => {
     const resetScenario = () => {
         setRooms([]);
         setDungeons(game.getRandomDungeons());
-        setMonsters(game.getRandomMonsters());
+        setMonsters(getMonsters());
         setPenalites(["none", "none", "none"]);
         setActiveRoomNumber(0);
     }

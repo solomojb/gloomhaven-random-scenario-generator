@@ -1,16 +1,17 @@
 import React, { useContext, createContext, ReactNode, useState } from 'react'
 
 export enum ShowFlags {
-    Grid            = 1 << 0,
-    SpawnPoint      = 1 << 1,
-    Obstacles       = 1 << 2,
-    Corridors       = 1 << 3,
-    Spawns          = 1 << 4,
-    EditMode        = 1 << 5,
-    AllGrid         = 1 << 6,
-    Doors           = 1 << 7,
-    Selectors       = 1 << 8,
-    MapInfoGrid     = 1 << 9,
+    Grid                = 1 << 0,
+    SpawnPoint          = 1 << 1,
+    Obstacles           = 1 << 2,
+    Corridors           = 1 << 3,
+    Spawns              = 1 << 4,
+    EditMode            = 1 << 5,
+    AllGrid             = 1 << 6,
+    Doors               = 1 << 7,
+    Selectors           = 1 << 8,
+    MapInfoGrid         = 1 << 9,
+    AddForgottenCircles = 1 << 10,
     ShowAllMap = Obstacles | Corridors | Spawns | Doors
   }
 
