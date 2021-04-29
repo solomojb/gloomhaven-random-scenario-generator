@@ -1,6 +1,6 @@
 {
   "name": "gloomhaven-random-scenario-generator",
-  "homepage": "",
+  "homepage": "https://solomojb.github.io/gloomhaven-random-scenario-generator/",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
