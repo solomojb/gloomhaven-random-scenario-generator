@@ -10,7 +10,7 @@ import { useScenario } from "../Providers/ScenarioProvider";
 const DoorLayer = () => {
   const { dungeon: { map : {rotateHex }, entrances, exits }, roomNumber} = useDungeon();
   const game = useGame();
-  const { getNextRoom, rooms, isDoorShown } = useScenario();
+  const { getNextRoom, gotoPreviousRoom, isDoorShown } = useScenario();
   const { isFlagSet } = useFlags();
 
 
@@ -20,8 +20,14 @@ const DoorLayer = () => {
       return null;
     }
     const fill = type + aOrB;
+
+    const onDoorClick = () => {
+        type === "Exit" && getNextRoom(aOrB, roomNumber);
+        type === "Entrance" && gotoPreviousRoom(roomNumber);
+    }
+
     return (
-      <Hexagon q={q} r={r} s={0} fill={fill} onClick={() => type === "Exit" && getNextRoom(aOrB, roomNumber)}/>
+      <Hexagon q={q} r={r} s={0} fill={fill} onClick={onDoorClick}/>
     );
   };
 

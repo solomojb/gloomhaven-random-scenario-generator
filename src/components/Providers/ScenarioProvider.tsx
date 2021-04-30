@@ -14,6 +14,7 @@ type ContextData = {
     rooms: RoomData[];
     penalties: string[];
     getNextRoom : (aOrB:string, roomNumber:number) => void;
+    gotoPreviousRoom : (roomNumber:number) => void;
     isDoorShown: (aOrB:string,roomNumber: number, type: string) => boolean
     resetScenario: () => void;
     setPenalty: (roomNumber:number, penalty:string) => void;
@@ -25,6 +26,7 @@ const initialContext:ContextData = {
     rooms: [], 
     penalties: [],
     getNextRoom : () => {},
+    gotoPreviousRoom : (roomNumber:number) => {},
     resetScenario : () => {},
     isDoorShown: (aOrB:string,roomNumber: number, type: string) => true,
     setPenalty: () => {},
@@ -46,7 +48,6 @@ const ScenarioProvider = (props: Props) => {
     const { children } = props;
     const game = useGame();
     const { isFlagSet } = useFlags();
-
     
     const getMonsters = () => {
         const filter = (data:MonsterData) => {
@@ -106,7 +107,17 @@ const ScenarioProvider = (props: Props) => {
             }
             return newRooms;
         })
+        setActiveRoomNumber(roomNumber + 1);
     }
+
+    const gotoPreviousRoom = (roomNumber:number) => {
+        if (roomNumber >2 || roomNumber <1) {
+            return;
+        }
+
+        setActiveRoomNumber(roomNumber - 1);
+    }
+
 
     const isDoorShown = (aOrB:string,roomNumber: number, type: string) => {
         if (roomNumber >= rooms.length) {
@@ -140,7 +151,7 @@ const ScenarioProvider = (props: Props) => {
 
     const { Provider } = ScenarioContext;
 
-    return <Provider value={{rooms, getNextRoom, isDoorShown, resetScenario, penalties, setPenalty, activeRoomNumber, setActiveRoomNumber}}>{children}</Provider>
+    return <Provider value={{rooms, getNextRoom, gotoPreviousRoom, isDoorShown, resetScenario, penalties, setPenalty, activeRoomNumber, setActiveRoomNumber}}>{children}</Provider>
 }
 
 export default ScenarioProvider;
