@@ -1,85 +1,98 @@
 import React from "react";
-import { OverlayTile, Spawn, SpawnCategory } from "../../../Data";
+import { MonsterType, SpawnCategory } from "../../../Data";
 import { Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
-import HexPattern, { getHexTypeOffsets } from "../../Grids/HexPattern";
-import { Helpers } from "../../../helpers";
+import HexPattern from "../../Grids/HexPattern";
 import MapInfoGrid from "../../Grids/MapInfoGrid";
 import { createCustomLayouts } from "../../../components/Tabs/Maps/HexOverlay"
+import { usePlayerCount } from "../../Providers/PlayerCountProvider";
+import {InfoData} from "./MapInfoData";
+import { getOverlayInfo } from "./MapInfoOverlay";
 
-type Props = {};
-
-export type MapDataInfo = {
-  count: number;
-  category: string;
-  hexType: string;
-};
-
-export type MonsterCount = {
-  [k in string]: MapDataInfo;
-};
-
-const getOverlayName = (pattern:string) => {
-  if (pattern.includes("boulder")) {
-    return "Boulder";
-  } 
-  if (pattern.includes("man-made-stone")) {
-    return "Stone"
-  }
-  if (pattern.includes("coin-")) {
-    return "Coin"
-  }
-  return Helpers.toAllFirstUpper(pattern.replace("-", " "));
-}
-
-const MapInfo = (props: Props) => {
+const MapInfo = () => {
   const {
     dungeon: { obstacles, corridors },
     monsterData: { spawns, traps },
   } = useDungeon();
-  const {} = props;
-  const counts: MonsterCount = {};
+  const { playerCount} = usePlayerCount();
 
-  const addToCount = (type:string, category: string, count: number = 1, hexType:string = "") => {
-    let countData = counts[type];
-    if (!countData) {
-      countData = { count, category, hexType };
-    } else {
-      countData.count += count;
+  const monsterInfo = spawns.filter( spawn => spawn.category === SpawnCategory.Monster).flatMap( spawn => {
+    const initialMonster:InfoData = {
+      pattern: spawn.type,
+      category: SpawnCategory.Monster,
+      displayName: spawn.type,
+      // count: 0,
+      monsterType: MonsterType.Elite
     }
-    counts[type] = countData;    
-  }
 
-  const addSpawn = (spawn: Spawn) => {
-    const { type, category, data} = spawn;
-    addToCount(type, category, data.length);
-  }
+    const counts = {[MonsterType.Elite]:0, [MonsterType.Normal]:0};
+    const data = spawn.data as MonsterType[][];
+    Object.values(data).forEach(d => {
+      const monsterLevel = d[playerCount-2];
+      if (monsterLevel !== MonsterType.None) {
+        counts[monsterLevel]++;
+      }
+    })
 
-  const addOverlay = (overlay: OverlayTile, category: string) => {
-    const { pattern, hexType } = overlay;
-    addToCount(pattern, category, 1, hexType);
-  }
+    const info: InfoData[] = [];
+    if (counts[MonsterType.Elite] > 0) {
+      info.push({
+          ...initialMonster,
+          displayName: `${spawn.type} (Elite) x ${counts[MonsterType.Elite]}`,
+          monsterType: MonsterType.Elite
+        })
+    }
+    if (counts[MonsterType.Normal] > 0) {
+      info.push({
+          ...initialMonster,
+          displayName: `${spawn.type} x ${counts[MonsterType.Normal]}`,
+          monsterType: MonsterType.Normal
+        })
+    }
+  
+    return info;
+  })
 
-  spawns.filter(s => s.category === "monster").forEach(addSpawn);
-  spawns.filter(s => s.category !== "monster" && s.category !== "treasures").forEach(addSpawn);
+  const nonMonsters = spawns.filter(function(value){ return value.category !== SpawnCategory.Monster;});
+  const nonTreasuresInfo = nonMonsters.filter(spawn => spawn.category !== SpawnCategory.Treasures).flatMap( spawn => {
+    const { data} = spawn;
+    const newInfo: InfoData = {
+      pattern: spawn.type,
+      category: spawn.category,
+      displayName: `${spawn.category !== SpawnCategory.Traps ? spawn.type : traps.join(",")} x ${data.length}`
+    }
+    return newInfo;
+  })
 
-  if (obstacles) {
-    obstacles.forEach( obstacle => addOverlay(obstacle, "obstacles"));
-  }
-  if (corridors) {
-      corridors.forEach( corridor => addOverlay(corridor, "corridors"));
-  }
+  const treasuresInfo = spawns.filter( spawn => spawn.category === SpawnCategory.Treasures).flatMap( spawn => {
+    const initTreasureData: InfoData = {
+      pattern: spawn.type,
+      category: spawn.category,
+      displayName: spawn.type,
+    }
 
+    const data = spawn.data as string[];
+    return Object.values(data).map((d, index) => {
+      return {...initTreasureData, displayName: d, additionalData: (index + 1).toString()};
+    })
+  
+  })
+
+  const obstaclesInfo = getOverlayInfo(obstacles, SpawnCategory.Obstacle);
+  const corridorsInfo = getOverlayInfo(corridors, SpawnCategory.Corridors);
+  
   let hexes: JSX.Element[] = [];
   let patterns: JSX.Element[] = [];
 
   const size = { x: 6.2, y: 6.2 };
-  const buildHex = (q: number, r: number, pattern: string, count: number, displayName?: string, additionalData?:string, hexType?:string) => {
+  const buildMonsterHex = (q: number, r: number, data: InfoData) => {
+    const {pattern, displayName, monsterType, additionalData} = data;
     return <>
-            <Hexagon q={q + (hexType !== undefined ? 1 : 0)} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`} hexType={hexType}>
-              <Text x={8} y={0} textAnchor="start" textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{`${displayName || pattern} ${count > 0 ? `x ${count}` : ''}`}</Text>
+            <Hexagon q={q} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`}>
+              <Text x={8} y={0} textAnchor="start" textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{displayName}</Text>
               {additionalData && <Text x={.5} y={-1.3}>{additionalData}</Text>}
             </Hexagon>
+            {monsterType === MonsterType.Elite && <Hexagon q={q} r={r} s={0} fill={"EliteOverlayinfo"}/>}
           </>
         
   }
@@ -88,56 +101,23 @@ const MapInfo = (props: Props) => {
 
   hexes = hexes.concat(mapGridHexes.flat());
   patterns = patterns.concat(mapGridPatterns);
+  patterns.push(<HexPattern id={"EliteOverlay"} postfix="info" category={SpawnCategory.Monster} rotate={true}/>)
 
-  const getHexType = (hexType:string) => {
-    if (hexType) {
-      return hexType === "2x3" ? "2x3A" : "2x1R";
-    }
-    return undefined;
-  }
-
-  let q = 0;
+  let q = -1;
   let r = -5; 
-  Object.keys(counts).forEach((pattern) => {
-    const { category, count, hexType } = counts[pattern];
-    const displayedHexType = getHexType(hexType);
-    if (category) {
-        if (category === SpawnCategory.Monster) {
-          hexes.push(buildHex(q,r, pattern, 0))
-        } else if (category === SpawnCategory.Traps) {
-          hexes.push(buildHex(q,r, pattern, count, traps.map(trap => trap).join(",")));
-        } else {
-          hexes.push(buildHex(q,r, pattern, count, getOverlayName(pattern), undefined, displayedHexType))
-        }
-        patterns.push(<HexPattern id={pattern} postfix="info" category={category} rotate={true} hexType={displayedHexType}/>)
-        if (displayedHexType !== "2x3A") {
-          r += 1;
-          q -= 1;
-          if (r % 2 === 0) {
-            q +=1;
-          }
-        } else {
-          r += 2;
-          q -= 1;
-          if (r % 2 === 0) {
-            q +=1;
-          }
-        }
-    }});
+  const allInfo = [...monsterInfo, ...nonTreasuresInfo, ...obstaclesInfo, ...corridorsInfo, ...treasuresInfo];
 
-    const treasures = spawns.filter(s => s.category === "treasures");
-    treasures.forEach( spawn => {
-      const { type, category, data} = spawn;
-      const treasureData = data as string[];
-      Object.keys(treasureData).forEach( (key:string, index:number) => {
-        hexes.push(buildHex(q, r, type, 0, treasureData[parseInt(key)], (index + 1).toString()));
-        patterns.push(<HexPattern id={type} postfix="info" category={category} rotate={true}/>)
-        r += 1;
-        q -= 1;
-        if (r % 2 === 0) {
-          q +=1;
-        }
-        })
+  allInfo.forEach(info => 
+    {
+      hexes.push(buildMonsterHex(q,r,info));
+    
+      r += 1;
+      q -= 1;
+      if (r % 2 === 0) {
+        q +=1;
+      }      
+      
+      patterns.push(<HexPattern id={info.pattern} postfix="info" category={info.category || ""} rotate={true} hexType={info.hexType}/>)
     });
 
    

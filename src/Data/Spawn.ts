@@ -11,7 +11,8 @@ export enum SpawnCategory {
     DifficultTerrain = "difficult-terrain",
     HazardousTerrain = "hazardous-terrain",
     Traps = "traps",
-    Coin = "coin"
+    Coin = "coin",
+    Corridors = "corridors"
 }
 
 export interface Spawn {
