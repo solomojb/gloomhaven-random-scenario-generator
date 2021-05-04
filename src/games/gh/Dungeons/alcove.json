@@ -1,5 +1,6 @@
 {
   "name": "alcove",
+  "altMap": "true",
   "entrances": [{"aOrB": "B", "q":-4, "r":2}],
   "exits": [{"aOrB": "B", "q":-3, "r":-4}],
     "map" : {

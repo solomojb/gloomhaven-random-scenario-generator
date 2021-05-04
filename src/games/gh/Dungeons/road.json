@@ -1,5 +1,6 @@
 {
   "name": "road",
+  "altMap": true,
   "entrances": [{"aOrB": "A", "q":-3, "r":4},{"aOrB": "B", "q":-1, "r":4}],
   "exits": [{"aOrB": "A", "q":1, "r":-1}],
   "map": {

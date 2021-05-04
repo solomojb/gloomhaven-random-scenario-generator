@@ -1,6 +1,7 @@
 {
   "name": "den",
-  "entrances": [{"aOrB": "A", "q":-1, "r":-4}],
+  "altMap": true,
+  "entrances": [{"aOrB": "A", "q":-2, "r":-3}],
   "exits": [{"aOrB": "A", "q":-2, "r":1}],
   "map": {
       "rotateHex": true,

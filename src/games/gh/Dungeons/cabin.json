@@ -1,5 +1,6 @@
 {
   "name": "cabin",
+  "altMap": true,
   "entrances": [{"aOrB": "A", "q":-4, "r":0}],
   "exits": [{"aOrB": "A", "q":2, "r":-3}],
       "map": {

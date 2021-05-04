@@ -8,6 +8,7 @@ export interface Dungeon {
     traps: string[];
     entrances: Door[];
     exits: Door[];
+    altMap: boolean;
     map: Map;
     spawnPoints: OverlayTile[];
     obstacles: OverlayTile[];
@@ -19,6 +20,7 @@ export interface Dungeon {
 
 export const initialDungeon : Dungeon = {
     name: "",
+    altMap: false,
     traps:[],
     entrances: [],
     exits: [],
