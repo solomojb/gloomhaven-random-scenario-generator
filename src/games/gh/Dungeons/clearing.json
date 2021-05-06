@@ -1,18 +1,11 @@
 {
   "name": "clearing",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "B", "q":-2, "r":-2}],
   "exits": [{"aOrB": "B", "q":3, "r":-2}],
   "map": {
       "rotateHex": true,
-      "tiles" :[ {
-        "tile": "l3a",
-        "rotation": 180,
-        "scale": 0.78,
-        "offsetX": 76,
-        "offsetY": 26
-      }
-    ],
+      "tiles" :[ "L3a"],
       "hexColumns": [
         { "q": -3  ,
           "minR": 1,

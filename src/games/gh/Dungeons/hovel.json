@@ -1,25 +1,11 @@
 {
   "name": "hovel",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "A", "q":-3, "r":4},{"aOrB": "B", "q":0, "r":2}],
   "exits": [{"aOrB": "B", "q":-1, "r":-4}],
   "map": {
-      "rotateHex": true,
-      "tiles" :[ {
-        "tile": "c1b",
-        "rotation": 240,
-        "scale": 0.73,
-        "offsetX": 152,
-        "offsetY": -22
-      },
-      {
-        "tile": "b2a",
-        "rotation": 180,
-        "scale": 0.61,
-        "offsetX": 74,
-        "offsetY": -102
-      }
-    ],
+    "rotateHex": true,
+    "tiles" :[ "B2a", "C1b"],
       "hexColumns": [
         { "q": -4  ,
           "minR": 3,

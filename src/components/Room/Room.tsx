@@ -34,7 +34,7 @@ const Room = () => {
                         <Form.Field inline>
                             <Form.Group inline>
                                 <label>Tiles:</label>
-                                {dungeon.map.tiles.map( tile => tile.tile).sort().join("/")}
+                                {dungeon.map.tiles.sort().join("/")}
                             </Form.Group>
                         </Form.Field>
                         <DoorTypes/>

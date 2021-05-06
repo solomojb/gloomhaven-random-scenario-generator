@@ -1,25 +1,10 @@
 {
   "name": "burrow",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "B", "q":-4, "r":7}],
   "exits": [{"aOrB": "B", "q":-4, "r":-3}],
       "map": {
-      "tiles" :[ {
-        "tile": "a2a",
-        "rotation": 270,
-        "scale": 0.73,
-        "offsetX": 4,
-        "offsetY": 37
-      },
-      {
-        "tile": "a1a",
-        "rotation": 270,
-        "scale": 0.76,
-        "offsetX": 6,
-        "offsetY": 60
-      }],
-      "offsetX": 31,
-      "offsetY": -10,
+        "tiles" :[ "A1a", "A2a"],
       "hexColumns": [
         { "q": -4  ,
           "minR": -2,

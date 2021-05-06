@@ -75,9 +75,6 @@ export abstract class BaseGameData {
     }
 
     getMapPath(tile:string) {
-        return require(`../../vendor/${this.gameType}/images/map-tiles/${tile}.png`);
-    }
-    getAltMapPath(tile:string) {
         return require(`../img/maps/${tile}.png`);
     }
 

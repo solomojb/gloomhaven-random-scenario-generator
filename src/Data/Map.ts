@@ -1,5 +1,3 @@
-import { Tile } from "./Tile";
-
 export interface HexColumn {
     q: number;
     minR: number;
@@ -7,7 +5,7 @@ export interface HexColumn {
 }
 
 export interface Map {
-    tiles: Tile[];
+    tiles: string[],
     rotateHex: boolean;
     hexColumns: HexColumn[];
 }

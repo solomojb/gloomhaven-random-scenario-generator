@@ -2,7 +2,6 @@ import React from "react";
 import { Form } from "semantic-ui-react";
 import { ShowFlags, useFlags } from "../../../Providers/FlagsProvider";
 import DisplayToggle from "../DisplayToggle";
-import MapTileEditor from "./MapTileEditor";
 import RoomSelectors from "./RoomSelectors";
 
 const MapEditor = () => {
@@ -27,7 +26,6 @@ const MapEditor = () => {
           </>}
       </Form.Group>
       {  showTools &&<Form.Group>
-        <MapTileEditor/>
         <RoomSelectors/>
       </Form.Group>}
     </>

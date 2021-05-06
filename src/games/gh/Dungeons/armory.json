@@ -1,23 +1,10 @@
 {
   "name": "armory",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "A", "q":-1, "r":3}, {"aOrB": "B", "q":-2, "r":5}],
   "exits": [{"aOrB": "B", "q":-2, "r":-4}],
     "map" : {
-    "tiles" :[ {
-      "tile": "b2b",
-      "rotation": 90,
-      "scale": 0.6,
-      "offsetX": 4,
-      "offsetY": 39
-    },
-    {
-      "tile": "a3b",
-      "rotation": 90,
-      "scale": 0.75,
-      "offsetX": 48,
-      "offsetY": -187
-    }], 
+      "tiles" :[ "A3b","B2b"],
     "hexColumns": [
       { "q": -4  ,
         "minR": -2,

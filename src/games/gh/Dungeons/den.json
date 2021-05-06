@@ -1,18 +1,11 @@
 {
   "name": "den",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "A", "q":-2, "r":-3}],
   "exits": [{"aOrB": "A", "q":-2, "r":1}],
   "map": {
       "rotateHex": true,
-      "tiles" :[ {
-        "tile": "d2b",
-        "rotation": 180,
-        "scale": 0.91,
-        "offsetX": 14,
-        "offsetY": 67
-      }
-    ],
+      "tiles" :[ "D2b"],
       "hexColumns": [
         { "q": -2  ,
           "minR": -2,

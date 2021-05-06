@@ -1,16 +1,10 @@
 {
   "name": "alcove",
-  "altMap": "true",
+  
   "entrances": [{"aOrB": "B", "q":-4, "r":2}],
   "exits": [{"aOrB": "B", "q":-3, "r":-4}],
     "map" : {
-      "tiles" :[ {
-        "tile": "j2a",
-        "rotation": 0,
-        "scale": 1,
-        "offsetX": 3,
-        "offsetY": 9
-      }],
+      "tiles" :[ "J2a"],
       "hexColumns": [
         { "q": -4,
           "minR": -3,

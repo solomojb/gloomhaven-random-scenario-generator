@@ -1,16 +1,10 @@
 {
   "name": "altar",
-  "altMap": "true",
+  
   "entrances": [{"aOrB": "B", "q":-3, "r":-2}],
   "exits": [{"aOrB": "B", "q":2, "r":-2}],
   "map" : {
-    "tiles" :[ {
-      "tile": "l2b",
-      "rotation": 180,
-      "scale": 0.78,
-      "offsetX": 19,
-      "offsetY": 26
-      }],
+    "tiles" :[ "L2b"],
       "rotateHex": true,
     "hexColumns": [
       { "q": -4,
@@ -47,8 +41,6 @@
       }
     ]
   },
-  "maxRows": 7,
-  "maxColumns": 5,
   "spawnPoints": [
     {
       "id": 1,

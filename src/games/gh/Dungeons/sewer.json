@@ -1,17 +1,11 @@
 {
   "name": "sewer",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "A", "q":-1, "r":2}],
   "exits": [{"aOrB": "A", "q":3, "r":-6}],
   "map": {
       "rotateHex": true,
-      "tiles" :[ {
-        "tile": "h1b",
-        "scale": 1.01,
-        "offsetX": 48,
-        "offsetY": 26
-      }
-    ],
+      "tiles" :[ "H1b"],
       "hexColumns": [
         { "q": -1,
           "minR": -4,

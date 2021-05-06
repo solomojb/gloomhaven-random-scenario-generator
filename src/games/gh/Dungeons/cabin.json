@@ -1,19 +1,10 @@
 {
   "name": "cabin",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "A", "q":-4, "r":0}],
   "exits": [{"aOrB": "A", "q":2, "r":-3}],
       "map": {
-      "tiles" :[ {
-        "tile": "i2b",
-        "rotation": 270,
-        "scale": 0.87,
-        "offsetX": 48,
-        "offsetY": 39
-      }
-    ],
-      "offsetX": 31,
-      "offsetY": -10,
+        "tiles" :[ "I2b"],
       "hexColumns": [
         { "q": -3  ,
           "minR": -3,

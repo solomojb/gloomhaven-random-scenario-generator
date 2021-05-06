@@ -1,17 +1,11 @@
 {
   "name": "crossroads",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "B", "q":6, "r":-5}],
   "exits": [{"aOrB": "B", "q":-1, "r":-5}],
   "map": {
       "rotateHex": true,
-      "tiles" :[ {
-        "tile": "h2b",
-        "scale": 1.01,
-        "offsetX": 48,
-        "offsetY": 26
-      }
-    ],
+      "tiles" :[ "H2b"],      
       "hexColumns": [
         { "q": -1,
           "minR": -4,

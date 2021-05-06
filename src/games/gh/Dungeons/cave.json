@@ -1,18 +1,11 @@
 {
   "name": "cave",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "A", "q":-2, "r":0}],
   "exits": [{"aOrB": "B", "q":3, "r":-3}],
   "map": {
       "rotateHex": true,
-      "tiles" :[ {
-        "tile": "e1b",
-        "rotation": 180,
-        "scale": 0.76,
-        "offsetX": 46,
-        "offsetY": 23
-      }
-    ],
+      "tiles" :[ "E1b"],
       "hexColumns": [
         { "q": -2  ,
           "minR": -2,

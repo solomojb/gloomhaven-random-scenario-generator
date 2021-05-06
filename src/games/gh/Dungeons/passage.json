@@ -1,17 +1,10 @@
 {
   "name": "passage",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "A", "q":3, "r":0}],
   "exits": [{"aOrB": "A", "q":2, "r":-6}],
   "map": {
-      "tiles" :[ {
-        "tile": "k2b",
-        "rotation": 270,
-        "scale": 1.27,
-        "offsetX": 53,
-        "offsetY": 13
-      }
-    ],
+    "tiles" :[ "K2b"],
       "hexColumns": [
         { "q": -3  ,
           "minR": -1,

@@ -1,17 +1,11 @@
 {
   "name": "encampment",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "B", "q":-2, "r":-2}],
   "exits": [{"aOrB": "A", "q":5, "r":-5}],
   "map": {
       "rotateHex": true,
-      "tiles" :[ {
-        "tile": "m1b",
-        "scale": 0.78,
-        "offsetX": 73,
-        "offsetY": 27
-      }
-    ],
+      "tiles" :[ "M1b"],
       "hexColumns": [
         { "q": -2  ,
           "minR": -1,

@@ -1,17 +1,10 @@
 {
   "name": "hallway",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "A", "q":1, "r":2},{"aOrB": "B", "q":-1, "r":4}],
   "exits": [{"aOrB": "B", "q":-1, "r":-4}],
   "map": {
-      "tiles" :[ {
-        "tile": "g2b",
-        "rotation": 270,
-        "scale": 0.90,
-        "offsetX": 95,
-        "offsetY": 62
-      }
-    ],
+    "tiles" :[ "G2b"],
       "hexColumns": [
         { "q": -2  ,
           "minR": -3,

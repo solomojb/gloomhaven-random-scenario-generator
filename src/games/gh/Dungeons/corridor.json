@@ -1,18 +1,11 @@
 {
   "name": "corridor",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "A", "q":-3, "r":4}],
   "exits": [{"aOrB": "B", "q":-1, "r":-4}],
   "map": {
       "rotateHex": true,
-      "tiles" :[ {
-        "tile": "f1a",
-        "rotation": 0,
-        "scale": 0.97,
-        "offsetX": 72,
-        "offsetY": 22
-      }
-    ],
+      "tiles" :[ "F1a"],
       "hexColumns": [
         { "q": -4  ,
           "minR": 3,

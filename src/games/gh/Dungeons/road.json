@@ -1,17 +1,10 @@
 {
   "name": "road",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "A", "q":-3, "r":4},{"aOrB": "B", "q":-1, "r":4}],
   "exits": [{"aOrB": "A", "q":1, "r":-1}],
   "map": {
-      "tiles" :[ {
-        "tile": "g1a",
-        "rotation": 90,
-        "scale": 0.90,
-        "offsetX": 95,
-        "offsetY": 62
-      }
-    ],
+    "tiles" :[ "G1a"],
       "hexColumns": [
         { "q": -2  ,
           "minR": -3,

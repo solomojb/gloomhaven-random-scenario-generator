@@ -1,16 +1,10 @@
 {
   "name": "tunnel",
-  "altMap": true,
+  
   "entrances": [{"aOrB": "B", "q":-4, "r":4}],
   "exits": [{"aOrB": "A", "q":3, "r":-5}, {"aOrB": "B", "q":1, "r":-6}],
     "map" : {
-      "tiles" :[ {
-        "tile": "j2b",
-        "rotation": 0,
-        "scale": 1,
-        "offsetX": 3,
-        "offsetY": 9
-      }],
+      "tiles" :[ "J1b"],
       "hexColumns": [
         { "q": -4,
           "minR": 3,
