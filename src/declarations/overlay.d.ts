@@ -1,6 +1,4 @@
-import Point from "../react-hexgrid/models/Point";
-
-export interface OverlayTile {
+interface OverlayTile {
     id: number;
     pattern: string;
     q: number;

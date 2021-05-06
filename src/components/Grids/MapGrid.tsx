@@ -18,7 +18,7 @@ const MapGrid = () => {
       const patterns =[];
   
       if (isFlagSet(ShowFlags.Grid)) {
-        hexes = hexColumns.map(data => {
+        hexes = hexColumns.map((data:HexColumn) => {
           const hexes = [];
           for (let r = data.minR; r <= data.maxR; r++) {
             hexes.push(buildHex(data.q, r));

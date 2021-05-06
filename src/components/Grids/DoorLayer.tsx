@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import { Hexagon, Pattern } from "../../react-hexgrid";
 import { useGame } from "../Game/GameProvider";
-import { Door } from "../../Data/Door";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 import { useScenario } from "../Providers/ScenarioProvider";

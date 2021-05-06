@@ -1,12 +1,4 @@
-import { Spawn } from "./Spawn";
-
-export interface MonsterData {
-    name: string;
-    traps: string[];
-    spawns: Spawn[];
-}
-
-export const initialMonsterData = {
+export const initialMonsterData: MonsterData = {
     name: "",
     traps: [],
     spawns: [],

@@ -1,4 +1,4 @@
-export interface Door {
+interface Door {
     aOrB: string;
     q: number;
     r: number;

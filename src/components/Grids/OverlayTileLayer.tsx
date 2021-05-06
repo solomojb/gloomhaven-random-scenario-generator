@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import { Hexagon } from "../../react-hexgrid";
-import { OverlayTile } from "../../Data";
-import HexPattern, { getHexTypeOffsets } from "./HexPattern";
+import HexPattern from "./HexPattern";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 

@@ -1,6 +1,4 @@
-import { OverlayTile, SpawnCategory } from "../../../Data";
 import { Helpers } from "../../../helpers";
-import { InfoData } from "./MapInfoData";
 
 const getOverlayName = (pattern:string) => {
     if (pattern.includes("boulder")) {

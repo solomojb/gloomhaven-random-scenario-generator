@@ -1,6 +1,5 @@
 import React from "react";
 import { Hexagon, Text } from "../../react-hexgrid";
-import { OverlayTile, SpawnCategory, MonsterType, Spawn } from "../../Data";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import HexPattern from "./HexPattern";
 import { usePlayerCount } from "../Providers/PlayerCountProvider";
@@ -23,7 +22,6 @@ const SpawnLayer = () => {
   };
   const hexes: JSX.Element[] = [];
   let patterns: JSX.Element[] = [];
-  let treasureCount = 1;
 
   const buildMonsterHex = (spawn: Spawn) => {
     const { type, data } = spawn;
@@ -32,9 +30,9 @@ const SpawnLayer = () => {
       if (spawnPoint) {
         const monsterTypes: MonsterType[] = data[parseInt(spawnPointId)] as MonsterType[];
         const monsterKey = monsterTypes[playerCount - 2];
-        if (monsterKey !== MonsterType.None) {
+        if (monsterKey !== "none") {
             hexes.push(buildHex(spawnPoint, type));
-            if (monsterKey === MonsterType.Elite) {
+            if (monsterKey === "elite") {
               hexes.push(buildHex(spawnPoint, "EliteOverlay"));
             }
           }
@@ -53,18 +51,18 @@ const SpawnLayer = () => {
   }
 
   if (isFlagSet(ShowFlags.Spawns)) {
-    spawns.forEach((spawn) => {
+    spawns.forEach((spawn:Spawn) => {
       const { type, data, category } = spawn;
-      if (category === SpawnCategory.Monster) {
+      if (category === "monster") {
         buildMonsterHex(spawn);
       } 
-      else if (category === SpawnCategory.Treasures) {
+      else if (category === "treasures") {
         buildTreasureHex(spawn);
       }
       else {
         const spawnArr = data as number[];
         spawnArr.forEach( (id: number) => {
-        const spawnPoint = spawnPoints.find((spawn) => spawn.id === id);
+        const spawnPoint = spawnPoints.find((spawn:OverlayTile) => spawn.id === id);
          if (spawnPoint) {
               hexes.push(buildHex(spawnPoint, type));
          }
@@ -72,7 +70,7 @@ const SpawnLayer = () => {
       }
     });
 
-    patterns = spawns.map((spawn) => {
+    patterns = spawns.map((spawn: Spawn) => {
       const { type, category } = spawn;
       if (category === "monster") {
         return (

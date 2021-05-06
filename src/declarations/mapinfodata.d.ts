@@ -1,6 +1,4 @@
-import { MonsterType, SpawnCategory } from "../../../Data";
-
-export interface InfoData {
+interface InfoData {
     pattern:string;
     hexType?:string;
     category: SpawnCategory;

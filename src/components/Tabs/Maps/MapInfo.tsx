@@ -1,12 +1,10 @@
 import React from "react";
-import { MonsterType, SpawnCategory } from "../../../Data";
 import { Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "../../Grids/HexPattern";
 import MapInfoGrid from "../../Grids/MapInfoGrid";
 import { createCustomLayouts } from "../../../components/Tabs/Maps/HexOverlay"
 import { usePlayerCount } from "../../Providers/PlayerCountProvider";
-import {InfoData} from "./MapInfoData";
 import { getOverlayInfo } from "./MapInfoOverlay";
 
 const MapInfo = () => {
@@ -16,55 +14,55 @@ const MapInfo = () => {
   } = useDungeon();
   const { playerCount} = usePlayerCount();
 
-  const monsterInfo = spawns.filter( spawn => spawn.category === SpawnCategory.Monster).flatMap( spawn => {
+  const monsterInfo = spawns.filter( spawn => spawn.category === "monster").flatMap( spawn => {
     const initialMonster:InfoData = {
       pattern: spawn.type,
-      category: SpawnCategory.Monster,
+      category: "monster",
       displayName: spawn.type,
       // count: 0,
-      monsterType: MonsterType.Elite
+      monsterType: "elite"
     }
 
-    const counts = {[MonsterType.Elite]:0, [MonsterType.Normal]:0};
+    const counts = {["elite"]:0, ["normal"]:0};
     const data = spawn.data as MonsterType[][];
     Object.values(data).forEach(d => {
       const monsterLevel = d[playerCount-2];
-      if (monsterLevel !== MonsterType.None) {
+      if (monsterLevel !== "none") {
         counts[monsterLevel]++;
       }
     })
 
     const info: InfoData[] = [];
-    if (counts[MonsterType.Elite] > 0) {
+    if (counts["elite"] > 0) {
       info.push({
           ...initialMonster,
-          displayName: `${spawn.type} (Elite) x ${counts[MonsterType.Elite]}`,
-          monsterType: MonsterType.Elite
+          displayName: `${spawn.type} (Elite) x ${counts["elite"]}`,
+          monsterType: "elite"
         })
     }
-    if (counts[MonsterType.Normal] > 0) {
+    if (counts["normal"] > 0) {
       info.push({
           ...initialMonster,
-          displayName: `${spawn.type} x ${counts[MonsterType.Normal]}`,
-          monsterType: MonsterType.Normal
+          displayName: `${spawn.type} x ${counts["normal"]}`,
+          monsterType: "normal"
         })
     }
   
     return info;
   })
 
-  const nonMonsters = spawns.filter(function(value){ return value.category !== SpawnCategory.Monster;});
-  const nonTreasuresInfo = nonMonsters.filter(spawn => spawn.category !== SpawnCategory.Treasures).flatMap( spawn => {
+  const nonMonsters = spawns.filter(function(value){ return value.category !== "monster";});
+  const nonTreasuresInfo = nonMonsters.filter(spawn => spawn.category !== "treasures").flatMap( spawn => {
     const { data} = spawn;
     const newInfo: InfoData = {
       pattern: spawn.type,
       category: spawn.category,
-      displayName: `${spawn.category !== SpawnCategory.Traps ? spawn.type : traps.join(",")} x ${data.length}`
+      displayName: `${spawn.category !=="traps" ? spawn.type : traps.join(",")} x ${data.length}`
     }
     return newInfo;
   })
 
-  const treasuresInfo = spawns.filter( spawn => spawn.category === SpawnCategory.Treasures).flatMap( spawn => {
+  const treasuresInfo = spawns.filter( spawn => spawn.category === "treasures").flatMap( spawn => {
     const initTreasureData: InfoData = {
       pattern: spawn.type,
       category: spawn.category,
@@ -78,8 +76,8 @@ const MapInfo = () => {
   
   })
 
-  const obstaclesInfo = getOverlayInfo(obstacles, SpawnCategory.Obstacle);
-  const corridorsInfo = getOverlayInfo(corridors, SpawnCategory.Corridors);
+  const obstaclesInfo = getOverlayInfo(obstacles, "obstacles");
+  const corridorsInfo = getOverlayInfo(corridors, "corridors");
   
   let hexes: JSX.Element[] = [];
   let patterns: JSX.Element[] = [];
@@ -92,7 +90,7 @@ const MapInfo = () => {
               <Text x={8} y={0} textAnchor="start" textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{displayName}</Text>
               {additionalData && <Text x={.5} y={-1.3}>{additionalData}</Text>}
             </Hexagon>
-            {monsterType === MonsterType.Elite && <Hexagon q={q} r={r} s={0} fill={"EliteOverlayinfo"}/>}
+            {monsterType === "elite" && <Hexagon q={q} r={r} s={0} fill={"EliteOverlayinfo"}/>}
           </>
         
   }
@@ -101,7 +99,7 @@ const MapInfo = () => {
 
   hexes = hexes.concat(mapGridHexes.flat());
   patterns = patterns.concat(mapGridPatterns);
-  patterns.push(<HexPattern id={"EliteOverlay"} postfix="info" category={SpawnCategory.Monster} rotate={true}/>)
+  patterns.push(<HexPattern id={"EliteOverlay"} postfix="info" category={"monster"} rotate={true}/>)
 
   let q = -1;
   let r = -5; 
