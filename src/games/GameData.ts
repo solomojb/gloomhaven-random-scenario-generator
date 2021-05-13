@@ -78,11 +78,11 @@ export abstract class BaseGameData {
     }
 
     getMapCard(name:string) {
-        return require(`../../vendor/${this.gameType}/images/random-dungeons/dungeons/dungeon-${name}.png`);
+        return require(`../img/random-dungeons/dungeons/dungeon-${name}.png`);
     }
 
     getMonsterCard(name:string) {
-        return require(`../../vendor/${this.gameType}/images/random-dungeons/monsters/monster-${name}.png`);
+        return require(`../img/random-dungeons/monsters/monster-${name}.png`);
     }
 }
 

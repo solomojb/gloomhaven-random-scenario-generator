@@ -13,8 +13,6 @@ const game = useGame();
     setPathName(game.getMapPath(name))
   },[name, game, setPathName]);
 
-  console.log("rendering map");
-
   return (
     <div className="map">
         <div>

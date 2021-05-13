@@ -26,7 +26,7 @@ const DoorLayer = () => {
     }
 
     return (
-      <Hexagon q={q} r={r} s={0} fill={fill} onClick={onDoorClick}/>
+      <Hexagon key={`DoorLayer-${q}-${r}-${fill}`} q={q} r={r} s={0} fill={fill} onClick={onDoorClick}/>
     );
   };
 
@@ -41,6 +41,7 @@ const DoorLayer = () => {
 
     const patterns = [
       <Pattern
+        key={`DoorLayer-${type}A-patttern`}
         id={type + "A"}
         link={game.getDoorImage(type, "A", rotateHex)}
         size={size}
@@ -48,6 +49,7 @@ const DoorLayer = () => {
         patternYOffset={yOffset}
       />,
       <Pattern
+        key={`DoorLayer-${type}B-patttern`}
         id={type + "B"}
         link={game.getDoorImage(type, "B", rotateHex)}
         size={size}

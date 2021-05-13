@@ -29,20 +29,18 @@ import { useScenario } from "../../Providers/ScenarioProvider";
   const PenaltyButtonGroup = (props: PenaltyButtonGroupProps) => {
       const {roomNumber} = props;
     return (
-        <Form>
-            <Form.Field inline>
-                <Form.Group inline>
-                <label>{`Room ${roomNumber}`}</label>
-                <Button.Group>
-                    <PenaltyButton penalty="none" roomNumber={roomNumber}/>
-                    <Button.Or />
-                    <PenaltyButton penalty="minor" roomNumber={roomNumber}/>
-                    <Button.Or />
-                    <PenaltyButton penalty="major" roomNumber={roomNumber}/>
-                </Button.Group>
-                </Form.Group>
-            </Form.Field>
-        </Form>
+          <Form.Field inline>
+              <Form.Group inline>
+              <label>{`Room ${roomNumber}`}</label>
+              <Button.Group>
+                  <PenaltyButton penalty="none" roomNumber={roomNumber}/>
+                  <Button.Or />
+                  <PenaltyButton penalty="minor" roomNumber={roomNumber}/>
+                  <Button.Or />
+                  <PenaltyButton penalty="major" roomNumber={roomNumber}/>
+              </Button.Group>
+              </Form.Group>
+          </Form.Field>
     );
   };
   

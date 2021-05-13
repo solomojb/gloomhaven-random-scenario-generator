@@ -16,7 +16,7 @@ const SpawnLayer = () => {
 
   const buildHex = (spawnPoint: OverlayTile, pattern: string, text?:string|number) => {
     const { q, r } = spawnPoint;
-    return <Hexagon q={q} r={r} s={0} fill={pattern.replace(" ", "-")}>
+    return <Hexagon key={`SpawnLayer-${q}-${r}-${pattern}`}q={q} r={r} s={0} fill={pattern.replace(" ", "-")}>
       {text && <Text y={-1.2}>{text}</Text>}
       </Hexagon>
   };
@@ -74,11 +74,12 @@ const SpawnLayer = () => {
       const { type, category } = spawn;
       if (category === "monster") {
         return (
-          <HexPattern id={type} category={category} rotate={rotateHex} />
+          <HexPattern key={`SpawnLayer-${type}-patttern`} id={type} category={category} rotate={rotateHex} />
         );
       } else {
         return (
           <HexPattern
+            key={`SpawnLayer-${type}-patttern`}
             id={type}
             category={category}
             rotate={rotateHex}
@@ -89,6 +90,7 @@ const SpawnLayer = () => {
 
     patterns.push(
       <HexPattern
+        key={`SpawnLayer-EliteOverlay-patttern`}
         id={"EliteOverlay"}
         category="monster"
         rotate={rotateHex}

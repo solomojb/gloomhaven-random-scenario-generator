@@ -85,13 +85,13 @@ const MapInfo = () => {
   const size = { x: 6.2, y: 6.2 };
   const buildMonsterHex = (q: number, r: number, data: InfoData) => {
     const {pattern, displayName, monsterType, additionalData} = data;
-    return <>
-            <Hexagon q={q} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`}>
+    return <div key={`MapInfo-${q}-${r}-${pattern}-patttern`}>
+            <Hexagon key={`MapInfo-${q}-${r}-${pattern}-patttern`} q={q} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`}>
               <Text x={8} y={0} textAnchor="start" textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{displayName}</Text>
               {additionalData && <Text x={.5} y={-1.3}>{additionalData}</Text>}
             </Hexagon>
-            {monsterType === "elite" && <Hexagon q={q} r={r} s={0} fill={"EliteOverlayinfo"}/>}
-          </>
+            {monsterType === "elite" && <Hexagon key={`MapInfo-${q}-${r}-EliteOverlay-patttern`} q={q} r={r} s={0} fill={"EliteOverlayinfo"}/>}
+          </div>
         
   }
 
@@ -99,7 +99,7 @@ const MapInfo = () => {
 
   hexes = hexes.concat(mapGridHexes.flat());
   patterns = patterns.concat(mapGridPatterns);
-  patterns.push(<HexPattern id={"EliteOverlay"} postfix="info" category={"monster"} rotate={true}/>)
+  patterns.push(<HexPattern key={`MapInfo-EliteOverlay-patttern`} id={"EliteOverlay"} postfix="info" category={"monster"} rotate={true}/>)
 
   let q = -1;
   let r = -5; 
@@ -115,7 +115,7 @@ const MapInfo = () => {
         q +=1;
       }      
       
-      patterns.push(<HexPattern id={info.pattern} postfix="info" category={info.category || ""} rotate={true} hexType={info.hexType}/>)
+      patterns.push(<HexPattern key={`MapInfo-${q}-${r}-${info.pattern}-patttern`} id={info.pattern} postfix="info" category={info.category || ""} rotate={true} hexType={info.hexType}/>)
     });
 
    

@@ -11,7 +11,6 @@ import { Helpers } from "../../helpers";
 
 const Room = () => {
     const { dungeon, monsterData } = useDungeon();
-    console.log("rendering room");
     return (
         <div>
             <Form.Group>

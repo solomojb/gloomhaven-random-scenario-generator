@@ -23,7 +23,7 @@ const ScenarioContainer = () => {
                 <PlayerCount/>
             </Form>
             <DisplayToggle flag={ShowFlags.AddForgottenCircles} label={"Include Forgotten Circles"}/>
-            <Tab panes={panes} onTabChange={(_e, data) => {setActiveRoomNumber(data.activeIndex as number)}} defaultActiveIndex={0} activeIndex={activeRoomNumber}/>
+            <Tab panes={panes} onTabChange={(_e, data) => {setActiveRoomNumber(data.activeIndex as number)}} activeIndex={activeRoomNumber}/>
         </PlayerCountProvider>
     );
 };

@@ -19,7 +19,7 @@ const OverlayTileLayer = (props: Props) => {
     const { q, r, pattern, rotation, hexType } = tile;
     const fillName = pattern.replace(" " , "-");
     return (
-      <Hexagon q={q} r={r} s={0} fill={fillName} hexType={hexType || "1x1Hex"} rotation={rotation}/>
+      <Hexagon key={`OverlayTileLayer-${q}-${r}-${fillName}`} q={q} r={r} s={0} fill={fillName} hexType={hexType || "1x1Hex"} rotation={rotation}/>
     );
   };
 
@@ -32,9 +32,10 @@ const OverlayTileLayer = (props: Props) => {
   if (isFlagSet(flag) && tiles) {
     hexes = tiles.map(buildHex);
     patterns = tiles.filter(onlyUnique).map((tile) => {
-      const { hexType, pattern }  = tile;
+      const { hexType, pattern, q, r }  = tile;
       return (
         <HexPattern
+          key={`OverlayTileLayer-${q}-${r}-${pattern}-patttern`}
           id={pattern}
           category={overlayType}
           rotate={rotateHex}

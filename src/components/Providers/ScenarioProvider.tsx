@@ -57,7 +57,6 @@ const ScenarioProvider = (props: Props) => {
         }
 
         const monsterList = game.getRandomMonsters().filter(filter);
-        console.log(monsterList);
         return monsterList;
     }
 

@@ -8,7 +8,6 @@ import ScenarioContainer from './Scenario/ScenarioContainer';
 const MainView = () => {
 
     let panes = [
-        { menuItem: 'Map', render: () => <Tab.Pane><MapContainer/></Tab.Pane> },
         { menuItem: 'Scenario', render: () => <Tab.Pane>
             <FlagsProvider localKey="roomFlags" initialFlags={ShowFlags.ShowAllMap}>
                 <ScenarioProvider>
@@ -16,6 +15,7 @@ const MainView = () => {
                 </ScenarioProvider>
             </FlagsProvider>
         </Tab.Pane> },
+        { menuItem: 'Map', render: () => <Tab.Pane><MapContainer/></Tab.Pane> },
     ];
     
     return (
