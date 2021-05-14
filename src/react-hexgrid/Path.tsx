@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HexUtils from './HexUtils';
-import { LayoutContext } from './LayoutProvider';
+import { LayoutContext, useLayout } from './LayoutProvider';
 import Hex from './models/Hex';
 
 type Props ={
@@ -8,13 +8,11 @@ type Props ={
     end: Hex
 }
 
-class Path extends Component<Props> {
-  static contextType = LayoutContext;
+const Path = (props:Props) => {
+  const { start, end } = props;
+  const { layout } = useLayout();
 
-  // TODO Refactor
-  getPoints() {
-    const { start, end } = this.props;
-    const { layout } = this.context;
+  const getPoints = () => {
     if (!start || !end) {
       return '';
     }
@@ -35,13 +33,11 @@ class Path extends Component<Props> {
     }).join('L');
 
     return points;
-  }
+}
 
-  render() {
-    return (
-      <path d={this.getPoints()}></path>
-    );
-  }
+  return (
+    <path d={getPoints()}></path>
+  );
 }
 
 export default Path;
