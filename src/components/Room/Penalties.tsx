@@ -11,7 +11,7 @@ const Penalties = () =>  {
     const getHtml = (index: number) => {
         const penalty = penalties[index];
         const html = Helpers.parseEffectText((index?"<b>Major:</b> " : "<b>Minor: </b>") + penalty);
-        return <div dangerouslySetInnerHTML={{__html:html}}/>
+        return <div key={`penalty-${index}`} dangerouslySetInnerHTML={{__html:html}}/>
     }
 
     const penaltyChosen = pentalitesChosen[roomNumber];
