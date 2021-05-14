@@ -1,6 +1,0 @@
-[submodule "vendor/jotl"]
-	path = vendor/jotl
-	url = https://github.com/any2cards/jotl.git
-[submodule "vendor/gh"]
-	path = vendor/gh
-	url = https://github.com/any2cards/gloomhaven.git
