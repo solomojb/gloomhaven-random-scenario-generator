@@ -14,7 +14,6 @@ const MapEditor = () => {
   			<DisplayToggle label="Edit Mode:" flag={ShowFlags.EditMode}/>
         {  showTools &&
           <>
-            <DisplayToggle label="All Grid:" flag={ShowFlags.AllGrid} />
             <DisplayToggle label="Grid:" flag={ShowFlags.Grid} />
             <DisplayToggle label="Spawn Points:" flag={ShowFlags.SpawnPoint} />
             <DisplayToggle label="Obstacles:" flag={ShowFlags.Obstacles} />
@@ -22,7 +21,6 @@ const MapEditor = () => {
             <DisplayToggle label="Spawns:" flag={ShowFlags.Spawns} />
             <DisplayToggle label="Doors:" flag={ShowFlags.Doors} />
             <DisplayToggle label="Selectors:" flag={ShowFlags.Selectors} />
-            <DisplayToggle label="Map Info Grid:" flag={ShowFlags.MapInfoGrid} />
           </>}
       </Form.Group>
       {  showTools &&<Form.Group>

@@ -1,7 +1,6 @@
 import React from "react"
 import { HexGrid, LayoutProvider, HexUtils} from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
-import DungeonGrid from "../../Grids/DungonGrid";
 import MapGrid from "../../Grids/MapGrid";
 import OverlayTileLayer from "../../Grids/OverlayTileLayer";
 import SpawnPointsLayer from "../../Grids/SpawnPointsLayer";
@@ -45,7 +44,6 @@ const HexOverlay = () => {
 
   const size = { x: 6.2, y: 6.2 };
 
-  const { hexes: dungeonGridHexes, patterns: dungeonGridPatterns} = DungeonGrid();
   const { hexes: gridHexes, patterns: gridPatterns} = MapGrid();
   const { hexes: corridorHexes, patterns: corridorPatterns} = OverlayTileLayer({overlayType:"corridors", tiles:corridors, flag: ShowFlags.Corridors});
   const { hexes: obstacleHexes, patterns: obstaclePatterns} = OverlayTileLayer({overlayType:"obstacles", tiles:obstacles, flag: ShowFlags.Obstacles});
@@ -58,7 +56,6 @@ const HexOverlay = () => {
         <HexGrid width={500} height={640}>
           {/* Grid with manually inserted hexagons */}
           <LayoutProvider size={size} flat={!rotateHex} spacing={1} origin={{ x: 0, y: 0 }} customLayouts={createCustomLayouts(!rotateHex, size)}>
-             {dungeonGridHexes}
              {gridHexes}
              {corridorHexes}
              {spawnPointHexes}
@@ -68,7 +65,6 @@ const HexOverlay = () => {
              {doorHexes}
             {/* <Path start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} /> */}
           </LayoutProvider>
-            {dungeonGridPatterns}
             {gridPatterns}
             {corridorPatterns}
             {spawnPointPatterns}

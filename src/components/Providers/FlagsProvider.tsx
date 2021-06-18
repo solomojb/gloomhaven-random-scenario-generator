@@ -7,10 +7,10 @@ export enum ShowFlags {
     Corridors           = 1 << 3,
     Spawns              = 1 << 4,
     EditMode            = 1 << 5,
-    AllGrid             = 1 << 6,
+    Unused6             = 1 << 6,
     Doors               = 1 << 7,
     Selectors           = 1 << 8,
-    MapInfoGrid         = 1 << 9,
+    Unused9             = 1 << 9,
     AddForgottenCircles = 1 << 10,
     ShowAllMap = Obstacles | Corridors | Spawns | Doors
   }

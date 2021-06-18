@@ -1,4 +1,4 @@
-import React, { useContext, createContext, ReactNode, useEffect, useState } from 'react'
+import React, { useContext, createContext, useEffect, useState, FC } from 'react'
 import { initialDungeon, initialMonsterData } from '../../../Data';
 
 type ContextData = {
@@ -27,11 +27,10 @@ export function useDungeon() {
 type Props = {
     intitialDungeon:Dungeon;
     monsterData: MonsterData;
-    children: ReactNode;
     roomNumber?: number;
 }
 
-const DungeonProvider = (props:Props) => {
+const DungeonProvider:FC<Props> = (props) => {
     const {intitialDungeon, children, monsterData, roomNumber = -1} = props;
     const [dungeon, setDungeon] = useState<Dungeon>(intitialDungeon);
     const [monsters, setMonsters] = useState<MonsterData>(monsterData);
