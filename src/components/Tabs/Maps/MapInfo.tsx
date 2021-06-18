@@ -1,5 +1,5 @@
 import React from "react";
-import { Hexagon, HexGrid, Layout, Text } from "../../../react-hexgrid";
+import { Hexagon, HexGrid, LayoutProvider, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "../../Grids/HexPattern";
 import MapInfoGrid from "../../Grids/MapInfoGrid";
@@ -121,14 +121,15 @@ const MapInfo = () => {
   return (
     <div className="map-info">
       <HexGrid width={500} height={640} >
-        <Layout
+        <LayoutProvider
           flat={false}
+          spacing={1}
           size={size}
           origin={{ x: 0, y: 0 }}
           customLayouts={createCustomLayouts(false, size)}
         >
           {hexes}
-        </Layout>
+        </LayoutProvider>
         {patterns}
       </HexGrid>
     </div>

@@ -1,5 +1,5 @@
 import React from "react"
-import { HexGrid, Layout, HexUtils} from "../../../react-hexgrid";
+import { HexGrid, LayoutProvider, HexUtils} from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import DungeonGrid from "../../Grids/DungonGrid";
 import MapGrid from "../../Grids/MapGrid";
@@ -57,7 +57,7 @@ const HexOverlay = () => {
   return <div className="map-grid">
         <HexGrid width={500} height={640}>
           {/* Grid with manually inserted hexagons */}
-          <Layout size={size} flat={!rotateHex} spacing={1} origin={{ x: 0, y: 0 }} customLayouts={createCustomLayouts(!rotateHex, size)}>
+          <LayoutProvider size={size} flat={!rotateHex} spacing={1} origin={{ x: 0, y: 0 }} customLayouts={createCustomLayouts(!rotateHex, size)}>
              {dungeonGridHexes}
              {gridHexes}
              {corridorHexes}
@@ -67,7 +67,7 @@ const HexOverlay = () => {
              {spawnHexes}
              {doorHexes}
             {/* <Path start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} /> */}
-          </Layout>
+          </LayoutProvider>
             {dungeonGridPatterns}
             {gridPatterns}
             {corridorPatterns}
