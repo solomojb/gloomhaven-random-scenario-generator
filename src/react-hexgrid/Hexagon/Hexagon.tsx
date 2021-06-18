@@ -1,8 +1,8 @@
-import React, { ReactNode, Component,  MouseEvent, DragEvent, CSSProperties, useState } from 'react';
+import React, { MouseEvent, DragEvent, CSSProperties, FC} from 'react';
 import Hex from '../models/Hex';
 import classnames from 'classnames'
 import HexUtils from '../HexUtils';
-import { LayoutContext, useLayout } from '../LayoutProvider';
+import { useLayout } from '../LayoutProvider';
 
 type EventParams = any;
 
@@ -22,16 +22,15 @@ type Props = {
   onDragEnd?: (e: DragEvent<SVGElement>, source: EventParams, success:boolean) => void,
   onDragOver?: (e: DragEvent<SVGElement>, source: EventParams) => void,
   onDrop?: (e: DragEvent<SVGElement>, source: EventParams,  target: object) => void,
-  children?: ReactNode | ReactNode[],
   hexType?: string,
   rotation?: number,
 }
 
-const Hexagon = (props:Props) => {
-  const { layout, points } = useLayout();
+const Hexagon:FC<Props> = (props) => {
+  const { points, ...rest } = useLayout();
   const { children, fill = null, cellStyle = undefined, className, hexType, rotation = 0, q, r, s, onClick } = props;
   const hex = new Hex(q, r, s);
-  const pixel = HexUtils.hexToPixel(hex, layout);
+  const pixel = HexUtils.hexToPixel(hex, {...rest});
   const fillId = fill ? `url(#${fill})` : undefined;
   const type = hexType || "1x1Hex";
 

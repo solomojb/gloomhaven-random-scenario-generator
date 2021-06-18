@@ -1,8 +1,6 @@
-import GridGenerator from './GridGenerator';
 import HexGrid from './HexGrid';
 import HexUtils from './HexUtils';
 import LayoutProvider from './LayoutProvider';
-import Path from './Path';
 import Pattern from './Pattern';
 
 import Hexagon from './Hexagon/Hexagon';
@@ -10,4 +8,4 @@ import Text from './Hexagon/Text';
 
 import Hex from './models/Hex';
 
-export { GridGenerator, HexGrid, HexUtils, LayoutProvider, Path, Pattern, Hexagon, Text, Hex };
+export { HexGrid, HexUtils, LayoutProvider, Pattern, Hexagon, Text, Hex };

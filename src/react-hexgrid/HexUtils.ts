@@ -69,15 +69,13 @@ class HexUtils {
     return new Hex(rq, rr, rs);
   }
 
-  static hexToPixel(hex:Hex, layout: any) : Point {
-    const s = layout.spacing;
-    const M = layout.orientation;
-    let x = (M.f0 * hex.q + M.f1 * hex.r) * layout.size.x;
-    let y = (M.f2 * hex.q + M.f3 * hex.r) * layout.size.y;
+  static hexToPixel(hex:Hex, {spacing:s, orientation:M, size, origin}: any) : Point {
+    let x = (M.f0 * hex.q + M.f1 * hex.r) * size.x;
+    let y = (M.f2 * hex.q + M.f3 * hex.r) * size.y;
     // Apply spacing
     x = x * s;
     y = y * s;
-    return new Point(x + layout.origin.x, y + layout.origin.y);
+    return new Point(x + origin.x, y + origin.y);
   }
 
   static pixelToHex(point:Point, layout: any) : Hex {

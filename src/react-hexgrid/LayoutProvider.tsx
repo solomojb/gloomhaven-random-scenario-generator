@@ -3,22 +3,19 @@ import HexUtils from "./HexUtils";
 import Orientation from "./models/Orientation";
 import Point from "./models/Point";
 
-export type PointsMap = {
+type PointsMap = {
     [k in string] : string;
   }
   
-  export type LayoutData = {
-    origin?: Point | undefined;
-    size: Point;
-    spacing?: number | undefined;
-    orientation: Orientation;
-  }
 type LayoutContextType = {
-    layout: LayoutData;
-    points: PointsMap;
+  origin: Point;
+  size: Point;
+  spacing: number;
+  orientation: Orientation;
+  points: PointsMap;
 }
 
-export const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
+const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
 
 type Props = {
     className?: string,
@@ -46,12 +43,11 @@ export const LayoutProvider:FC<Props> = (props) => {
         ["1x1Hex"] : HexUtils.convertToString(cornerCoords),
         ...customLayouts
     };
-    const layout: LayoutData = Object.assign({}, rest, { orientation });
-
     const value = useMemo(() => ({
-        layout,
+        ...rest,
+        orientation,
         points
-    }),[layout, points]);
+    }),[orientation, points]);
 
     const { Provider } = LayoutContext;
 
