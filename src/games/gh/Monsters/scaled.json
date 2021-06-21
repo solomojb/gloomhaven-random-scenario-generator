@@ -1,6 +1,6 @@
 {
   "name": "scaled",
-  "traps": ["WOUND, POISON"],
+  "traps": ["WOUND", "POISON"],
   "spawns": [
     {
       "data": {

@@ -1,6 +1,6 @@
 {
   "name": "tribal",
-  "traps": ["WOUND, DISARM"],
+  "traps": ["WOUND", "DISARM"],
   "spawns": [
     {
       "data": {

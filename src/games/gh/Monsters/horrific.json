@@ -1,6 +1,6 @@
 {
   "name": "horrific",
-  "traps": ["MUDDLE, DAMAGE"],
+  "traps": ["MUDDLE", "DAMAGE"],
   "spawns": [
     {
       "data": {

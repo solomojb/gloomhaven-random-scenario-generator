@@ -57,24 +57,32 @@ const HexPattern = (props:Props) => {
     let link = '';
     let patternStyle = {};
     let imageStyle = {};
-    if (category === "monster") {
-        link = game.getMonsterImage(id, rotate);
-        patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
-    } else if (category === "treasures") {
-        link = game.getTreasureImage(rotate);
-        patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
-    } else if (category === "coin") {
-        link = game.getCoinImage();
-        patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
-    } else {
-        link = game.getOverlayTokenPath(id, category);
-        const objectRotation = ((rotate ? 90 : 0))% 360;
-        if (objectRotation) {
-          const transform = `rotate(${objectRotation}deg)`;
-          patternStyle = {transform}
-        }
-        const transform = `translateX(${offsetX||0}px) translateY(${offsetY||0}px)`;
-        imageStyle = {transform}
+    switch (category) {
+        case "monster": 
+            link = game.getMonsterImage(id, rotate);
+            patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
+            break;
+        case "treasures":
+            link = game.getTreasureImage(rotate);
+            patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
+            break;
+        case "coin":
+            link = game.getCoinImage();
+            patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
+            break;
+        case "status":
+            link = require('../../img/icons/status/'+id.toLowerCase()+'.png')
+            break;
+        default:
+            link = game.getOverlayTokenPath(id, category);
+            const objectRotation = ((rotate ? 90 : 0))% 360;
+            if (objectRotation) {
+            const transform = `rotate(${objectRotation}deg)`;
+            patternStyle = {transform}
+            }
+            const transform = `translateX(${offsetX||0}px) translateY(${offsetY||0}px)`;
+            imageStyle = {transform}
+            break;
     }
 
     const width = rotate ? y : x;

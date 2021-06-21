@@ -1,6 +1,6 @@
 {
   "name": "venomous",
-  "traps": ["POISON, STUN"],
+  "traps": ["POISON", "STUN"],
   "spawns": [
     {
       "data": {

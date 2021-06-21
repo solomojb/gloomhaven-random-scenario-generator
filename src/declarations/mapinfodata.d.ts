@@ -5,5 +5,6 @@ interface InfoData {
     displayName: string;
     monsterType?: MonsterType
     additionalData?: string;
+    traps?: string[];
   }
   

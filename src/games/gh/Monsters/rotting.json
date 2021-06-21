@@ -1,6 +1,6 @@
 {
   "name": "rotting",
-  "traps": ["STUN, POISON"],
+  "traps": ["STUN", "POISON"],
   "spawns": [
     {
       "data": {

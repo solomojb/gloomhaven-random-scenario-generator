@@ -1,6 +1,6 @@
 {
   "name": "wild",
-  "traps": ["IMMOBILIZE, DAMAGE"],
+  "traps": ["IMMOBILIZE", "DAMAGE"],
   "spawns": [
     {
       "data": {

@@ -1,6 +1,6 @@
 import { Helpers } from "../../../helpers";
 
-const getOverlayName = (pattern:string) => {
+export const getOverlayName = (pattern:string) => {
     if (pattern.includes("boulder")) {
       return "Boulder";
     } 
