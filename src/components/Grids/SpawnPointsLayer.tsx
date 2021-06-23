@@ -5,7 +5,7 @@ import HexPattern from "./HexPattern";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 
 const SpawnPointsLayer = () => {
-    const { dungeon: {spawnPoints, map:{rotateHex}}} = useDungeon();
+    const { dungeon: {spawnPoints}} = useDungeon();
     const { isFlagSet } = useFlags();
 
     const buildHex = (spawnPoint:OverlayTile) => {
@@ -25,7 +25,7 @@ const SpawnPointsLayer = () => {
           return hexes;
         })
 
-      patterns.push(<HexPattern id="natural-stone-1" category="corridors" rotate={rotateHex}/>);
+      patterns.push(<HexPattern id="natural-stone-1" category="corridors"/>);
      }
 
     return { hexes, patterns};

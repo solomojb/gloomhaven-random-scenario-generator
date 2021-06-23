@@ -2,7 +2,7 @@ import React from "react";
 import { Hexagon, HexGrid, LayoutProvider, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "../../Grids/HexPattern";
-import { createCustomLayouts } from "../../../components/Tabs/Maps/HexOverlay"
+import { createCustomLayouts } from "../../Room/Map";
 import { usePlayerCount } from "../../Providers/PlayerCountProvider";
 import { getOverlayInfo, getOverlayName } from "./MapInfoOverlay";
 
@@ -17,7 +17,7 @@ const MapInfo = () => {
         return <Hexagon q={q+index+1} r={r} s={0} fill={status}/>
     });
     const patterns = traps.map(status => {
-      return <HexPattern id={status} category={"status"} rotate={false}/>
+      return <HexPattern id={status} category={"status"}/>
     });
     return {hexes, patterns};
   }
@@ -105,7 +105,7 @@ const MapInfo = () => {
         
   }
 
-  patterns.push(<HexPattern key={`MapInfo-EliteOverlay-patttern`} id={"EliteOverlay"} postfix="info" category={"monster"} rotate={true}/>)
+  patterns.push(<HexPattern key={`MapInfo-EliteOverlay-patttern`} id={"EliteOverlay"} postfix="info" category={"monster"} />)
 
   let q = -1;
   let r = -5; 
@@ -128,7 +128,7 @@ const MapInfo = () => {
         q +=1;
       }      
       
-      patterns.push(<HexPattern key={`MapInfo-${q}-${r}-${info.pattern}-patttern`} id={info.pattern} postfix="info" category={info.category || ""} rotate={true} hexType={info.hexType}/>)
+      patterns.push(<HexPattern key={`MapInfo-${q}-${r}-${info.pattern}-patttern`} id={info.pattern} postfix="info" category={info.category || ""} hexType={info.hexType}/>)
     });
 
    

@@ -5,7 +5,7 @@ import { useDungeon } from "../Tabs/Maps/DungeonProvider"
 import HexPattern from "./HexPattern";
 
 const MapGrid = () => {
-    const { dungeon: { map : { hexColumns, rotateHex} } } = useDungeon();
+    const { dungeon: { map : { hexColumns} } } = useDungeon();
     const { isFlagSet } = useFlags();
 
     const buildHex = (q:number, r: number) => {
@@ -25,7 +25,7 @@ const MapGrid = () => {
           }
           return hexes;
         })
-       patterns.push(<HexPattern id="wood-1" category="corridors" rotate={rotateHex}/>);
+       patterns.push(<HexPattern id="wood-1" category="corridors"/>);
       }
     
       return { hexes, patterns};

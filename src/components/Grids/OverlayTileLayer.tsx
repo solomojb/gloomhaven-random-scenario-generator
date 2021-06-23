@@ -12,7 +12,6 @@ type Props = {
 
 const OverlayTileLayer = (props: Props) => {
   const { tiles, overlayType, flag } = props;
-  const { dungeon: {map: {rotateHex}}} = useDungeon();
   const { isFlagSet } = useFlags();
 
   const buildHex = (tile: OverlayTile) => {
@@ -38,7 +37,6 @@ const OverlayTileLayer = (props: Props) => {
           key={`OverlayTileLayer-${q}-${r}-${pattern}-patttern`}
           id={pattern}
           category={overlayType}
-          rotate={rotateHex}
           hexType={hexType}
         />
       );

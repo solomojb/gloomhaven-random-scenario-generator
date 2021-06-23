@@ -13,6 +13,7 @@ type LayoutContextType = {
   spacing: number;
   orientation: Orientation;
   points: PointsMap;
+  rotateHex: boolean;
 }
 
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
@@ -46,15 +47,14 @@ export const LayoutProvider:FC<Props> = (props) => {
     const value = useMemo(() => ({
         ...rest,
         orientation,
-        points
+        points,
+        rotateHex: !flat,
     }),[orientation, points]);
 
     const { Provider } = LayoutContext;
 
     return (<Provider value={value}>
-        <g className={className}>
           {children}
-        </g>
     </Provider>);
 }
 

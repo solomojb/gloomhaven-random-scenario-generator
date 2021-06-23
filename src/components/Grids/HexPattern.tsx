@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Pattern } from '../../react-hexgrid';
+import { useLayout } from '../../react-hexgrid/LayoutProvider';
 import Point from '../../react-hexgrid/models/Point';
 import { useGame } from '../Game/GameProvider';
 
@@ -8,7 +9,6 @@ type Props = {
     id:string;
     category:string;
     postfix?:string;
-    rotate:boolean;
     hexType?:string;
 }
 
@@ -28,7 +28,8 @@ export const getHexTypeOffsets = (hexType:string | undefined) => {
 
 const HexPattern = (props:Props) => {
     const game = useGame();
-    const { id, postfix, category, rotate, hexType} = props;
+    const { rotateHex } = useLayout();
+    const { id, postfix, category, hexType} = props;
 
     let scale: Point = {x:1, y: 1};
     let offsetX = 0;
@@ -59,11 +60,11 @@ const HexPattern = (props:Props) => {
     let imageStyle = {};
     switch (category) {
         case "monster": 
-            link = game.getMonsterImage(id, rotate);
+            link = game.getMonsterImage(id, rotateHex);
             patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
             break;
         case "treasures":
-            link = game.getTreasureImage(rotate);
+            link = game.getTreasureImage(rotateHex);
             patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
             break;
         case "coin":
@@ -75,7 +76,7 @@ const HexPattern = (props:Props) => {
             break;
         default:
             link = game.getOverlayTokenPath(id, category);
-            const objectRotation = ((rotate ? 90 : 0))% 360;
+            const objectRotation = ((rotateHex ? 90 : 0))% 360;
             if (objectRotation) {
             const transform = `rotate(${objectRotation}deg)`;
             patternStyle = {transform}
@@ -85,8 +86,8 @@ const HexPattern = (props:Props) => {
             break;
     }
 
-    const width = rotate ? y : x;
-    const height = rotate ? x : y;
+    const width = rotateHex ? y : x;
+    const height = rotateHex ? x : y;
 
     let patternId = id.replace(" ", "-");
     if (postfix) {
