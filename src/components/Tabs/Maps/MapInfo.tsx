@@ -1,8 +1,7 @@
 import React from "react";
-import { Hexagon, HexGrid, LayoutProvider, Text } from "../../../react-hexgrid";
+import { Hexagon, HexGrid, Text } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import HexPattern from "../../Grids/HexPattern";
-import { createCustomLayouts } from "../../Room/Map";
 import { usePlayerCount } from "../../Providers/PlayerCountProvider";
 import { getOverlayInfo, getOverlayName } from "./MapInfoOverlay";
 
@@ -135,15 +134,9 @@ const MapInfo = () => {
   return (
     <div className="map-info">
       <HexGrid width={500} height={640} >
-        <LayoutProvider
-          flat={false}
-          spacing={1}
-          size={size}
-          origin={{ x: 0, y: 0 }}
-          customLayouts={createCustomLayouts(false, size)}
-        >
+        <g>
           {hexes}
-        </LayoutProvider>
+        </g>
         {patterns}
       </HexGrid>
     </div>

@@ -1,7 +1,7 @@
 import React from "react"
 import { Form } from "semantic-ui-react";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
-import Map, { createCustomLayouts } from "./Map";
+import Map from "./Map";
 import { LayoutProvider } from "../../react-hexgrid";
 
 import DoorTypes from "./DoorTypes";
@@ -12,7 +12,6 @@ import { Helpers } from "../../helpers";
 
 const Room = () => {
     const { dungeon, monsterData } = useDungeon();
-    const size = { x: 6.2, y: 6.2 };
     return (
         <div>
             <Form.Group>
@@ -47,14 +46,8 @@ const Room = () => {
                 <Form.Field>
                     <Penalties/>
                     <Form.Group>
-                        <LayoutProvider
-                            flat={false}
-                            spacing={1}
-                            size={size}
-                            origin={{ x: 0, y: 0 }}
-                            customLayouts={createCustomLayouts(false, size)}
-                        >
-                        <MapInfo/>
+                        <LayoutProvider>
+                            <MapInfo/>
                         </LayoutProvider>
                     </Form.Group>
                 </Form.Field>
