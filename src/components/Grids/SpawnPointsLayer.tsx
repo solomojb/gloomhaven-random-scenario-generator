@@ -19,11 +19,7 @@ const SpawnPointsLayer = () => {
      const patterns =[];
  
      if (isFlagSet(ShowFlags.SpawnPoint)) {
-      hexes = spawnPoints.map(spawnPoint => {
-          const hexes = [];
-            hexes.push(buildHex(spawnPoint));
-          return hexes;
-        })
+      hexes = spawnPoints.map(buildHex);
 
       patterns.push(<HexPattern id="natural-stone-1" category="corridors"/>);
      }

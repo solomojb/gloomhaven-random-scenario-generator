@@ -93,7 +93,6 @@ const MapInfo = () => {
   let hexes: JSX.Element[] = [];
   let patterns: JSX.Element[] = [];
 
-  const size = { x: 6.2, y: 6.2 };
   const buildHex = (q: number, r: number, data: InfoData) => {
     const {pattern, displayName, additionalData, traps} = data;
     const textWidth = traps ? traps.length : 0;
@@ -134,9 +133,7 @@ const MapInfo = () => {
   return (
     <div className="map-info">
       <HexGrid width={500} height={640} >
-        <g>
-          {hexes}
-        </g>
+        {hexes}
         {patterns}
       </HexGrid>
     </div>

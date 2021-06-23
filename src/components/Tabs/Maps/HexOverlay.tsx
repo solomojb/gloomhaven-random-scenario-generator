@@ -22,16 +22,14 @@ const HexOverlay = () => {
   return <div className="map-grid">
         <HexGrid width={500} height={640}>
           {/* Grid with manually inserted hexagons */}
-          <g>
-             {gridHexes}
-             {corridorHexes}
-             {spawnPointHexes}
-             {obstacleHexes}
-             {difficultTerrainHexes}
-             {spawnHexes}
-             {doorHexes}
+            {gridHexes}
+            {corridorHexes}
+            {spawnPointHexes}
+            {obstacleHexes}
+            {difficultTerrainHexes}
+            {spawnHexes}
+            {doorHexes}
             {/* <Path start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} /> */}
-          </g>
             {gridPatterns}
             {corridorPatterns}
             {spawnPointPatterns}
