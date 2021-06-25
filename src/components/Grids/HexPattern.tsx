@@ -29,25 +29,18 @@ export const getHexTypeOffsets = (hexType:string | undefined) => {
 const HexPattern = (props:Props) => {
     const game = useGame();
     const { rotateHex } = useLayout();
+    let {width,height} = rotateHex ? {height:6.3, width:5.5}: {width:6.3, height:5.41}
     const { id, postfix, category, hexType} = props;
 
     let scale: Point = {x:1, y: 1};
     let offsetX = 0;
     let offsetY = 0;
-    let x = 6.3;
-    let y = 5.41;
-    switch (category) {
-        case "corridors":
-            x = 6.3;
-            y = 5.41;
-            break;
-    }
 
     const data = getHexTypeOffsets(hexType);
     if (data) {
         if (data.scale) {
-            x *= data.scale.x || 1;
-            y *= data.scale.y || 1;
+            width *= data.scale.x || 1;
+            height *= data.scale.y || 1;
         }
         if (data.offset) {
             offsetX = data.offset.x || 0;
@@ -85,9 +78,6 @@ const HexPattern = (props:Props) => {
             imageStyle = {transform}
             break;
     }
-
-    const width = rotateHex ? y : x;
-    const height = rotateHex ? x : y;
 
     let patternId = id.replace(" ", "-");
     if (postfix) {

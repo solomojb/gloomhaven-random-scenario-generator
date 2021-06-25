@@ -15,42 +15,42 @@ const Room = () => {
     return (
         <div>
             <Form.Group>
-                <Form.Field inline>
-                    <Form.Group inline>
-                        <Form.Field inline>
-                            <Form.Group inline>
-                                <label>Dungeon:</label>
-                                {Helpers.toAllFirstUpper(dungeon.name)}
-                            </Form.Group>
-                        </Form.Field>
-                        <Form.Field inline>
-                            <Form.Group inline>
-                                <label>Monsters:</label>
-                                {Helpers.toAllFirstUpper(monsterData.name)}
-                            </Form.Group>
-                        </Form.Field>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Field inline>
-                            <Form.Group inline>
-                                <label>Tiles:</label>
-                                {dungeon.map.tiles.sort().join("/")}
-                            </Form.Group>
-                        </Form.Field>
-                        <DoorTypes/>
-                    </Form.Group>
-                    <div className="map-tiles">
-                        <Map />
-                    </div>
-                </Form.Field>
-                <Form.Field>
-                    <Penalties/>
-                    <Form.Group>
-                        <LayoutProvider>
-                            <MapInfo/>
-                        </LayoutProvider>
-                    </Form.Group>
-                </Form.Field>
+                    <Form.Field inline>
+                        <Form.Group inline>
+                            <Form.Field inline>
+                                <Form.Group inline>
+                                    <label>Dungeon:</label>
+                                    {Helpers.toAllFirstUpper(dungeon.name)}
+                                </Form.Group>
+                            </Form.Field>
+                            <Form.Field inline>
+                                <Form.Group inline>
+                                    <label>Monsters:</label>
+                                    {Helpers.toAllFirstUpper(monsterData.name)}
+                                </Form.Group>
+                            </Form.Field>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Field inline>
+                                <Form.Group inline>
+                                    <label>Tiles:</label>
+                                    {dungeon.map.tiles.sort().join("/")}
+                                </Form.Group>
+                            </Form.Field>
+                            <DoorTypes/>
+                        </Form.Group>
+                        <div className="map-tiles">
+                            <Map />
+                        </div>
+                    </Form.Field>
+                    <Form.Field>
+                        <Penalties/>
+                        <Form.Group>
+                            <LayoutProvider>
+                                <MapInfo/>
+                            </LayoutProvider>
+                        </Form.Group>
+                    </Form.Field>
             </Form.Group>
         </div>
     )

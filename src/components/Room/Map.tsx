@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LayoutProvider, HexUtils } from "../../react-hexgrid";
+import { LayoutProvider } from "../../react-hexgrid";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import HexOverlay from "../Tabs/Maps/HexOverlay";
 import { useGame } from "../Game/GameProvider";

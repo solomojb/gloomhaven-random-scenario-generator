@@ -1,42 +1,60 @@
 import React, { useEffect, useState } from "react";
+import Point from "../../../../react-hexgrid/models/Point";
 import Tumblers from "../Tumblers";
 
 type Props = {
-  onChanged: (x: number, y: number) => void;
-  initialX: number;
-  initialY: number;
+  onChanged: (point:Point) => void;
+  initialPoint: Point;
   label: string;
+  step?: number;
 };
 
 const OffsetTumblers = (props: Props) => {
-  const { onChanged, initialX, initialY, label } = props;
-  const [offsetX, setOffsetX] = useState<number>(initialX);
-  const [offsetY, setOffsetY] = useState<number>(initialY);
+  const { onChanged, initialPoint, label, step = 1 } = props;
+  const [point, setPoint] = useState<Point>(initialPoint);
 
   useEffect( () => {
-      setOffsetX(initialX);
-      setOffsetY(initialY);
+    setPoint(initialPoint);
+  }, [initialPoint])
 
-  }, [initialX, initialY])
+  useEffect(()=> {
+    onChanged(point)
+  }, [point]);
+
+  const handleKey = (e:any) => {
+    e.preventDefault();
+    switch (e.key) {
+      case "ArrowUp":
+        setPoint( current => ({...current, y:current.y - step}));
+      break;
+      case "ArrowDown":
+        setPoint( current => ({...current, y:current.y + step}));
+      break;
+      case "ArrowLeft":
+        setPoint( current => ({...current, x:current.x - step}));
+        break;
+      case "ArrowRight":
+        setPoint( current => ({...current, x:current.x + step}));
+        break;
+      }
+  }
   
   return (
-    <div>
+    <div onKeyDown={handleKey} tabIndex={0}>
       <Tumblers
-        label={`${label} OffsetX:`}
-        value={offsetX}
-        step={1}
+        label={`${label} X:`}
+        value={point.x}
+        step={step}
         onChange={(value: number) => {
-          setOffsetX(value);
-          onChanged(value, offsetY);
+          setPoint( current => ({...current, x:value}));
         }}
       />
       <Tumblers
-        label={`${label} OffsetY:`}
-        value={offsetY}
-        step={1}
+        label={`${label} Y:`}
+        value={point.y}
+        step={step}
         onChange={(value: number) => {
-          setOffsetY(value);
-          onChanged(offsetX, value);
+          setPoint( current => ({...current, y:value}));
         }}
       />
     </div>
