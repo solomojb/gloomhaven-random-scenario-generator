@@ -7,6 +7,17 @@ import ScenarioContainer from './Scenario/ScenarioContainer';
 
 const MainView = () => {
 
+    // Fix terrain not spawning right
+    // Fix difficult terrain not showing in map info. 
+    // Encampment logs are off
+    // Hovel Table is Off
+    // Library Tables Are off
+    // Store last viewed tab
+    // Store state of dungeon
+    // Add Damage Icon
+    // Make trap icons a bit smaller
+    // Make text be on invisble hex one to the right
+
     let panes = [
         { menuItem: 'Scenario', render: () => <Tab.Pane>
             <FlagsProvider localKey="roomFlags" initialFlags={ShowFlags.ShowAllMap}>
