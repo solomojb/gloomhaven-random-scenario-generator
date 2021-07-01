@@ -10,7 +10,8 @@ export const getOverlayName = (pattern:string) => {
     if (pattern.includes("coin-")) {
       return "Coin"
     }
-    return Helpers.toAllFirstUpper(pattern.replace("-", " "));
+    //@ts-ignore
+    return Helpers.toAllFirstUpper(pattern.replaceAll("-", " "));
   }
   
 

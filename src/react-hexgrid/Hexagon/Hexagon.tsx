@@ -40,14 +40,14 @@ const Hexagon:FC<Props> = (props) => {
     }
   }
 
-  return (
+   return (
     <g
       className={classnames('hexagon-group', className)}
       transform={`translate(${pixel.x}, ${pixel.y}) rotate(${rotation} 0 0)`}
       onClick={doClick}
     >
-      <g className="hexagon">
-        <polygon points={points[type]} fill={fillId || undefined} style={cellStyle} />
+      <g className={`hexagon`}>
+        {fillId  && <polygon points={points[type]} fill={fillId || undefined} style={cellStyle} />}
         {children}
       </g>
     </g>

@@ -7,7 +7,7 @@ import { getOverlayInfo, getOverlayName } from "./MapInfoOverlay";
 
 const MapInfo = () => {
   const {
-    dungeon: { obstacles, corridors },
+    dungeon: { obstacles, corridors, difficultTerrain },
     monsterData: { spawns, traps },
   } = useDungeon();
 
@@ -19,6 +19,12 @@ const MapInfo = () => {
       return <HexPattern id={status} category={"status"}/>
     });
     return {hexes, patterns};
+  }
+
+  const createTextHex = (q: number, r:number, text: string) => {
+      return <Hexagon q={q} r={r} s={0} fill={""}>
+        <Text x={-3} textAnchor="start" textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{text}</Text>
+        </Hexagon>
   }
   
 
@@ -67,7 +73,7 @@ const MapInfo = () => {
     const newInfo: InfoData = {
       pattern: spawn.type,
       category: spawn.category,
-      displayName: `${spawn.category !=="traps" ? getOverlayName(spawn.type) : ""} x ${data.length}`,
+      displayName: `${getOverlayName(spawn.type)} x ${data.length}`,
       traps: spawn.category !=="traps" ? undefined : traps
     }
     return newInfo;
@@ -89,15 +95,14 @@ const MapInfo = () => {
 
   const obstaclesInfo = getOverlayInfo(obstacles, "obstacles");
   const corridorsInfo = getOverlayInfo(corridors, "corridors");
+  const difficultTerrainInfo = getOverlayInfo(difficultTerrain, "difficult-terrain");
   
   let hexes: JSX.Element[] = [];
   let patterns: JSX.Element[] = [];
 
   const buildHex = (q: number, r: number, data: InfoData) => {
-    const {pattern, displayName, additionalData, traps} = data;
-    const textWidth = traps ? traps.length : 0;
+    const {pattern,  additionalData, traps} = data;
     return  <Hexagon key={`MapInfo-${q}-${r}-${pattern}-patttern`} q={q} r={r} s={0} fill={`${pattern.replace(" ", "-")}info`}>
-              <Text x={8 + (textWidth * 11)} y={0} textAnchor="start" textStyle={{fontSize:'3pt', wordWrap: "break-word"}}>{displayName}</Text>
               {additionalData && <Text x={.5} y={-1.3}>{additionalData}</Text>}
             </Hexagon>
         
@@ -107,15 +112,19 @@ const MapInfo = () => {
 
   let q = -1;
   let r = -5; 
-  const allInfo = [...monsterInfo, ...nonTreasuresInfo, ...obstaclesInfo, ...corridorsInfo, ...treasuresInfo];
+  const allInfo = [...monsterInfo, ...nonTreasuresInfo, ...obstaclesInfo, ...corridorsInfo, ...difficultTerrainInfo, ...treasuresInfo];
 
   allInfo.forEach(info => 
     {
       hexes.push(buildHex(q,r,info));
+      let currentCount = hexes.length;
       if (info.category === "traps") {
         const {hexes: trapHexes, patterns:trapPatterns} = createEffectHexAndPattern(info.traps!, q,r);
         hexes = hexes.concat(trapHexes);
         patterns = patterns.concat(trapPatterns);
+      }
+      if (info.displayName) {
+        hexes.push(createTextHex(q + 1 + hexes.length - currentCount, r, info.displayName));
       }
       if (info.monsterType === "elite") {
         hexes.push(buildHex(q,r,{pattern:"EliteOverlay", category:"monster", displayName:""}));
