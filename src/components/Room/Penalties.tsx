@@ -6,7 +6,7 @@ import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 
 const Penalties = () =>  {
     const { dungeon: {penalties}, roomNumber } = useDungeon();
-    const { penalties: pentalitesChosen} = useScenario();
+    const { scenarioData:{penalties: pentalitesChosen}} = useScenario();
 
     const getHtml = (index: number) => {
         const penalty = penalties[index];

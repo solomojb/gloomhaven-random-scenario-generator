@@ -2,16 +2,20 @@ import React, { createContext, FC, useContext, useEffect, useState } from "react
 import { useGame } from "../Game/GameProvider";
 import { ShowFlags, useFlags } from "./FlagsProvider";
 
+
 type RoomData = {
-    dungeon: Dungeon;
-    monsters: MonsterData;
+    dungeonName: string;
+    monsterName: string;
     chosenEntrance: string;
     chosenExit:string;
 }
-
-type ContextData = {
+type ScenarioData = {
     rooms: RoomData[];
     penalties: string[];
+}
+
+type ContextData = {
+    scenarioData: ScenarioData
     getNextRoom : (aOrB:string, roomNumber:number) => void;
     gotoPreviousRoom : (roomNumber:number) => void;
     isDoorShown: (aOrB:string,roomNumber: number, type: string) => boolean
@@ -22,8 +26,10 @@ type ContextData = {
 }
 
 const initialContext:ContextData = {
-    rooms: [], 
-    penalties: [],
+    scenarioData: {
+        rooms:[],
+        penalties: [],
+    },
     getNextRoom : () => {},
     gotoPreviousRoom : (roomNumber:number) => {},
     resetScenario : () => {},
@@ -57,26 +63,50 @@ const ScenarioProvider:FC = (props) => {
     }
 
 
-    const [dungeons, setDungeons] = useState<Dungeon[]>(game.getRandomDungeons());
-    const [monsters, setMonsters] = useState<MonsterData[]>(getMonsters());
-    const [rooms, setRooms] = useState<RoomData[]>([]);
-    const [penalties, setPenalites] = useState<string[]>(["none", "none", "none"]);
+    const [dungeons, setDungeons] = useState<Dungeon[]>([]);
+    const [monsters, setMonsters] = useState<MonsterData[]>([]);
+    const [scenarioData, setScenarioData] = useState<ScenarioData>({rooms:[], penalties:[]});
     const [activeRoomNumber, setActiveRoomNumber] = useState<number>(0);
 
+    useEffect(() => {
+        const savedData =localStorage.getItem("scenario");
+        let scenarioData:ScenarioData = { rooms:[], penalties:["none", "none", "none"]};
+        let d = game.getRandomDungeons();
+        let m = getMonsters();
+        if (savedData) {
+            scenarioData = JSON.parse(savedData);
+            scenarioData.rooms.forEach(room => {
+                const dIndex = d.findIndex( dungeon => dungeon.name === room.dungeonName);
+                d = d.splice(dIndex,1);
+                const mIndex = m.findIndex( monster => monster.name === room.monsterName);
+                m = m.splice(mIndex,1);
+            })
+        } 
+        setDungeons(d);
+        setMonsters(m);
+        setScenarioData(scenarioData);
+    }, []);
+
     const resetScenario = () => {
-        setRooms([]);
+        setScenarioData({ rooms:[], penalties:["none", "none", "none"]});
+        localStorage.removeItem("scenario");
         setDungeons(game.getRandomDungeons());
         setMonsters(getMonsters());
-        setPenalites(["none", "none", "none"]);
         setActiveRoomNumber(0);
     }
+
+    useEffect(() => {
+        if (scenarioData.rooms.length > 0) {
+            localStorage.setItem("scenario", JSON.stringify(scenarioData));
+        }
+    }, [scenarioData])
 
     const getNextRoom = (aOrB:string, roomNumber:number) => {
         if (roomNumber >= 2) {
             return;
         }
 
-        if ((roomNumber >= 0) && rooms[roomNumber + 1]) {
+        if ((roomNumber >= 0) && scenarioData.rooms[roomNumber + 1]) {
             setActiveRoomNumber(roomNumber + 1);
             return;
         }
@@ -91,16 +121,15 @@ const ScenarioProvider:FC = (props) => {
             return;
         }
 
-        const roomData:RoomData = { monsters: monster, dungeon: dungeon, chosenEntrance:aOrB, chosenExit:""};
-        setRooms( (current:RoomData[]) => {
-            const newRooms = Object.assign([], current);
-            newRooms.push(roomData);
+        const roomData:RoomData = { monsterName: monster.name, dungeonName: dungeon.name, chosenEntrance:aOrB, chosenExit:""};
+        setScenarioData( current => {
+            const rooms = [...current.rooms, roomData];
             if (roomNumber > 0) {
-                const currentRoom = newRooms[roomNumber] as RoomData;
+                const currentRoom = rooms[roomNumber];
                 currentRoom.chosenExit = aOrB;
             }
-            return newRooms;
-        })
+            return {...current, rooms}}
+        );
         setActiveRoomNumber(roomNumber + 1);
     }
 
@@ -114,10 +143,10 @@ const ScenarioProvider:FC = (props) => {
 
 
     const isDoorShown = (aOrB:string,roomNumber: number, type: string) => {
-        if (roomNumber >= rooms.length) {
+        if (roomNumber >= scenarioData.rooms.length) {
             return true;
         }
-        const { chosenEntrance, chosenExit } = rooms[roomNumber];
+        const { chosenEntrance, chosenExit } = scenarioData.rooms[roomNumber];
         
         if (type === "Entrance" && chosenEntrance.length > 0 && chosenEntrance != aOrB) {
             return false;
@@ -136,16 +165,16 @@ const ScenarioProvider:FC = (props) => {
     }
 
     const setPenalty = (roomNumber:number, penalty:string) => {
-        setPenalites( current => {
-            const newPenalties: string[] = Object.assign([], current);
-            newPenalties[roomNumber] = penalty;
-            return  newPenalties;
-        })
+        setScenarioData( current => {
+            const penalties = [...current.penalties];
+            penalties[roomNumber] = penalty;
+            return {...current, penalties};
+        });        
     }
 
     const { Provider } = ScenarioContext;
 
-    return <Provider value={{rooms, getNextRoom, gotoPreviousRoom, isDoorShown, resetScenario, penalties, setPenalty, activeRoomNumber, setActiveRoomNumber}}>{children}</Provider>
+    return <Provider value={{scenarioData, getNextRoom, gotoPreviousRoom, isDoorShown, resetScenario, setPenalty, activeRoomNumber, setActiveRoomNumber}}>{children}</Provider>
 }
 
 export default ScenarioProvider;

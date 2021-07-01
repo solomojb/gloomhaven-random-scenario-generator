@@ -9,7 +9,8 @@ import { useScenario } from "../../Providers/ScenarioProvider";
 
   const PenaltyButton = (props: PenaltyProps) => {
     const { penalty, roomNumber } = props;
-    const { penalties, setPenalty } = useScenario();
+    const { scenarioData:{penalties}, setPenalty} = useScenario();
+
     return (
       <Button
         positive={penalties[roomNumber] === penalty}
