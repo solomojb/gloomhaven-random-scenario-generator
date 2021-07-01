@@ -9,14 +9,12 @@ const MainView = () => {
     const [ currentTab, setCurrentTab] = useState<number>(parseFloat((localStorage.getItem("lastTab") as string|| "0")));
 
     // Fix terrain not spawning right
-    // Maps that are off
         // Encampment logs are off
         // Hovel Table is Off
         // Library Tables Are off
     // Store state of dungeon
     // Add Damage Icon
     // Make trap icons a bit smaller
-    // Make text be on invisble hex one to the right
     // Add edit flag?
 
     let panes = [

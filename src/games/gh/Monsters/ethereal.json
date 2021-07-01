@@ -1,5 +1,6 @@
 {
   "name": "ethereal",
+  "game": "FC",
   "spawns": [
     {
       "data": [2, 3, 8, 9],

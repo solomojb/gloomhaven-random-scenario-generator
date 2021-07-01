@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useState } from "react"
+import React, { createContext, FC, useContext, useEffect, useState } from "react"
 import { useGame } from "../Game/GameProvider";
 import { ShowFlags, useFlags } from "./FlagsProvider";
 
@@ -39,11 +39,7 @@ export function useScenario() {
     return useContext(ScenarioContext);
 }
 
-type Props = {
-    children: ReactNode | ReactNode[];
-}
-
-const ScenarioProvider = (props: Props) => {
+const ScenarioProvider:FC = (props) => {
     const { children } = props;
     const game = useGame();
     const { isFlagSet } = useFlags();
@@ -51,7 +47,7 @@ const ScenarioProvider = (props: Props) => {
     const getMonsters = () => {
         const filter = (data:MonsterData) => {
             if (!isFlagSet(ShowFlags.AddForgottenCircles)) {
-                return data.name !== "arid" && data.name !== "ethereal";
+                return data.game !== "FC";
             }
             return true;
         }

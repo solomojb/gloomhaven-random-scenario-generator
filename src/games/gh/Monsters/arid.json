@@ -1,5 +1,6 @@
 {
   "name": "arid",
+  "game": "FC",
   "traps": ["POISON", "DAMAGE"],
   "spawns": [
     {
