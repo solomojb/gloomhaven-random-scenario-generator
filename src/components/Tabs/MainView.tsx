@@ -8,11 +8,6 @@ import ScenarioContainer from './Scenario/ScenarioContainer';
 const MainView = () => {
     const [ currentTab, setCurrentTab] = useState<number>(parseFloat((localStorage.getItem("lastTab") as string|| "0")));
 
-    // Fix terrain not spawning right
-        // Encampment logs are off
-        // Hovel Table is Off
-        // Library Tables Are off
-    // Store state of dungeon
     // Add Damage Icon
     // Make trap icons a bit smaller
     // Add edit flag?

@@ -15,7 +15,7 @@ type Props = {
 export const getHexTypeOffsets = (hexType:string | undefined) => {
     switch (hexType) {
         case "2x1R":
-            return {scale:{x:2, y:1.2},
+            return {scale:{x:1, y:2},
             offset: {x:10, y:-1}}
         case "2x1D":
             return {scale:{x:1, y:2},}
