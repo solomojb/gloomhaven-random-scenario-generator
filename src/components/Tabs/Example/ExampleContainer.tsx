@@ -1,6 +1,6 @@
 import React from "react";
 import { ExampleTile } from "./ExampleTile";
-import {LayoutProvider, HexGrid} from "../../../react-hexgrid-2"
+import {LayoutProvider, HexGrid} from "../../../react-hexgrid"
 import "./Example.css";
 
 const GRID_SIZE = 40;

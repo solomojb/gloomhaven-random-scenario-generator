@@ -1,5 +1,5 @@
 import React, { useContext, createContext, ReactNode, useEffect, useState, FC, useMemo } from 'react'
-import Point from '../../react-hexgrid-2/models/Point';
+import {Point} from '../../react-hexgrid';
 import { useDungeon } from '../Tabs/Maps/DungeonProvider';
 
 type ContextData = {

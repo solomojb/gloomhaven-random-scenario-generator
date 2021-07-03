@@ -2,7 +2,7 @@ import React from "react";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import { usePlayerCount } from "../Providers/PlayerCountProvider";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
-import { useLayout } from "../../react-hexgrid-2/LayoutProvider";
+import { useLayout } from "../../react-hexgrid";
 import { GridTile } from "./GridTile";
 
 const SpawnLayer = () => {

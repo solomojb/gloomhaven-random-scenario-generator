@@ -1,8 +1,7 @@
 import React from "react";
 import { Helpers } from "../../../helpers";
 // import { Helpers } from "../../helpers";
-import { Hexagon } from "../../../react-hexgrid-2";
-import { useLayout } from "../../../react-hexgrid-2/LayoutProvider";
+import { Hexagon, useLayout } from "../../../react-hexgrid";
 import { useGame } from "../../Game/GameProvider";
 // import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 

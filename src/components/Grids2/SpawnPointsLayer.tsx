@@ -2,7 +2,7 @@ import React, { ReactNode } from "react"
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 import { GridTile } from "./GridTile";
-import { useLayout } from "../../react-hexgrid-2/LayoutProvider";
+import { useLayout } from "../../react-hexgrid";
 
 const SpawnPointsLayer = () => {
     const { dungeon: {spawnPoints}} = useDungeon();

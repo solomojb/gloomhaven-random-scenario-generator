@@ -1,7 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import { Helpers } from "../../helpers";
-import { Hexagon } from "../../react-hexgrid-2";
-import { useLayout } from "../../react-hexgrid-2/LayoutProvider";
+import { Hexagon, useLayout } from "../../react-hexgrid";
 import { useGame } from "../Game/GameProvider";
 
 type Props = {

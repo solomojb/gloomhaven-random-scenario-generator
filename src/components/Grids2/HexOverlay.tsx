@@ -1,5 +1,5 @@
 import React from "react"
-import { HexGrid } from "../../react-hexgrid-2";
+import { HexGrid } from "../../react-hexgrid";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import MapGrid from "./MapGrid";
 import SpawnPointsLayer from "./SpawnPointsLayer";

@@ -2,7 +2,7 @@ import React from "react"
 import { Form } from "semantic-ui-react";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import Map from "./Map";
-import { LayoutProvider} from "../../react-hexgrid-2";
+import { LayoutProvider} from "../../react-hexgrid";
 
 import DoorTypes from "./DoorTypes";
 import Penalties from "./Penalties";

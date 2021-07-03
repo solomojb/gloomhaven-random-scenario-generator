@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Point from "../../../../react-hexgrid-2/models/Point";
+import { Point } from "../../../../react-hexgrid";
 import Tumblers from "../Tumblers";
 
 type Props = {

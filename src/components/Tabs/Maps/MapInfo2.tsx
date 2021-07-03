@@ -1,10 +1,9 @@
 import React from "react";
-import { Hex, HexGrid, HexUtils } from "../../../react-hexgrid-2";
+import { Hex, HexGrid, HexUtils, useLayout } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import { usePlayerCount } from "../../Providers/PlayerCountProvider";
 import { getOverlayInfo, getOverlayName } from "./MapInfoOverlay";
 import { GridTile } from "../../Grids2/GridTile";
-import { useLayout } from "../../../react-hexgrid-2/LayoutProvider";
 
 const MapInfo2 = () => {
   const {

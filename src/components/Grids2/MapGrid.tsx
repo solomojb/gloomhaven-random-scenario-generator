@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import { useLayout } from "../../react-hexgrid-2/LayoutProvider";
+import { useLayout } from "../../react-hexgrid";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider"
 import { GridTile } from "./GridTile";

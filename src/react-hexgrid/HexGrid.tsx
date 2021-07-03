@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import Point from './models/Point';
 
 type Props = {
   className?: string;
