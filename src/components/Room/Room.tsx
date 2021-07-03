@@ -3,15 +3,21 @@ import { Form } from "semantic-ui-react";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import Map from "./Map";
 import { LayoutProvider } from "../../react-hexgrid";
+import { LayoutProvider as LayoutProvider2} from "../../react-hexgrid-2";
 
 import DoorTypes from "./DoorTypes";
 import Penalties from "./Penalties";
 import MapInfo from "../Tabs/Maps/MapInfo";
+import MapInfo2 from "../Tabs/Maps/MapInfo2";
 import "../Tabs/Maps/map.css"
 import { Helpers } from "../../helpers";
+import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
+
+const GRID_SIZE = 40;
 
 const Room = () => {
     const { dungeon, monsterData } = useDungeon();
+    const {isFlagSet} = useFlags();
     return (
         <div>
             <Form.Group>
@@ -46,9 +52,15 @@ const Room = () => {
                     <Form.Field>
                         <Penalties/>
                         <Form.Group>
+                            {isFlagSet(ShowFlags.NewHex)?
+                                <LayoutProvider2 size={{x:GRID_SIZE, y:GRID_SIZE}}>
+                                <MapInfo2/>
+                            </LayoutProvider2>
+                        :
                             <LayoutProvider>
                                 <MapInfo/>
                             </LayoutProvider>
+                        }
                         </Form.Group>
                     </Form.Field>
             </Form.Group>

@@ -77,6 +77,10 @@ export abstract class BaseGameData {
         return require(`../img/doors/${rotatedHex?"Vert":"Horiz"}-${type}.png`);
     }
 
+    getStatusPath(id:string) {
+        return require('../img/icons/status/'+id.toLowerCase()+'.png')
+    }
+
     getMapPath(tile:string) {
         return require(`../img/maps/${tile}.png`);
     }

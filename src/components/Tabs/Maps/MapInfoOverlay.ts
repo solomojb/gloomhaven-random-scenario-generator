@@ -40,7 +40,7 @@ export const getOverlayInfo = (overlays: OverlayTile[], category: SpawnCategory)
          
     const overlayReducer = (acc: OverlayMap, current:OverlayTile) =>{
       if (!acc[current.pattern]) {
-        acc[current.pattern] = {pattern: current.pattern, category, displayName: `${getOverlayName(current.pattern)} x ${overlayCounts[current.pattern]}`};
+        acc[current.pattern] = {pattern: current.pattern, category, hexType: current.hexType, displayName: `${getOverlayName(current.pattern)} x ${overlayCounts[current.pattern]}`};
       } 
       return acc;
     }

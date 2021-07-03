@@ -114,6 +114,18 @@ svg path {
   stroke-linejoin: round;
 }
 
+.map-info {
+  width: 500px;
+  height: 800px;
+  background-color: lightgray;
+  position: relative;
+}
+
+.map-info-grid {
+  position: relative;
+  top: 320px;
+  left: 300px;
+}
 .new-hex-grid {
   position: absolute;
   top: 288px;

@@ -118,36 +118,43 @@ export class Helpers {
       }
 
       static getLink = ({game, category, id, rotate = false, hexType, rotation = 0}:{game:BaseGameData, category:string, id:string, rotate?:boolean, hexType?:string, rotation?:number}) => {
+          if (id.length === 0 || category.length === 0){
+              return {link:"", style:{}};
+          }
         let link = undefined;
         let style = {};
-      if (category === "monster") {
-          link = game.getMonsterImage(id, rotate);
-          // patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
-      } else if (category === "doors") {
-        link = game.getDoorImage2(id, rotate);
-        // patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
-    } else if (category === "treasures") {
-          link = game.getTreasureImage(rotate);
-          // patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
-      } else if (category === "coin") {
-          link = game.getCoinImage();
-          // patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
-      } else {
-          link = game.getOverlayTokenPath(id, category);
-          let transform:string = "";
-          let transformOrigin:string ="";
-          const objectRotation = ((rotate ? 90 : 0)+ rotation)% 360;
-          if (objectRotation) {
-              transform += `rotate(${objectRotation}deg)`;
-          }
+        switch (category) {
+            case "monster":
+                console.log({category, id});
+                link = game.getMonsterImage(id, rotate);
+              break;
+            case "doors":
+              link = game.getDoorImage2(id, rotate);
+              break;
+            case "treasures":   
+              link = game.getTreasureImage(rotate);
+              break;
+            case "coin":
+              link = game.getCoinImage();
+              break;
+            case "status":
+              link = game.getStatusPath(id);
+              break;
+        default:
+                link = game.getOverlayTokenPath(id, category);
+                let transform:string = "";
+                let transformOrigin:string ="";
+                const objectRotation = ((rotate ? 90 : 0)+ rotation)% 360;
+                if (objectRotation) {
+                    transform += `rotate(${objectRotation}deg)`;
+                }
 
-          if (hexType == "2x1R" || hexType=="2x1D") {
-            transform += ` scaleY(2)`;
-            transform += ` translateY(25%)`
-          }
-            style = {transform, transformOrigin}
-          // const transform = `translateX(${offsetX||0}px) translateY(${offsetY||0}px)`;
-          // imageStyle = {transform}
+                if (hexType == "2x1R" || hexType=="2x1D") {
+                    transform += ` scaleY(2)`;
+                    transform += ` translateY(25%)`
+                }
+                style = {transform, transformOrigin}
+                break;
       }
       return {link, style};
     }
