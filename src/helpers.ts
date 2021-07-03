@@ -125,7 +125,6 @@ export class Helpers {
         let style = {};
         switch (category) {
             case "monster":
-                console.log({category, id});
                 link = game.getMonsterImage(id, rotate);
               break;
             case "doors":
@@ -149,9 +148,13 @@ export class Helpers {
                     transform += `rotate(${objectRotation}deg)`;
                 }
 
-                if (hexType == "2x1R" || hexType=="2x1D") {
+                if (hexType === "2x1R" || hexType === "2x1D") {
                     transform += ` scaleY(2)`;
                     transform += ` translateY(25%)`
+                }
+                if (hexType === "2x3") {
+                    transform += ` scale(2)`;
+                    transform += ` translate(25%, 25%)`
                 }
                 style = {transform, transformOrigin}
                 break;

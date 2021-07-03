@@ -7,7 +7,7 @@ import HexOverlay2 from "../Grids2/HexOverlay2";
 import { useGame } from "../Game/GameProvider";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 
-const GRID_SIZE = 30;
+const GRID_SIZE = 31;
 
 const Map = () => {
   const {dungeon: {name, map:{rotateHex}}
