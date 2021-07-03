@@ -123,7 +123,10 @@ export class Helpers {
       if (category === "monster") {
           link = game.getMonsterImage(id, rotate);
           // patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
-      } else if (category === "treasures") {
+      } else if (category === "doors") {
+        link = game.getDoorImage2(id, rotate);
+        // patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
+    } else if (category === "treasures") {
           link = game.getTreasureImage(rotate);
           // patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
       } else if (category === "coin") {
@@ -138,7 +141,7 @@ export class Helpers {
               transform += `rotate(${objectRotation}deg)`;
           }
 
-          if (hexType == "2x1") {
+          if (hexType == "2x1R" || hexType=="2x1D") {
             transform += ` scaleY(2)`;
             transform += ` translateY(25%)`
           }

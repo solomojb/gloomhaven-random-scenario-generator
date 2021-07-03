@@ -113,3 +113,9 @@ svg path {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+.new-hex-grid {
+  position: absolute;
+  top: 288px;
+  left: 219px;
+}
