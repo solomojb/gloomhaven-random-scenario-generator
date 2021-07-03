@@ -7,7 +7,7 @@ export enum ShowFlags {
     Corridors           = 1 << 3,
     Spawns              = 1 << 4,
     EditMode            = 1 << 5,
-    NewHex              = 1 << 6,
+    Unused6              = 1 << 6,
     Doors               = 1 << 7,
     Selectors           = 1 << 8,
     Unused9             = 1 << 9,
