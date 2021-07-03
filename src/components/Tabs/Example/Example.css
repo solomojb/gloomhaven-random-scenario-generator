@@ -1,0 +1,25 @@
+.grid-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 800px;
+    width: 1000px;
+}
+
+.example-grid {
+    position: relative;
+    width: 500px;
+    height: 800px;
+    border-color: black;
+    border-style: solid;
+
+}
+
+.example-grid-green {
+    top: 150px;
+    position: relative;
+    width: 500px;
+    height: 800px;
+    border-color: black;
+    border-style: solid;
+}

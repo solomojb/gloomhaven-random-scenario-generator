@@ -1,3 +1,4 @@
+declare module 'list-react-files';
 interface HexColumn {
     q: number;
     minR: number;

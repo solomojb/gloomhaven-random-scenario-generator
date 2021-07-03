@@ -1,3 +1,5 @@
+import { BaseGameData } from "./games";
+
 export class Helpers {
     static uniqueArray(arr: Array<any>, sort: boolean = true) {
         const result: Array<any> = [];
@@ -114,5 +116,37 @@ export class Helpers {
       static  toAllFirstUpper( str: string) {
         return str ? str.split(" ").map(word => word[0].toUpperCase() + word.substr(1)).join(" ") : str;
       }
+
+      static getLink = ({game, category, id, rotate = false, hexType, rotation = 0}:{game:BaseGameData, category:string, id:string, rotate?:boolean, hexType?:string, rotation?:number}) => {
+        let link = undefined;
+        let style = {};
+      if (category === "monster") {
+          link = game.getMonsterImage(id, rotate);
+          // patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
+      } else if (category === "treasures") {
+          link = game.getTreasureImage(rotate);
+          // patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
+      } else if (category === "coin") {
+          link = game.getCoinImage();
+          // patternStyle = {transform: `scaleX(${scale.x}) scaley(${scale.y})`}
+      } else {
+          link = game.getOverlayTokenPath(id, category);
+          let transform:string = "";
+          let transformOrigin:string ="";
+          const objectRotation = ((rotate ? 90 : 0)+ rotation)% 360;
+          if (objectRotation) {
+              transform += `rotate(${objectRotation}deg)`;
+          }
+
+          if (hexType == "2x1") {
+            transform += ` scaleY(2)`;
+            transform += ` translateY(25%)`
+          }
+            style = {transform, transformOrigin}
+          // const transform = `translateX(${offsetX||0}px) translateY(${offsetY||0}px)`;
+          // imageStyle = {transform}
+      }
+      return {link, style};
+    }
       
 }
