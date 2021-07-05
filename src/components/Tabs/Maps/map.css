@@ -1,7 +1,3 @@
-.map-container {
-    display: flex;
-}
-
 .map {
     position: relative;
 }
@@ -11,47 +7,9 @@
   min-height: 600px;
 }
 
-.map-spawn-point {
-    position: absolute;
-    width: 60px;
-    height: 52px;
-}
-
-.map-spawn-id {
-    width: 59px;
-    text-align: center;
-    line-height: 50px;
-    color: black;
-    position: absolute;
-    top: 0;
-}
-
-.map-spawn-point img{
-  max-width: 60px;
-  max-height: 52px;
-}
-
-.rotated {
-  transform-origin: center;
-  transform: rotate(90deg);
-}
-
 .dungeon-card {
   max-width: 250px;
   max-height: 350px
-}
-
-.monster-tile {
-  position: relative;
-}
-
-.monster-image {
-  transform: scale(1.2);
-  position: absolute;
-}
-
-.monster-image-info {
-  width: 75px;
 }
 
 .map-grid {
@@ -68,52 +26,6 @@
   transition: fill-opacity .5s
 }
 
-.rotated90 {
-  transform: rotate(90deg);
-}
-
-svg {
-}
-/*
-Russian blue pattern:
-#7be3f6
-#4499a9
-#276a76
-#133b43
-#03090a
-*/
-svg g {
-  fill: #4499a9;
-  fill-opacity: 1;
-}
-svg g:hover {
-  fill: #7be3f6;
-  fill-opacity: 1;
-}
-svg g:hover text {
-  fill-opacity: 1;
-}
-
-.map-grid svg g polygon {
-  stroke: none;
-  stroke-width: 0.2;
-  transition: fill-opacity .5s
-}
-svg g text {
-  font-size: 0.25em;
-  fill: black;
-  fill-opacity: 0.7;
-  transition: fill-opacity .5s;
-}
-svg path {
-  fill: none;
-  stroke: #7be3f6;
-  stroke-width: 0.2em;
-  stroke-opacity: 0.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
 .map-info {
   width: 500px;
   height: 800px;
@@ -123,11 +35,7 @@ svg path {
 
 .map-info-grid {
   position: relative;
-  top: 320px;
-  left: 300px;
 }
 .new-hex-grid {
   position: absolute;
-  top: 291px;
-  left: 219px;
 }

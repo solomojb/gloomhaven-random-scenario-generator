@@ -21,7 +21,7 @@ const game = useGame();
         <div>
           <img src={pathName}/>
         </div>
-          <LayoutProvider size={{x:GRID_SIZE, y:GRID_SIZE}} flat={!rotateHex}>
+          <LayoutProvider size={{x:GRID_SIZE, y:GRID_SIZE}} flat={!rotateHex} origin={{x:219,y:292}}>
             <HexOverlay/>
           </LayoutProvider>
     </div>

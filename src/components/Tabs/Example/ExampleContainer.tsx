@@ -1,6 +1,6 @@
 import React from "react";
 import { ExampleTile } from "./ExampleTile";
-import {LayoutProvider, HexGrid} from "../../../react-hexgrid"
+import {LayoutProvider} from "../../../react-hexgrid"
 import "./Example.css";
 
 const GRID_SIZE = 40;
@@ -8,7 +8,7 @@ export const ExampleContainer = () => {
     return (
         <div className="grid-container">
             <LayoutProvider spacing={1} size={{x:GRID_SIZE, y:GRID_SIZE}} flat={true}>
-                <HexGrid className="example-grid">
+                <div className="example-grid">
                     <ExampleTile q={0} r={0} category="corridors" id="earth-1"/>
                     <ExampleTile q={0} r={1} category="corridors" id="man-made-stone-1"/>
                     <ExampleTile q={0} r={2} category="corridors" id="natural-stone-1"/>
@@ -30,10 +30,10 @@ export const ExampleContainer = () => {
                     <ExampleTile q={4} r={-2} category="monster" id="EliteOverlay"/>
                     <ExampleTile q={4} r={-1} category="monster" id="Bandit Guard"/>
                     <ExampleTile q={4} r={0} category="monster" id="Black Imp"/> 
-                </HexGrid>
+                </div>
             </LayoutProvider>
             <LayoutProvider spacing={1} size={{x:GRID_SIZE, y:GRID_SIZE}} flat={false}>
-                <HexGrid className="example-grid-green">   
+                <div className="example-grid-green">   
                     <ExampleTile q={0} r={0} category="corridors" id="earth-1"/>
                     <ExampleTile q={0} r={1} category="corridors" id="man-made-stone-1"/>
                     <ExampleTile q={0} r={2} category="corridors" id="natural-stone-1"/>
@@ -55,7 +55,7 @@ export const ExampleContainer = () => {
                     <ExampleTile q={4} r={-2} category="monster" id="EliteOverlay"/>
                     <ExampleTile q={4} r={-1} category="monster" id="Bandit Guard"/>
                     <ExampleTile q={4} r={0} category="monster" id="Black Imp"/>
-                </HexGrid>
+                </div>
             </LayoutProvider>            
         </div>
     );

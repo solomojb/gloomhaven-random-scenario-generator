@@ -1,5 +1,5 @@
 import React from "react";
-import { HexGrid, useLayout } from "../../../react-hexgrid";
+import { useLayout } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import { usePlayerCount } from "../../Providers/PlayerCountProvider";
 import { getOverlayInfo, getOverlayName } from "./MapInfoOverlay";
@@ -133,9 +133,9 @@ const MapInfo = () => {
    
   return (
     <div className="map-info">
-      <HexGrid className="map-info-grid">
+      <div className="map-info-grid">
         {hexes}
-      </HexGrid>
+      </div>
     </div>
   );
 };

@@ -49,7 +49,7 @@ const Room = () => {
                     <Form.Field>
                         <Penalties/>
                         <Form.Group>
-                            <LayoutProvider size={{x:GRID_SIZE, y:GRID_SIZE}}>
+                            <LayoutProvider size={{x:GRID_SIZE, y:GRID_SIZE}} origin={{x:300,y:320}}>
                                 <MapInfo/>
                             </LayoutProvider>
                         </Form.Group>

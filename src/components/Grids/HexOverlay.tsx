@@ -1,5 +1,4 @@
 import React from "react"
-import { HexGrid } from "../../react-hexgrid";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import MapGrid from "./MapGrid";
 import SpawnPointsLayer from "./SpawnPointsLayer";
@@ -10,7 +9,7 @@ import { ShowFlags } from "../Providers/FlagsProvider";
 import "../../components/Tabs/Maps/map.css"
 import DoorLayer from "./DoorLayer";
 
-const HexOverlay2 = () => { 
+const HexOverlay = () => { 
   const { dungeon: {obstacles, corridors, difficultTerrain}} = useDungeon();
 
   const gridHexes = MapGrid();
@@ -22,7 +21,7 @@ const HexOverlay2 = () => {
   const doorHexes = DoorLayer();
 
   return <div className="map-grid">
-          <HexGrid className="new-hex-grid"> 
+          <div className="new-hex-grid"> 
             {/* Grid with manually inserted hexagons */}
               {gridHexes}
               {corridorHexes}
@@ -31,8 +30,8 @@ const HexOverlay2 = () => {
               {difficultTerrainHexes}
               {spawnHexes}
               {doorHexes}
-          </HexGrid>
+          </div>
         </div>
 }
 
-export default HexOverlay2;
+export default HexOverlay;
