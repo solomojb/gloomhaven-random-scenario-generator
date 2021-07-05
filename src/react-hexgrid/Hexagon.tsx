@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-// import Hex from '../models/Hex';
-import { useLayout } from '../LayoutProvider';
+import { useLayout } from './LayoutProvider';
 
 type Props = {
   q: number,
