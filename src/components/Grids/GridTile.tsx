@@ -19,7 +19,7 @@ export const GridTile:FC<Props> = (props) => {
     const game = useGame();
     const {rotateHex} = useLayout();
     const {link, style} = Helpers.getLink({game, category, id, rotate:rotateHex, hexType, rotation});
-    return <Hexagon q={q} r={r} s={0} src={link} style={style} onClick={onClick}>
+    return <Hexagon q={q} r={r} src={link} style={style} onClick={onClick}>
         {children}
     </Hexagon>
 }

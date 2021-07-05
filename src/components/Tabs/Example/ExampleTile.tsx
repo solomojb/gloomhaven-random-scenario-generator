@@ -19,7 +19,7 @@ export const ExampleTile = (props: Props) => {
     const game = useGame();
     const {size, rotateHex} = useLayout();
     const {link, style} = Helpers.getLink({game, category, id, rotate:rotateHex, hexType, rotation});
-    return <Hexagon q={q} r={r} s={0} src={link} style={style}>
+    return <Hexagon q={q} r={r} src={link} style={style}>
         <div style={{fontSize:size.x/2, position:"absolute"}}>{`${q},${r}`}</div>
     </Hexagon>
 }

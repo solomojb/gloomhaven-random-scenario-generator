@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { GridTile } from "../Grids2/GridTile";
+import { GridTile } from "./GridTile";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 
 type Props = {

@@ -3,9 +3,9 @@ import { HexGrid, useLayout } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import { usePlayerCount } from "../../Providers/PlayerCountProvider";
 import { getOverlayInfo, getOverlayName } from "./MapInfoOverlay";
-import { GridTile } from "../../Grids2/GridTile";
+import { GridTile } from "../../Grids/GridTile";
 
-const MapInfo2 = () => {
+const MapInfo = () => {
   const {
     dungeon: { obstacles, corridors, difficultTerrain },
     monsterData: { spawns, traps },
@@ -19,8 +19,7 @@ const MapInfo2 = () => {
   }
 
   const createTextHex = (q: number, r:number, text: string) => {
-    const hex: Hex = {q, r, s:0};
-    const pixel = getPosition(hex);
+    const pixel = getPosition({q, r});
   
       return <div style={{fontSize:"13pt", position:"absolute", transform: `translate(${pixel.x+25}px, ${pixel.y+25}px)`}}>{`${text}`}</div>
   }
@@ -141,4 +140,4 @@ const MapInfo2 = () => {
   );
 };
 
-export default MapInfo2;
+export default MapInfo;

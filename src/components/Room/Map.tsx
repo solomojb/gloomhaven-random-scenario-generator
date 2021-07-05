@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { LayoutProvider } from "../../react-hexgrid";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
-import HexOverlay from "../Grids2/HexOverlay";
+import HexOverlay from "../Grids/HexOverlay";
 import { useGame } from "../Game/GameProvider";
 
 const GRID_SIZE = 31;

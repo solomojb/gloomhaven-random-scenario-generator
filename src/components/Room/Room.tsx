@@ -6,7 +6,7 @@ import { LayoutProvider} from "../../react-hexgrid";
 
 import DoorTypes from "./DoorTypes";
 import Penalties from "./Penalties";
-import MapInfo2 from "../Tabs/Maps/MapInfo2";
+import MapInfo from "../Tabs/Maps/MapInfo";
 import { Helpers } from "../../helpers";
 
 import "../Tabs/Maps/map.css"
@@ -50,7 +50,7 @@ const Room = () => {
                         <Penalties/>
                         <Form.Group>
                             <LayoutProvider size={{x:GRID_SIZE, y:GRID_SIZE}}>
-                                <MapInfo2/>
+                                <MapInfo/>
                             </LayoutProvider>
                         </Form.Group>
                     </Form.Field>
