@@ -1,49 +1,15 @@
-import React, { createContext, FC, useContext, useMemo } from "react"
-import HexUtils from "./HexUtils";
-import Orientation from "./models/Orientation";
-import Point from "./models/Point";
+import React, { createContext, FC, useCallback, useContext, useMemo } from "react"
 
-type PointsMap = {
-    [k in string] : string;
-  }
-  
 type LayoutContextType = {
   origin: Point;
   size: Point;
   spacing: number;
   orientation: Orientation;
-  points: PointsMap;
   rotateHex: boolean;
+  getPosition: (hex:Hex) => Point;
 }
 
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
-
-const getPoints =(corners: Point[], starting: number, count = 6) => {
-  return [...Array(count)].map((_c, index) => corners[(index +starting)%6]);
-}
-
-export const createLayouts = (flat: boolean, size: Point) => {
-  const originalCorners = HexUtils.calculateCoordinates(flat, size);
-
-  const drCorners = HexUtils.calculateCoordinates(flat, size, {x:1.5 * size.x, y:size.y/2 * Math.sqrt(3)});
-  const dlCorners = HexUtils.calculateCoordinates(flat, size, {y:1.5 * size.x, x:-size.y/2 * Math.sqrt(3)});
-  const dCorners = HexUtils.calculateCoordinates(flat, size, {x:0, y:size.y * Math.sqrt(3)});
-  const d2x1 = [...getPoints(originalCorners,2), ...getPoints(dCorners,0,4)];
-
-  const rCorners = HexUtils.calculateCoordinates(flat, size, {y:0, x:-size.x * Math.sqrt(3)});
-  const lCorners = HexUtils.calculateCoordinates(flat, size, {y:0, x:size.x * Math.sqrt(3)});
-  const r2x1 = [...getPoints(originalCorners,3,5), ...getPoints(rCorners, 0,5)];
-  const triangle = [...getPoints(originalCorners, 2, 5), ...getPoints(drCorners,5,4), ...getPoints(dCorners,1,4)];
-  const triangleA = [...getPoints(originalCorners,3,5), ...getPoints(dlCorners,5,4), ...getPoints(rCorners,1,4)];
-
-  return {
-      "1x1Hex": HexUtils.convertToString(originalCorners),
-      "2x1D": HexUtils.convertToString(d2x1),
-      "2x1R": HexUtils.convertToString(r2x1),
-      "2x3": HexUtils.convertToString(triangle),
-      "2x3A": HexUtils.convertToString(triangleA),
-  }
-}
 
 type Props = {
     className?: string,
@@ -62,18 +28,34 @@ export const useLayout = () => {
     return result;
 }
 
+const LAYOUT_FLAT: Orientation ={f0:3.0 / 2.0, f1:0.0, f2:Math.sqrt(3.0) / 2.0, f3:Math.sqrt(3.0), b0:2.0 / 3.0, b1:0.0, b2:-1.0 / 3.0, b3:Math.sqrt(3.0) / 3.0, startAngle:0.0};
+const LAYOUT_POINTY:Orientation = {f0:Math.sqrt(3.0), f1:Math.sqrt(3.0) / 2.0, f2:0.0, f3:3.0 / 2.0, b0: Math.sqrt(3.0) / 3.0, b1:-1.0 / 3.0, b2:0.0, b3:2.0 / 3.0, startAngle:0.5};
+
+const getOrientation = (flat: boolean) => {
+  return (flat) ? LAYOUT_FLAT : LAYOUT_POINTY;
+}
+
 export const LayoutProvider:FC<Props> = (props) => {
     const { children, flat = false, origin = {x:0, y:0}, spacing = 1, size ={x:6.2, y:6.2}} = props;
-    const orientation = HexUtils.getOrientation(flat);
-    const points = createLayouts(flat, size);
+    const orientation = getOrientation(flat);
+
+    const getPosition = useCallback((hex:Hex) : Point => {
+      let x = (orientation.f0 * hex.q + orientation.f1 * hex.r) * size.x;
+      let y = (orientation.f2 * hex.q + orientation.f3 * hex.r) * size.y;
+      // Apply spacing
+      x = x * spacing;
+      y = y * spacing;
+      return {x: x + origin.x, y: y + origin.y};
+    }, [orientation, spacing, origin, size]);
+    
     const value = useMemo(() => ({
         size,
         origin,
         spacing,
         orientation,
-        points,
         rotateHex: !flat,
-    }),[orientation, points]);
+        getPosition
+    }),[orientation, flat]);
 
     const { Provider } = LayoutContext;
 

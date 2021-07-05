@@ -1,5 +1,5 @@
 import React from "react";
-import { Hex, HexGrid, HexUtils, useLayout } from "../../../react-hexgrid";
+import { HexGrid, useLayout } from "../../../react-hexgrid";
 import { useDungeon } from "./DungeonProvider";
 import { usePlayerCount } from "../../Providers/PlayerCountProvider";
 import { getOverlayInfo, getOverlayName } from "./MapInfoOverlay";
@@ -10,7 +10,7 @@ const MapInfo2 = () => {
     dungeon: { obstacles, corridors, difficultTerrain },
     monsterData: { spawns, traps },
   } = useDungeon();
-  const layout = useLayout();
+  const {getPosition} = useLayout();
 
   const createEffectHexAndPattern = (traps:string[], q:number, r:number) => {
     return traps.map((status, index) => {
@@ -19,8 +19,8 @@ const MapInfo2 = () => {
   }
 
   const createTextHex = (q: number, r:number, text: string) => {
-    const hex = new Hex(q, r, 0);
-    const pixel = HexUtils.hexToPixel(hex, layout);
+    const hex: Hex = {q, r, s:0};
+    const pixel = getPosition(hex);
   
       return <div style={{fontSize:"13pt", position:"absolute", transform: `translate(${pixel.x+25}px, ${pixel.y+25}px)`}}>{`${text}`}</div>
   }

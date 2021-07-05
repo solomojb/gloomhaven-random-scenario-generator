@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import Hex from '../models/Hex';
-import HexUtils from '../HexUtils';
+// import Hex from '../models/Hex';
 import { useLayout } from '../LayoutProvider';
 
 type Props = {
@@ -14,10 +13,10 @@ type Props = {
 
 const Hexagon: FC<Props> = (props) => {
   const layout = useLayout();
-  const { size} = layout;
+  const { size, getPosition} = layout;
   const { children, q, r, s, onClick, src, style } = props;
-  const hex = new Hex(q, r, s);
-  const pixel = HexUtils.hexToPixel(hex, layout);
+  const hex:Hex = {q, r, s};
+  const pixel = getPosition(hex);
 
 return (<div style={{position:"absolute", transform: `translate(${pixel.x}px, ${pixel.y}px)`}}>
           <div style={{position:"relative", alignItems: "center", justifyContent:"center", display:"flex", textAlign:"center", width:size.x *2, height: size.y * 1.8}}>
