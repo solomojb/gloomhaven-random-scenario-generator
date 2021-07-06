@@ -1,5 +1,4 @@
 import React, { useContext, createContext, useEffect, useState, FC } from 'react'
-import { initialDungeon, initialMonsterData } from '../../../Data';
 
 type ContextData = {
     dungeon: Dungeon;
@@ -9,19 +8,14 @@ type ContextData = {
     roomNumber: number;
 }
 
-const initialContextData: ContextData = {
-    dungeon: initialDungeon,
-    setDungeon : () => {},
-    monsterData: initialMonsterData,
-    setMonsters : () => {},
-    roomNumber: -1
-}
-
-
-export const DungeonContext = createContext<ContextData>(initialContextData);
+export const DungeonContext = createContext<ContextData|undefined>(undefined);
 
 export function useDungeon() {
-    return useContext(DungeonContext);
+    const result = useContext(DungeonContext);
+    if (!result) {
+        throw Error ("No Context Found");
+    }
+    return result;
 }
 
 type Props = {
