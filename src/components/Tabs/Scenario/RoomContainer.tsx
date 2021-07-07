@@ -1,5 +1,4 @@
 import React from 'react';
-import { Form } from 'semantic-ui-react';
 import { useGame } from '../../Game/GameProvider';
 import { useScenario } from '../../Providers/ScenarioProvider';
 import Room from "../../Room/Room";
@@ -27,13 +26,7 @@ const RoomContainer = (props: Props) => {
 		return null;
 	}
 	return <DungeonProvider monsterData={monsters} intitialDungeon={dungeon} roomNumber={roomNumber}>
-				<Form>
-					<Form.Group>
-						<Form.Field>
-							<Room/>
-						</Form.Field>
-					</Form.Group>
-				</Form>
+			<Room/>
 		</DungeonProvider>
 };
 

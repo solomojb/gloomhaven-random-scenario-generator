@@ -1,0 +1,22 @@
+.door-types {
+    display: flex;
+    flex-direction: row;
+}
+
+.info-label label{
+    font-weight: bold;
+    font-size: 10pt;
+    padding: 0px 5px;
+}
+
+.room-info {
+    display: flex;
+}
+
+.tile-info {
+    display: flex;
+}
+
+.room-container {
+    display: flex;
+}

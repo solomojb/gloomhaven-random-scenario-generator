@@ -1,5 +1,4 @@
 import React from "react";
-import { Form } from "semantic-ui-react";
 import { Helpers } from "../../helpers";
 import { useScenario } from "../Providers/ScenarioProvider";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
@@ -25,10 +24,10 @@ const Penalties = () =>  {
         penaltiesToShow.push(getHtml(1));
     }
 
-    return <Form.Field>
+    return <div className="info-label">
                 <label>Penalties:</label>
                 {penaltiesToShow.length ? penaltiesToShow : "None"}
-            </Form.Field>
+            </div>
 }
 
 export default Penalties;

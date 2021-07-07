@@ -3,10 +3,7 @@ import { useGame } from "../../Game/GameProvider";
 import { useDungeon } from "./DungeonProvider";
 import "./map.css"
 
-type Props = {
-}
-
-const MonsterCard = (props:Props) =>  {
+const MonsterCard = () =>  {
     const { monsterData: { name } } = useDungeon();
     const game = useGame();
     
