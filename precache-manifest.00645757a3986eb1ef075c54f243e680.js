@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "c5e53cbeb982c930ebf6",
-    "url": "/gloomhaven-random-scenario-generator/static/css/main.4b622232.chunk.css"
+    "revision": "f5e59f4b383472eb23ce",
+    "url": "/gloomhaven-random-scenario-generator/static/css/main.15ff6675.chunk.css"
   },
   {
-    "revision": "c5e53cbeb982c930ebf6",
-    "url": "/gloomhaven-random-scenario-generator/static/js/main.4ea1b738.chunk.js"
+    "revision": "f5e59f4b383472eb23ce",
+    "url": "/gloomhaven-random-scenario-generator/static/js/main.130ce185.chunk.js"
   },
   {
     "revision": "71947b1b63c92f7bccc5",
     "url": "/gloomhaven-random-scenario-generator/static/js/runtime~main.7ac92e5e.js"
   },
   {
-    "revision": "234c5c9cb5ff1d251f40",
+    "revision": "2991577fd3e4133053d2",
     "url": "/gloomhaven-random-scenario-generator/static/css/2.b531a85b.chunk.css"
   },
   {
-    "revision": "234c5c9cb5ff1d251f40",
-    "url": "/gloomhaven-random-scenario-generator/static/js/2.9cb5a14d.chunk.js"
+    "revision": "2991577fd3e4133053d2",
+    "url": "/gloomhaven-random-scenario-generator/static/js/2.5d4d7343.chunk.js"
   },
   {
     "revision": "dcea1ab82e8d1b9bb5f6f8d5975ea09f",
@@ -52,40 +52,24 @@ self.__precacheManifest = [
     "url": "/gloomhaven-random-scenario-generator/static/media/flags.9c74e172.png"
   },
   {
-    "revision": "0ab54153eeeca0ce03978cc463b257f7",
-    "url": "/gloomhaven-random-scenario-generator/static/media/icons.0ab54153.woff2"
-  },
-  {
-    "revision": "faff92145777a3cbaf8e7367b4807987",
-    "url": "/gloomhaven-random-scenario-generator/static/media/icons.faff9214.woff"
-  },
-  {
-    "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
-    "url": "/gloomhaven-random-scenario-generator/static/media/icons.8e3c7f55.eot"
-  },
-  {
     "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
     "url": "/gloomhaven-random-scenario-generator/static/media/icons.b87b9ba5.ttf"
-  },
-  {
-    "revision": "701ae6abd4719e9c2ada3535a497b341",
-    "url": "/gloomhaven-random-scenario-generator/static/media/outline-icons.701ae6ab.eot"
-  },
-  {
-    "revision": "cd6c777f1945164224dee082abaea03a",
-    "url": "/gloomhaven-random-scenario-generator/static/media/outline-icons.cd6c777f.woff2"
   },
   {
     "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
     "url": "/gloomhaven-random-scenario-generator/static/media/outline-icons.ef60a4f6.woff"
   },
   {
-    "revision": "962a1bf31c081691065fe333d9fa8105",
-    "url": "/gloomhaven-random-scenario-generator/static/media/icons.962a1bf3.svg"
+    "revision": "cd6c777f1945164224dee082abaea03a",
+    "url": "/gloomhaven-random-scenario-generator/static/media/outline-icons.cd6c777f.woff2"
   },
   {
-    "revision": "13db00b7a34fee4d819ab7f9838cc428",
-    "url": "/gloomhaven-random-scenario-generator/static/media/brand-icons.13db00b7.eot"
+    "revision": "faff92145777a3cbaf8e7367b4807987",
+    "url": "/gloomhaven-random-scenario-generator/static/media/icons.faff9214.woff"
+  },
+  {
+    "revision": "701ae6abd4719e9c2ada3535a497b341",
+    "url": "/gloomhaven-random-scenario-generator/static/media/outline-icons.701ae6ab.eot"
   },
   {
     "revision": "ad97afd3337e8cda302d10ff5a4026b8",
@@ -100,8 +84,24 @@ self.__precacheManifest = [
     "url": "/gloomhaven-random-scenario-generator/static/media/brand-icons.e8c322de.woff2"
   },
   {
+    "revision": "13db00b7a34fee4d819ab7f9838cc428",
+    "url": "/gloomhaven-random-scenario-generator/static/media/brand-icons.13db00b7.eot"
+  },
+  {
     "revision": "a046592bac8f2fd96e994733faf3858c",
     "url": "/gloomhaven-random-scenario-generator/static/media/brand-icons.a046592b.woff"
+  },
+  {
+    "revision": "0ab54153eeeca0ce03978cc463b257f7",
+    "url": "/gloomhaven-random-scenario-generator/static/media/icons.0ab54153.woff2"
+  },
+  {
+    "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
+    "url": "/gloomhaven-random-scenario-generator/static/media/icons.8e3c7f55.eot"
+  },
+  {
+    "revision": "962a1bf31c081691065fe333d9fa8105",
+    "url": "/gloomhaven-random-scenario-generator/static/media/icons.962a1bf3.svg"
   },
   {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
@@ -118,6 +118,10 @@ self.__precacheManifest = [
   {
     "revision": "3cc651fea20d6a7ac0bb0375456c3bf6",
     "url": "/gloomhaven-random-scenario-generator/static/media/curse.3cc651fe.png"
+  },
+  {
+    "revision": "4a1b46f9f1188ea88368944b62e4906b",
+    "url": "/gloomhaven-random-scenario-generator/static/media/damage.4a1b46f9.png"
   },
   {
     "revision": "1f76bb7dfbfb1015fe770635b4bdca0d",
@@ -1204,7 +1208,7 @@ self.__precacheManifest = [
     "url": "/gloomhaven-random-scenario-generator/static/media/monster-wild.eb386ff4.png"
   },
   {
-    "revision": "34418aa80d41b63d0c233e35861f3174",
+    "revision": "8ffdc2f91dd47ac759aea956f0124664",
     "url": "/gloomhaven-random-scenario-generator/index.html"
   }
 ];
