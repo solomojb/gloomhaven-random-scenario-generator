@@ -1,4 +1,4 @@
-import React, { useContext, createContext, ReactNode, useState } from 'react'
+import React, { useContext, createContext, ReactNode, useState, FC } from 'react'
 
 export enum ShowFlags {
     Grid                = 1 << 0,
@@ -37,10 +37,9 @@ export function useFlags() {
 type Props = {
     localKey?: string
     initialFlags: number;
-    children: ReactNode;
 }
 
-const FlagsProvider = (props:Props) => {
+const FlagsProvider: FC<Props> = (props) => {
     const {children, localKey, initialFlags} = props;
     const startingFlag: number = localKey? parseInt(localStorage.getItem(localKey) || `${initialFlags}`) : initialFlags;
     const [flags, setFlags] = useState<number>(startingFlag);

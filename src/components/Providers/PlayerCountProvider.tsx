@@ -1,28 +1,25 @@
-import React, { useContext, createContext, ReactNode, useEffect, useState } from 'react'
+import React, { useContext, createContext, ReactNode, useEffect, useState, FC } from 'react'
 
 type ContextData = {
     playerCount: number;
     setPlayerCount: ( players: number) => void;
 }
 
-const initialContextData: ContextData = {
-    playerCount: 2,
-    setPlayerCount: () => {},
-}
-
-
-export const PlayerCountContext = createContext<ContextData>(initialContextData);
+export const PlayerCountContext = createContext<ContextData|undefined>(undefined);
 
 export function usePlayerCount() {
-    return useContext(PlayerCountContext);
+    const result =  useContext(PlayerCountContext);
+    if (!result) {
+        throw Error("No Context Found");
+    }
+    return result;
 }
 
 type Props = {
     localKey: string
-    children: ReactNode;
 }
 
-const PlayerCountProvider = (props:Props) => {
+const PlayerCountProvider:FC<Props> = (props) => {
     const {children, localKey} = props;
     const [playerCount, setPlayerCount] = useState<number>(parseInt(localStorage.getItem(localKey) ||"2"));
     const { Provider } = PlayerCountContext;

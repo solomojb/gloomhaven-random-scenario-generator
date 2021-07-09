@@ -1,4 +1,4 @@
-import React, { useContext, createContext, ReactNode, useEffect, useState } from 'react'
+import React, { useContext, createContext, useEffect, useState, FC } from 'react'
 import {BaseGameData, gameDataTypes} from '../../games'
 import { GameType } from './GameType';
 
@@ -10,10 +10,9 @@ export function useGame() {
 
 type Props = {
     gameType:GameType;
-    children: ReactNode;
 }
 
-const GameProvider = (props:Props) => {
+const GameProvider:FC<Props> = (props) => {
     const {gameType, children} = props;
     const [gameData, setGameData] = useState<BaseGameData>(gameDataTypes[GameType.Gloomhaven]);
     
