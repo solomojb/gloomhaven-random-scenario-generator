@@ -77,9 +77,13 @@ const ScenarioProvider:FC = (props) => {
             scenarioData = JSON.parse(savedData);
             scenarioData.rooms.forEach(room => {
                 const dIndex = d.findIndex( dungeon => dungeon.name === room.dungeonName);
-                d = d.splice(dIndex,1);
+                if (dIndex > 0) {
+                    d.splice(dIndex,1);
+                }
                 const mIndex = m.findIndex( monster => monster.name === room.monsterName);
-                m = m.splice(mIndex,1);
+                if (mIndex) {
+                    m.splice(mIndex,1);
+                }
             })
         } 
         setDungeons(d);
