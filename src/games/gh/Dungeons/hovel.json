@@ -2,7 +2,7 @@
   "name": "hovel",
   
   "entrances": [{"aOrB": "A", "q":-3, "r":4},{"aOrB": "B", "q":0, "r":2}],
-  "exits": [{"aOrB": "B", "q":-1, "r":-4}],
+  "exits": [{"aOrB": "A", "q":-1, "r":-4}],
   "map": {
     "rotateHex": true,
     "tiles" :[ "B2a", "C1b"],
