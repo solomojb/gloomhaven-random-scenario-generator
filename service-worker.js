@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/gloomhaven-random-scenario-generator/precache-manifest.21bee2383692457b2aa406a68b64bb09.js"
+  "/gloomhaven-random-scenario-generator/precache-manifest.c223ef8cb0d512df3daa01078b681a5f.js"
 );
 
 workbox.clientsClaim();
