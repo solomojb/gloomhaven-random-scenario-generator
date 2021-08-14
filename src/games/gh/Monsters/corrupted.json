@@ -5,7 +5,7 @@
       "data": {
         "1": ["elite", "elite", "elite"],
         "8": ["normal", "normal", "normal"],
-        "9": ["none", "elite", "elite"]
+        "9": ["none", "normal", "normal"]
       },
       "type": "Cultist",
       "category": "monster"
@@ -21,7 +21,7 @@
     {
       "data": {
         "3": ["normal", "normal", "elite"],
-        "4": ["none", "normal", "elite"]
+        "4": ["none", "normal", "normal"]
       },
       "type": "Night Demon",
       "category": "monster"
