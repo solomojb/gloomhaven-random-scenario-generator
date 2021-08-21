@@ -4,11 +4,6 @@
   "traps": ["POISON", "DAMAGE"],
   "spawns": [
     {
-      "data": [1, 2, 7],
-      "type": "Rubble",
-      "category": "difficult-terrain"
-    },
-    {
       "data": {
         "1": ["none", "normal", "normal"],
         "5": ["normal", "normal", "normal"],

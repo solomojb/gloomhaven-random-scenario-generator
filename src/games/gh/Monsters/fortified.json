@@ -5,7 +5,7 @@
     {
       "data": {
         "1": ["elite", "elite", "elite"],
-        "2": ["none", "none", "normal"]
+        "2": ["none", "normal", "normal"]
       },
       "type": "City Guard",
       "category": "monster"

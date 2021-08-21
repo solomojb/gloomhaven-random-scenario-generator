@@ -5,7 +5,7 @@
     {
       "data": {
         "1": ["elite", "elite", "elite"],
-        "7": ["none", "normal", "elite"]
+        "7": ["none", "normal", "normal"]
       },
       "type": "Bandit Guard",
       "category": "monster"

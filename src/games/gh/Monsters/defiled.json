@@ -6,7 +6,7 @@
       "data": {
         "1": ["elite", "elite", "elite"],
         "6": ["none", "none", "normal"],
-        "10": ["normal", "normal", "elite"]
+        "10": ["normal", "elite", "elite"]
       },
       "type": "Sun Demon",
       "category": "monster"

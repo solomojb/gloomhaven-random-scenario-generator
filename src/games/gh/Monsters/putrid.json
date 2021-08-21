@@ -4,7 +4,7 @@
   "spawns": [
     {
       "data": {
-        "1": ["normal", "normal", "elite"],
+        "1": ["normal", "normal", "normal"],
         "2": ["none", "normal", "normal"],
         "3": ["elite", "elite", "elite"],
         "5": ["none", "none", "normal"],
