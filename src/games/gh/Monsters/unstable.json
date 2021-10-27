@@ -1,38 +1,38 @@
 {
   "name": "unstable",
-  "spawns": [
+  "spawns": {
+    "Savaas Lavaflow":
     {
       "data": {
         "1": ["normal", "normal", "normal"]
       },
-      "type": "Savaas Lavaflow",
       "category": "monster"
     },
+    "Earth Demon":
     {
       "data": {
         "3": ["normal", "elite", "elite"],
         "4": ["none", "none", "normal"]
       },
-      "type": "Earth Demon",
       "category": "monster"
     },
+    "Flame Demon":
     {
       "data": {
         "7": ["normal", "normal", "normal"],
         "12": ["none", "normal", "elite"]
       },
-      "type": "Flame Demon",
       "category": "monster"
     },
+    "hot-coals":
     {
       "data": [8,9,10,11],
-      "type": "hot-coals",
       "category": "hazardous-terrain"
     },
+    "rubble":
     {
       "data": [2,5,6],
-      "type": "rubble",
       "category": "difficult-terrain"
     }
-  ]
+  }
 }

@@ -4,7 +4,6 @@ type SpawnCategory  = "monster" | "obstacles" | "treasures" | "difficult-terrain
 
 interface Spawn {
     data: number[] | MonsterType[][] | string[];
-    type: string;
     category: SpawnCategory;
 }
 

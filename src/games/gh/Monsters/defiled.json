@@ -1,16 +1,17 @@
 {
   "name": "defiled",
   "traps": ["POISON", "IMMOBILIZE"],
-  "spawns": [
+  "spawns": {
+    "Sun Demon":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
         "6": ["none", "none", "normal"],
         "10": ["normal", "elite", "elite"]
       },
-      "type": "Sun Demon",
       "category": "monster"
     },
+    "Forest Imp":
     {
       "data": {
         "2": ["none", "normal", "elite"],
@@ -19,18 +20,17 @@
         "5": ["none", "normal", "elite"],
         "7": ["normal", "normal", "normal"]
       },
-      "type": "Forest Imp",
       "category": "monster"
     },
+    "poison-gas-trap":
     {
       "data": [8, 9, 11],
-      "type": "poison-gas-trap",
       "category": "traps"
     },
+    "Treasure":
     {
       "data": { "12": "Heal 5 hit points" },
-      "type": "Treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

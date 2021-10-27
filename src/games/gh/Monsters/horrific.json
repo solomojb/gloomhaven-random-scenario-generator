@@ -1,7 +1,8 @@
 {
   "name": "horrific",
   "traps": ["MUDDLE", "DAMAGE"],
-  "spawns": [
+  "spawns": {
+    "Black Imp":
     {
       "data": {
         "1": ["normal", "normal", "elite"],
@@ -10,28 +11,27 @@
         "8": ["none", "normal", "normal"],
         "9": ["none", "normal", "elite"]
       },
-      "type": "Black Imp",
       "category": "monster"
     },
+    "Deep Terror":
     {
       "data": {
         "6": ["normal", "elite", "elite"],
         "12": ["elite", "elite", "elite"]
       },
-      "type": "Deep Terror",
       "category": "monster"
     },
+    "Lurker":
     {
       "data": {
         "3": ["normal", "normal", "elite"]
       },
-      "type": "Lurker",
       "category": "monster"
     },
+    "poison-gas-trap":
     {
       "data": [7, 10, 11],
-      "type": "poison-gas-trap",
       "category": "traps"
     }
-  ]
+  }
 }

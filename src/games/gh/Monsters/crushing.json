@@ -1,14 +1,15 @@
 {
   "name": "crushing",
-  "spawns": [
+  "spawns": {
+    "Earth Demon":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
         "6": ["none", "normal", "elite"]
       },
-      "type": "Earth Demon",
       "category": "monster"
     },
+    "Wind Demon":
     {
       "data": {
         "2": ["normal", "normal", "normal"],
@@ -16,18 +17,17 @@
         "7": ["none", "normal", "normal"],
         "9": ["normal", "normal", "normal"]
       },
-      "type": "Wind Demon",
       "category": "monster"
     },
+    "Rubble":
     {
       "data": [4, 5, 8, 10],
-      "type": "Rubble",
       "category": "difficult-terrain"
     },
+    "Treasure":
     {
       "data": { "11": "5 Gold", "12": "5 Gold" },
-      "type": "Treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

@@ -1,14 +1,15 @@
 {
   "name": "hopeless",
-  "spawns": [
+  "spawns": {
+    "Night Demon":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
         "3": ["none", "normal", "elite"]
       },
-      "type": "Night Demon",
       "category": "monster"
     },
+    "Black Imp":
     {
       "data": {
         "4": ["none", "none", "normal"],
@@ -18,12 +19,11 @@
         "11": ["none", "normal", "normal"],
         "12": ["normal", "normal", "elite"]
       },
-      "type": "Black Imp",
       "category": "monster"
     },
+    "coin-1":
     {
       "data": [8, 9, 10],
-      "type": "coin-1",
       "category": "coin"    }
-  ]
+    }
 }

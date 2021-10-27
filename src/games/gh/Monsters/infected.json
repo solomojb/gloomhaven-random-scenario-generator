@@ -1,6 +1,7 @@
 {
   "name": "infected",
-  "spawns": [
+  "spawns": {
+    "Giant Viper":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
@@ -11,22 +12,21 @@
         "6": ["normal", "normal", "elite"],
         "8": ["none", "none", "elite"]
       },
-      "type": "Giant Viper",
       "category": "monster"
     },
+    "Ooze":
     {
       "data": {
         "7": ["none", "normal", "elite"],
         "10": ["elite", "elite", "elite"],
         "11": ["normal", "normal", "normal"]
       },
-      "type": "Ooze",
       "category": "monster"
     },
+    "coin-1":
     {
       "data": [12],
-      "type": "coin-1",
       "category": "coin"
     }
-  ]
+  }
 }

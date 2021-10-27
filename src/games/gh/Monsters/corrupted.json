@@ -1,40 +1,40 @@
 {
   "name": "corrupted",
-  "spawns": [
+  "spawns": {
+    "Cultist":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
         "8": ["normal", "normal", "normal"],
         "9": ["none", "normal", "normal"]
       },
-      "type": "Cultist",
       "category": "monster"
     },
+    "Living Bones":
     {
       "data": {
         "2": ["none", "none", "normal"],
         "7": ["normal", "normal", "elite"]
       },
-      "type": "Living Bones",
       "category": "monster"
     },
+    "Night Demon":
     {
       "data": {
         "3": ["normal", "normal", "elite"],
         "4": ["none", "normal", "normal"]
       },
-      "type": "Night Demon",
       "category": "monster"
     },
+    "Thorns":
     {
       "data": [10, 11],
-      "type": "Thorns",
       "category": "hazardous-terrain"
     },
+    "Treasure":
     {
       "data": { "12": "Recover a lost card" },
-      "type": "Treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

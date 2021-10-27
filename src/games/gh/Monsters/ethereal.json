@@ -1,40 +1,40 @@
 {
   "name": "ethereal",
   "game": "FC",
-  "spawns": [
+  "spawns": {
+    "Water":
     {
       "data": [2, 3, 8, 9],
-      "type": "Water",
       "category": "difficult-terrain"
     },
+    "Aesther Ashblade":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
         "5": ["none", "none", "normal"]
       },
-      "type": "Aesther Ashblade",
       "category": "monster"
     },
+    "Aesther Scout":
     {
       "data": {
         "4": ["normal", "normal", "normal"],
         "6": ["none", "none", "normal"],
         "10": ["none", "normal", "normal"]
       },
-      "type": "Aesther Scout",
       "category": "monster"
     },
+    "Ooze":
     {
       "data": {
         "11": ["none", "normal", "none"]
       },
-      "type": "Ooze",
       "category": "monster"
     },
+    "Treasure":
     {
       "data": { "12": "Create any two elements" },
-      "type": "Treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

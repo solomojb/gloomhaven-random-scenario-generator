@@ -1,45 +1,45 @@
 {
   "name": "scaled",
   "traps": ["WOUND", "POISON"],
-  "spawns": [
+  "spawns": {
+    "Rending Drake":
     {
       "data": {
         "4": ["normal", "normal", "elite"],
         "5": ["none", "normal", "normal"]
       },
-      "type": "Rending Drake",
       "category": "monster"
     },
+    "Spitting Drake":
     {
       "data": {
         "8": ["normal", "normal", "normal"],
         "11": ["normal", "normal", "elite"]
       },
-      "type": "Spitting Drake",
       "category": "monster"
     },
+    "Giant Viper":
     {
       "data": {
         "6": ["normal", "elite", "elite"],
         "10": ["normal", "elite", "elite"]
       },
-      "type": "Giant Viper",
       "category": "monster"
     },
+    "spike-pit-trap":
     {
       "data": [1,2,3],
-      "type": "spike-pit-trap",
       "category": "traps"
     },
+    "Thorns":
     {
       "data": [7, 9],
-      "type": "Thorns",
       "category": "hazardous-terrain"
     },
+    "coin-1":
     {
       "data": [12],
-      "type": "coin-1",
       "category": "coin"
     }
-  ]
+  }
 }

@@ -1,46 +1,46 @@
 {
   "name": "cutthroat",
   "traps": ["POISON", "DAMAGE"],
-  "spawns": [
+  "spawns": {
+    "Bandit Guard":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
         "7": ["none", "normal", "normal"]
       },
-      "type": "Bandit Guard",
       "category": "monster"
     },
+    "coin-1":
     {
       "data": [2],
-      "type": "coin-1",
       "category": "coin"
     },
+    "Bandit Archer":
     {
       "data": {
         "3": ["normal", "elite", "elite"],
         "4": ["normal", "normal", "normal"],
         "10": ["none", "none", "normal"]
       },
-      "type": "Bandit Archer",
       "category": "monster"
     },
+    "spike-pit-trap":
     {
       "data": [5, 9, 11],
-      "type": "spike-pit-trap",
       "category": "traps"
     },
+    "Hound":
     {
       "data": {
         "6": ["normal", "normal", "elite"],
         "8": ["none", "nornal", "elite"]
       },
-      "type": "Hound",
       "category": "monster"
     },
+    "Treasure":
     {
       "data": { "12": "5 Gold" },
-      "type": "Treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

@@ -1,15 +1,16 @@
 {
   "name": "venomous",
   "traps": ["POISON", "STUN"],
-  "spawns": [
+  "spawns": {
+    "Harrower Infester":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
         "6": ["none", "normal", "elite"]
       },
-      "type": "Harrower Infester",
       "category": "monster"
     },
+    "Giant Viper":
     {
       "data": {
         "2": ["normal", "normal", "elite"],
@@ -17,27 +18,26 @@
         "4": ["normal", "normal", "elite"],
         "5": ["none", "normal", "normal"]
       },
-      "type": "Giant Viper",
       "category": "monster"
     },
+    "Black Imp":
     {
       "data": {
         "7": ["none", "none", "normal"],
         "10": ["normal", "normal", "normal"],
         "11": ["normal", "elite", "elite"]
       },
-      "type": "Black Imp",
       "category": "monster"
     },
+    "poison-gas-trap":
     {
       "data": [8,9],
-      "type": "poison-gas-trap",
       "category": "traps"
     },
+    "treasure":
     {
       "data": {"12": "POISON all enemies"},
-      "type": "treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

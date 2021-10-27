@@ -59,6 +59,7 @@ const ScenarioProvider:FC = (props) => {
         }
 
         const monsterList = game.getRandomMonsters().filter(filter);
+        console.log("getting", monsterList);
         return monsterList;
     }
 
@@ -82,10 +83,12 @@ const ScenarioProvider:FC = (props) => {
                 }
                 const mIndex = m.findIndex( monster => monster.name === room.monsterName);
                 if (mIndex) {
+                    console.log("removing " + m[mIndex].name)
                     m.splice(mIndex,1);
                 }
             })
         } 
+        console.log(m);
         setDungeons(d);
         setMonsters(m);
         setScenarioData(scenarioData);
@@ -124,6 +127,7 @@ const ScenarioProvider:FC = (props) => {
         if (!dungeon || !monster) {
             return;
         }
+        console.log("choosing", monster.name, monsters);
 
         const roomData:RoomData = { monsterName: monster.name, dungeonName: dungeon.name, chosenEntrance:aOrB, chosenExit:""};
         setScenarioData( current => {

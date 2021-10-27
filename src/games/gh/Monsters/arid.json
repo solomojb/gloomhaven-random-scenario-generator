@@ -2,38 +2,38 @@
   "name": "arid",
   "game": "FC",
   "traps": ["POISON", "DAMAGE"],
-  "spawns": [
+  "spawns": {
+    "Valrath Savage":
     {
       "data": {
         "1": ["none", "normal", "normal"],
         "5": ["normal", "normal", "normal"],
         "6": ["normal", "normal", "elite"]
       },
-      "type": "Valrath Savage",
       "category": "monster"
     },
+    "spike-pit-trap":
     {
       "data": [2, 3],
-      "type": "spike-pit-trap",
       "category": "traps"
     },
+    "Valrath Tracker":
     {
       "data": {
         "7": ["none", "normal", "elite"],
         "9": ["elite", "elite", "elite"]
       },
-      "type": "Valrath Tracker",
       "category": "monster"
     },
+    "Thorns":
     {
       "data": [10, 11],
-      "type": "Thorns",
       "category": "hazardous-terrain"
     },
+    "Treasure":
     {
       "data": { "12": "10 gold" },
-      "type": "Treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

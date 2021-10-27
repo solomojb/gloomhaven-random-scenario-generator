@@ -1,38 +1,38 @@
 {
   "name": "foggy",
-  "spawns": [
+  "spawns": {
+    "Frost Demon":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
         "5": ["none", "normal", "normal"],
         "7": ["none", "none", "normal"]
       },
-      "type": "Frost Demon",
       "category": "monster"
     },
+    "Flame Demon":
     {
       "data": {
         "3": ["elite", "elite", "elite"],
         "6": ["none", "none", "normal"],
         "9": ["none", "normal", "normal"]
       },
-      "type": "Flame Demon",
       "category": "monster"
     },
+    "hot-coals":
     {
       "data": [8, 11],
-      "type": "hot-coals",
       "category": "hazardous-terrain"
     },
+    "Water":
     {
       "data": [4, 10],
-      "type": "Water",
       "category": "difficult-terrain"
     },
+    "Treasure":
     {
       "data": { "12": "Refresh 2 small items" },
-      "type": "Treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

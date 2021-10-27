@@ -14,6 +14,8 @@ const SpawnLayer = () => {
   } = useDungeon();
   const { size } = useLayout();
 
+  console.log(spawns);
+
   const buildHex = (spawnPoint: OverlayTile, pattern: string, category: string, text?:string|number) => {
     const { q, r } = spawnPoint;
     return <GridTile q={q} r={r} id={pattern} category={category}>
@@ -22,8 +24,8 @@ const SpawnLayer = () => {
   };
   const hexes: JSX.Element[] = [];
 
-  const buildMonsterHex = (spawn: Spawn) => {
-    const { type, data } = spawn;
+  const buildMonsterHex = (type: string, spawn: Spawn) => {
+    const {  data } = spawn;
     Object.keys(data).forEach( spawnPointId => {
       const spawnPoint = spawnPoints.find((overlayTile:OverlayTile) => overlayTile.id === parseInt(spawnPointId));
       if (spawnPoint) {
@@ -39,8 +41,8 @@ const SpawnLayer = () => {
     })
   }
 
-  const buildTreasureHex = (spawn: Spawn) => {
-    const { type, data } = spawn;
+  const buildTreasureHex = (type: string, spawn: Spawn) => {
+    const { data } = spawn;
     Object.keys(data).forEach( (spawnPointId, index) => {
       const spawnPoint = spawnPoints.find((overlayTile:OverlayTile) => overlayTile.id === parseInt(spawnPointId));
       if (spawnPoint) {
@@ -50,13 +52,13 @@ const SpawnLayer = () => {
   }
 
   if (isFlagSet(ShowFlags.Spawns)) {
-    spawns.forEach((spawn:Spawn) => {
-      const { type, data, category } = spawn;
+    Object.entries(spawns).forEach(([type, spawn]) => {
+      const { data, category } = spawn;
       if (category === "monster") {
-        buildMonsterHex(spawn);
+        buildMonsterHex(type, spawn);
       } 
       else if (category === "treasures") {
-        buildTreasureHex(spawn);
+        buildTreasureHex(type, spawn);
       }
       else {
         const spawnArr = data as number[];

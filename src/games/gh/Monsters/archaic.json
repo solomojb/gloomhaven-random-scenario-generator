@@ -1,37 +1,32 @@
 {
   "name": "archaic",
-  "spawns": [
-    {
+  "spawns": {
+    "Rubble": {
       "data": [1, 2, 7],
-      "type": "Rubble",
       "category": "difficult-terrain"
     },
-    {
+    "Stone Golem": {
       "data": {
         "3": ["elite", "elite", "elite"],
         "4": ["none", "normal", "elite"]
       },
-      "type": "Stone Golem",
       "category": "monster"
     },
-    {
+    "Thorns": {
       "data": [5, 9, 10],
-      "type": "Thorns",
       "category": "hazardous-terrain"
     },
-    {
+    "Ancient Artillery": {
       "data": {
         "6": ["none", "normal", "normal"],
         "8": ["normal", "normal", "normal"],
         "11": ["normal", "normal", "elite"]
       },
-      "type": "Ancient Artillery",
       "category": "monster"
     },
-    {
+    "Treasure": {
       "data": { "12": "Recover a lost card" },
-      "type": "Treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

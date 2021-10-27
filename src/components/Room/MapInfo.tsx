@@ -24,11 +24,13 @@ const MapInfo = () => {
 
   const { playerCount} = usePlayerCount();
 
-  const monsterInfo = spawns.filter( spawn => spawn.category === "monster").flatMap( spawn => {
+  console.log(spawns);
+
+  const monsterInfo = Object.entries(spawns).filter( ([type, spawn]) => spawn.category === "monster").flatMap( ([type, spawn]) => {
     const initialMonster:InfoData = {
-      pattern: spawn.type,
+      pattern: type,
       category: "monster",
-      displayName: spawn.type,
+      displayName: type,
       // count: 0,
       monsterType: "elite"
     }
@@ -46,14 +48,14 @@ const MapInfo = () => {
     if (counts["elite"] > 0) {
       info.push({
           ...initialMonster,
-          displayName: `${spawn.type} (Elite) x ${counts["elite"]}`,
+          displayName: `${type} (Elite) x ${counts["elite"]}`,
           monsterType: "elite"
         })
     }
     if (counts["normal"] > 0) {
       info.push({
           ...initialMonster,
-          displayName: `${spawn.type} x ${counts["normal"]}`,
+          displayName: `${type} x ${counts["normal"]}`,
           monsterType: "normal"
         })
     }
@@ -61,23 +63,23 @@ const MapInfo = () => {
     return info;
   })
 
-  const nonMonsters = spawns.filter(function(value){ return value.category !== "monster";});
-  const nonTreasuresInfo = nonMonsters.filter(spawn => spawn.category !== "treasures").flatMap( spawn => {
+  const nonMonsters = Object.entries(spawns).filter(function([type, spawn]){ return spawn.category !== "monster";});
+  const nonTreasuresInfo = nonMonsters.filter(([type, spawn]) => spawn.category !== "treasures").flatMap( ([type, spawn]) => {
     const { data} = spawn;
     const newInfo: InfoData = {
-      pattern: spawn.type,
+      pattern: type,
       category: spawn.category,
-      displayName: `${getOverlayName(spawn.type)} x ${data.length}`,
+      displayName: `${getOverlayName(type)} x ${data.length}`,
       traps: spawn.category !=="traps" ? undefined : traps
     }
     return newInfo;
   })
 
-  const treasuresInfo = spawns.filter( spawn => spawn.category === "treasures").flatMap( spawn => {
+  const treasuresInfo = Object.entries(spawns).filter( ([type, spawn]) => spawn.category === "treasures").flatMap( ([type, spawn]) => {
     const initTreasureData: InfoData = {
-      pattern: spawn.type,
+      pattern: type,
       category: spawn.category,
-      displayName: spawn.type,
+      displayName: type,
     }
 
     const data = spawn.data as string[];

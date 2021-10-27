@@ -1,13 +1,14 @@
 {
   "name": "mangy",
-  "spawns": [
+  "spawns": {
+    "Vermling Shaman":
     {
       "data": {
         "1": ["elite", "elite", "elite"]
       },
-      "type": "Vermling Shaman",
       "category": "monster"
     },
+    "Vermling Scout":
     {
       "data": {
         "2": ["none", "normal", "normal"],
@@ -18,25 +19,24 @@
         "8": ["none", "normal", "elite"],
         "9": ["none", "normal", "elite"]
       },
-      "type": "Vermling Scout",
       "category": "monster"
     },
+    "Cave Bear":
     {
       "data": {
         "3": ["normal", "normal", "elite"]
       },
-      "type": "Cave Bear",
       "category": "monster"
     },
+    "coin-1":
     {
       "data": [10, 11],
-      "type": "coin-1",
       "category": "coin"
     },
+    "Treasure":
     {
       "data": {"12": "10 Gold"},
-      "type": "Treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

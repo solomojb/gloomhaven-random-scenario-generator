@@ -1,41 +1,41 @@
 {
   "name": "fortified",
   "traps": ["DAMAGE"],
-  "spawns": [
+  "spawns": {
+    "City Guard":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
         "2": ["none", "normal", "normal"]
       },
-      "type": "City Guard",
       "category": "monster"
     },
+    "City Archer":
     {
       "data": {
         "5": ["normal", "normal", "elite"],
         "6": ["normal", "normal", "normal"],
         "7": ["none", "none", "normal"]
       },
-      "type": "City Archer",
       "category": "monster"
     },
+    "Ancient Artillery":
     {
       "data": {
         "9": ["none", "normal", "elite"],
         "12": ["normal", "normal", "normal"]
       },
-      "type": "Ancient Artillery",
       "category": "monster"
     },
+    "bear-trap":
     {
       "data": [8, 10, 11],
-      "type": "bear-trap",
       "category": "traps"
     },
+    "coin-1":
     {
       "data": [3, 4],
-      "type": "coin-1",
       "category": "coin"
     }
-  ]
+  }
 }

@@ -1,46 +1,46 @@
 {
   "name": "wild",
   "traps": ["IMMOBILIZE", "DAMAGE"],
-  "spawns": [
+  "spawns": {
+    "Cave Bear":
     {
       "data": {
         "1": ["normal", "elite", "elite"],
         "10": ["none", "none", "normal"]
       },
-      "type": "Cave Bear",
       "category": "monster"
     },
+    "Hound":
     {
       "data": {
         "4": ["normal", "normal", "elite"],
         "5": ["normal", "normal", "normal"]
       },
-      "type": "Hound",
       "category": "monster"
     },
+    "Forest Imp":
     {
       "data": {
         "6": ["none", "normal", "normal"],
         "7": ["elite", "elite", "elite"],
         "11": ["normal", "normal", "normal"]
       },
-      "type": "Forest Imp",
       "category": "monster"
     },
+    "spike-pit-trap":
     {
       "data": [8,9],
-      "type": "spike-pit-trap",
       "category": "traps"
     },
+    "coin-1":
     {
       "data": [2, 3],
-      "type": "coin-1",
       "category": "coin"
     },
+    "treasure":
     {
       "data": {"12": "Cure all negative conditions"},
-      "type": "treasure",
       "category": "treasures"
     }
-  ]
+  }
 }

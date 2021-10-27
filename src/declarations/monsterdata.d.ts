@@ -1,6 +1,6 @@
 interface MonsterData {
     name: string;
     traps: string[];
-    spawns: Spawn[];
+    spawns:  { [key: string]: Spawn };
     game?: string;
 }

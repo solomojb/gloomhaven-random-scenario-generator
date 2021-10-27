@@ -1,46 +1,46 @@
 {
   "name": "rotting",
   "traps": ["STUN", "POISON"],
-  "spawns": [
+  "spawns": {
+    "Living Corpse":
     {
       "data": {
         "1": ["elite", "elite", "elite"],
         "4": ["none", "normal", "elite"]
       },
-      "type": "Living Corpse",
       "category": "monster"
     },
+    "Living Bones":
     {
       "data": {
         "2": ["normal", "normal", "elite"],
         "5": ["normal", "elite", "elite"]
       },
-      "type": "Living Bones",
       "category": "monster"
     },
+    "Living Spirit":
     {
       "data": {
         "3": ["none", "none", "normal"],
         "6": ["elite", "elite", "elite"],
         "9": ["none", "normal", "normal"]
       },
-      "type": "Living Spirit",
       "category": "monster"
     },
+    "coin-1":
     {
       "data": [7],
-      "type": "coin-1",
       "category": "coin"
     },
+    "poison-gas-trap":
     {
       "data": [8, 10, 11],
-      "type": "poison-gas-trap",
       "category": "traps"
     },
+    "Treasure":
     {
       "data": {"12": "All enemies suffer 2 damage"},
-      "type": "Treasure",
       "category": "treasures"
     }
-  ]
+  }
 }
