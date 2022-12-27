@@ -122,9 +122,9 @@
         "hexType": "2x1R"
       }
     ],
-    "penalties" : [
-      "Upgrade a normal enemy in this room to elite.",
-      "Replace an elite enemy in the previous room."
-    ]
+    "penaltyData" : {
+      "minor": "Upgrade a normal enemy in this room to elite.",
+      "major": "Replace an elite enemy in the previous room."
+    }
   }
   

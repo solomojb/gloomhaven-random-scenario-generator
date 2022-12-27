@@ -126,9 +126,9 @@
       "rotation": 180
     }
   ],
-  "penalties" : [
-    "Add 3 BLESS cards to the monster attack modifier deck",
-    "Add 7 BLESS cards to the monster attack modifier deck"
-  ]
+  "penaltyData" : {
+    "minor": "Add 3 BLESS cards to the monster attack modifier deck",
+    "major": "Add 7 BLESS cards to the monster attack modifier deck"
+  }
 }
 

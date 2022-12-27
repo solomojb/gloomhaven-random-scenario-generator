@@ -91,9 +91,9 @@
         "hexType": "2x1D"
       }
     ],
-    "penalties" : [
-      "Replace 1 normal enemy in the previous room.",
-      "Replace 2 normal enemies in the previous room."
-    ]
+    "penaltyData" : {
+      "minor": "Replace 1 normal enemy in the previous room.",
+      "major": "Replace 2 normal enemies in the previous room."
+    }
   }
   

@@ -82,9 +82,9 @@
         "r": -4
       }
     ],
-    "penalties" : [
-      "All characters consume 1 small item.",
-      "All characters consume and spend all items."
-    ]
+    "penaltyData" : {
+      "minor": "All characters consume 1 small item.",
+      "major": "All characters consume and spend all items."
+    }
   }
   

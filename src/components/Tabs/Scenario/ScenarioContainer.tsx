@@ -5,7 +5,6 @@ import PlayerCountProvider from "../../Providers/PlayerCountProvider";
 import { useScenario } from "../../Providers/ScenarioProvider";
 import DisplayToggle from "../Maps/DisplayToggle";
 import PlayerCount from "../Maps/PlayerCount";
-import Difficulty from "./Difficulty";
 import RoomContainer from "./RoomContainer";
 
 const ScenarioContainer = () => {
@@ -18,7 +17,6 @@ const ScenarioContainer = () => {
         <PlayerCountProvider localKey="scenarioPlayers">
             <Button disabled={rooms.length>=1} onClick={() => getNextRoom("", -1)}>Start New Scenario</Button>
             <Button disabled={rooms.length == 0} onClick={() => resetScenario()}>Reset Scenario</Button>
-            <Difficulty/>
             <Form>
                 <PlayerCount/>
             </Form>

@@ -113,9 +113,9 @@
         "hexType": "2x1D"
       }
     ],
-    "penalties" : [
-      "POISON all chracters",
-      "All enemies add +1 Attack to all their attacks"
-    ]
+    "penaltyData" : {
+      "minor": "POISON all chracters",
+      "major": "All enemies add +1 Attack to all their attacks"
+    }
   }
   

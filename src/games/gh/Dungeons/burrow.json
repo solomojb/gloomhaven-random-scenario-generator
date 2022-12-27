@@ -98,9 +98,9 @@
         "hexType": "2x1D"
       }
     ],
-    "penalties" : [
-      "STUN the character who opened the door",
-      "MUDDLE, POISON, and WOUND all characters"
-    ]
+    "penaltyData" : {
+      "minor": "STUN the character who opened the door",
+      "major" :"MUDDLE, POISON, and WOUND all characters"
+    }
   }
   

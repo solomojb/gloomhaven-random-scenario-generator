@@ -8,6 +8,6 @@ interface Dungeon {
     obstacles: OverlayTile[];
     corridors: OverlayTile[];
     difficultTerrain: OverlayTile[];
-    penalties: string[];
+    penaltyData: Record<string, string>;
     monsterData: MonsterData[];
 }

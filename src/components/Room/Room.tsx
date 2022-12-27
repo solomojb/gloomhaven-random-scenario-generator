@@ -3,7 +3,7 @@ import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import Map from "./Map";
 import { LayoutProvider} from "../../react-hexgrid";
 
-import Penalties from "./Penalties";
+import { Penalties } from "./Penalties";
 import MapInfo from "./MapInfo";
 import { Helpers } from "../../helpers";
 

@@ -107,9 +107,9 @@
         "r": -5
       }
     ],
-    "penalties" : [
-      "MUDDLE all characters.",
-      "MUDDLE all characters permanently."
-    ]
+    "penaltyData" : {
+      "minor": "MUDDLE all characters.",
+      "major": "MUDDLE all characters permanently."
+    }
   }
   

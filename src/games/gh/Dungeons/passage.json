@@ -114,9 +114,9 @@
         "hexType": "2x1D"
       }
     ],
-    "penalties" : [
-      "Elite enemies gain INVISIBLE.",
-      "All enemies heal 1 point at the start of each of their turns."
-    ]
+    "penaltyData" : {
+      "minor": "Elite enemies gain INVISIBLE.",
+      "major": "All enemies heal 1 point at the start of each of their turns."
+    }
   }
   

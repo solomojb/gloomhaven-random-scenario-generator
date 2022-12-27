@@ -112,9 +112,9 @@
         "hexType": "2x1D"
       }
     ],
-    "penalties" : [
-      "All enemies gain Shield 1 this round",
-      "All enemies gain Shield 1 permanently"
-    ]
+    "penaltyData" : {
+      "minor": "All enemies gain Shield 1 this round",
+      "major": "All enemies gain Shield 1 permanently"
+    }
   }
   

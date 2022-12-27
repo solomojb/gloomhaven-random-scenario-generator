@@ -123,9 +123,9 @@
         "hexType": "2x3"
       }
     ],
-    "penalties" : [
-      "CURSE all characters.",
-      "CURSE all characters 3 times."
-    ]
+    "penaltyData" : {
+      "minor": "CURSE all characters.",
+      "major": "CURSE all characters 3 times."
+    }
   }
   

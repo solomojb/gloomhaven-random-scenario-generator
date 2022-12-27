@@ -117,9 +117,9 @@
         "rotation": 180
       }
     ],
-    "penalties" : [
-      "IMMOBILIZE all characters",
-      "STUN all characters."
-    ]
+    "penaltyData" : {
+      "minor": "IMMOBILIZE all characters",
+      "major": "STUN all characters."
+    }
   }
   

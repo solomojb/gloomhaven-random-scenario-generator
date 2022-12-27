@@ -103,9 +103,9 @@
         "r": -5
       }
     ],
-    "penalties" : [
-      "All elements become inert.",
-      "Characters can no longer consume elements."
-    ]
+    "penaltyData" : {
+      "minor": "All elements become inert.",
+      "major": "Characters can no longer consume elements."
+    }
   }
   

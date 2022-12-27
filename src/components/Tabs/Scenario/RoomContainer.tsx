@@ -26,6 +26,7 @@ const RoomContainer = (props: Props) => {
 		return null;
 	}
 	return <DungeonProvider monsterData={monsters} intitialDungeon={dungeon} roomNumber={roomNumber}>
+			Click on the Exit to generate a new room
 			<Room/>
 		</DungeonProvider>
 };

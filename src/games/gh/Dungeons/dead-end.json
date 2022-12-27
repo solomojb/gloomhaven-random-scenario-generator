@@ -123,9 +123,9 @@
         "r": 2
       }
     ],
-    "penalties" : [
-      "All characters suffer 3 damage.",
-      "All characters suffer 7 damage."
-    ]
+    "penaltyData" : {
+      "minor": "All characters suffer 3 damage.",
+      "major": "All characters suffer 7 damage."
+    }
   }
   

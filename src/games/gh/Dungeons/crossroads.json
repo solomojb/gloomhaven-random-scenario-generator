@@ -114,9 +114,9 @@
         "r": -3
       }
     ],
-    "penalties" : [
-      "All characters discard 2 cards.",
-      "All characters lose a card."
-    ]
+    "penaltyData" : {
+      "minor": "All characters discard 2 cards.",
+      "major": "All characters lose a card."
+    }
   }
   

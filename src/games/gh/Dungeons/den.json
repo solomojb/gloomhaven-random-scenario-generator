@@ -99,9 +99,9 @@
         "r": -1
       }
     ],
-    "penalties" : [
-      "All enemies gain \"Retaliate 2, Range 3\" this round",
-      "All enemies gain \"Retaliate 2, Range 3\" this permanently"
-    ]
+    "penaltyData" : {
+      "minor": "All enemies gain \"Retaliate 2, Range 3\" this round",
+      "major": "All enemies gain \"Retaliate 2, Range 3\" this permanently"
+    }
   }
   

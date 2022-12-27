@@ -111,9 +111,9 @@
         "r": 1
       }
     ],
-    "penalties" : [
-      "All characters spend all spendable items,",
-      "All enemies add + 1 Move to all of their moves and +1 Range to all their attacks."
-    ]
+    "penaltyData" : {
+      "minor": "All characters spend all spendable items,",
+      "major": "All enemies add + 1 Move to all of their moves and +1 Range to all their attacks."
+    }
   }
   

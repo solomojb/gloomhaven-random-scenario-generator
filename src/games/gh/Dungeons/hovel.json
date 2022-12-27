@@ -121,9 +121,9 @@
         "hexType": "2x1R"
       }
     ],
-    "penalties" : [
-      "WOUND all characters.",
-      "WOUND all characters permanently."
-    ]
+    "penaltyData" : {
+      "minor": "WOUND all characters.",
+      "major": "WOUND all characters permanently."
+    }
   }
   

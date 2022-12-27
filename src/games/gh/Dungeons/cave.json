@@ -112,9 +112,9 @@
         "r": -2
       }
     ],
-    "penalties" : [
-      "The character who opened the door loses a card.",
-      "The character who opened the door loses 2 cards."
-    ]
+    "penaltyData" : {
+      "minor": "The character who opened the door loses a card.",
+      "major": "The character who opened the door loses 2 cards."
+    }
   }
   
