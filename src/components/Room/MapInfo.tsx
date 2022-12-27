@@ -24,8 +24,6 @@ const MapInfo = () => {
 
   const { playerCount} = usePlayerCount();
 
-  console.log(spawns);
-
   const monsterInfo = Object.entries(spawns).filter( ([type, spawn]) => spawn.category === "monster").flatMap( ([type, spawn]) => {
     const initialMonster:InfoData = {
       pattern: type,

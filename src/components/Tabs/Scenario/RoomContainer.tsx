@@ -11,7 +11,7 @@ type Props = {
 const RoomContainer = (props: Props) => {
 	const { roomNumber } = props;
 	const game = useGame();
-    const { scenarioData:{rooms}} = useScenario();
+    const { scenarioData:{rooms}, isDoorShown} = useScenario();
 	if (roomNumber >= rooms.length) {
 		return null;
 	}
@@ -25,8 +25,19 @@ const RoomContainer = (props: Props) => {
 	if (!dungeon || !monsters) {
 		return null;
 	}
+	const visibleDoorCount = dungeon.exits.filter(({aOrB}) => isDoorShown(aOrB, roomNumber, "Exit")).length;
+
+	let doorStr: string= "";
+	if (visibleDoorCount > 0) {
+		if (visibleDoorCount > 1) {
+			doorStr = "Click on an Exit to go to the next room";
+		}
+		else {
+			doorStr = "Click on the Exit to go to the next room";
+		}
+	}
 	return <DungeonProvider monsterData={monsters} intitialDungeon={dungeon} roomNumber={roomNumber}>
-			Click on the Exit to generate a new room
+			{doorStr}
 			<Room/>
 		</DungeonProvider>
 };

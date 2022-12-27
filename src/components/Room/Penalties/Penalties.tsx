@@ -8,8 +8,7 @@ import { PenaltyButtonGroup } from "./PenatliesSelector";
 
 export const Penalties = () =>  {
     const { dungeon: {penaltyData}, roomNumber } = useDungeon();
-    console.log(penaltyData);
-    const { scenarioData:{penalties}} = useScenario();
+    const { scenarioData, scenarioData:{penaltyChosen}} = useScenario();
 
     const getHtml = (entry: any) => {
         const [type, penalty] = entry;
@@ -19,24 +18,14 @@ export const Penalties = () =>  {
 
     const penaltiesToShow = Object.entries(penaltyData).map(getHtml);
 
-    // const penaltyChosen = pentalitesChosen[roomNumber];
-    // const penaltiesToShow = [];
-
-    // if (penaltyChosen === "minor" || roomNumber < 0) {
-    //     penaltiesToShow.push(getHtml(0));
-    // }
-
-    // if (penaltyChosen === "major" || roomNumber < 0) {
-    //     penaltiesToShow.push(getHtml(1));
-    // }
-
     if (roomNumber < 0) {
         return <div className="info-label">
                     <label>Penalties:</label>
                     {penaltiesToShow}
                 </div>
     }
-    const penalty = penaltyData[penalties[roomNumber]] || "None";
+    const penaltyForRoom = penaltyChosen[roomNumber] || "none";
+    const penalty = penaltyData[penaltyForRoom] || "None";
 
     return <div className="info-label">
             <PenaltyButtonGroup roomNumber={roomNumber}/>

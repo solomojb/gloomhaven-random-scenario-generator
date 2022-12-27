@@ -11,7 +11,7 @@ type RoomData = {
 }
 type ScenarioData = {
     rooms: RoomData[];
-    penalties: string[];
+    penaltyChosen: Record<number, string>;
 }
 
 type ContextData = {
@@ -20,23 +20,25 @@ type ContextData = {
     gotoPreviousRoom : (roomNumber:number) => void;
     isDoorShown: (aOrB:string,roomNumber: number, type: string) => boolean
     resetScenario: () => void;
-    setPenalty: (roomNumber:number, penalty:string) => void;
+    setPenaltyChosen: (roomNumber:number, penalty:string) => void;
     activeRoomNumber: number;
     setActiveRoomNumber: (activeRoomNumber: number) => void;
+    setInfiniteRooms: (b: boolean) => void;
 }
 
 const initialContext:ContextData = {
     scenarioData: {
         rooms:[],
-        penalties: [],
+        penaltyChosen: {},
     },
     getNextRoom : () => {},
     gotoPreviousRoom : (roomNumber:number) => {},
     resetScenario : () => {},
     isDoorShown: (aOrB:string,roomNumber: number, type: string) => true,
-    setPenalty: () => {},
+    setPenaltyChosen: () => {},
     activeRoomNumber: 0,
-    setActiveRoomNumber: () => {}
+    setActiveRoomNumber: () => {},
+    setInfiniteRooms: () => {}
 }
 
 export const ScenarioContext = createContext<ContextData>(initialContext);
@@ -49,6 +51,7 @@ const ScenarioProvider:FC = (props) => {
     const { children } = props;
     const game = useGame();
     const { isFlagSet } = useFlags();
+    const [infiniteRooms, setInfiniteRooms] = useState<boolean>(isFlagSet(ShowFlags.InfiniteRooms));
     
     const getMonsters = () => {
         const filter = (data:MonsterData) => {
@@ -59,47 +62,52 @@ const ScenarioProvider:FC = (props) => {
         }
 
         const monsterList = game.getRandomMonsters().filter(filter);
-        console.log("getting", monsterList);
         return monsterList;
     }
 
 
     const [dungeons, setDungeons] = useState<Dungeon[]>([]);
     const [monsters, setMonsters] = useState<MonsterData[]>([]);
-    const [scenarioData, setScenarioData] = useState<ScenarioData>({rooms:[], penalties:[]});
+    const [scenarioData, setScenarioData] = useState<ScenarioData>({rooms:[], penaltyChosen:{}});
     const [activeRoomNumber, setActiveRoomNumber] = useState<number>(0);
 
     useEffect(() => {
         const savedData =localStorage.getItem("scenario");
-        let scenarioData:ScenarioData = { rooms:[], penalties:["none", "none", "none"]};
+        let scenarioData:ScenarioData = { rooms:[], penaltyChosen:{}};
         let d = game.getRandomDungeons();
         let m = getMonsters();
         if (savedData) {
             scenarioData = JSON.parse(savedData);
             scenarioData.rooms.forEach(room => {
                 const dIndex = d.findIndex( dungeon => dungeon.name === room.dungeonName);
-                if (dIndex > 0) {
+                if (dIndex !== -1) {
                     d.splice(dIndex,1);
                 }
                 const mIndex = m.findIndex( monster => monster.name === room.monsterName);
-                if (mIndex) {
-                    console.log("removing " + m[mIndex].name)
+                if (mIndex !== -1) {
                     m.splice(mIndex,1);
                 }
             })
+            // @ts-ignore
+            const oldPenalties = scenarioData.penalties;
+            if (oldPenalties) {
+                scenarioData.penaltyChosen = {};
+                oldPenalties.forEach((penalty:string , index: number) => {
+                    scenarioData.penaltyChosen[index] = penalty;
+                });
+            }
         } 
-        console.log(m);
         setDungeons(d);
         setMonsters(m);
         setScenarioData(scenarioData);
     }, []);
 
     const resetScenario = () => {
-        setScenarioData({ rooms:[], penalties:["none", "none", "none"]});
-        localStorage.removeItem("scenario");
+        setScenarioData({ rooms:[], penaltyChosen:{}});
         setDungeons(game.getRandomDungeons());
         setMonsters(getMonsters());
         setActiveRoomNumber(0);
+        setInfiniteRooms(false);
     }
 
     useEffect(() => {
@@ -108,8 +116,12 @@ const ScenarioProvider:FC = (props) => {
         }
     }, [scenarioData])
 
+    const getNextDunegonIndex = (aOrB: string) => {
+        return aOrB.length ? dungeons.findIndex(dungeon => dungeon.entrances.find( entrance => entrance.aOrB === aOrB)) : 0;
+    }
+
     const getNextRoom = (aOrB:string, roomNumber:number) => {
-        if (roomNumber >= 2) {
+        if (!infiniteRooms && roomNumber >= 2) {
             return;
         }
 
@@ -118,7 +130,7 @@ const ScenarioProvider:FC = (props) => {
             return;
         }
 
-        const dungeonIndex = aOrB.length ? dungeons.findIndex(dungeon => dungeon.entrances.find( entrance => entrance.aOrB === aOrB)) : 0;
+        const dungeonIndex = getNextDunegonIndex(aOrB);
         if (dungeonIndex < 0) {
             return;
         }
@@ -127,7 +139,6 @@ const ScenarioProvider:FC = (props) => {
         if (!dungeon || !monster) {
             return;
         }
-        console.log("choosing", monster.name, monsters);
 
         const roomData:RoomData = { monsterName: monster.name, dungeonName: dungeon.name, chosenEntrance:aOrB, chosenExit:""};
         setScenarioData( current => {
@@ -164,7 +175,11 @@ const ScenarioProvider:FC = (props) => {
             if (chosenExit.length > 0 && chosenExit != aOrB) {
                 return false;
             }
-            if (roomNumber >= 2) {
+            if (!infiniteRooms && roomNumber >= 2) {
+                return false;
+            }
+            const dungeonIndex = getNextDunegonIndex(aOrB);
+            if (roomNumber === scenarioData.rooms.length - 1 && dungeonIndex < 0) {
                 return false;
             }
           }
@@ -172,17 +187,15 @@ const ScenarioProvider:FC = (props) => {
         return true
     }
 
-    const setPenalty = (roomNumber:number, penalty:string) => {
+    const setPenaltyChosen = (roomNumber:number, penalty:string) => {
         setScenarioData( current => {
-            const penalties = [...current.penalties];
-            penalties[roomNumber] = penalty;
-            return {...current, penalties};
+            return {...current, penaltyChosen: {...current.penaltyChosen, [roomNumber]: penalty}};
         });        
     }
 
     const { Provider } = ScenarioContext;
 
-    return <Provider value={{scenarioData, getNextRoom, gotoPreviousRoom, isDoorShown, resetScenario, setPenalty, activeRoomNumber, setActiveRoomNumber}}>{children}</Provider>
+    return <Provider value={{scenarioData, getNextRoom, gotoPreviousRoom, isDoorShown, resetScenario, setPenaltyChosen, activeRoomNumber, setActiveRoomNumber, setInfiniteRooms}}>{children}</Provider>
 }
 
 export default ScenarioProvider;

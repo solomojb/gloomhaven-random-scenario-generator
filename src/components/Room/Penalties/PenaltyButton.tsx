@@ -10,13 +10,14 @@ type PenaltyProps = {
 
 export const PenaltyButton = (props: PenaltyProps) => {
     const { penalty, roomNumber } = props;
-    const { scenarioData:{penalties}, setPenalty} = useScenario();
+    const { scenarioData:{penaltyChosen}, setPenaltyChosen} = useScenario();
+    const penaltyForRoom = penaltyChosen[roomNumber] || "none";
 
     return (
       <Button
-        positive={penalties[roomNumber] === penalty}
+        positive={penaltyForRoom === penalty}
         onClick={() => {
-            setPenalty(roomNumber, penalty);}
+            setPenaltyChosen(roomNumber, penalty);}
         }
       >
         {`${penalty}`}

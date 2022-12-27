@@ -14,8 +14,6 @@ const SpawnLayer = () => {
   } = useDungeon();
   const { size } = useLayout();
 
-  console.log(spawns);
-
   const buildHex = (spawnPoint: OverlayTile, pattern: string, category: string, text?:string|number) => {
     const { q, r } = spawnPoint;
     return <GridTile q={q} r={r} id={pattern} category={category}>
