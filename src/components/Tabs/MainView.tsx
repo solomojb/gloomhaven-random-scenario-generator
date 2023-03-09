@@ -20,7 +20,11 @@ const MainView = () => {
                 </ScenarioProvider>
             </FlagsProvider>
         </Tab.Pane> },
-        { menuItem: 'Map', render: () => <Tab.Pane><MapContainer/></Tab.Pane> },
+        { menuItem: 'Map', render: () => <Tab.Pane>
+            <ScenarioProvider isMapMode={true}>
+                <MapContainer/>
+            </ScenarioProvider>
+            </Tab.Pane> },
     ];
 
 

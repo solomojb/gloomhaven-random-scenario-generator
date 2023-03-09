@@ -1,6 +1,6 @@
 {
   "name": "crossroads",
-  
+  "game": "gh",
   "entrances": [{"aOrB": "B", "q":6, "r":-5}],
   "exits": [{"aOrB": "B", "q":-1, "r":-5}],
   "map": {

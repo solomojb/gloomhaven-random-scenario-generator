@@ -1,6 +1,6 @@
 {
   "name": "burrow",
-  
+  "game": "gh",
   "entrances": [{"aOrB": "B", "q":-4, "r":7}],
   "exits": [{"aOrB": "B", "q":-4, "r":-3}],
       "map": {

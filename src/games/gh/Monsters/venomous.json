@@ -1,5 +1,6 @@
 {
   "name": "venomous",
+  "game": "gh",
   "traps": ["POISON", "STUN"],
   "spawns": {
     "Harrower Infester":

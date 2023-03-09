@@ -1,5 +1,6 @@
 {
   "name": "wild",
+  "game": "gh",
   "traps": ["IMMOBILIZE", "DAMAGE"],
   "spawns": {
     "Cave Bear":

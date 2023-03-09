@@ -1,6 +1,6 @@
 {
   "name": "den",
-  
+  "game": "gh",
   "entrances": [{"aOrB": "A", "q":-2, "r":-3}],
   "exits": [{"aOrB": "A", "q":-2, "r":1}],
   "map": {

@@ -1,5 +1,6 @@
 {
   "name": "scaled",
+  "game": "gh",
   "traps": ["WOUND", "POISON"],
   "spawns": {
     "Rending Drake":

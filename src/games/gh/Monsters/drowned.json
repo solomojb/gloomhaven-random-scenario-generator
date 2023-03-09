@@ -1,5 +1,6 @@
 {
   "name": "drowned",
+  "game": "gh",
   "traps": ["STUN", "DAMAGE"],
   "spawns": {
     "Lurker":

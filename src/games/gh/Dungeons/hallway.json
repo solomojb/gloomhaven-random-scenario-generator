@@ -1,6 +1,6 @@
 {
   "name": "hallway",
-  
+  "game": "gh",
   "entrances": [{"aOrB": "A", "q":1, "r":2},{"aOrB": "B", "q":-1, "r":4}],
   "exits": [{"aOrB": "B", "q":-1, "r":-4}],
   "map": {

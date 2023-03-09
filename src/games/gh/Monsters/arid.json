@@ -1,6 +1,6 @@
 {
   "name": "arid",
-  "game": "FC",
+  "game": "fc",
   "traps": ["POISON", "DAMAGE"],
   "spawns": {
     "Valrath Savage":

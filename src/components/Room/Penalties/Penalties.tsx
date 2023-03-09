@@ -1,4 +1,3 @@
-import { stringify } from "querystring";
 import React from "react";
 import { Helpers } from "../../../helpers";
 import { useScenario } from "../../Providers/ScenarioProvider";
@@ -8,7 +7,7 @@ import { PenaltyButtonGroup } from "./PenatliesSelector";
 
 export const Penalties = () =>  {
     const { dungeon: {penaltyData}, roomNumber } = useDungeon();
-    const { scenarioData, scenarioData:{penaltyChosen}} = useScenario();
+    const { scenarioData:{penaltyChosen}} = useScenario();
 
     const getHtml = (entry: any) => {
         const [type, penalty] = entry;

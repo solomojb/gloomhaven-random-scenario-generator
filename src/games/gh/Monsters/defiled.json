@@ -1,5 +1,6 @@
 {
   "name": "defiled",
+  "game": "gh",
   "traps": ["POISON", "IMMOBILIZE"],
   "spawns": {
     "Sun Demon":

@@ -1,5 +1,6 @@
 {
   "name": "archaic",
+  "game": "gh",
   "spawns": {
     "Rubble": {
       "data": [1, 2, 7],

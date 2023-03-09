@@ -1,6 +1,6 @@
 {
   "name": "road",
-  
+  "game": "gh",
   "entrances": [{"aOrB": "A", "q":-3, "r":4},{"aOrB": "B", "q":-1, "r":4}],
   "exits": [{"aOrB": "A", "q":1, "r":-1}],
   "map": {

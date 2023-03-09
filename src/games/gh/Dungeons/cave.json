@@ -1,6 +1,6 @@
 {
   "name": "cave",
-  
+  "game": "gh",
   "entrances": [{"aOrB": "A", "q":-2, "r":0}],
   "exits": [{"aOrB": "B", "q":3, "r":-3}],
   "map": {

@@ -1,5 +1,6 @@
 {
   "name": "tribal",
+  "game": "gh",
   "traps": ["WOUND", "DISARM"],
   "spawns": {
     "Inox Guard":

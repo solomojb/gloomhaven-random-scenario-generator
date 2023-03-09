@@ -1,6 +1,6 @@
 {
   "name": "passage",
-  
+  "game": "gh",
   "entrances": [{"aOrB": "A", "q":3, "r":0}],
   "exits": [{"aOrB": "A", "q":2, "r":-6}],
   "map": {

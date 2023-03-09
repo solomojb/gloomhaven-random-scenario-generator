@@ -1,5 +1,4 @@
 import React from "react";
-import { useGame } from "../Game/GameProvider";
 import { useDungeon } from "../Tabs/Maps/DungeonProvider";
 import { ShowFlags, useFlags } from "../Providers/FlagsProvider";
 import { useScenario } from "../Providers/ScenarioProvider";
@@ -8,7 +7,6 @@ import { GridTile } from "./GridTile";
 
 const DoorLayer = () => {
   const { dungeon: {entrances, exits }, roomNumber} = useDungeon();
-  const game = useGame();
   const { getNextRoom, gotoPreviousRoom, isDoorShown } = useScenario();
   const { isFlagSet } = useFlags();
 

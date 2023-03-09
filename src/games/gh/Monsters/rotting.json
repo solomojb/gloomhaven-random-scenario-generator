@@ -1,5 +1,6 @@
 {
   "name": "rotting",
+  "game": "gh",
   "traps": ["STUN", "POISON"],
   "spawns": {
     "Living Corpse":

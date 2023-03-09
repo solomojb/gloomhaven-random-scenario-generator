@@ -1,5 +1,6 @@
 {
   "name": "putrid",
+  "game": "gh",
   "traps": ["MUDDLE", "DAMAGE"],
   "spawns": {
     "Living Corpse":

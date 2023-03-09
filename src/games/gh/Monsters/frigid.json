@@ -1,5 +1,6 @@
 {
   "name": "frigid",
+  "game": "gh",
   "traps": ["DISARM"],
   "spawns": {
     "Savaas Icestorm":

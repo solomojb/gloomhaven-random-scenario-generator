@@ -1,5 +1,6 @@
 {
   "name": "cutthroat",
+  "game": "gh",
   "traps": ["POISON", "DAMAGE"],
   "spawns": {
     "Bandit Guard":

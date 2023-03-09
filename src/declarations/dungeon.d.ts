@@ -1,4 +1,5 @@
 interface Dungeon {
+    game: string;
     name: string;
     traps: string[];
     entrances: Door[];

@@ -1,6 +1,6 @@
 {
   "name": "corridor",
-  
+  "game": "gh",
   "entrances": [{"aOrB": "A", "q":-3, "r":4}],
   "exits": [{"aOrB": "B", "q":-1, "r":-4}],
   "map": {

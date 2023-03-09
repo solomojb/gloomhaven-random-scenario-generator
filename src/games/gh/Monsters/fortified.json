@@ -1,5 +1,6 @@
 {
   "name": "fortified",
+  "game": "gh",
   "traps": ["DAMAGE"],
   "spawns": {
     "City Guard":

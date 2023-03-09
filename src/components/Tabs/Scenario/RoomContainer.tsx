@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form } from 'semantic-ui-react';
 import { useGame } from '../../Game/GameProvider';
 import { useScenario } from '../../Providers/ScenarioProvider';
 import Room from "../../Room/Room";
@@ -27,17 +28,20 @@ const RoomContainer = (props: Props) => {
 	}
 	const visibleDoorCount = dungeon.exits.filter(({aOrB}) => isDoorShown(aOrB, roomNumber, "Exit")).length;
 
-	let doorStr: string= "";
+	let exitStr: string= "";
 	if (visibleDoorCount > 0) {
 		if (visibleDoorCount > 1) {
-			doorStr = "Click on an Exit to go to the next room";
+			exitStr = "Click on an Exit to go to the next room";
 		}
 		else {
-			doorStr = "Click on the Exit to go to the next room";
+			exitStr = "Click on the Exit to go to the next room";
 		}
 	}
 	return <DungeonProvider monsterData={monsters} intitialDungeon={dungeon} roomNumber={roomNumber}>
-			{doorStr}
+			<Form.Group>
+			{roomNumber > 1 && <label>Click on an entrance to go to the previous room</label>}
+			<label>{exitStr}</label>
+			</Form.Group>
 			<Room/>
 		</DungeonProvider>
 };

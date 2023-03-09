@@ -1,6 +1,6 @@
 {
   "name": "armory",
-  
+  "game": "gh",
   "entrances": [{"aOrB": "A", "q":-1, "r":3}, {"aOrB": "B", "q":-2, "r":5}],
   "exits": [{"aOrB": "B", "q":-2, "r":-4}],
     "map" : {
