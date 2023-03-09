@@ -14,6 +14,7 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
+		"eslint-plugin-react": "^7.30.0",
     "classnames": "^2.2.6",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
@@ -30,12 +31,18 @@
     "typescript": "^3.3.4000",
     "watch": "^1.0.2"
   },
+  "devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.27.1",
+		"@typescript-eslint/parser": "^5.27.1",
+		"eslint-plugin-react-hooks": "^4.5.0"
+	},
   "scripts": {
     "deploy": "gh-pages -d build",
     "start": "react-scripts start && npm run watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --fix --cache"
   },
   "eslintConfig": {
     "extends": "react-app"

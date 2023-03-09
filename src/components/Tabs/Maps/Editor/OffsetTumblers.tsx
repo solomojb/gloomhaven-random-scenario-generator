@@ -18,7 +18,7 @@ const OffsetTumblers = (props: Props) => {
 
   useEffect(()=> {
     onChanged(point)
-  }, [point]);
+  }, [point, onChanged]);
 
   const handleKey = (e:any) => {
     e.preventDefault();
